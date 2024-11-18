@@ -1,6 +1,6 @@
-Output/Debug/Obj/squat_hero_v1/STM32L432KC_FLASH.o: \
-  /Users/jasonbowman/Desktop/Micro-Ps/Squat-Hero/MCU/lib/STM32L432KC_FLASH.c \
-  /Users/jasonbowman/Desktop/Micro-Ps/Squat-Hero/MCU/lib/STM32L432KC_FLASH.h \
+Output/Debug/Obj/squat_hero_v1/STM32L432KC_RCC.o: \
+  /Users/jasonbowman/Desktop/Micro-Ps/Squat-Hero/MCU/lib/STM32L432KC_RCC.c \
+  /Users/jasonbowman/Desktop/Micro-Ps/Squat-Hero/MCU/lib/STM32L432KC_RCC.h \
   /Applications/SEGGER/SEGGER\ Embedded\ Studio\ 8.16a/include/stdint.h \
   /Applications/SEGGER/SEGGER\ Embedded\ Studio\ 8.16a/include/__SEGGER_RTL.h \
   /Applications/SEGGER/SEGGER\ Embedded\ Studio\ 8.16a/include/__SEGGER_RTL_ConfDefaults.h \

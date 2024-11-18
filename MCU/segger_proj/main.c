@@ -2,9 +2,9 @@
 
 // main.c
 
+#include "../lib/STM32L432KC_GPIO.h"
 #include "../lib/STM32L432KC_I2C.h"
 #include "../lib/STM32L432KC_RCC.h"
-#include "../lib/STM32L432KC_GPIO.h"
 #include "../lib/STM32L432KC_FLASH.h"
 #include <stdio.h>
 
