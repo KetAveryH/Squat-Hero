@@ -1,0 +1,50 @@
+----------------------------------------------------------------------
+Report for cell vga.TECH
+Register bits:  21 of 5280 (0.398%)
+I/O cells:      19
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               CCU2        12          100.0
+                            FD1P3XZ        21          100.0
+                                 IB         2          100.0
+                               LUT4       115          100.0
+                                 OB        17          100.0
+SUB MODULES
+                         chargenrom         1
+                            rectgen         1
+              vgaController_default         1
+                           videoGen         1
+                              TOTAL       171
+----------------------------------------------------------------------
+Report for cell vgaController_default.v1
+Instance Path : vgaCont
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        12          100.0
+                            FD1P3XZ        20           95.2
+                               LUT4        40           34.8
+                              TOTAL        72
+----------------------------------------------------------------------
+Report for cell videoGen.v1
+Instance Path : videoGen
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4        74           64.3
+SUB MODULES
+                         chargenrom         1
+                            rectgen         1
+                              TOTAL        76
+----------------------------------------------------------------------
+Report for cell rectgen.v1
+Instance Path : videoGen.rectgen
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         1            0.9
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell chargenrom.v1
+Instance Path : videoGen.chargenromb
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4        71           61.7
+                              TOTAL        71

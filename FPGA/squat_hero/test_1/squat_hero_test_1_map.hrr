@@ -1,0 +1,48 @@
+---------------------------------------------------
+Report for cell vga
+   Instance path: vga
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        141        100.0
+                               LUTGATE	        117        100.0
+                                LUTCCU	         24        100.0
+                                 IOBUF	         19        100.0
+                                PFUREG	         21        100.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                 vgaController_default	          1        45.4
+                              videoGen	          1        52.5
+---------------------------------------------------
+Report for cell vgaController_default
+   Instance path: vga/vgaCont
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         64        45.4
+                               LUTGATE	         40        34.2
+                                LUTCCU	         24        100.0
+                                PFUREG	         20        95.2
+---------------------------------------------------
+Report for cell videoGen
+   Instance path: vga/videoGen
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         74        52.5
+                               LUTGATE	         74        63.2
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                            chargenrom	          1        50.4
+                               rectgen	          1         0.7
+---------------------------------------------------
+Report for cell rectgen
+   Instance path: vga/videoGen/rectgen
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          1         0.7
+                               LUTGATE	          1         0.9
+---------------------------------------------------
+Report for cell chargenrom
+   Instance path: vga/videoGen/chargenromb
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         71        50.4
+                               LUTGATE	         71        60.7

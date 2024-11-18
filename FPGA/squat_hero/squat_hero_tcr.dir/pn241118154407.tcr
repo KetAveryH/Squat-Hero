@@ -1,0 +1,21 @@
+#Start recording tcl command: 11/18/2024 15:00:26
+#Project Location: C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/squat_hero; Project name: squat_hero
+prj_create -name "squat_hero" -impl "test_1" -dev iCE40UP5K-SG48I -performance "High-Performance_1.2V" -synthesis "lse"
+prj_save 
+prj_add_source "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/squat_hero/source/test_1/vga.sv"
+prj_run PAR -impl test_1
+prj_run Export -impl test_1
+prj_run PAR -impl test_1
+prj_run Export -impl test_1
+prj_run PAR -impl test_1
+prj_run Export -impl test_1
+prj_run PAR -impl test_1
+prj_run Export -impl test_1
+prj_run PAR -impl test_1
+prj_run Export -impl test_1
+prj_run Synthesis -impl test_1
+prj_run PAR -impl test_1
+prj_run Export -impl test_1
+prj_add_source "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/squat_hero/test_1/charrom.txt"
+prj_run Export -impl test_1
+#Stop recording: 11/18/2024 15:44:07
