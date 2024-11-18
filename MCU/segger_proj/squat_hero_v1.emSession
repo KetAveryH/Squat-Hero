@@ -1,0 +1,51 @@
+<!DOCTYPE CrossStudio_Session_File>
+<session>
+ <Bookmarks/>
+ <Breakpoints groups="Breakpoints" active_group="Breakpoints"/>
+ <ExecutionProfileWindow/>
+ <FrameBuffer/>
+ <Memory1/>
+ <Memory2/>
+ <Memory3/>
+ <Memory4/>
+ <Project>
+  <ProjectSessionItem path="squat_hero_v1"/>
+  <ProjectSessionItem path="squat_hero_v1;squat_hero_v1"/>
+  <ProjectSessionItem path="squat_hero_v1;squat_hero_v1;CMSIS Files"/>
+  <ProjectSessionItem path="squat_hero_v1;squat_hero_v1;Source Files"/>
+  <ProjectSessionItem path="squat_hero_v1;squat_hero_v1;Source Files;lib"/>
+ </Project>
+ <Register1/>
+ <Register2/>
+ <Register3/>
+ <Register4/>
+ <Threads>
+  <ThreadsWindow showLists=""/>
+ </Threads>
+ <TraceWindow>
+  <Trace enabled="Yes"/>
+ </TraceWindow>
+ <Watch1>
+  <Watches active="1" update="Never"/>
+ </Watch1>
+ <Watch2>
+  <Watches active="0" update="Never"/>
+ </Watch2>
+ <Watch3>
+  <Watches active="0" update="Never"/>
+ </Watch3>
+ <Watch4>
+  <Watches active="0" update="Never"/>
+ </Watch4>
+ <Files>
+  <SessionOpenFile windowGroup="DockEditLeft" x="6" y="19" useTextEdit="1" path="../lib/STM32L432KC_I2C.h" left="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="38" y="99" useTextEdit="1" path="../lib/STM32L432KC_I2C.c" left="0" selected="1" top="85" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="1" y="36" useTextEdit="1" path="../lib/STM32L432KC_RCC.c" left="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="6" y="16" useTextEdit="1" path="../lib/STM32L432KC_RCC.h" left="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="47" y="100" useTextEdit="1" path="../lib/STM32L432KC_GPIO.c" left="0" top="85" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="6" y="107" useTextEdit="1" path="../lib/STM32L432KC_GPIO.h" left="0" top="72" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="1" y="8" useTextEdit="1" path="../lib/STM32L432KC_FLASH.c" left="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="34" useTextEdit="1" path="main.c" left="0" top="0" codecName="Default"/>
+ </Files>
+ <EMStudioWindow activeProject="squat_hero_v1" fileDialogDefaultFilter="*" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/MCU/lib" debugSearchPath="" autoConnectCapabilities="3199"/>
+</session>
