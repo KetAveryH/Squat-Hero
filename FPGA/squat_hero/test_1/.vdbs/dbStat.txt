@@ -1,1 +1,1 @@
-squat_hero_test_1_rtl_rtl.vdb
+vga_rtl.vdb

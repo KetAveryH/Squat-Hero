@@ -1,13 +1,305 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BaliMessageLog>
+    <Task name="Map">
+        <Message>
+            <ID>1026001</ID>
+            <Severity>16</Severity>
+            <Dynamic>C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc</Dynamic>
+            <Dynamic>16</Dynamic>
+            <Dynamic>No port matched 'dip[1]'.</Dynamic>
+            <Navigation>C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc</Navigation>
+            <Navigation>16</Navigation>
+        </Message>
+        <Message>
+            <ID>1026001</ID>
+            <Severity>16</Severity>
+            <Dynamic>C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc</Dynamic>
+            <Dynamic>17</Dynamic>
+            <Dynamic>No port matched 'dip[2]'.</Dynamic>
+            <Navigation>C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc</Navigation>
+            <Navigation>17</Navigation>
+        </Message>
+        <Message>
+            <ID>1026001</ID>
+            <Severity>16</Severity>
+            <Dynamic>C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc</Dynamic>
+            <Dynamic>18</Dynamic>
+            <Dynamic>No port matched 'dip[3]'.</Dynamic>
+            <Navigation>C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc</Navigation>
+            <Navigation>18</Navigation>
+        </Message>
+        <Message>
+            <ID>1027013</ID>
+            <Severity>16</Severity>
+            <Dynamic>port</Dynamic>
+            <Dynamic>dip[1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>1026001</ID>
+            <Severity>16</Severity>
+            <Dynamic>C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc</Dynamic>
+            <Dynamic>16</Dynamic>
+            <Dynamic>Can't resolve object 'dip[1]' in constraint 'ldc_set_location -site {35} [get_ports {dip[1]}]'.</Dynamic>
+            <Navigation>C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc</Navigation>
+            <Navigation>16</Navigation>
+        </Message>
+        <Message>
+            <ID>1027013</ID>
+            <Severity>16</Severity>
+            <Dynamic>port</Dynamic>
+            <Dynamic>dip[2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>1026001</ID>
+            <Severity>16</Severity>
+            <Dynamic>C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc</Dynamic>
+            <Dynamic>17</Dynamic>
+            <Dynamic>Can't resolve object 'dip[2]' in constraint 'ldc_set_location -site {31} [get_ports {dip[2]}]'.</Dynamic>
+            <Navigation>C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc</Navigation>
+            <Navigation>17</Navigation>
+        </Message>
+        <Message>
+            <ID>1027013</ID>
+            <Severity>16</Severity>
+            <Dynamic>port</Dynamic>
+            <Dynamic>dip[3]</Dynamic>
+        </Message>
+        <Message>
+            <ID>1026001</ID>
+            <Severity>16</Severity>
+            <Dynamic>C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc</Dynamic>
+            <Dynamic>18</Dynamic>
+            <Dynamic>Can't resolve object 'dip[3]' in constraint 'ldc_set_location -site {37} [get_ports {dip[3]}]'.</Dynamic>
+            <Navigation>C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc</Navigation>
+            <Navigation>18</Navigation>
+        </Message>
+        <Message>
+            <ID>1011001</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {35} [get_ports {dip[1]}]</Dynamic>
+        </Message>
+        <Message>
+            <ID>1011001</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {31} [get_ports {dip[2]}]</Dynamic>
+        </Message>
+        <Message>
+            <ID>1011001</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {37} [get_ports {dip[3]}]</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>clk</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>clk</Dynamic>
+        </Message>
+    </Task>
     <Task name="Synthesis">
+        <Message>
+            <ID>35831026</ID>
+            <Severity>16</Severity>
+        </Message>
+        <Message>
+            <ID>35935050</ID>
+            <Severity>16</Severity>
+            <Dynamic>TRIM9</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935050</ID>
+            <Severity>16</Severity>
+            <Dynamic>TRIM8</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935050</ID>
+            <Severity>16</Severity>
+            <Dynamic>TRIM7</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935050</ID>
+            <Severity>16</Severity>
+            <Dynamic>TRIM6</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935050</ID>
+            <Severity>16</Severity>
+            <Dynamic>TRIM5</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935050</ID>
+            <Severity>16</Severity>
+            <Dynamic>TRIM4</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935050</ID>
+            <Severity>16</Severity>
+            <Dynamic>TRIM3</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935050</ID>
+            <Severity>16</Severity>
+            <Dynamic>TRIM2</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935050</ID>
+            <Severity>16</Severity>
+            <Dynamic>TRIM1</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935050</ID>
+            <Severity>16</Severity>
+            <Dynamic>TRIM0</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935050</ID>
+            <Severity>16</Severity>
+            <Dynamic>I</Dynamic>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/my_pll/rtl/my_pll.v(11): </Dynamic>
+            <Dynamic>my_pll</Dynamic>
+            <Navigation>C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/my_pll/rtl/my_pll.v</Navigation>
+            <Navigation>11</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/my_pll/rtl/my_pll.v(107): </Dynamic>
+            <Dynamic>my_pll_ipgen_lscc_pll(DIVR=&quot;2&quot;,DIVF=&quot;49&quot;,DIVQ=&quot;5&quot;,FILTER_RANGE=&quot;1&quot;,PLLOUT_SELECT_PORTA=&quot;GENCLK&quot;,PLLOUT_SELECT_PORTB=&quot;GENCLK&quot;,FREQUENCY_PIN_REFERENCECLK=&quot;48.000000&quot;)</Dynamic>
+            <Navigation>C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/my_pll/rtl/my_pll.v</Navigation>
+            <Navigation>107</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2024.1/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v(428): </Dynamic>
+            <Dynamic>PLL_B(PLLOUT_SELECT_PORTA=&quot;GENCLK&quot;,PLLOUT_SELECT_PORTB=&quot;GENCLK&quot;,DIVR=&quot;2&quot;,DIVF=&quot;49&quot;,DIVQ=&quot;5&quot;,FILTER_RANGE=&quot;1&quot;,FREQUENCY_PIN_REFERENCECLK=&quot;48.000000&quot;)</Dynamic>
+            <Navigation>C:/lscc/radiant/2024.1/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v</Navigation>
+            <Navigation>428</Navigation>
+        </Message>
+        <Message>
+            <ID>35935049</ID>
+            <Severity>16</Severity>
+            <Dynamic>sclk_i</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935049</ID>
+            <Severity>16</Severity>
+            <Dynamic>sdi_i</Dynamic>
+        </Message>
+        <Message>
+            <ID>35831038</ID>
+            <Severity>1</Severity>
+            <Dynamic>vga</Dynamic>
+        </Message>
+        <Message>
+            <ID>35831026</ID>
+            <Severity>16</Severity>
+        </Message>
+        <Message>
+            <ID>35935050</ID>
+            <Severity>16</Severity>
+            <Dynamic>TRIM9</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935050</ID>
+            <Severity>16</Severity>
+            <Dynamic>TRIM8</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935050</ID>
+            <Severity>16</Severity>
+            <Dynamic>TRIM7</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935050</ID>
+            <Severity>16</Severity>
+            <Dynamic>TRIM6</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935050</ID>
+            <Severity>16</Severity>
+            <Dynamic>TRIM5</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935050</ID>
+            <Severity>16</Severity>
+            <Dynamic>TRIM4</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935050</ID>
+            <Severity>16</Severity>
+            <Dynamic>TRIM3</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935050</ID>
+            <Severity>16</Severity>
+            <Dynamic>TRIM2</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935050</ID>
+            <Severity>16</Severity>
+            <Dynamic>TRIM1</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935050</ID>
+            <Severity>16</Severity>
+            <Dynamic>TRIM0</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935050</ID>
+            <Severity>16</Severity>
+            <Dynamic>I</Dynamic>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(1): </Dynamic>
+            <Dynamic>vga</Dynamic>
+            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
+            <Navigation>1</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2024.1/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v(756): </Dynamic>
+            <Dynamic>HSOSC(CLKHF_DIV=2'b0)</Dynamic>
+            <Navigation>C:/lscc/radiant/2024.1/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v</Navigation>
+            <Navigation>756</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>my_pll.v(63): </Dynamic>
+            <Dynamic>my_pll</Dynamic>
+            <Navigation>my_pll.v</Navigation>
+            <Navigation>63</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(34): </Dynamic>
+            <Dynamic>vgaController</Dynamic>
+            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
+            <Navigation>34</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(87): </Dynamic>
+            <Dynamic>videoGen</Dynamic>
+            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
+            <Navigation>87</Navigation>
+        </Message>
         <Message>
             <ID>35001786</ID>
             <Severity>1</Severity>
-        </Message>
-        <Message>
-            <ID>35001476</ID>
-            <Severity>256</Severity>
         </Message>
         <Message>
             <ID>35935050</ID>
@@ -337,124 +629,167 @@
             <Navigation>4</Navigation>
         </Message>
         <Message>
-            <ID>35001200</ID>
-            <Severity>16</Severity>
-            <Dynamic>vga</Dynamic>
-        </Message>
-        <Message>
             <ID>35921504</ID>
             <Severity>1</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/squat_hero/test_1</Dynamic>
+            <Dynamic>C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test_1</Dynamic>
         </Message>
         <Message>
             <ID>35901018</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/squat_hero/source/test_1/vga.sv(1): </Dynamic>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(1): </Dynamic>
             <Dynamic>vga</Dynamic>
-            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/squat_hero/source/test_1/vga.sv</Navigation>
+            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
             <Navigation>1</Navigation>
         </Message>
         <Message>
             <ID>35901018</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/squat_hero/source/test_1/vga.sv(21): </Dynamic>
-            <Dynamic>vgaController_default</Dynamic>
-            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>21</Navigation>
-        </Message>
-        <Message>
-            <ID>35901209</ID>
-            <Severity>16</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/squat_hero/source/test_1/vga.sv(46): </Dynamic>
-            <Dynamic>32</Dynamic>
-            <Dynamic>10</Dynamic>
-            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>46</Navigation>
-        </Message>
-        <Message>
-            <ID>35901209</ID>
-            <Severity>16</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/squat_hero/source/test_1/vga.sv(49): </Dynamic>
-            <Dynamic>32</Dynamic>
-            <Dynamic>10</Dynamic>
-            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>49</Navigation>
+            <Dynamic>C:/lscc/radiant/2024.1/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v(756): </Dynamic>
+            <Dynamic>HSOSC(CLKHF_DIV=2'b0)</Dynamic>
+            <Navigation>C:/lscc/radiant/2024.1/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v</Navigation>
+            <Navigation>756</Navigation>
         </Message>
         <Message>
             <ID>35901018</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/squat_hero/source/test_1/vga.sv(64): </Dynamic>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/my_pll/rtl/my_pll.v(11): </Dynamic>
+            <Dynamic>my_pll</Dynamic>
+            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/my_pll/rtl/my_pll.v</Navigation>
+            <Navigation>11</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/my_pll/rtl/my_pll.v(107): </Dynamic>
+            <Dynamic>my_pll_ipgen_lscc_pll(DIVR=&quot;2&quot;,DIVF=&quot;49&quot;,DIVQ=&quot;5&quot;,FILTER_RANGE=&quot;1&quot;,PLLOUT_SELECT_PORTA=&quot;GENCLK&quot;,PLLOUT_SELECT_PORTB=&quot;GENCLK&quot;,FREQUENCY_PIN_REFERENCECLK=&quot;48.000000&quot;)</Dynamic>
+            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/my_pll/rtl/my_pll.v</Navigation>
+            <Navigation>107</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2024.1/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v(428): </Dynamic>
+            <Dynamic>PLL_B(PLLOUT_SELECT_PORTA=&quot;GENCLK&quot;,PLLOUT_SELECT_PORTB=&quot;GENCLK&quot;,DIVR=&quot;2&quot;,DIVF=&quot;49&quot;,DIVQ=&quot;5&quot;,FILTER_RANGE=&quot;1&quot;,FREQUENCY_PIN_REFERENCECLK=&quot;48.000000&quot;)</Dynamic>
+            <Navigation>C:/lscc/radiant/2024.1/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v</Navigation>
+            <Navigation>428</Navigation>
+        </Message>
+        <Message>
+            <ID>35935049</ID>
+            <Severity>16</Severity>
+            <Dynamic>sclk_i</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935049</ID>
+            <Severity>16</Severity>
+            <Dynamic>sdi_i</Dynamic>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(34): </Dynamic>
+            <Dynamic>vgaController</Dynamic>
+            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
+            <Navigation>34</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>16</Severity>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(59): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>10</Dynamic>
+            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
+            <Navigation>59</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>16</Severity>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(62): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>10</Dynamic>
+            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
+            <Navigation>62</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(87): </Dynamic>
             <Dynamic>videoGen</Dynamic>
-            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>64</Navigation>
+            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
+            <Navigation>87</Navigation>
         </Message>
         <Message>
-            <ID>35901018</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/squat_hero/source/test_1/vga.sv(75): </Dynamic>
-            <Dynamic>chargenrom</Dynamic>
-            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>75</Navigation>
-        </Message>
-        <Message>
-            <ID>35931002</ID>
+            <ID>35935049</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/squat_hero/source/test_1/vga.sv(79): </Dynamic>
-            <Dynamic>charrom</Dynamic>
-            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>79</Navigation>
+            <Dynamic>sclk_i</Dynamic>
         </Message>
         <Message>
-            <ID>35901018</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/squat_hero/source/test_1/vga.sv(92): </Dynamic>
-            <Dynamic>rectgen</Dynamic>
-            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>92</Navigation>
-        </Message>
-        <Message>
-            <ID>35901330</ID>
+            <ID>35935049</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/squat_hero/source/test_1/vga.sv(17): </Dynamic>
-            <Dynamic>4</Dynamic>
-            <Dynamic>8</Dynamic>
-            <Dynamic>r</Dynamic>
-            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>17</Navigation>
-        </Message>
-        <Message>
-            <ID>35901330</ID>
-            <Severity>16</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/squat_hero/source/test_1/vga.sv(17): </Dynamic>
-            <Dynamic>4</Dynamic>
-            <Dynamic>8</Dynamic>
-            <Dynamic>g</Dynamic>
-            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>17</Navigation>
-        </Message>
-        <Message>
-            <ID>35901330</ID>
-            <Severity>16</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/squat_hero/source/test_1/vga.sv(17): </Dynamic>
-            <Dynamic>4</Dynamic>
-            <Dynamic>8</Dynamic>
-            <Dynamic>b</Dynamic>
-            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>17</Navigation>
-        </Message>
-        <Message>
-            <ID>35931038</ID>
-            <Severity>16</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/squat_hero/source/test_1/vga.sv(79): </Dynamic>
-            <Dynamic>charrom_original_ramnet</Dynamic>
-            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>79</Navigation>
+            <Dynamic>sdi_i</Dynamic>
         </Message>
         <Message>
             <ID>35002028</ID>
             <Severity>256</Severity>
-            <Dynamic>blank_b</Dynamic>
+            <Dynamic>clk</Dynamic>
+        </Message>
+        <Message>
+            <ID>35931002</ID>
+            <Severity>16</Severity>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/my_pll/rtl/my_pll.v(141): </Dynamic>
+            <Dynamic>\pll_inst/lscc_pll_inst/sclk_i</Dynamic>
+            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/my_pll/rtl/my_pll.v</Navigation>
+            <Navigation>141</Navigation>
+        </Message>
+        <Message>
+            <ID>35931002</ID>
+            <Severity>16</Severity>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/my_pll/rtl/my_pll.v(142): </Dynamic>
+            <Dynamic>\pll_inst/lscc_pll_inst/sdi_i</Dynamic>
+            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/my_pll/rtl/my_pll.v</Navigation>
+            <Navigation>142</Navigation>
+        </Message>
+        <Message>
+            <ID>35002028</ID>
+            <Severity>256</Severity>
+            <Dynamic>clk</Dynamic>
+        </Message>
+        <Message>
+            <ID>35811117</ID>
+            <Severity>16</Severity>
+            <Dynamic>LATTICE_IP_GENERATED</Dynamic>
+            <Dynamic>Instance</Dynamic>
+            <Dynamic>pll_inst</Dynamic>
+            <Dynamic>vga</Dynamic>
+        </Message>
+        <Message>
+            <ID>35811116</ID>
+            <Severity>16</Severity>
+            <Dynamic>LATTICE_IP_GENERATED</Dynamic>
+            <Dynamic>Module</Dynamic>
+            <Dynamic>my_pll</Dynamic>
+        </Message>
+    </Task>
+    <Task name="PAR">
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>clk</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>clk</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>clk</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>clk</Dynamic>
         </Message>
     </Task>
 </BaliMessageLog>

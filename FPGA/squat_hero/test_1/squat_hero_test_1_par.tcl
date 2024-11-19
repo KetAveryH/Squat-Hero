@@ -4,8 +4,8 @@
 set ret 0
 if {[catch {
 
-sys_set_attribute -gui on -msg {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/squat_hero/promote.xml}
-msg_load {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/squat_hero/promote.xml}
+sys_set_attribute -gui on -msg {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/promote.xml}
+msg_load {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/promote.xml}
 des_set_project_udb -in {squat_hero_test_1_map.udb} -out {squat_hero_test_1.udb} -milestone par -pm ice40tp
 des_set_reference_udb -clean
 # par option
@@ -13,11 +13,14 @@ par_set_option { disable_timing_driven false placement_iterations 1 placement_it
 # run place & route
 par_run
 # backup netlist & constraint file
-if {[file exists {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/squat_hero/test_1/squat_hero_test_1_syn.udb}] && [file exists {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/squat_hero/test_1/squat_hero_test_1_map.udb}] && [file exists {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/squat_hero/test_1/squat_hero_test_1.udb}]} {
-  file delete -force {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/squat_hero/test_1/incr/squat_hero_test_1_syn.udb} {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/squat_hero/test_1/incr/squat_hero_test_1_map.udb} {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/squat_hero/test_1/incr/squat_hero_test_1.udb} {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/squat_hero/test_1/incr/lastrun.pdc}
-  file copy -force -- {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/squat_hero/test_1/squat_hero_test_1_syn.udb} {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/squat_hero/test_1/incr/postsyn.udb}
-  file copy -force -- {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/squat_hero/test_1/squat_hero_test_1_map.udb} {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/squat_hero/test_1/incr/postmap.udb}
-  file copy -force -- {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/squat_hero/test_1/squat_hero_test_1.udb} {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/squat_hero/test_1/incr/postpar.udb}
+if {[file exists {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test_1/squat_hero_test_1_syn.udb}] && [file exists {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test_1/squat_hero_test_1_map.udb}] && [file exists {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test_1/squat_hero_test_1.udb}]} {
+  file delete -force {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test_1/incr/squat_hero_test_1_syn.udb} {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test_1/incr/squat_hero_test_1_map.udb} {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test_1/incr/squat_hero_test_1.udb} {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test_1/incr/lastrun.pdc}
+  file copy -force -- {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test_1/squat_hero_test_1_syn.udb} {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test_1/incr/postsyn.udb}
+  file copy -force -- {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test_1/squat_hero_test_1_map.udb} {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test_1/incr/postmap.udb}
+  file copy -force -- {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test_1/squat_hero_test_1.udb} {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test_1/incr/postpar.udb}
+  if [file exists {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc}] {
+    file copy -force -- {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc} {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test_1/incr/lastrun.pdc}
+  }
 }
 
 } out]} {

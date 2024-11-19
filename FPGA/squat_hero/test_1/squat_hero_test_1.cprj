@@ -1,0 +1,9 @@
+-ver "C:/lscc/radiant/2024.1/ip/pmi/pmi_iCE40UP.v"
+-lib pmi -vhd "C:/lscc/radiant/2024.1/ip/pmi/pmi_iCE40UP.vhd"
+-sver "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/source/test_1/vga.sv"
+-ver "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/my_pll/rtl/my_pll.v"
+-path "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero"
+-top vga
+-isTop
+-a "iCE40UP"
+-t "iCE40UP5K"

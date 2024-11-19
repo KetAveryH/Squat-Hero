@@ -1,6 +1,6 @@
 -w
 -gui
--msgset "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/squat_hero/promote.xml"
+-msgset "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/promote.xml"
 -n 1
 -t 1
 -s 1

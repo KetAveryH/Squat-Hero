@@ -36,13 +36,18 @@
 -use_io_insertion 1
 
 -resolve_mixed_drivers 0
--path "C:/lscc/radiant/2024.1/ispfpga/ice40tp/data" "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/squat_hero/test_1" "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/squat_hero"
+-sdc "squat_hero_test_1_cpe.ldc"
+-path "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/my_pll"
+-path "C:/lscc/radiant/2024.1/ispfpga/ice40tp/data" "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test_1" "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero"
 -ver "C:/lscc/radiant/2024.1/ip/pmi/pmi_iCE40UP.v"
 -lib pmi -vhd "C:/lscc/radiant/2024.1/ip/pmi/pmi_iCE40UP.vhd"
--sver "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/squat_hero/source/test_1/vga.sv"
+-sver "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/source/test_1/vga.sv"
+-ver "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/my_pll/rtl/my_pll.v"
+"C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/my_pll/rtl/my_pll.v"
 
 
--path "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/squat_hero"
+-path "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero"
+-top vga
 -udb "squat_hero_test_1_rtl.udb"
 -output_hdl "squat_hero_test_1.vm"
 

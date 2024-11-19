@@ -6,10 +6,23 @@ module vga(input logic clk, reset,
 	
 	logic [9:0] x, y; 
 	
-	// divide 50 MHz input clock by 2 to get 25 MHz clock
-	always_ff @(posedge clk, posedge reset)
-	  if (reset) vgaclk = 1'b0;
-	  else vgaclk = ~vgaclk;
+	logic int_osc;
+	logic pll_locked;
+    logic [24:0] counter;
+  
+    // Internal high-speed oscillator
+    HSOSC #(.CLKHF_DIV(2'b00)) 
+         hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(int_osc));
+		 
+	// Instantiate the PLL
+    my_pll pll_inst (
+        .ref_clk_i(int_osc),             // Input clock (48 MHz)
+        .rst_n_i(~reset),            // Active-low reset
+        .lock_o(pll_locked),         // PLL lock signal
+        .outcore_o(vgaclk),          // Core clock output (25 MHz)
+        .outglobal_o()               // Global clock output (not used)
+    );
+   
 	// generate monitor timing signals
 	vgaController vgaCont(vgaclk, reset, hsync, vsync, sync_b, blank_b, x, y);
 	
@@ -58,19 +71,27 @@ module vgaController #(parameter HBP     = 10'd48,  // horizontal back porch
 	assign sync_b = 1'b0; // this should be 0 for newer monitors
 						  // for older monitors, use: assign sync_b = hsync & vsync;
 	// force outputs to black when not writing pixels
-	assign blank__b = (hcnt < HACTIVE) & (vcnt < VACTIVE);
+	assign blank_b = (hcnt < HACTIVE) & (vcnt < VACTIVE);
 endmodule
 
-module videoGen(input logic [9:0] x, y, output logic [7:0] r, g, b);
-  logic pixel, inrect;
-  // given y position, choose a character to display
-  // then look up the pixel value from the character ROM
-  // and display it in red or blue. Also draw a green rectangle.
-  chargenrom chargenromb(y[8:3]+8'd65, x[2:0], y[2:0], pixel);
-  rectgen rectgen(x, y, 10'd120, 10'd150, 10'd200, 10'd230, inrect);
-  assign {r, b} = (y[3] == 0) ? {{4{pixel}}, 4'h0} : {4'h0, {4{pixel}}};
-  assign g = inrect ? 4'hF : 4'h0; // Maximum value for 4 bits is 4'hF (15 in decimal)
+//module videoGen(input logic [9:0] x, y, output logic [7:0] r, g, b);
+  //logic pixel, inrect;
+   // //given y position, choose a character to display
+   // //then look up the pixel value from the character ROM
+   // // and display it in red or blue. Also draw a green rectangle.
+  //chargenrom chargenromb(y[8:3]+8'd65, x[2:0], y[2:0], pixel);
+  //rectgen rectgen(x, y, 10'd120, 10'd150, 10'd200, 10'd230, inrect);
+  //assign {r, b} = (y[3] == 0) ? {{4{pixel}}, 4'h0} : {4'h0, {4{pixel}}};
+  //assign g = inrect ? 4'hF : 4'h0; // Maximum value for 4 bits is 4'hF (15 in decimal)
+//endmodule
+module videoGen(input logic [9:0] x, y, output logic [3:0] r, g, b);
+  // Always display green
+  assign r = 4'b0000;   // Red channel is 0
+  assign g = 4'b0001;   // Green channel is max (15 for 4 bits)
+  assign b = 4'b0000;   // Blue channel is 0
+
 endmodule
+
 
 module chargenrom(input logic [7:0] ch,
                   input logic [2:0] xoff, yoff,
