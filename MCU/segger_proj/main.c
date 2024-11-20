@@ -2,11 +2,24 @@
 
 // main.c
 
-#include "../lib/STM32L432KC_GPIO.h"
+//#include "../lib/STM32L432KC_GPIO.h"
 #include "../lib/STM32L432KC_I2C.h"
 #include "../lib/STM32L432KC_RCC.h"
 #include "../lib/STM32L432KC_FLASH.h"
 #include <stdio.h>
+
+// Necessary includes for printf to work///////////////////
+#include "stm32l432xx.h"
+
+// Function used by printf to send characters to the laptop
+int _write(int file, char *ptr, int len) {
+  int i = 0;
+  for (i = 0; i < len; i++) {
+    ITM_SendChar((*ptr++));
+  }
+  return len;
+}
+////////////////////////////////////////////////////////////
 
 // LSM6DSO32 I2C address and registers
 #define LSM6DSO32_ADDR      0x6A  // 7-bit I2C address for LSM6DSO32 (0xD4 for write, 0xD5 for read)
@@ -15,31 +28,31 @@
 #define LSM6DSO32_OUTX_H    0x29  // Accelerometer X-axis high byte register
 
 // Function to initialize the LSM6DSO32 IMU
-void init_LSM6DSO32() {
+void init_LSM6DSO32(void) {
     // Set the accelerometer to a suitable range (e.g., ±2g, 16-bit data)
     // Writing to the CTRL1_XL register to configure accelerometer
-    write_I2C(LSM6DSO32_ADDR, LSM6DSO32_CTRL1_XL, 0x60);  // 0x60 sets ODR = 104 Hz and scale = ±2g
+    write_I2C(LSM6DSO32_ADDR, LSM6DSO32_CTRL1_XL, 0b01000100);  // can be 0b01000110 to apply low pass filter
 }
 
 // Function to read the X-axis accelerometer data from LSM6DSO32
-int16_t readAccelX() {
+int16_t readAccelX(void) {
     uint8_t low_byte, high_byte;
-    uint16_t raw_data;
+    int16_t raw_data;
 
-    // Read the X-axis accelerometer data (2 bytes)
-    read_I2C(LSM6DSO32_ADDR, LSM6DSO32_OUTX_L, &low_byte);
-    read_I2C(LSM6DSO32_ADDR, LSM6DSO32_OUTX_H, &high_byte);
+    // Read the low byte from the sensor
+    low_byte = read_I2C(LSM6DSO32_ADDR, LSM6DSO32_OUTX_L);
 
-    // Combine the high and low bytes into a 16-bit signed value
-    raw_data = (high_byte << 8) | low_byte;
+    // Read the high byte from the sensor
+    high_byte = read_I2C(LSM6DSO32_ADDR, LSM6DSO32_OUTX_H);
 
-    // If the MSB (bit 15) is set, it's a negative value
-    if (raw_data & 0x8000) {
-        raw_data |= 0xFFFF0000;  // Sign extend to 32-bit
-    }
+    // Combine the low and high byte into a 16-bit signed value
+    raw_data = (high_byte << 8) | low_byte;  // Correct combination
 
-    return (int16_t)raw_data;
+    // Return the signed 16-bit value
+    return raw_data;
 }
+
+
 
 int main(void) {
     // Step 1: System Initialization

@@ -12,10 +12,10 @@
 #define I2C_SDA PA10
 
 // Initialize I2C
-void init_I2C();
+void init_I2C(void);
 
 // Write one byte of data
 void write_I2C(char addr, char reg, char data);
-void read_I2C(char addr, char reg, char *data);
+char read_I2C(char addr, char reg);
 
 #endif
