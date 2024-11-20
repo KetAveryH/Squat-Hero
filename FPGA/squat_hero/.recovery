@@ -2,7 +2,7 @@
 <RadiantProject version="4.2" radiant="2024.1.0.34.2" title="squat_hero" device="iCE40UP5K-SG48I" performance_grade="High-Performance_1.2V" family_int="ice40tp" device_int="itpa08" package_int="SG48" operation_int="IND" speed_int="6" default_implementation="test_1">
     <Options/>
     <Implementation title="test_1" dir="test_1" description="test_1" synthesis="lse" default_strategy="Strategy1">
-        <Options def_top="rectgen" top="vga"/>
+        <Options def_top="actual_pll" top="vga"/>
         <Source name="source/test_1/vga.sv" type="Verilog" type_short="Verilog">
             <Options VerilogStandard="System Verilog" top_module="vga"/>
         </Source>
@@ -10,6 +10,18 @@
             <Options/>
         </Source>
         <Source name="my_pll/rtl/my_pll.v" type="Verilog" type_short="Verilog">
+            <Options/>
+        </Source>
+        <Source name="actual_pll/actual_pll.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="actual_pll/rtl/actual_pll.v" type="Verilog" type_short="Verilog">
+            <Options/>
+        </Source>
+        <Source name="no_lock_pll/no_lock_pll.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="no_lock_pll/rtl/no_lock_pll.v" type="Verilog" type_short="Verilog">
             <Options/>
         </Source>
         <Source name="source/test_1.xcf" type="Programming Project File" type_short="Programming">

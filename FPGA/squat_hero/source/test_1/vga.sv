@@ -1,5 +1,5 @@
 module vga(input logic clk, reset,
-		   output logic vgaclk, // 25 MHz VGA clock
+		   output logic vgaclk, // 25 MHz VGA clock  25.175MHz
 		   output logic hsync, vsync,
 		   output logic sync_b, blank_b, // to monitor & DAC
 		   output logic [3:0] r, g, b); // to video DAC
@@ -15,10 +15,10 @@ module vga(input logic clk, reset,
          hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(int_osc));
 		 
 	// Instantiate the PLL
-    my_pll pll_inst (
+    no_lock_pll pll_inst (
         .ref_clk_i(int_osc),             // Input clock (48 MHz)
         .rst_n_i(~reset),            // Active-low reset
-        .lock_o(pll_locked),         // PLL lock signal
+        //.lock_o(pll_locked),         // PLL lock signal
         .outcore_o(vgaclk),          // Core clock output (25 MHz)
         .outglobal_o()               // Global clock output (not used)
     );
@@ -27,7 +27,18 @@ module vga(input logic clk, reset,
 	vgaController vgaCont(vgaclk, reset, hsync, vsync, sync_b, blank_b, x, y);
 	
 	// user–defined module to determine pixel color
-	videoGen videoGen(x, y, r, g, b);
+	//videoGen videoGen(x, y, r, g, b);
+	
+	// Instantiate videoGen with blank_b
+	videoGen videoGen(
+		.x(x),
+		.y(y),
+		.blank_b(blank_b),
+		.r(r),
+		.g(g),
+		.b(b)
+	);
+
 
 endmodule
 
@@ -35,7 +46,7 @@ module vgaController #(parameter HBP     = 10'd48,  // horizontal back porch
 								  HACTIVE = 10'd640, // number of pixels per line
 								  HFP     = 10'd16,  // horizontal front porch
 								  HSYN    = 10'd96,  // horizontal sync pulse = 60 to move
-												     // electron gun back to left
+												     // electron gun back to left 
 								  // number of horizontal pixels (i.e., clock cycles)
 								  HMAX = HBP + HACTIVE + HFP + HSYN, //48+640+16+96=800:
 								  VBP = 10'd32, // vertical back porch
@@ -68,28 +79,48 @@ module vgaController #(parameter HBP     = 10'd48,  // horizontal back porch
 	// compute sync signals (active low)
 	assign hsync = ~( (hcnt >= (HACTIVE + HFP)) & (hcnt < (HACTIVE + HFP + HSYN)) );
 	assign vsync = ~( (vcnt >= (VACTIVE + VFP)) & (vcnt < (VACTIVE + VFP + VSYN)) );
-	assign sync_b = 1'b0; // this should be 0 for newer monitors
+	//assign sync_b = 1'b0; // this should be 0 for newer monitors
 						  // for older monitors, use: assign sync_b = hsync & vsync;
+	assign sync_b = hsync & vsync;
 	// force outputs to black when not writing pixels
 	assign blank_b = (hcnt < HACTIVE) & (vcnt < VACTIVE);
 endmodule
 
-//module videoGen(input logic [9:0] x, y, output logic [7:0] r, g, b);
+//module videoGen(input logic [9:0] x, y, output logic [3:0] r, g, b);
   //logic pixel, inrect;
-   // //given y position, choose a character to display
-   // //then look up the pixel value from the character ROM
-   // // and display it in red or blue. Also draw a green rectangle.
+    //given y position, choose a character to display
+    //then look up the pixel value from the character ROM
+     //and display it in red or blue. Also draw a green rectangle.
   //chargenrom chargenromb(y[8:3]+8'd65, x[2:0], y[2:0], pixel);
   //rectgen rectgen(x, y, 10'd120, 10'd150, 10'd200, 10'd230, inrect);
   //assign {r, b} = (y[3] == 0) ? {{4{pixel}}, 4'h0} : {4'h0, {4{pixel}}};
   //assign g = inrect ? 4'hF : 4'h0; // Maximum value for 4 bits is 4'hF (15 in decimal)
 //endmodule
-module videoGen(input logic [9:0] x, y, output logic [3:0] r, g, b);
-  // Always display green
-  assign r = 4'b0000;   // Red channel is 0
-  assign g = 4'b0001;   // Green channel is max (15 for 4 bits)
-  assign b = 4'b0000;   // Blue channel is 0
+//module videoGen(input logic [9:0] x, y, output logic [3:0] r, g, b);
+   //Always display green
+  //assign r = 4'b0000;   // Red channel is 0
+  //assign g = 4'b0001;   // Green channel is max (15 for 4 bits)
+  //assign b = 4'b0000;   // Blue channel is 0
 
+//endmodule
+module videoGen(
+    input logic [9:0] x, y,
+    input logic blank_b,
+    output logic [3:0] r, g, b
+);
+  // Always display green when in active area
+  always @(*) begin
+    if (blank_b) begin
+      r = 4'b1111; // Red channel is 0
+      g = 4'b1111; // Green channel is max (15 for 4 bits)
+      b = 4'b1111; // Blue channel is 0
+    end else begin
+      // During porch periods, set outputs to zero
+      r = 4'b0000;
+      g = 4'b0000;
+      b = 4'b0000;
+    end
+  end
 endmodule
 
 

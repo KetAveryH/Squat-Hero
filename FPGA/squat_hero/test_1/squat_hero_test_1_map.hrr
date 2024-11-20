@@ -3,34 +3,34 @@ Report for cell vga
    Instance path: vga
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	         63        100.0
-                               LUTGATE	         39        100.0
+                                  LUT4	         64        100.0
+                               LUTGATE	         40        100.0
                                 LUTCCU	         24        100.0
                                  IOBUF	         18        100.0
                                 PFUREG	         20        100.0
 SUB MODULES
                                   cell	      count    LUT4 Usage(%)
-                                my_pll	          1         0.0
-                         vgaController	          1        95.2
+                           no_lock_pll	          1         0.0
+                         vgaController	          1        96.9
 ---------------------------------------------------
 Report for cell vgaController
    Instance path: vga/vgaCont
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	         60        95.2
-                               LUTGATE	         36        92.3
+                                  LUT4	         62        96.9
+                               LUTGATE	         38        95.0
                                 LUTCCU	         24        100.0
                                 PFUREG	         20        100.0
 ---------------------------------------------------
-Report for cell my_pll
+Report for cell no_lock_pll
    Instance path: vga/pll_inst
                      Cell usage:
                                   cell	      count    Res Usage(%)
 SUB MODULES
                                   cell	      count    LUT4 Usage(%)
-my_pll_ipgen_lscc_pll(DIVR="2",DIVF="49",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",FREQUENCY_PIN_REFERENCECLK="48.000000")	          1         0.0
+no_lock_pll_ipgen_lscc_pll(DIVR="3",DIVF="66",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",FREQUENCY_PIN_REFERENCECLK="48.000000")	          1         0.0
 ---------------------------------------------------
-Report for cell my_pll_ipgen_lscc_pll(DIVR="2",DIVF="49",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",FREQUENCY_PIN_REFERENCECLK="48.000000")
+Report for cell no_lock_pll_ipgen_lscc_pll(DIVR="3",DIVF="66",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",FREQUENCY_PIN_REFERENCECLK="48.000000")
    Instance path: vga/pll_inst/lscc_pll_inst
                      Cell usage:
                                   cell	      count    Res Usage(%)

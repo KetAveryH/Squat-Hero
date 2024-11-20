@@ -8,7 +8,7 @@ Package: SG48
 Performance Grade:  High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 2024.1.0.34.2
-Mapped on: Tue Nov 19 00:17:22 2024
+Mapped on: Wed Nov 20 14:25:47 2024
 
 Design Information
 ------------------
@@ -24,8 +24,8 @@ Design Summary
 
    Number of slice registers:  20 out of  5280 (<1%)
    Number of I/O registers:      0 out of   117 (0%)
-   Number of LUT4s:            63 out of  5280 (1%)
-      Number of logic LUT4s:              39
+   Number of LUT4s:            64 out of  5280 (1%)
+      Number of logic LUT4s:              40
       Number of ripple logic:             12 (24 LUT4s)
    Number of IO sites used:   18 out of 39 (46%)
       Number of IO sites used for general PIO: 18
@@ -69,14 +69,14 @@ Design Summary
 
 Design Summary (cont)
 ---------------------
+      Net b_0: 13 loads
       Net vgaCont.n19_adj_26: 10 loads
-      Net VCC_net: 5 loads
+      Net vgaCont.x[7]: 5 loads
+      Net vgaCont.y[9]: 5 loads
+      Net VCC_net: 4 loads
       Net vgaCont.x[8]: 4 loads
-      Net vgaCont.y[5]: 4 loads
-      Net vgaCont.y[6]: 4 loads
-      Net vgaCont.y[7]: 4 loads
-      Net vgaCont.y[8]: 4 loads
-      Net vgaCont.y[9]: 4 loads
+      Net vgaCont.x[9]: 4 loads
+      Net vgaCont.y[1]: 4 loads
 
 
 
@@ -123,9 +123,9 @@ IO (PIO) Attributes
 | IO Name             | Direction | Levelmode |  IO   |  IO   | Special   |
 |                     |           |  IO_TYPE  |  REG  |  DDR  | IO Buffer |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| blank_b             | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
 | r[3]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| blank_b             | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 
                                     Page 2
@@ -169,6 +169,11 @@ IO (PIO) Attributes (cont)
 | reset               | INPUT     |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 
+Removed logic
+-------------
+
+Block i1 was optimized away.
+
 PLL/DLL Summary
 ---------------
 
@@ -187,12 +192,7 @@ PLL 1:                                 Pin/Node Value
   LATCH signal:                                 GND
   Lock Signal:                                  NONE
   Input Clock Frequency (MHz):                  NA
-  Reference Divider:                            2
-  Feedback Divider:                             49
-  VCO Divider:                                  5
-  ENABLE_ICEGATE_PORTA:                         0
-  ENABLE_ICEGATE_PORTB:                         0
-  PLLOUT_SELECT_PORTA:                          GENCLK
+  Reference Divider:                            3
 
                                     Page 3
 
@@ -202,6 +202,11 @@ PLL 1:                                 Pin/Node Value
 
 PLL/DLL Summary (cont)
 ----------------------
+  Feedback Divider:                             66
+  VCO Divider:                                  5
+  ENABLE_ICEGATE_PORTA:                         0
+  ENABLE_ICEGATE_PORTB:                         0
+  PLLOUT_SELECT_PORTA:                          GENCLK
   PLLOUT_SELECT_PORTB:                          GENCLK
   SHIFTREG_DIV_MODE:                            0
   DELAY_ADJUSTMENT_MODE_RELATIVE:               FIXED
@@ -247,12 +252,7 @@ Run Time and Memory Usage
    Total CPU Time: 0 secs
    Total REAL Time: 0 secs
    Peak Memory Usage: 64 MB
-Checksum -- map: fd68dab15e4296b3f7d7767d60abc502f8aa0446
-
-
-
-
-
+Checksum -- map: d5a31fa494774b27c524f80d91b5fcee78d5fb2
 
 
 

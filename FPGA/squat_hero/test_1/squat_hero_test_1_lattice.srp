@@ -5,7 +5,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
-Tue Nov 19 00:17:20 2024
+Wed Nov 20 14:25:44 2024
 
 
 Command Line:  C:\lscc\radiant\2024.1\ispfpga\bin\nt64\synthesis.exe -f squat_hero_test_1_lattice.synproj -logfile squat_hero_test_1_lattice.srp -gui -msgset C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/promote.xml 
@@ -69,12 +69,16 @@ The -comp option is FALSE.
 The -syn option is FALSE.
 -sdc option: SDC file input is squat_hero_test_1_cpe.ldc.
 -path C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero (searchpath added)
+-path C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/actual_pll (searchpath added)
 -path C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/my_pll (searchpath added)
+-path C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/no_lock_pll (searchpath added)
 -path C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test_1 (searchpath added)
 -path C:/lscc/radiant/2024.1/ispfpga/ice40tp/data (searchpath added)
 Mixed language design
 Verilog design file = C:/lscc/radiant/2024.1/ip/pmi/pmi_iCE40UP.v
 Verilog design file = C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/my_pll/rtl/my_pll.v
+Verilog design file = C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/actual_pll/rtl/actual_pll.v
+Verilog design file = C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/no_lock_pll/rtl/no_lock_pll.v
 Verilog design file = C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/source/test_1/vga.sv
 VHDL library = pmi
 VHDL design file = C:/lscc/radiant/2024.1/ip/pmi/pmi_iCE40UP.vhd
@@ -127,6 +131,8 @@ INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.v(16): an
 INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_ram_dq_be.v(45): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/../common/ram_dq/rtl/lscc_ram_dq.v. VERI-1328
 INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.v(17): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/pmi_dsp.v. VERI-1328
 Analyzing Verilog file c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/my_pll/rtl/my_pll.v. VERI-1482
+Analyzing Verilog file c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/actual_pll/rtl/actual_pll.v. VERI-1482
+Analyzing Verilog file c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/no_lock_pll/rtl/no_lock_pll.v. VERI-1482
 Analyzing Verilog file c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv. VERI-1482
 Analyzing VHDL file c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.vhd. VHDL-1481
 Analyzing VHDL file c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.vhd
@@ -137,15 +143,15 @@ Top module language type = Verilog.
 Top module name (Verilog, mixed language): vga
 INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(1): compiling module vga. VERI-1018
 INFO <35901018> - synthesis: C:/lscc/radiant/2024.1/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v(756): compiling module HSOSC(CLKHF_DIV=2'b0). VERI-1018
-INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/my_pll/rtl/my_pll.v(11): compiling module my_pll. VERI-1018
-INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/my_pll/rtl/my_pll.v(107): compiling module my_pll_ipgen_lscc_pll(DIVR="2",DIVF="49",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",FREQUENCY_PIN_REFERENCECLK="48.000000"). VERI-1018
-INFO <35901018> - synthesis: C:/lscc/radiant/2024.1/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v(428): compiling module PLL_B(PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",DIVR="2",DIVF="49",DIVQ="5",FILTER_RANGE="1",FREQUENCY_PIN_REFERENCECLK="48.000000"). VERI-1018
+INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/no_lock_pll/rtl/no_lock_pll.v(11): compiling module no_lock_pll. VERI-1018
+INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/no_lock_pll/rtl/no_lock_pll.v(105): compiling module no_lock_pll_ipgen_lscc_pll(DIVR="3",DIVF="66",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",FREQUENCY_PIN_REFERENCECLK="48.000000"). VERI-1018
+INFO <35901018> - synthesis: C:/lscc/radiant/2024.1/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v(428): compiling module PLL_B(PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",DIVR="3",DIVF="66",DIVQ="5",FILTER_RANGE="1",FREQUENCY_PIN_REFERENCECLK="48.000000"). VERI-1018
 WARNING <35935049> - synthesis: input port sclk_i remains unconnected for this instance. VDB-5049
 WARNING <35935049> - synthesis: input port sdi_i remains unconnected for this instance. VDB-5049
-INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(34): compiling module vgaController. VERI-1018
-WARNING <35901209> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(59): expression size 32 truncated to fit in target size 10. VERI-1209
-WARNING <35901209> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(62): expression size 32 truncated to fit in target size 10. VERI-1209
-INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(87): compiling module videoGen. VERI-1018
+INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(45): compiling module vgaController. VERI-1018
+WARNING <35901209> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(70): expression size 32 truncated to fit in target size 10. VERI-1209
+WARNING <35901209> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(73): expression size 32 truncated to fit in target size 10. VERI-1209
+INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(106): compiling module videoGen. VERI-1018
                                                          
 
 
@@ -173,8 +179,8 @@ INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/micr
 WARNING <35935049> - synthesis: input port sclk_i remains unconnected for this instance. VDB-5049
 WARNING <35935049> - synthesis: input port sdi_i remains unconnected for this instance. VDB-5049
 CRITICAL <35002028> - synthesis: I/O Port clk 's net has no driver and is unused.
-WARNING <35931002> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/my_pll/rtl/my_pll.v(141): net \pll_inst/lscc_pll_inst/sclk_i does not have a driver. VDB-1002
-WARNING <35931002> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/my_pll/rtl/my_pll.v(142): net \pll_inst/lscc_pll_inst/sdi_i does not have a driver. VDB-1002
+WARNING <35931002> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/no_lock_pll/rtl/no_lock_pll.v(139): net \pll_inst/lscc_pll_inst/sclk_i does not have a driver. VDB-1002
+WARNING <35931002> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/no_lock_pll/rtl/no_lock_pll.v(140): net \pll_inst/lscc_pll_inst/sdi_i does not have a driver. VDB-1002
 ######## Missing driver on net \pll_inst/lscc_pll_inst/sclk_i. Patching with GND.
 ######## Missing driver on net \pll_inst/lscc_pll_inst/sdi_i. Patching with GND.
 
@@ -188,7 +194,7 @@ CCU2 => 12
 FD1P3XZ => 20
 HSOSC_CORE => 1
 IB => 1
-LUT4 => 37
+LUT4 => 39
 OB => 17
 PLL_B => 1
 ################### End Area Report ##################
@@ -206,12 +212,12 @@ Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
   Net : reset_c, loads : 21
   Net : vgaCont/n19, loads : 20
+  Net : vgaCont/b_0, loads : 12
   Net : vgaCont/n19_adj_26, loads : 10
-  Net : vgaCont/y[7], loads : 4
-  Net : vgaCont/y[8], loads : 4
-  Net : vgaCont/y[9], loads : 4
-  Net : vgaCont/y[5], loads : 4
-  Net : vgaCont/y[6], loads : 4
+  Net : vgaCont/y[9], loads : 5
+  Net : vgaCont/x[7], loads : 5
+  Net : vgaCont/y[1], loads : 4
+  Net : vgaCont/y[2], loads : 4
   Net : vgaCont/x[8], loads : 4
   Net : vgaCont/x[9], loads : 4
 ################### End Clock Report ##################
@@ -229,7 +235,7 @@ Total number of design rule violations: 0
 Peak Memory Usage: 88 MB
 
 --------------------------------------------------------------
-Total CPU Time: 1 secs 
-Total REAL Time: 0 secs 
+Total CPU Time: 0 secs 
+Total REAL Time: 2 secs 
 --------------------------------------------------------------
-Checksum -- synthesis -- netlist: 43333fee5e606f25d02d7b849429e122047e78a
+Checksum -- synthesis -- netlist: d7685a5c4e52f3d558f4948d3ed27fdbce98966c

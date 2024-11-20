@@ -1,6 +1,6 @@
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
 
-Tue Nov 19 00:17:23 2024
+Wed Nov 20 14:25:47 2024
 
 Command Line: par -w -n 1 -t 1 -s 1 -cores 1 -hsp m -exp parPathBased=ON \
 	squat_hero_test_1_map.udb squat_hero_test_1.udb 
@@ -9,16 +9,16 @@ Command Line: par -w -n 1 -t 1 -s 1 -cores 1 -hsp m -exp parPathBased=ON \
 Level/       Number       Estimated       Timing       Estimated Worst    Timing          Run      Run
 Cost [udb]   Unrouted     Worst Slack     Score        Slack(hold)        Score(hold)     Time     Status
 ----------   --------     -----------     ------       ---------------    -----------     ----     ------
-5_1   *      0            28.727          0            3.113              0               05       Completed
+5_1   *      0            28.683          0            3.061              0               06       Completed
 
 * : Design saved.
 
-Total (real) run time for 1-seed: 5 secs 
+Total (real) run time for 1-seed: 6 secs 
 
 par done!
 
 Lattice Place and Route Report for Design "squat_hero_test_1_map.udb"
-Tue Nov 19 00:17:23 2024
+Wed Nov 20 14:25:47 2024
 
 PAR: Place And Route Radiant Software (64-bit) 2024.1.0.34.2.
 Command Line: par -w -t 1 -cores 1 -hsp m -exp parPathBased=ON \
@@ -45,12 +45,12 @@ WARNING <71003020> - par: Top module port 'clk' does not connect to anything.
 WARNING <71003020> - par: Top module port 'clk' does not connect to anything.
 WARNING <71003020> - par: Top module port 'clk' does not connect to anything.
 WARNING <71003020> - par: Top module port 'clk' does not connect to anything.
-Number of Signals: 105
-Number of Connections: 254
+Number of Signals: 106
+Number of Connections: 264
 Device utilization summary:
 
    SLICE (est.)      34/2640          1% used
-     LUT             63/5280          1% used
+     LUT             64/5280          1% used
      REG             20/5280         <1% used
    PIO               18/56           32% used
                      18/36           50% bonded
@@ -74,7 +74,7 @@ Device utilization summary:
 Pin Constraint Summary:
    15 out of 18 pins locked (83% locked).
 .
-............
+...........
 Finished Placer Phase 0 (HIER). CPU time: 0 secs , REAL time: 0 secs 
 
 
@@ -85,18 +85,18 @@ Starting Placer Phase 1. CPU time: 0 secs , REAL time: 0 secs
 ..  ..
 ....................
 
-Placer score = 12987.
+Placer score = 12663.
 
 Device SLICE utilization summary after final SLICE packing:
-   SLICE             33/2640          1% used
+   SLICE             34/2640          1% used
 
-Finished Placer Phase 1. CPU time: 2 secs , REAL time: 3 secs 
+Finished Placer Phase 1. CPU time: 1 secs , REAL time: 4 secs 
 
 Starting Placer Phase 2.
 .
 
-Placer score =  13979
-Finished Placer Phase 2.  CPU time: 2 secs , REAL time: 3 secs 
+Placer score =  13378
+Finished Placer Phase 2.  CPU time: 1 secs , REAL time: 4 secs 
 
 
 ------------------ Clock Report ------------------
@@ -124,14 +124,14 @@ I/O Bank Usage Summary:
 | 2        | 7 / 8 ( 87%)  | 3.3V       |            |            |
 +----------+---------------+------------+------------+------------+
 
-Total Placer CPU time: 2 secs , REAL time: 3 secs 
+Total Placer CPU time: 1 secs , REAL time: 4 secs 
 
 
-Checksum -- place: 75ec52939a6e6bfdc7b3893a5d2c01052e720572
+Checksum -- place: b0137755eb3304eb52c4e0e06b8154b2cd5ef4f2
 Writing design to file squat_hero_test_1_par.dir/5_1.udb ...
 
 
-Start NBR router at 00:17:26 11/19/24
+Start NBR router at 14:25:51 11/20/24
 
 *****************************************************************
 Info: NBR allows conflicts(one node used by more than one signal)
@@ -150,7 +150,7 @@ Starting routing resource preassignment
 Preassignment Summary:
 --------------------------------------------------------------------------------
 1 connections routed with dedicated routing resources
-43 connections routed (of 229 total) (18.78%)
+43 connections routed (of 239 total) (17.99%)
 ---------------------------------------------------------
 Clock routing summary:
 Primary clocks (1 used out of 8 available):
@@ -169,31 +169,31 @@ Completed routing resource preassignment
 Routing in Serial Mode ......
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Start NBR section for initial routing at 00:17:27 11/19/24
+Start NBR section for initial routing at 14:25:52 11/20/24
 Level 4, iteration 1
 1(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: 28.332ns/0.000ns; real time: 0 secs 
+Estimated worst slack/total negative slack<setup>: 27.932ns/0.000ns; real time: 0 secs 
 
 Info: Initial congestion level at 75.00% usage is 0
 Info: Initial congestion area  at 75.00% usage is 0 (0.00%)
 
-Start NBR section for normal routing at 00:17:27 11/19/24
+Start NBR section for normal routing at 14:25:52 11/20/24
 Level 4, iteration 1
 0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack<setup>: 28.332ns/0.000ns; real time: 0 secs 
+Estimated worst slack/total negative slack<setup>: 27.932ns/0.000ns; real time: 0 secs 
 
-Start NBR section for setup/hold timing optimization with effort level 3 at 00:17:27 11/19/24
+Start NBR section for setup/hold timing optimization with effort level 3 at 14:25:52 11/20/24
 
-Start NBR section for post-routing at 00:17:27 11/19/24
+Start NBR section for post-routing at 14:25:52 11/20/24
 
 End NBR router with 0 unrouted connection(s)
 
-Checksum -- route: 7560d5361e10490be1a70dcb44156ddd511664a0
+Checksum -- route: 45fdc3593476570afeb8403a7c265cb9e6a3835c
 
-Total CPU time 1 secs 
+Total CPU time 0 secs 
 Total REAL time: 2 secs 
 Completely routed.
-End of route.  229 routed (100.00%); 0 unrouted.
+End of route.  239 routed (100.00%); 0 unrouted.
 
 Writing design to file squat_hero_test_1_par.dir/5_1.udb ...
 
@@ -203,17 +203,17 @@ All signals are completely routed.
 
 PAR_SUMMARY::Run status = Completed
 PAR_SUMMARY::Number of unrouted conns = 0
-PAR_SUMMARY::Estimated worst slack<setup/<ns>> = 28.727
+PAR_SUMMARY::Estimated worst slack<setup/<ns>> = 28.683
 PAR_SUMMARY::Timing score<setup/<ns>> = 0.000
-PAR_SUMMARY::Estimated worst slack<hold/<ns>> = 3.113
+PAR_SUMMARY::Estimated worst slack<hold/<ns>> = 3.061
 PAR_SUMMARY::Timing score<hold/<ns>> = 0.000
 PAR_SUMMARY::Number of errors = 0
 
 Note: user must run 'timing' for timing closure signoff.
 
-Total CPU  Time: 4 secs 
-Total REAL Time: 5 secs 
-Peak Memory Usage: 125.39 MB
+Total CPU  Time: 2 secs 
+Total REAL Time: 6 secs 
+Peak Memory Usage: 125.42 MB
 
 
 par done!

@@ -49,7 +49,7 @@ Package: SG48
 Performance Grade:  High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 2024.1.0.34.2
-Mapped on: Tue Nov 19 00:17:22 2024
+Mapped on: Wed Nov 20 14:25:47 2024
 
 <A name="mrp_di"></A><B><U><big>Design Information</big></U></B>
 
@@ -63,8 +63,8 @@ Command line:   map -pdc C:/Users/KetHollingsworth/Desktop/Repositories/Microps/
 
    Number of slice registers:  20 out of  5280 (&lt;1%)
    Number of I/O registers:      0 out of   117 (0%)
-   Number of LUT4s:            63 out of  5280 (1%)
-      Number of logic LUT4s:              39
+   Number of LUT4s:            64 out of  5280 (1%)
+      Number of logic LUT4s:              40
       Number of ripple logic:             12 (24 LUT4s)
    Number of IO sites used:   18 out of 39 (46%)
       Number of IO sites used for general PIO: 18
@@ -99,14 +99,14 @@ Command line:   map -pdc C:/Users/KetHollingsworth/Desktop/Repositories/Microps/
    Top 10 highest fanout non-clock nets:
       Net reset_c: 21 loads
       Net vgaCont.n19: 20 loads
+      Net b_0: 13 loads
       Net vgaCont.n19_adj_26: 10 loads
-      Net VCC_net: 5 loads
+      Net vgaCont.x[7]: 5 loads
+      Net vgaCont.y[9]: 5 loads
+      Net VCC_net: 4 loads
       Net vgaCont.x[8]: 4 loads
-      Net vgaCont.y[5]: 4 loads
-      Net vgaCont.y[6]: 4 loads
-      Net vgaCont.y[7]: 4 loads
-      Net vgaCont.y[8]: 4 loads
-      Net vgaCont.y[9]: 4 loads
+      Net vgaCont.x[9]: 4 loads
+      Net vgaCont.y[1]: 4 loads
 
    Number of warnings:  14
    Number of criticals: 0
@@ -147,9 +147,9 @@ WARNING &lt;71003020&gt; - map: Top module port &apos;clk&apos; does not connect
 | IO Name             | Direction | Levelmode |  IO   |  IO   | Special   |
 |                     |           |  IO_TYPE  |  REG  |  DDR  | IO Buffer |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| blank_b             | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
 | r[3]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| blank_b             | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | sync_b              | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
@@ -186,6 +186,7 @@ WARNING &lt;71003020&gt; - map: Top module port &apos;clk&apos; does not connect
 
 <A name="mrp_rm"></A><B><U><big>Removed logic</big></U></B>
 
+Block i1 was optimized away.
 
 <A name="mrp_pll"></A><B><U><big>PLL/DLL Summary</big></U></B>
 
@@ -204,8 +205,8 @@ PLL 1:                                 Pin/Node Value
   LATCH signal:                                 GND
   Lock Signal:                                  NONE
   Input Clock Frequency (MHz):                  NA
-  Reference Divider:                            2
-  Feedback Divider:                             49
+  Reference Divider:                            3
+  Feedback Divider:                             66
   VCO Divider:                                  5
   ENABLE_ICEGATE_PORTA:                         0
   ENABLE_ICEGATE_PORTB:                         0
@@ -251,7 +252,7 @@ Instance Name: pll_inst/lscc_pll_inst/u_PLL_B
    Total CPU Time: 0 secs
    Total REAL Time: 0 secs
    Peak Memory Usage: 64 MB
-Checksum -- map: fd68dab15e4296b3f7d7767d60abc502f8aa0446
+Checksum -- map: d5a31fa494774b27c524f80d91b5fcee78d5fb2
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995
      AT&amp;T Corp.   All rights reserved.
