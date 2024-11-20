@@ -8,8 +8,8 @@
 #include <stm32l432xx.h>
 #include "STM32L432KC_GPIO.h"
 
-#define I2C_SCL PA9
-#define I2C_SDA PA10
+#define SCL1 PA9
+#define SDA1 PA10
 
 // Initialize I2C
 void init_I2C(void);

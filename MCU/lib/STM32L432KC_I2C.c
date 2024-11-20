@@ -9,45 +9,36 @@
 
 void init_I2C(void) {
 
-
   // initialize for I2C to work on 'B' I/Os
   gpioEnable(GPIO_PORT_A);
-
-  RCC->CCIPR &= ~RCC_CCIPR_I2C1SEL;
-  RCC->CCIPR |= _VAL2FLD(RCC_CCIPR_I2C1SEL, 0b01);  //set I2C clk as the SYSCLK
-  RCC->APB1ENR1 |= RCC_APB1ENR1_I2C1EN;//enable the clock to run on I2C1 peripheral
-  
-  //disable both analog and digital filters and clock stretching
-  //I2C1->CR1 &= ~I2C_CR1_ANFOFF;
-  //I2C1->CR1 &= ~I2C_CR1_DNF;
-  //I2C1->CR1 &= ~I2C_CR1_NOSTRETCH; // this must be disables in master mode
+  RCC->APB1ENR1 |= RCC_APB1ENR1_I2C1EN; //enable the clock to run on I2C1 peripheral
 
   // set both of the I2C lines to be the correct alternate function mode
-  pinMode(I2C_SDA, GPIO_ALT);
-  pinMode(I2C_SCL, GPIO_ALT);
-
-  // select for open drain I/O and
-  GPIOA->OTYPER |= (GPIO_OTYPER_OT9 | GPIO_OTYPER_OT10);
+  pinMode(SDA1, GPIO_ALT);
+  pinMode(SCL1, GPIO_ALT);
 
   // select high speed GPIO
-  GPIOA->OSPEEDR |= (GPIO_OSPEEDR_OSPEED10 | GPIO_OSPEEDR_OSPEED9);
+  GPIOA->OSPEEDR |= (GPIO_OSPEEDR_OSPEED9 | GPIO_OSPEEDR_OSPEED10);
+  // select for open drain I/O and
+  GPIOA->OTYPER |= (GPIO_OTYPER_IDR_9 | GPIO_OTYPER_IDR_10);
 
-  // initialize internal pull up resistors
-  GPIOA->PUPDR &= ~(GPIO_PUPDR_PUPD10 | GPIO_PUPDR_PUPD9); // Clear bits
-  GPIOA->PUPDR |= (GPIO_PUPDR_PUPD10_0 | GPIO_PUPDR_PUPD9_0); // Pull-Up (01)
+  // set to I2C specific alternate functionality AF04
+  GPIOA->AFR[1] |= _VAL2FLD(GPIO_AFRL_AFSEL1, 4);
+  GPIOA->AFR[1] |= _VAL2FLD(GPIO_AFRL_AFSEL2, 4);
+ 
+  //set I2C clk as the SYSCLK
+  RCC->CCIPR &= ~RCC_CCIPR_I2C1SEL;
+  RCC->CCIPR |= _VAL2FLD(RCC_CCIPR_I2C1SEL, 0b01);
 
-  // set alternat funcntion "high" registers
-  //GPIOB->AFRH |= (GPIO_AFRH_AFR ---- WHY IS THIS ONE NOT WORKING
-  GPIOA->AFR[1] &= ~((0xF << (4 * 1)) | (0xF << (4 * 2))); // Clear AFR[1] bits for pins 9 and 10
-  GPIOA->AFR[1] |= (4 << (4 * 1)) | (4 << (4 * 2));        // AF4 for I2C1
+  // clear PE bit
+  I2C1->CR1 &= ~I2C_CR1_PE;
 
-  // reset the I2C peripheral so that it can reboot corectly
-  //I2C1->CR1 &= ~I2C_CR1_PE;    //disable I2C
-  I2C1->CR1 |= I2C_CR1_SWRST;  //reset Is2
-  I2C1->CR1 &= ~I2C_CR1_SWRST; //clear reset
+  // turn on TX interrupts
+  I2C1->CR1 |= I2C_CR1_TXIE;
+  I2C1->CR1 |= I2C_CR1_TCIE;
 
-  // auto end
-  I2C1->CR2 |= I2C_CR2_AUTOEND;
+  // enable byte control
+  I2C1->CR1 |= I2C_CR1_SBC;
 
   // Program the peripheral input clock in I2C_CR2 Register in order to generate correct timings
   I2C1->CR2 |= (8<<0);  // PCLK1 FREQUENCY in MHz
@@ -66,10 +57,7 @@ void init_I2C(void) {
   //I2C1->C |= (40 << 0);  // check calculation in PDF dont think this needs to happen here for us
   I2C1->CR1 |= (1<<0);  // Enable I2C
   I2C1->CR1 |= (1<<10);  // Enable the ACK
-  I2C1->CR1 |= (1<<8);  // Generate START
-
-  // enable I2C
-  I2C1->CR1 |= I2C_CR1_PE;
+  I2C1->CR1 |= I2C_CR1_PE;  // Generate START
 }
 
 void write_I2C(char addr, char reg, char data){
