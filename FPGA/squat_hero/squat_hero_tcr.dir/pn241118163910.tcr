@@ -1,0 +1,13 @@
+#Start recording tcl command: 11/18/2024 15:45:18
+#Project Location: C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero; Project name: squat_hero
+prj_open "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/squat_hero.rdf"
+prj_run Export -impl test_1
+prj_add_source "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc"
+prj_enable_source "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc"
+prj_run Export -impl test_1
+prj_set_impl_opt -impl "test_1" "top" "vga"
+prj_run PAR -impl test_1
+prj_run Export -impl test_1
+prj_save 
+prj_close
+#Stop recording: 11/18/2024 16:39:10

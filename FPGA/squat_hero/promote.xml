@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<userSetting name="C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/promote.xml" version="Diamond (64-bit) 2024.1.0.34.2" date="Tue Nov 19 00:17:30 2024" vendor="Lattice Semiconductor Corporation" >
+  <msg mid="35901328" type="Info" internal="true" />
+  <msg mid="35921504" type="Info" internal="true" />
+  <msg mid="35901209" type="Warning" internal="true" />
+  <msg mid="35931002" type="Warning" internal="true" />
+  <msg mid="35931038" type="Warning" internal="true" />
+  <msg mid="35902086" type="Error" internal="true" />
+  <msg mid="35901208" type="Warning" internal="true" />
+  <msg mid="35901010" type="Error" internal="true" />
+  <msg mid="35901038" type="Error" internal="true" />
+</userSetting>
