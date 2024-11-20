@@ -8,6 +8,11 @@
 #include "stm32l432xx.h"
 
 void init_I2C(void) {
+
+
+  // initialize for I2C to work on 'B' I/Os
+  gpioEnable(GPIO_PORT_A);
+
   RCC->CCIPR &= ~RCC_CCIPR_I2C1SEL;
   RCC->CCIPR |= _VAL2FLD(RCC_CCIPR_I2C1SEL, 0b01);  //set I2C clk as the SYSCLK
   RCC->APB1ENR1 |= RCC_APB1ENR1_I2C1EN;//enable the clock to run on I2C1 peripheral
@@ -65,9 +70,6 @@ void init_I2C(void) {
 
   // enable I2C
   I2C1->CR1 |= I2C_CR1_PE;
-
-  // initialize for I2C to work on 'B' I/Os
-  gpioEnable(GPIO_PORT_B);
 }
 
 void write_I2C(char addr, char reg, char data){
