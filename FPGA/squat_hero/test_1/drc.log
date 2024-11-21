@@ -1,0 +1,8 @@
+DRC: Design Rule Check Radiant Software (64-bit) 2024.1.0.34.2
+Mon Nov 18 16:44:34 2024
+
+(VERI-1482) Analyzing Verilog file 'C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/source/test_1/vga.sv'
+INFO <2049992> - C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/source/test_1/vga.sv(61,9-61,17) (VERI-2561) undeclared symbol 'blank__b', assumed default net type 'wire'
+INFO <2049992> - C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/source/test_1/vga.sv(1,8-1,11) (VERI-1018) compiling module 'vga'
+Done: design load finished with (0) errors, and (0) warnings
+

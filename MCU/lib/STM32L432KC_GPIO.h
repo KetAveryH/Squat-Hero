@@ -4,7 +4,7 @@
 #ifndef STM32L4_GPIO_H
 #define STM32L4_GPIO_H
 
-#include <stdint.h> // Include stdint header
+//#include <stdint.h> // Include stdint header
 #include <stm32l432xx.h>
 
 ///////////////////////////////////////////////////////////////////////////////

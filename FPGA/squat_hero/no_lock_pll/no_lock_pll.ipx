@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<RadiantModule architecture="ice40tp" date="2024 11 19 16:26:12" device="iCE40UP5K" device_int="itpa08" family="iCE40UP" gen_platform="Radiant" gen_platform_version="2024.1.0.34.2" generator="ipgen" library="module" module="pll" name="no_lock_pll" operation="Industrial" package="SG48" package_int="SG48" partnumber="iCE40UP5K-SG48I" source_format="Verilog" speed="High-Performance_1.2V" speed_int="6" vendor="latticesemi.com" version="1.0.1">
+ <Package>
+  <File modified="2024 11 19 16:26:11" name="rtl/no_lock_pll_bb.v" type="black_box_verilog"/>
+  <File modified="2024 11 19 16:26:11" name="no_lock_pll.cfg" type="cfg"/>
+  <File modified="2024 11 19 16:26:11" name="misc/no_lock_pll_tmpl.v" type="template_verilog"/>
+  <File modified="2024 11 19 16:26:11" name="misc/no_lock_pll_tmpl.vhd" type="template_vhdl"/>
+  <File modified="2024 11 19 16:26:11" name="rtl/no_lock_pll.v" type="top_level_verilog"/>
+  <File modified="2024 11 19 16:26:11" name="component.xml" type="IP-XACT_component"/>
+  <File modified="2024 11 19 16:26:11" name="design.xml" type="IP-XACT_design"/>
+ </Package>
+</RadiantModule>
