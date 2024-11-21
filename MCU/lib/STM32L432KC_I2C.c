@@ -57,11 +57,18 @@ void init_I2C(void) {
   I2C1->TIMINGR &= ~I2C_TIMINGR_SCLH;      // Clear SCL high period
   I2C1->TIMINGR |= (0xF << I2C_TIMINGR_SCLH_Pos); // Set SCLH
 
+  I2C1->TIMINGR &= ~I2C_TIMINGR_SDADEL;      // Clear SCL high period
+  I2C1->TIMINGR |= (0x2 << I2C_TIMINGR_SDADEL_Pos); // Set SCLH
+
+  I2C1->TIMINGR &= ~I2C_TIMINGR_SCLDEL;      // Clear SCL high period
+  I2C1->TIMINGR |= (0x4 << I2C_TIMINGR_SCLDEL_Pos); // Set SCLH
+
   // Configure the clock control registers
   //I2C1->C |= (40 << 0);  // check calculation in PDF dont think this needs to happen here for us
  // I2C1->CR1 |= (1<<0);  // Enable I2C
  // I2C1->CR1 |= (1<<10);  // Enable the ACK
   I2C1->CR1 |= I2C_CR1_PE;  // Generate START
+
 
   // check I2C communication with who_am_i register
   write_I2C(IMU_ADDRESS, WHO_AM_I_REG, 1, 0);
@@ -92,19 +99,20 @@ void write_I2C(int address, char reg, int num_bytes, int stop){
     I2C1->CR2 &= ~I2C_CR2_RD_WRN;
 
     // signal to start
-    I2C1->CR1 |= I2C_CR1_PE; 
+   // I2C1->CR1 |= I2C_CR1_PE; 
     I2C1->CR2 |= I2C_CR2_START; // THIS WILL NOT TURN ON NO MATTER HOW I SET IT
 
     // send over each byte in the data package
-    for (int i = 0; i < num_bytes; i++) {
+    //for (int i = 0; i < num_bytes; i++) {
       while (!(I2C1->ISR & I2C_ISR_TXIS)); // wait until transmit buffer is empty
-      //I2C1->TXDR = TX_Buffer[i];
-    }
+      I2C1->TXDR = reg;
+   // }
 }
 
 
 char read_I2C(int address, char reg, int num_bytes) {
 
+    char output;
     // configure address, assumes 7 bit address
     I2C1->CR2 |= (address << 1); // put seven bits of address in starting in bit 1 of the CR2 register
 
@@ -122,9 +130,10 @@ char read_I2C(int address, char reg, int num_bytes) {
     I2C1->CR2 |= I2C_CR2_START;
 
    // read in each byte desired
-    for (int i = 0; i < num_bytes; i++) {
+   // for (int i = 0; i < num_bytes; i++) {
       while(!(I2C_ISR_RXNE)); // wait until data is ready to be read
-      //RX_Buffer[num_bytes - i - 1] = I2C1->RXDR;
-    }
+      output = I2C1->RXDR;
+      return output;
+   // }
    
 }

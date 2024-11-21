@@ -6,8 +6,8 @@
 
 // This will configure for accel data and check functionality of I2C
 void IMU_config(void) { // congif accel (CTRL1_XL), read and check WHO_AM_I
-  write_I2C(IMU_ADDRESS, ACCELX_CTRL1_REG, 2, 0);
-  write_I2C(IMU_ADDRESS, 0b01001100, 2, 0);
+  write_I2C(IMU_ADDRESS, ACCELX_CTRL1_REG, 1, 0);
+  write_I2C(IMU_ADDRESS, 0b01001100, 1, 1);
 }
 
 float read_accel_IMU(void) {

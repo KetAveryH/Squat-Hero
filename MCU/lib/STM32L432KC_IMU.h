@@ -10,7 +10,7 @@
 // Definitions
 ///////////////////////////////////////////////////////////////////////////////
 
-#define IMU_ADDRESS 0b11010101      // [0] = 1 to read, [1] = 0 because address hardware not bridged
+#define IMU_ADDRESS 0x6A      // [0] = 1 to read, [1] = 0 because address hardware not bridged
 #define WHO_AM_I_REG 0b00001111     // used for I2C verification
 #define ACCELX_LSB_REG 0b00101000 
 #define ACCELX_MSB_REG 0b00101001
