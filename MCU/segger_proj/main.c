@@ -41,7 +41,7 @@ int main(void) {
         printf("Accelerometer X-axis: %d\n", acceleration);
 
         // Delay (for demonstration purposes, adjust as needed)
-        for (volatile int i = 0; i < 1000000; i++); // Simple delay
+        for (volatile int i = 0; i < 100; i++); // Simple delay
     }
 
     return 0;
