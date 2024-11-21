@@ -2,6 +2,7 @@
 "Output/Debug/Obj/squat_hero_v1/STM32L432KC_FLASH.o"
 "Output/Debug/Obj/squat_hero_v1/STM32L432KC_GPIO.o"
 "Output/Debug/Obj/squat_hero_v1/STM32L432KC_I2C.o"
+"Output/Debug/Obj/squat_hero_v1/STM32L432KC_IMU.o"
 "Output/Debug/Obj/squat_hero_v1/STM32L432KC_RCC.o"
 "Output/Debug/Obj/squat_hero_v1/STM32L432KC_SPI.o"
 "Output/Debug/Obj/squat_hero_v1/STM32L432KC_TIM.o"

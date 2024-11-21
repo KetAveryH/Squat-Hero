@@ -4,7 +4,7 @@
 #ifndef STM32L4_I2C_H
 #define STM32L4_I2C_H
 
-#include <stdint.h>
+//#include <stdint.h>
 #include <stm32l432xx.h>
 #include "STM32L432KC_GPIO.h"
 
@@ -15,7 +15,7 @@
 void init_I2C(void);
 
 // Write one byte of data
-void write_I2C(char addr, char reg, char data);
-char read_I2C(char addr, char reg);
+void write_I2C(int address, char reg, int num_bytes, int stop);
+char read_I2C(int address, char reg, int num_bytes);
 
 #endif

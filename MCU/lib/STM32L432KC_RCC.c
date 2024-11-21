@@ -10,7 +10,7 @@ void configureMSI(void) {
 
    // Switch SYSCLK to MSI
    RCC->CFGR &= ~RCC_CFGR_SW;                     // Clear the SW bits
-   RCC->CFGR |= RCC_CFGR_SW_MSI;                  // Set MSI as SYSCLK source
+   RCC->CFGR |= _VAL2FLD(RCC_CFGR_SW, 0b01);                  // Set MSI as SYSCLK source
 
    while((RCC->CFGR & RCC_CFGR_SWS) != RCC_CFGR_SWS_MSI); // Wait until SWS bits are set to MSI
 }
