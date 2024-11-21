@@ -71,9 +71,20 @@ void init_I2C(void) {
 
 
   // check I2C communication with who_am_i register
+#define TIMEOUT 1000  // Adjust this value as needed
+
   write_I2C(IMU_ADDRESS, WHO_AM_I_REG, 1, 0);
-  uint8_t who_am_i_value = read_I2C(IMU_ADDRESS, WHO_AM_I_REG, 1);
-  while(who_am_i_value != 0b01101100);
+  volatile uint8_t who_am_i_value = read_I2C(IMU_ADDRESS, WHO_AM_I_REG, 1);
+ // int timeout_counter = 0;
+
+  while (who_am_i_value != 0b01101100) {
+      who_am_i_value = read_I2C(IMU_ADDRESS, WHO_AM_I_REG, 1);
+     // timeout_counter++;
+     // if (timeout_counter >= TIMEOUT) {
+          // Handle timeout: print error, set a flag, or reset
+         // printf("WHO_AM_I read timed out.\n");
+     // }
+  }
 }
 
 
@@ -104,15 +115,18 @@ void write_I2C(int address, char reg, int num_bytes, int stop){
 
     // send over each byte in the data package
     //for (int i = 0; i < num_bytes; i++) {
-      while (!(I2C1->ISR & I2C_ISR_TXIS)); // wait until transmit buffer is empty
+      while (!(I2C1->ISR & I2C_ISR_TXE)); // wait until transmit buffer is empty
       I2C1->TXDR = reg;
+
+      //I2C1->TXDR &= ~(I2C_TXDR_TXDATA);
+
    // }
 }
 
 
 char read_I2C(int address, char reg, int num_bytes) {
 
-    char output;
+    volatile char output;
     // configure address, assumes 7 bit address
     I2C1->CR2 |= (address << 1); // put seven bits of address in starting in bit 1 of the CR2 register
 
@@ -131,7 +145,7 @@ char read_I2C(int address, char reg, int num_bytes) {
 
    // read in each byte desired
    // for (int i = 0; i < num_bytes; i++) {
-      while(!(I2C_ISR_RXNE)); // wait until data is ready to be read
+      while(!(I2C1->ISR & I2C_ISR_RXNE)); // wait until data is ready to be read
       output = I2C1->RXDR;
       return output;
    // }

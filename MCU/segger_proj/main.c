@@ -25,9 +25,9 @@ int _write(int file, char *ptr, int len) {
 
 int main(void) {
     // Step 1: System Initialization
+    configureFlash();   // Configure flash memory access
     configureClock();  // Configure the system clock
     init_I2C();        // Initialize the I2C peripheral
-    configureFlash();   // Configure flash memory access
 
     // Step 2: Initialize the LSM6DSO32 IMU
     IMU_config();
