@@ -3,22 +3,40 @@ Report for cell vga
    Instance path: vga
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	         64        100.0
-                               LUTGATE	         40        100.0
+                                  LUT4	        173        100.0
+                               LUTGATE	        149        100.0
                                 LUTCCU	         24        100.0
                                  IOBUF	         18        100.0
                                 PFUREG	         20        100.0
 SUB MODULES
                                   cell	      count    LUT4 Usage(%)
                            no_lock_pll	          1         0.0
-                         vgaController	          1        96.9
+                         vgaController	          1        40.5
+                              videoGen	          1        56.1
+---------------------------------------------------
+Report for cell videoGen
+   Instance path: vga/videoGen
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         97        56.1
+                               LUTGATE	         97        65.1
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                            chargenrom	          1        54.9
+---------------------------------------------------
+Report for cell chargenrom
+   Instance path: vga/videoGen/chargenromb
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         95        54.9
+                               LUTGATE	         95        63.8
 ---------------------------------------------------
 Report for cell vgaController
    Instance path: vga/vgaCont
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	         62        96.9
-                               LUTGATE	         38        95.0
+                                  LUT4	         70        40.5
+                               LUTGATE	         46        30.9
                                 LUTCCU	         24        100.0
                                 PFUREG	         20        100.0
 ---------------------------------------------------

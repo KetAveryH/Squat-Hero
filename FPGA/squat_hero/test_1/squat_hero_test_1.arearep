@@ -8,14 +8,32 @@ I/O cells:      18
                             FD1P3XZ        20          100.0
                          HSOSC_CORE         1          100.0
                                  IB         1          100.0
-                               LUT4        39          100.0
+                               LUT4       148          100.0
                                  OB        17          100.0
                               PLL_B         1          100.0
 SUB MODULES
+                         chargenrom         1
                         no_lock_pll         1
 no_lock_pll_ipgen_lscc_pll(DIVR="3",DIVF="66",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",FREQUENCY_PIN_REFERENCECLK="48.000000")         1
                       vgaController         1
-                              TOTAL        94
+                           videoGen         1
+                              TOTAL       205
+----------------------------------------------------------------------
+Report for cell videoGen.v1
+Instance Path : videoGen
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4       101           68.2
+SUB MODULES
+                         chargenrom         1
+                              TOTAL       102
+----------------------------------------------------------------------
+Report for cell chargenrom.v1
+Instance Path : videoGen.chargenromb
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4        99           66.9
+                              TOTAL        99
 ----------------------------------------------------------------------
 Report for cell vgaController.v1
 Instance Path : vgaCont
@@ -23,8 +41,8 @@ Instance Path : vgaCont
                                cell     count   Res Usage(%)
                                 FA2        12          100.0
                             FD1P3XZ        20          100.0
-                               LUT4        38           97.4
-                              TOTAL        70
+                               LUT4        46           31.1
+                              TOTAL        78
 ----------------------------------------------------------------------
 Report for cell no_lock_pll.v1
 Instance Path : pll_inst

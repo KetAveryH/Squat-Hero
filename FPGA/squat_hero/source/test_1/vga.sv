@@ -86,15 +86,64 @@ module vgaController #(parameter HBP     = 10'd48,  // horizontal back porch
 	assign blank_b = (hcnt < HACTIVE) & (vcnt < VACTIVE);
 endmodule
 
-//module videoGen(input logic [9:0] x, y, output logic [3:0] r, g, b);
+//module videoGen(input logic [9:0] x, y, input logic blank_b, output logic [3:0] r, g, b);
   //logic pixel, inrect;
     //given y position, choose a character to display
     //then look up the pixel value from the character ROM
      //and display it in red or blue. Also draw a green rectangle.
+  //always_comb begin
+    //assign {g, b} = (y[3] == 0) ? {{4{pixel}}, 4'h0} : {4'h0, {4{pixel}}};
+    //assign r = inrect ? 4'hF : 4'h0; // Maximum value for 4 bits is 4'hF (15 in decimal)
   //chargenrom chargenromb(y[8:3]+8'd65, x[2:0], y[2:0], pixel);
   //rectgen rectgen(x, y, 10'd120, 10'd150, 10'd200, 10'd230, inrect);
-  //assign {r, b} = (y[3] == 0) ? {{4{pixel}}, 4'h0} : {4'h0, {4{pixel}}};
-  //assign g = inrect ? 4'hF : 4'h0; // Maximum value for 4 bits is 4'hF (15 in decimal)
+module videoGen(
+    input logic [9:0] x, y,
+    input logic blank_b,
+    output logic [3:0] r, g, b
+);
+    logic pixel, inrect;
+
+    // Instantiate the character generator ROM and rectangle generator outside the always block
+    chargenrom chargenromb(
+        .ch(y[8:3] + 8'd65),
+        .xoff(x[2:0]),
+        .yoff(y[2:0]),
+        .pixel(pixel)
+    );
+
+    rectgen rectgen_inst(
+        .x(x),
+        .y(y),
+        .left(10'd120),
+        .top(10'd150),
+        .right(10'd200),
+        .bot(10'd230),
+        .inrect(inrect)
+    );
+
+    // Use an always_comb block for conditional assignments
+    always_comb begin
+        if (blank_b == 0) begin
+            // During blanking periods, set all pixel outputs to zero
+            r = 4'h0;
+            g = 4'h0;
+            b = 4'h0;
+        end else begin
+            // When not blanking, apply your original logic
+            // Assign green and blue channels based on pixel and y[3]
+            if (y[3] == 0) begin
+                g = {4{pixel}};
+                b = 4'h0;
+            end else begin
+                g = 4'h0;
+                b = {4{pixel}};
+            end
+            // Assign red channel based on inrect
+            r = inrect ? 4'hF : 4'h0; // Maximum value for 4 bits is 4'hF (15 in decimal)
+        end
+    end
+endmodule
+
 //endmodule
 //module videoGen(input logic [9:0] x, y, output logic [3:0] r, g, b);
    //Always display green
@@ -103,25 +152,25 @@ endmodule
   //assign b = 4'b0000;   // Blue channel is 0
 
 //endmodule
-module videoGen(
-    input logic [9:0] x, y,
-    input logic blank_b,
-    output logic [3:0] r, g, b
-);
+//module videoGen(
+    //input logic [9:0] x, y,
+    //input logic blank_b,
+    //output logic [3:0] r, g, b
+//);
   // Always display green when in active area
-  always @(*) begin
-    if (blank_b) begin
-      r = 4'b1111; // Red channel is 0
-      g = 4'b1111; // Green channel is max (15 for 4 bits)
-      b = 4'b1111; // Blue channel is 0
-    end else begin
-      // During porch periods, set outputs to zero
-      r = 4'b0000;
-      g = 4'b0000;
-      b = 4'b0000;
-    end
-  end
-endmodule
+  //always @(*) begin
+    //if (blank_b) begin
+      //r = 4'b1111; // Red channel is 0
+      //g = 4'b1111; // Green channel is max (15 for 4 bits)
+      //b = 4'b1111; // Blue channel is 0
+    //end else begin
+       //During porch periods, set outputs to zero
+      //r = 4'b0000;
+      //g = 4'b0000;
+      //b = 4'b0000;
+    //end
+  //end
+//endmodule
 
 
 module chargenrom(input logic [7:0] ch,

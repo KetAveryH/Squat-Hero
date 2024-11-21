@@ -478,10 +478,26 @@
         <Message>
             <ID>35901018</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(106): </Dynamic>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(99): </Dynamic>
             <Dynamic>videoGen</Dynamic>
             <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>106</Navigation>
+            <Navigation>99</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(176): </Dynamic>
+            <Dynamic>chargenrom</Dynamic>
+            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
+            <Navigation>176</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(193): </Dynamic>
+            <Dynamic>rectgen</Dynamic>
+            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
+            <Navigation>193</Navigation>
         </Message>
         <Message>
             <ID>35834005</ID>
@@ -909,10 +925,42 @@
         <Message>
             <ID>35901018</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(106): </Dynamic>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(99): </Dynamic>
             <Dynamic>videoGen</Dynamic>
             <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>106</Navigation>
+            <Navigation>99</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(176): </Dynamic>
+            <Dynamic>chargenrom</Dynamic>
+            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
+            <Navigation>176</Navigation>
+        </Message>
+        <Message>
+            <ID>35931002</ID>
+            <Severity>16</Severity>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(180): </Dynamic>
+            <Dynamic>charrom</Dynamic>
+            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
+            <Navigation>180</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(193): </Dynamic>
+            <Dynamic>rectgen</Dynamic>
+            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
+            <Navigation>193</Navigation>
+        </Message>
+        <Message>
+            <ID>35931038</ID>
+            <Severity>16</Severity>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(180): </Dynamic>
+            <Dynamic>charrom_original_ramnet</Dynamic>
+            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
+            <Navigation>180</Navigation>
         </Message>
         <Message>
             <ID>35935049</ID>
