@@ -1,5 +1,4 @@
 // STM32L432KC_I2C.h
-// Source code for I2C functions COPIED FROM TROY
 
 //#include "STM32L432KC.h"
 #include "STM32L432KC_I2C.h"
