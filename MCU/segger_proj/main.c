@@ -86,6 +86,16 @@ int main(void) {
 
         //*******************
         // convert the angles, and desired line lengths to give our the positions of all of the individual joints and nodes
+        // - look at the picture to better understand
+        // - cycle through and update all of the positions sequenitally
+        // - MUST CONFIGURE HEEL FIRST, because everything is based off of this location
+        char *toe = "toe";
+        char *heel = "heel";
+        //char *knee = "knee"; already declared
+        //char *toe = "hip";   already declared
+        char *head = "head";
+
+        
         
         //*******************
 

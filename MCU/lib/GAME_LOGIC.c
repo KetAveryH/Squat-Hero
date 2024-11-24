@@ -71,13 +71,13 @@ uint16_t decode_pos(char *str1, char *str2, uint16_t length, int16_t angle) {
   uint16_t knee2hip_y = 0;
   uint16_t hip2head_x = 0;
   uint16_t hip2head_y = 0;
-  volatile uint16_t output;
+
 
   // TOE
     if (strcmp(str1, "toe") == 0) {
 
       if (strcmp(str2, "x") == 0) {
-        
+
       }
 
       else if (strcmp(str2, "y") == 0) {
