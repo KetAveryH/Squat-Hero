@@ -1,10 +1,7 @@
 // STM32L432KC_I2C.h
-// Source code for I2C functions COPIED FROM TROY
 
-//#include "STM32L432KC.h"
 #include "STM32L432KC_I2C.h"
 #include "STM32L432KC_GPIO.h"
-//#include "STM32L432KC_RCC.h"
 #include "stm32l432xx.h"
 #include "STM32L432KC_IMU.h"
 
@@ -21,10 +18,6 @@ void init_I2C(void) {
   GPIOA->OSPEEDR |= (GPIO_OSPEEDR_OSPEED9 | GPIO_OSPEEDR_OSPEED10);
   // select for open drain I/O and
   GPIOA->OTYPER |= (GPIO_OTYPER_IDR_9 | GPIO_OTYPER_IDR_10);
-
-  // initialize internal pull up resistors
-  //GPIOA->PUPDR &= ~(GPIO_PUPDR_PUPD10 | GPIO_PUPDR_PUPD9); // Clear bits
-  //GPIOA->PUPDR |= (GPIO_PUPDR_PUPD10 | GPIO_PUPDR_PUPD9); // Pull-Up (01)
 
   // set to I2C specific alternate functionality AF04
   GPIOA->AFR[1] |= _VAL2FLD(GPIO_AFRL_AFSEL1, 4);
@@ -44,9 +37,6 @@ void init_I2C(void) {
   // enable byte control
   I2C1->CR1 |= I2C_CR1_SBC;
 
-  // Program the peripheral input clock in I2C_CR2 Register in order to generate correct timings
-  //I2C1->CR2 |= (8<<0);  // PCLK1 FREQUENCY in MHz
-
   // Set the I2C Timing register for a 100kHz I2C clock with a 8 MHz system clock (LOOK AT PAGE 1159) in reference manual
   I2C1->TIMINGR &= ~I2C_TIMINGR_PRESC;     // Clear the PRESC field
   I2C1->TIMINGR |= (1 << I2C_TIMINGR_PRESC_Pos); // Set PRESC
@@ -63,28 +53,18 @@ void init_I2C(void) {
   I2C1->TIMINGR &= ~I2C_TIMINGR_SCLDEL;      // Clear SCL high period
   I2C1->TIMINGR |= (0x4 << I2C_TIMINGR_SCLDEL_Pos); // Set SCLH
 
-  // Configure the clock control registers
-  //I2C1->C |= (40 << 0);  // check calculation in PDF dont think this needs to happen here for us
- // I2C1->CR1 |= (1<<0);  // Enable I2C
- // I2C1->CR1 |= (1<<10);  // Enable the ACK
+  // Configure the I2C control registers to be enables and working
+  I2C1->CR1 |= (1<<0);  // Enable I2C
+  I2C1->CR1 |= (1<<10);  // Enable the ACK
   I2C1->CR1 |= I2C_CR1_PE;  // Generate START
 
+  // write to the IMU WHO_AM_I register
+  //write_I2C(IMU_ADDRESS, WHO_AM_I, 1, 0);
+  //volatile uint8_t who_am_i_value = read_I2C(IMU_ADDRESS, WHO_AM_I, 1);
 
-  // check I2C communication with who_am_i register
-#define TIMEOUT 1000  // Adjust this value as needed
-
-  write_I2C(IMU_ADDRESS, WHO_AM_I_REG, 1, 0);
-  volatile uint8_t who_am_i_value = read_I2C(IMU_ADDRESS, WHO_AM_I_REG, 1);
- // int timeout_counter = 0;
-
-  while (who_am_i_value != 0b01101100) {
-      who_am_i_value = read_I2C(IMU_ADDRESS, WHO_AM_I_REG, 1);
-     // timeout_counter++;
-     // if (timeout_counter >= TIMEOUT) {
-          // Handle timeout: print error, set a flag, or reset
-         // printf("WHO_AM_I read timed out.\n");
-     // }
-  }
+  //while (who_am_i_value != 0b01101100) {
+  //    who_am_i_value = read_I2C(IMU_ADDRESS, WHO_AM_I, 1);
+  //}
 }
 
 
@@ -117,10 +97,6 @@ void write_I2C(int address, char reg, int num_bytes, int stop){
     //for (int i = 0; i < num_bytes; i++) {
       while (!(I2C1->ISR & I2C_ISR_TXE)); // wait until transmit buffer is empty
       I2C1->TXDR = reg;
-
-      //I2C1->TXDR &= ~(I2C_TXDR_TXDATA);
-
-   // }
 }
 
 
@@ -144,10 +120,7 @@ char read_I2C(int address, char reg, int num_bytes) {
     I2C1->CR2 |= I2C_CR2_START;
 
    // read in each byte desired
-   // for (int i = 0; i < num_bytes; i++) {
       while(!(I2C1->ISR & I2C_ISR_RXNE)); // wait until data is ready to be read
       output = I2C1->RXDR;
-      return output;
-   // }
-   
+      return output;   
 }
