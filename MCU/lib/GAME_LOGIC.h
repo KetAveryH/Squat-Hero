@@ -15,12 +15,13 @@
 #define SHIN_LENGTH ((uint16_t)(0.22 * MAX_DIMENSION))
 #define FEMAR_LENGTH ((uint16_t)(0.28 * MAX_DIMENSION))
 #define TORSO_LENGTH ((uint16_t)(0.5 * MAX_DIMENSION))
+#define LINE_THICKNESS 12
 ///////////////////////////////////////////////////////////////////////////////
 // Function prototypes
 ///////////////////////////////////////////////////////////////////////////////
 
 int16_t twoComplement2Signed(uint16_t raw_value);
 int16_t decode_angle(char *str, int16_t accel_x, int16_t accel_y, int16_t accel_z);
-uint16_t decode_pos(char *str1, char *str2, uint16_t length, int16_t angle);
+uint16_t decode_pos(char *str1, char *str2);
 
 #endif

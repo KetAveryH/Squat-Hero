@@ -6,6 +6,38 @@
 #include <math.h>
 #include <stdint.h>
 
+    // global variables to hold angles
+    int16_t theta_ankle;
+    int16_t theta_1;
+    int16_t theta_2;
+    int16_t theta_3;
+    int16_t theta_4;
+    int16_t theta_knee;
+    int16_t theta_5;
+    int16_t theta_6;
+    int16_t theta_7;
+    int16_t theta_hip;
+
+
+  // instantiate all of my variables that I need
+  uint16_t heel2knee_x;
+  uint16_t heel2knee_y;
+  uint16_t knee2hip_x;
+  uint16_t knee2hip_y;
+  uint16_t hip2head_x;
+  uint16_t hip2head_y;
+  uint16_t toe_x;
+  uint16_t toe_y;
+  uint16_t heel_x;
+  uint16_t heel_y;
+  uint16_t knee_x;
+  uint16_t knee_y;
+  uint16_t hip_x;
+  uint16_t hip_y;
+  uint16_t head_x;
+  uint16_t head_y;
+
+
 
 volatile int x_accel; // 'volatile' because its value changes asynchronously
 
@@ -23,17 +55,6 @@ int16_t twoComplement2Signed(uint16_t raw_value) {
 }
 
 int16_t decode_angle(char *str, int16_t accel_x, int16_t accel_y, int16_t accel_z) {
-    // Local variables to hold angles
-    int16_t theta_ankle = 0;
-    int16_t theta_1 = 0;
-    int16_t theta_2 = 0;
-    int16_t theta_3 = 0;
-    int16_t theta_4 = 0;
-    int16_t theta_knee = 0;
-    int16_t theta_5 = 0;
-    int16_t theta_6 = 0;
-    int16_t theta_7 = 0;
-    int16_t theta_hip = 0;
 
     // Ensure no divide-by-zero occurs
     if (accel_x == 0) {
@@ -62,79 +83,66 @@ int16_t decode_angle(char *str, int16_t accel_x, int16_t accel_y, int16_t accel_
     return -1; // Error code for invalid input
 }
 
-uint16_t decode_pos(char *str1, char *str2, uint16_t length, int16_t angle) {
+uint16_t decode_pos(char *str1, char *str2) {
 
-  // instantiate all of my variables that I need
-  uint16_t heel2knee_x = 0;
-  uint16_t heel2knee_y = 0;
-  uint16_t knee2hip_x = 0;
-  uint16_t knee2hip_y = 0;
-  uint16_t hip2head_x = 0;
-  uint16_t hip2head_y = 0;
-
-
-  // TOE
     if (strcmp(str1, "toe") == 0) {
-
-      if (strcmp(str2, "x") == 0) {
-
-      }
-
-      else if (strcmp(str2, "y") == 0) {
-      
-      }
-
+        if (strcmp(str2, "x") == 0) {
+            toe_x = heel_x - FOOT_LENGTH;
+            return toe_x;
+        } else if (strcmp(str2, "y") == 0) {
+            toe_y = 0.5 * LINE_THICKNESS;
+            return toe_y;
+        } else {
+            return -1;
+        }
+    } else if (strcmp(str1, "heel") == 0) {
+        if (strcmp(str2, "x") == 0) {
+            heel_x = 0.5 * MAX_DIMENSION;
+            return heel_x;
+        } else if (strcmp(str2, "y") == 0) {
+            heel_y = 0.5 * LINE_THICKNESS;
+            return heel_y;
+        } else {
+            return -1;
+        }
+    } else if (strcmp(str1, "knee") == 0) {
+        if (strcmp(str2, "x") == 0) {
+            heel2knee_x = asin(theta_1) * SHIN_LENGTH;
+            knee_x = heel_x - heel2knee_x;
+            return knee_x;
+        } else if (strcmp(str2, "y") == 0) {
+            heel2knee_y = acos(theta_1) * SHIN_LENGTH;
+            knee_y = heel_y + heel2knee_y;
+            return knee_y;
+        } else {
+            return -1;
+        }
+    } else if (strcmp(str1, "hip") == 0) {
+        if (strcmp(str2, "x") == 0) {
+            knee2hip_x = asin(theta_3) * FEMAR_LENGTH;
+            hip_x = knee_x + knee2hip_x;
+            return hip_x;
+        } else if (strcmp(str2, "y") == 0) {
+            knee2hip_y = acos(theta_3) * FEMAR_LENGTH;
+            hip_y = knee_y + knee2hip_y;
+            return hip_y;
+        } else {
+            return -1;
+        }
+    } else if (strcmp(str1, "head") == 0) {
+        if (strcmp(str2, "x") == 0) {
+            hip2head_x = asin(theta_6) * TORSO_LENGTH;
+            head_x = hip_x - hip2head_x;
+            return head_x;
+        } else if (strcmp(str2, "y") == 0) {
+            hip2head_y = acos(theta_6) * TORSO_LENGTH;
+            head_y = hip_y + hip2head_y;
+            return head_y;
+        } else {
+            return -1;
+        }
     }
 
-  // HEEL
-    else if (strcmp(str1, "heel") == 0) {
-    
-      if (strcmp(str2, "x") == 0) {
-      
-      }
-
-      else if (strcmp(str2, "y") == 0) {
-      
-      }
-
-    }
-
-  // KNEE
-    else if (strcmp(str1, "knee") == 0) {
-    
-      if (strcmp(str2, "x") == 0) {
-      
-      }
-
-      else if (strcmp(str2, "y") == 0) {
-      
-      }
-
-    }
-
-    // HIP
-    else if (strcmp(str1, "hip") == 0) {
-    
-      if (strcmp(str2, "x") == 0) {
-      
-      }
-
-      else if (strcmp(str2, "y") == 0) {
-      
-      }
-
-    }
-
-    // HEAD
-    else if (strcmp(str1, "head") == 0) {
-    
-      if (strcmp(str2, "x") == 0) {
-      
-      }
-
-      else if (strcmp(str2, "y") == 0) {
-      
-      }
-
-    }
+    // Explicit default case for invalid `str1`
+    return -1;
 }

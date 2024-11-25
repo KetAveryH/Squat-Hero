@@ -32,6 +32,8 @@ int main(void) {
 
     // Step 2: Initialize the LSM6DSO32 IMU
     IMU_config(IMU_ADDRESS_SHIN, CTRL1_XL);
+    //IMU_config(IMU_ADDRESS_FEMAR, CTRL1_XL);
+    //IMU_config(IMU_ADDRESS_TORSO, CTRL1_XL);
 
     // Step 3: 
     while (1) {
@@ -47,9 +49,9 @@ int main(void) {
         //uint16_t raw_accel_y_femar = read_accel(IMU_ADDRESS_FEMAR, OUTY_L_A);
         //uint16_t raw_accel_z_femar = read_accel(IMU_ADDRESS_FEMAR, OUTZ_L_A);
 
-        //uint16_t raw_accel_x_torso = read_accel(IMU_ADDRESS_FEMAR, OUTX_L_A);
-        //uint16_t raw_accel_y_torso = read_accel(IMU_ADDRESS_FEMAR, OUTY_L_A);
-        //uint16_t raw_accel_z_torso = read_accel(IMU_ADDRESS_FEAMR, OUTZ_L_A);
+        //uint16_t raw_accel_x_torso = read_accel(IMU_ADDRESS_TORSO, OUTX_L_A);
+        //uint16_t raw_accel_y_torso = read_accel(IMU_ADDRESS_TORSO, OUTY_L_A);
+        //uint16_t raw_accel_z_torso = read_accel(IMU_ADDRESS_TORSO, OUTZ_L_A);
         //*******************
 
 
@@ -94,9 +96,28 @@ int main(void) {
         //char *knee = "knee"; already declared
         //char *toe = "hip";   already declared
         char *head = "head";
+        char *x = "x";
+        char *y = "y";
 
-        
-        
+        // calculate the origin position of the heel one time
+        int delay1 = 0;
+
+        while(delay1 == 0) {
+          uint16_t x_heel = decode_pos(heel, x);
+          uint16_t y_heel = decode_pos(heel, y);
+          delay1 += 1;
+        }
+        /////////
+
+        // calculate the rest of the positions from the reference point of the heel
+        uint16_t x_toe = decode_pos(toe, x);
+        uint16_t y_toe = decode_pos(toe, y);
+        uint16_t x_knee = decode_pos(knee, x);
+        uint16_t y_knee = decode_pos(knee, y);
+        uint16_t x_hip = decode_pos(hip, x);
+        uint16_t y_hip = decode_pos(hip, y);
+        uint16_t x_head = decode_pos(head, x);
+        uint16_t y_head = decode_pos(head, y);
         //*******************
 
         
