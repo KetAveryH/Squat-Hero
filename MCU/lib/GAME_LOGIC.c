@@ -43,6 +43,9 @@ volatile int x_accel; // 'volatile' because its value changes asynchronously
 
 
 // Function to convert 16-bit two's complement to signed integer
+
+// No need for function, casting should be fine
+
 int16_t twoComplement2Signed(uint16_t raw_value) {
     // Check if the MSB (bit 15) is set (indicating a negative number)
     if (raw_value & 0x8000) {

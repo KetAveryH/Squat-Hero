@@ -120,7 +120,8 @@ int main(void) {
         uint16_t y_head = decode_pos(head, y);
         //*******************
 
-        
+        // FOLLOW THE pinMode function for the outline to choose different things in the game logic functions I have written
+
         // Print the X-axis accelerometer value (this assumes you have some serial or debug output setup)
         printf("Accelerometer X-axis: %d\n", angle_ankle);
 

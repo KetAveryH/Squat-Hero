@@ -1,5 +1,6 @@
-// LSM6DSO32 IMU.c file
+// ]LSM6DSO32] IMU.c file
 // IMU functions
+
 
 #include "STM32L432KC_IMU.h"
 #include "STM32L432KC_I2C.h"

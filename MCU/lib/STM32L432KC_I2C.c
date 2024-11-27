@@ -22,6 +22,11 @@ void init_I2C(void) {
   // set to I2C specific alternate functionality AF04
   GPIOA->AFR[1] |= _VAL2FLD(GPIO_AFRL_AFSEL1, 4);
   GPIOA->AFR[1] |= _VAL2FLD(GPIO_AFRL_AFSEL2, 4);
+
+  // Configure the I2C control registers to be enables and working
+  I2C1->CR1 |= (1<<0);  // Enable I2C
+  I2C1->CR1 |= (1<<10);  // Enable the ACK
+  I2C1->CR1 |= I2C_CR1_PE;  // Generate peripheral enable
  
   //set I2C clk as the SYSCLK
   RCC->CCIPR &= ~RCC_CCIPR_I2C1SEL;
@@ -52,11 +57,6 @@ void init_I2C(void) {
 
   I2C1->TIMINGR &= ~I2C_TIMINGR_SCLDEL;      // Clear SCL high period
   I2C1->TIMINGR |= (0x4 << I2C_TIMINGR_SCLDEL_Pos); // Set SCLH
-
-  // Configure the I2C control registers to be enables and working
-  I2C1->CR1 |= (1<<0);  // Enable I2C
-  I2C1->CR1 |= (1<<10);  // Enable the ACK
-  I2C1->CR1 |= I2C_CR1_PE;  // Generate START
 
   // write to the IMU WHO_AM_I register
   //write_I2C(IMU_ADDRESS, WHO_AM_I, 1, 0);
