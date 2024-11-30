@@ -58,10 +58,21 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
+<<<<<<< HEAD
+  <SessionOpenFile windowGroup="DockEditLeft" x="6" y="19" useTextEdit="1" path="../lib/STM32L432KC_I2C.h" left="0" selected="1" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="38" y="99" useTextEdit="1" path="../lib/STM32L432KC_I2C.c" left="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="1" y="36" useTextEdit="1" path="../lib/STM32L432KC_RCC.c" left="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="6" y="16" useTextEdit="1" path="../lib/STM32L432KC_RCC.h" left="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="47" y="100" useTextEdit="1" path="../lib/STM32L432KC_GPIO.c" left="0" top="85" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="6" y="107" useTextEdit="1" path="../lib/STM32L432KC_GPIO.h" left="0" top="72" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="1" y="8" useTextEdit="1" path="../lib/STM32L432KC_FLASH.c" left="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="34" useTextEdit="1" path="main.c" left="0" top="52" codecName="Default"/>
+=======
   <SessionOpenFile windowGroup="DockEditLeft" x="37" y="93" useTextEdit="1" path="../lib/STM32L432KC_I2C.c" left="0" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="21" y="4" useTextEdit="1" path="../lib/STM32L432KC_I2C.h" left="0" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="73" y="7" useTextEdit="1" path="../lib/STM32L432KC_RCC.c" left="0" selected="1" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="56" useTextEdit="1" path="main.c" left="0" top="27" codecName="Default"/>
+>>>>>>> a52616620aa16d1b04604f31d562c6321413d785
  </Files>
  <EMStudioWindow activeProject="squat_hero_v1" fileDialogDefaultFilter="*" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/MCU/lib" debugSearchPath="" autoConnectCapabilities="3711"/>
 </session>
