@@ -42,7 +42,7 @@ if (a)
 <DIV id="content" onclick="hideTocList()"><PRE>
 <A name="Par"></A>Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
 
-Wed Nov 20 19:17:26 2024
+Fri Nov 29 17:33:58 2024
 
 Command Line: par -w -n 1 -t 1 -s 1 -cores 1 -hsp m -exp parPathBased=ON \
 	squat_hero_test_1_map.udb squat_hero_test_1.udb 
@@ -52,15 +52,15 @@ Command Line: par -w -n 1 -t 1 -s 1 -cores 1 -hsp m -exp parPathBased=ON \
 Level/       Number       Estimated       Timing       Estimated Worst    Timing          Run      Run
 Cost [udb]   Unrouted     Worst Slack     Score        Slack(hold)        Score(hold)     Time     Status
 ----------   --------     -----------     ------       ---------------    -----------     ----     ------
-5_1   *      0            27.299          0            2.845              0               09       Completed
+5_1   *      0            22.368          0            1.808              0               10       Completed
 * : Design saved.
 
-Total (real) run time for 1-seed: 9 secs 
+Total (real) run time for 1-seed: 10 secs 
 
 par done!
 
 Lattice Place and Route Report for Design &quot;squat_hero_test_1_map.udb&quot;
-Wed Nov 20 19:17:26 2024
+Fri Nov 29 17:33:58 2024
 
 
 <A name="par_best"></A><B><U><big>Best Par Run</big></U></B>
@@ -90,14 +90,14 @@ WARNING &lt;71003020&gt; - par: Top module port &apos;clk&apos; does not connect
 WARNING &lt;71003020&gt; - par: Top module port &apos;clk&apos; does not connect to anything.
 WARNING &lt;71003020&gt; - par: Top module port &apos;clk&apos; does not connect to anything.
 WARNING &lt;71003020&gt; - par: Top module port &apos;clk&apos; does not connect to anything.
-Number of Signals: 215
-Number of Connections: 649
+Number of Signals: 399
+Number of Connections: 1010
 
 <A name="par_dus"></A><B><U><big>Device utilization summary:</big></U></B>
 
-   SLICE (est.)      95/2640          4% used
-     LUT            173/5280          3% used
-     REG             20/5280         &lt;1% used
+   SLICE (est.)     135/2640          5% used
+     LUT            256/5280          5% used
+     REG             72/5280          1% used
    PIO               18/56           32% used
                      18/36           50% bonded
    IOLOGIC            0/56            0% used
@@ -131,25 +131,25 @@ Starting Placer Phase 1. CPU time: 0 secs , REAL time: 0 secs
 ..  ..
 ....................
 
-Placer score = 26084.
+Placer score = 31820.
 
 Device SLICE utilization summary after final SLICE packing:
-   SLICE             95/2640          3% used
+   SLICE            135/2640          5% used
 
-Finished Placer Phase 1. CPU time: 1 secs , REAL time: 5 secs 
+Finished Placer Phase 1. CPU time: 6 secs , REAL time: 8 secs 
 
 Starting Placer Phase 2.
 .
 
-Placer score =  30792
-Finished Placer Phase 2.  CPU time: 1 secs , REAL time: 5 secs 
+Placer score =  48021
+Finished Placer Phase 2.  CPU time: 6 secs , REAL time: 8 secs 
 
 
 
 <A name="par_clk"></A><B><U><big>Clock Report</big></U></B>
 
 Global Clocks :
-  PRIMARY &quot;vgaclk_c&quot; from OUTCORE on comp &quot;pll_inst.lscc_pll_inst.u_PLL_B&quot; on site &quot;PLL_R13C32&quot;, clk load = 12, ce load = 0, sr load = 0
+  PRIMARY &quot;vgaclk_c&quot; from OUTCORE on comp &quot;pll_inst.lscc_pll_inst.u_PLL_B&quot; on site &quot;PLL_R13C32&quot;, clk load = 39, ce load = 0, sr load = 0
 
   PRIMARY  : 1 out of 8 (12%)
 
@@ -166,19 +166,19 @@ I/O Bank Usage Summary:
 +----------+---------------+------------+------------+------------+
 | I/O Bank | Usage         | Bank Vccio | Bank Vref1 | Bank Vref2 |
 +----------+---------------+------------+------------+------------+
-| 0        | 1 / 14 (  7%) | 3.3V       |            |            |
-| 1        | 9 / 14 ( 64%) | 3.3V       |            |            |
-| 2        | 8 / 8 (100%)  | 3.3V       |            |            |
+| 0        | 3 / 14 ( 21%) | 3.3V       |            |            |
+| 1        | 8 / 14 ( 57%) | 3.3V       |            |            |
+| 2        | 7 / 8 ( 87%)  | 3.3V       |            |            |
 +----------+---------------+------------+------------+------------+
 
-Total Placer CPU time: 1 secs , REAL time: 5 secs 
+Total Placer CPU time: 6 secs , REAL time: 8 secs 
 
 
-Checksum -- place: 583b570899b79227accbff1955bcbfeaff9c2df
+Checksum -- place: 32e2a9061ea66df1f8fcdb4673e007c0c2393368
 Writing design to file squat_hero_test_1_par.dir/5_1.udb ...
 
 
-Start NBR router at 19:17:31 11/20/24
+Start NBR router at 17:34:06 11/29/24
 
 *****************************************************************
 Info: NBR allows conflicts(one node used by more than one signal)
@@ -197,12 +197,12 @@ Starting routing resource preassignment
 Preassignment Summary:
 --------------------------------------------------------------------------------
 1 connections routed with dedicated routing resources
-43 connections routed (of 629 total) (6.84%)
+150 connections routed (of 985 total) (15.23%)
 ---------------------------------------------------------
 Clock routing summary:
 Primary clocks (1 used out of 8 available):
 #0  Signal &quot;vgaclk_c&quot;
-       Clock   loads: 0     out of    12 routed (  0.00%)
+       Clock   loads: 0     out of    39 routed (  0.00%)
        Data    loads: 0     out of     1 routed (  0.00%)
 Other clocks:
     Signal &quot;int_osc&quot;
@@ -216,37 +216,34 @@ Completed routing resource preassignment
 Routing in Serial Mode ......
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Start NBR section for initial routing at 19:17:33 11/20/24
+Start NBR section for initial routing at 17:34:07 11/29/24
 Level 4, iteration 1
-7(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack&lt;setup&gt;: 27.415ns/0.000ns; real time: 3 secs 
+10(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack&lt;setup&gt;: 21.361ns/0.000ns; real time: 0 secs 
 
 Info: Initial congestion level at 75.00% usage is 0
 Info: Initial congestion area  at 75.00% usage is 0 (0.00%)
 
-Start NBR section for normal routing at 19:17:34 11/20/24
+Start NBR section for normal routing at 17:34:07 11/29/24
 Level 4, iteration 1
-1(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack&lt;setup&gt;: 27.032ns/0.000ns; real time: 3 secs 
+3(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack&lt;setup&gt;: 21.361ns/0.000ns; real time: 0 secs 
 Level 4, iteration 2
-1(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack&lt;setup&gt;: 27.032ns/0.000ns; real time: 3 secs 
-Level 4, iteration 3
 0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack&lt;setup&gt;: 27.032ns/0.000ns; real time: 3 secs 
+Estimated worst slack/total negative slack&lt;setup&gt;: 21.361ns/0.000ns; real time: 0 secs 
 
-Start NBR section for setup/hold timing optimization with effort level 3 at 19:17:34 11/20/24
+Start NBR section for setup/hold timing optimization with effort level 3 at 17:34:07 11/29/24
 
-Start NBR section for post-routing at 19:17:34 11/20/24
+Start NBR section for post-routing at 17:34:07 11/29/24
 
 End NBR router with 0 unrouted connection(s)
 
-Checksum -- route: 126663aef2cd7f2ece4d844f8dfb060db6d7ad
+Checksum -- route: 53a6bf606d3d761a69cbdd75505a6d516aaacc74
 
 Total CPU time 1 secs 
-Total REAL time: 4 secs 
+Total REAL time: 2 secs 
 Completely routed.
-End of route.  629 routed (100.00%); 0 unrouted.
+End of route.  985 routed (100.00%); 0 unrouted.
 
 Writing design to file squat_hero_test_1_par.dir/5_1.udb ...
 
@@ -256,17 +253,17 @@ All signals are completely routed.
 
 PAR_SUMMARY::Run status = Completed
 PAR_SUMMARY::Number of unrouted conns = 0
-PAR_SUMMARY::Estimated worst slack&lt;setup/&lt;ns&gt;&gt; = 27.299
+PAR_SUMMARY::Estimated worst slack&lt;setup/&lt;ns&gt;&gt; = 22.368
 PAR_SUMMARY::Timing score&lt;setup/&lt;ns&gt;&gt; = 0.000
-PAR_SUMMARY::Estimated worst slack&lt;hold/&lt;ns&gt;&gt; = 2.845
+PAR_SUMMARY::Estimated worst slack&lt;hold/&lt;ns&gt;&gt; = 1.808
 PAR_SUMMARY::Timing score&lt;hold/&lt;ns&gt;&gt; = 0.000
 PAR_SUMMARY::Number of errors = 0
 
 Note: user must run &apos;timing&apos; for timing closure signoff.
 
-Total CPU  Time: 2 secs 
-Total REAL Time: 9 secs 
-Peak Memory Usage: 127.11 MB
+Total CPU  Time: 8 secs 
+Total REAL Time: 10 secs 
+Peak Memory Usage: 130.54 MB
 
 
 par done!

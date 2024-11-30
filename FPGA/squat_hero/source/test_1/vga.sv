@@ -26,11 +26,13 @@ module vga(input logic clk, reset,
 	// generate monitor timing signals
 	vgaController vgaCont(vgaclk, reset, hsync, vsync, sync_b, blank_b, x, y);
 	
-	// user–defined module to determine pixel color
+	// userdefined module to determine pixel color
 	//videoGen videoGen(x, y, r, g, b);
 	
 	// Instantiate videoGen with blank_b
 	videoGen videoGen(
+		.vgaclk(vgaclk),
+		.reset(reset),
 		.x(x),
 		.y(y),
 		.blank_b(blank_b),
@@ -79,9 +81,9 @@ module vgaController #(parameter HBP     = 10'd48,  // horizontal back porch
 	// compute sync signals (active low)
 	assign hsync = ~( (hcnt >= (HACTIVE + HFP)) & (hcnt < (HACTIVE + HFP + HSYN)) );
 	assign vsync = ~( (vcnt >= (VACTIVE + VFP)) & (vcnt < (VACTIVE + VFP + VSYN)) );
-	//assign sync_b = 1'b0; // this should be 0 for newer monitors
+	assign sync_b = 1'b0; // this should be 0 for newer monitors
 						  // for older monitors, use: assign sync_b = hsync & vsync;
-	assign sync_b = hsync & vsync;
+	// assign sync_b = hsync & vsync;
 	// force outputs to black when not writing pixels
 	assign blank_b = (hcnt < HACTIVE) & (vcnt < VACTIVE);
 endmodule
@@ -96,14 +98,51 @@ endmodule
     //assign r = inrect ? 4'hF : 4'h0; // Maximum value for 4 bits is 4'hF (15 in decimal)
   //chargenrom chargenromb(y[8:3]+8'd65, x[2:0], y[2:0], pixel);
   //rectgen rectgen(x, y, 10'd120, 10'd150, 10'd200, 10'd230, inrect);
+  
+module moving_box #(
+    parameter BOX_WIDTH = 10'd100  // Define as parameter
+)(
+    input  logic        vgaclk,
+    output logic [9:0]  left,
+    output logic [9:0]  right,
+    output logic [9:0]  top,
+    output logic [9:0]  bot
+);
+    
+    logic [31:0] counter;
+    
+    // Fixed vertical position assignments
+    assign top = 10'd150;
+    assign bot = 10'd230;
+    
+    always_ff @(posedge vgaclk) begin  // Added reset to sensitivity list
+        if (counter >= 1_000_000) begin
+            counter <= 0;
+            if (left <= (10'd48 + 10'd480)) begin
+                left <= left + 1'd1;    
+                right <= right + 1'd1;  
+            end else begin
+                left <= 10'd48;
+                right <= 10'd48 + BOX_WIDTH;
+            end
+        end else begin
+            counter <= counter + 1'd1;
+        end
+    end
+    
+endmodule
+
 module videoGen(
-    input logic [9:0] x, y,
-    input logic blank_b,
-    output logic [3:0] r, g, b
+    input  logic        vgaclk,     // Add vgaclk input
+    input  logic        reset,      // Add reset input
+    input  logic [9:0]  x, y,
+    input  logic        blank_b,
+    output logic [3:0]  r, g, b
 );
     logic pixel, inrect;
+    logic [9:0] box_left, box_right, box_top, box_bot;  // Add signals to connect modules
 
-    // Instantiate the character generator ROM and rectangle generator outside the always block
+    // Instantiate the character generator ROM
     chargenrom chargenromb(
         .ch(y[8:3] + 8'd65),
         .xoff(x[2:0]),
@@ -111,15 +150,27 @@ module videoGen(
         .pixel(pixel)
     );
 
+    // Instantiate moving box with connections
+    moving_box #(.BOX_WIDTH(10'd10)) moving_box_inst(
+        .vgaclk(vgaclk),
+        .left(box_left),
+        .right(box_right),
+        .top(box_top),
+        .bot(box_bot)
+    );
+
+    // Use the moving box coordinates for rectgen
     rectgen rectgen_inst(
         .x(x),
         .y(y),
-        .left(10'd120),
-        .top(10'd150),
-        .right(10'd200),
-        .bot(10'd230),
+        .left(box_left),    // Use moving box coordinates
+        .right(box_right),  // instead of fixed values
+        .top(box_top),
+        .bot(box_bot),
         .inrect(inrect)
     );
+
+    
 
     // Use an always_comb block for conditional assignments
     always_comb begin
