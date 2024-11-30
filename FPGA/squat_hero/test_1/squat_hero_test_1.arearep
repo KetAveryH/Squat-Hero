@@ -1,61 +1,30 @@
 ----------------------------------------------------------------------
 Report for cell vga.TECH
-Register bits:  72 of 5280 (1.364%)
+Register bits:  20 of 5280 (0.379%)
 I/O cells:      18
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               CCU2        41          100.0
-                            FD1P3XZ        72          100.0
+                               CCU2        12          100.0
+                            FD1P3XZ        20          100.0
                          HSOSC_CORE         1          100.0
                                  IB         1          100.0
-                               LUT4       172          100.0
+                               LUT4        36          100.0
                                  OB        17          100.0
                               PLL_B         1          100.0
 SUB MODULES
-                         chargenrom         1
-    moving_box(BOX_WIDTH=10'b01010)         1
                         no_lock_pll         1
 no_lock_pll_ipgen_lscc_pll(DIVR="3",DIVF="66",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",FREQUENCY_PIN_REFERENCECLK="48.000000")         1
-                            rectgen         1
                       vgaController         1
-                           videoGen         1
-                              TOTAL       312
+                              TOTAL        91
 ----------------------------------------------------------------------
-Report for cell videoGen.v1
-Instance Path : videoGen
+Report for cell vgaController.v1
+Instance Path : vgaCont
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2        29           70.7
-                            FD1P3XZ        52           72.2
-                               LUT4       136           79.1
-SUB MODULES
-                         chargenrom         1
-    moving_box(BOX_WIDTH=10'b01010)         1
-                            rectgen         1
-                              TOTAL       220
-----------------------------------------------------------------------
-Report for cell rectgen.v1
-Instance Path : videoGen.rectgen_inst
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               LUT4        24           14.0
-                              TOTAL        24
-----------------------------------------------------------------------
-Report for cell moving_box(BOX_WIDTH=10'b01010).v1
-Instance Path : videoGen.moving_box_inst
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                                FA2        29           70.7
-                            FD1P3XZ        52           72.2
-                               LUT4        14            8.1
-                              TOTAL        95
-----------------------------------------------------------------------
-Report for cell chargenrom.v1
-Instance Path : videoGen.chargenromb
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               LUT4        93           54.1
-                              TOTAL        93
+                                FA2        12          100.0
+                            FD1P3XZ        20          100.0
+                               LUT4        35           97.2
+                              TOTAL        67
 ----------------------------------------------------------------------
 Report for cell no_lock_pll.v1
 Instance Path : pll_inst
@@ -72,12 +41,3 @@ Instance Path : pll_inst.lscc_pll_inst
                                cell     count   Res Usage(%)
                               PLL_B         1          100.0
                               TOTAL         1
-----------------------------------------------------------------------
-Report for cell vgaController.v1
-Instance Path : vgaCont
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                                FA2        12           29.3
-                            FD1P3XZ        20           27.8
-                               LUT4        35           20.3
-                              TOTAL        67

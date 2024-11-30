@@ -1,4 +1,4 @@
-module vga(input logic clk, reset,
+module vga(input logic clk, reset, reset1,
 		   output logic vgaclk, // 25 MHz VGA clock  25.175MHz
 		   output logic hsync, vsync,
 		   output logic sync_b, blank_b, // to monitor & DAC
@@ -18,7 +18,7 @@ module vga(input logic clk, reset,
     no_lock_pll pll_inst (
         .ref_clk_i(int_osc),             // Input clock (48 MHz)
         .rst_n_i(~reset),            // Active-low reset
-        //.lock_o(pll_locked),         // PLL lock signal
+        //.lock_o(pll_locked),         // PLL lock signal  // TODO Experiment with turning this o
         .outcore_o(vgaclk),          // Core clock output (25 MHz)
         .outglobal_o()               // Global clock output (not used)
     );
@@ -33,6 +33,7 @@ module vga(input logic clk, reset,
 	videoGen videoGen(
 		.vgaclk(vgaclk),
 		.reset(reset),
+		.reset1(reset1),
 		.x(x),
 		.y(y),
 		.blank_b(blank_b),
@@ -88,87 +89,143 @@ module vgaController #(parameter HBP     = 10'd48,  // horizontal back porch
 	assign blank_b = (hcnt < HACTIVE) & (vcnt < VACTIVE);
 endmodule
 
-//module videoGen(input logic [9:0] x, y, input logic blank_b, output logic [3:0] r, g, b);
-  //logic pixel, inrect;
-    //given y position, choose a character to display
-    //then look up the pixel value from the character ROM
-     //and display it in red or blue. Also draw a green rectangle.
-  //always_comb begin
-    //assign {g, b} = (y[3] == 0) ? {{4{pixel}}, 4'h0} : {4'h0, {4{pixel}}};
-    //assign r = inrect ? 4'hF : 4'h0; // Maximum value for 4 bits is 4'hF (15 in decimal)
-  //chargenrom chargenromb(y[8:3]+8'd65, x[2:0], y[2:0], pixel);
-  //rectgen rectgen(x, y, 10'd120, 10'd150, 10'd200, 10'd230, inrect);
-  
-module moving_box #(
-    parameter BOX_WIDTH = 10'd100  // Define as parameter
-)(
-    input  logic        vgaclk,
-    output logic [9:0]  left,
-    output logic [9:0]  right,
-    output logic [9:0]  top,
-    output logic [9:0]  bot
+// module moving_box #(
+//     parameter BOX_WIDTH = 10'd100,
+//     parameter INITIAL_LEFT = 10'd48,
+//     parameter INITIAL_RIGHT = INITIAL_LEFT + BOX_WIDTH,
+//     parameter VERTICAL_TOP = 10'd150,
+//     parameter VERTICAL_BOT = 10'd230
+// )(
+//     input  logic        vgaclk,
+//     input  logic        reset,
+//     output logic [9:0]  left,
+//     output logic [9:0]  right,
+//     output logic [9:0]  top,
+//     output logic [9:0]  bot
+// );
+    
+//     logic [31:0] counter;
+    
+//     // Fixed vertical position assignments
+//     assign top = VERTICAL_TOP;
+//     assign bot = VERTICAL_BOT;
+    
+//     always_ff @(posedge vgaclk or posedge reset) begin
+//         if (reset) begin
+//             counter <= 32'd0;
+//             left <= INITIAL_LEFT;
+//             right <= INITIAL_RIGHT;
+//         end else if (counter >= 1_000_000) begin
+//             counter <= 0;
+//             if (left <= (10'd48 + 10'd480)) begin // If not at the end of the screen, move the box
+//                 left <= left + 1'd1;    
+//                 right <= right + 1'd1;  
+//             end else begin
+//                 left <= INITIAL_LEFT;
+//                 right <= INITIAL_RIGHT;
+//             end
+//         end else begin // Increment the counter
+//             counter <= counter + 1'd1;
+//         end
+//     end
+    
+// endmodule
+
+typedef struct packed {
+    logic [9:0] left;
+    logic [9:0] right;
+    logic [9:0] top;
+    logic [9:0] bot;
+} rect_t;
+
+module image_frame(
+    output rect_t [13:0] rects
 );
+    // Use assign statements instead of procedural blocks
+    assign rects[0] = '{left: 10'd300, right: 10'd340, top: 10'd100, bot: 10'd140};  // Head
+    assign rects[1] = '{left: 10'd310, right: 10'd330, top: 10'd140, bot: 10'd220};  // Body
+    assign rects[2] = '{left: 10'd270, right: 10'd310, top: 10'd150, bot: 10'd170};  // Left Arm
+    assign rects[3] = '{left: 10'd330, right: 10'd370, top: 10'd150, bot: 10'd170};  // Right Arm
+    assign rects[4] = '{left: 10'd310, right: 10'd320, top: 10'd220, bot: 10'd300};  // Left Leg
+    assign rects[5] = '{left: 10'd320, right: 10'd330, top: 10'd220, bot: 10'd300};  // Right Leg
     
-    logic [31:0] counter;
-    
-    // Fixed vertical position assignments
-    assign top = 10'd150;
-    assign bot = 10'd230;
-    
-    always_ff @(posedge vgaclk) begin  // Added reset to sensitivity list
-        if (counter >= 1_000_000) begin
-            counter <= 0;
-            if (left <= (10'd48 + 10'd480)) begin
-                left <= left + 1'd1;    
-                right <= right + 1'd1;  
-            end else begin
-                left <= 10'd48;
-                right <= 10'd48 + BOX_WIDTH;
-            end
-        end else begin
-            counter <= counter + 1'd1;
+    // Initialize remaining rectangles to 0
+    genvar i;
+    generate
+        for (i = 6; i < 14; i = i + 1) begin : init_rects
+            assign rects[i] = '{default: '0};
         end
-    end
-    
+    endgenerate
 endmodule
 
 module videoGen(
     input  logic        vgaclk,     // Add vgaclk input
     input  logic        reset,      // Add reset input
+	    input  logic        reset1,
     input  logic [9:0]  x, y,
     input  logic        blank_b,
     output logic [3:0]  r, g, b
 );
-    logic pixel, inrect;
+    logic pixel, inrect[14];
     logic [9:0] box_left, box_right, box_top, box_bot;  // Add signals to connect modules
 
-    // Instantiate the character generator ROM
-    chargenrom chargenromb(
-        .ch(y[8:3] + 8'd65),
-        .xoff(x[2:0]),
-        .yoff(y[2:0]),
-        .pixel(pixel)
+	  rect_t [13:0] rects;  // Only need one array
+
+    // Instantiate image_frame with only output
+    image_frame image_frame_inst(
+        .rects(rects)    // Connect to the output-only port
     );
 
-    // Instantiate moving box with connections
-    moving_box #(.BOX_WIDTH(10'd10)) moving_box_inst(
-        .vgaclk(vgaclk),
-        .left(box_left),
-        .right(box_right),
-        .top(box_top),
-        .bot(box_bot)
-    );
+  
 
-    // Use the moving box coordinates for rectgen
-    rectgen rectgen_inst(
+     //Instantiate the character generator ROM
+    //chargenrom chargenromb(
+        //.ch(y[8:3] + 8'd65),
+        //.xoff(x[2:0]),
+        //.yoff(y[2:0]),
+        //.pixel(pixel)
+    //);
+
+
+    logic inrect_all;
+    
+    rect_struct_gen rect_struct_gen_inst(
         .x(x),
         .y(y),
-        .left(box_left),    // Use moving box coordinates
-        .right(box_right),  // instead of fixed values
-        .top(box_top),
-        .bot(box_bot),
-        .inrect(inrect)
+        .rects(rects),
+        .inrect_all(inrect_all)
     );
+
+    
+
+    // Instantiate moving box with connections
+    // moving_box #(
+    //     .BOX_WIDTH(10'd10),
+    //     .INITIAL_LEFT(10'd48),
+    //     .INITIAL_RIGHT(10'd58),  // or let it calculate from INITIAL_LEFT + BOX_WIDTH
+    //     .VERTICAL_TOP(10'd150),
+    //     .VERTICAL_BOT(10'd230)
+    // ) moving_box_inst(
+    //     .vgaclk(vgaclk),
+    //     .reset(reset),
+    //     .left(box_left),
+    //     .right(box_right),
+    //     .top(box_top),
+    //     .bot(box_bot)
+    // );
+
+    // Use the moving box coordinates for rectgen
+    // rectgen rectgen_inst(
+    //     .x(x),
+    //     .y(y),
+    //     .left(box_left),    // Use moving box coordinates
+    //     .right(box_right),  // instead of fixed values
+    //     .top(box_top),
+    //     .bot(box_bot),
+    //     .inrect(inrect)
+    // );
+
+    
 
     
 
@@ -190,38 +247,10 @@ module videoGen(
                 b = {4{pixel}};
             end
             // Assign red channel based on inrect
-            r = inrect ? 4'hF : 4'h0; // Maximum value for 4 bits is 4'hF (15 in decimal)
+            r = inrect_all ? 4'hF : 4'h0; // Maximum value for 4 bits is 4'hF (15 in decimal)
         end
     end
 endmodule
-
-//endmodule
-//module videoGen(input logic [9:0] x, y, output logic [3:0] r, g, b);
-   //Always display green
-  //assign r = 4'b0000;   // Red channel is 0
-  //assign g = 4'b0001;   // Green channel is max (15 for 4 bits)
-  //assign b = 4'b0000;   // Blue channel is 0
-
-//endmodule
-//module videoGen(
-    //input logic [9:0] x, y,
-    //input logic blank_b,
-    //output logic [3:0] r, g, b
-//);
-  // Always display green when in active area
-  //always @(*) begin
-    //if (blank_b) begin
-      //r = 4'b1111; // Red channel is 0
-      //g = 4'b1111; // Green channel is max (15 for 4 bits)
-      //b = 4'b1111; // Blue channel is 0
-    //end else begin
-       //During porch periods, set outputs to zero
-      //r = 4'b0000;
-      //g = 4'b0000;
-      //b = 4'b0000;
-    //end
-  //end
-//endmodule
 
 
 module chargenrom(input logic [7:0] ch,
@@ -244,4 +273,22 @@ endmodule
 module rectgen(input logic [9:0] x, y, left, top, right, bot,
                output logic inrect);
   assign inrect = (x >= left & x < right & y >= top & y < bot);
+endmodule
+
+module rect_struct_gen(
+    input logic [9:0] x, y,     // Add missing x,y inputs
+    input rect_t [13:0] rects,
+    output logic inrect_all
+);
+    logic [13:0] inrect;
+
+    genvar i;
+    generate
+        for (i = 0; i < 14; i = i + 1) begin : rect_gen
+            assign inrect[i] = (x >= rects[i].left & x < rects[i].right & 
+                              y >= rects[i].top & y < rects[i].bot);
+        end
+    endgenerate
+    
+    assign inrect_all = |inrect; //Logical OR of all inrect signals
 endmodule

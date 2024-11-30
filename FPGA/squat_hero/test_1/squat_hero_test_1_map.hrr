@@ -3,53 +3,24 @@ Report for cell vga
    Instance path: vga
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	        256        100.0
-                               LUTGATE	        174        100.0
-                                LUTCCU	         82        100.0
+                                  LUT4	         62        100.0
+                               LUTGATE	         38        100.0
+                                LUTCCU	         24        100.0
                                  IOBUF	         18        100.0
-                                PFUREG	         72        100.0
+                                PFUREG	         20        100.0
 SUB MODULES
                                   cell	      count    LUT4 Usage(%)
                            no_lock_pll	          1         0.0
-                         vgaController	          1        23.0
-                              videoGen	          1        75.4
+                         vgaController	          1        95.2
 ---------------------------------------------------
-Report for cell videoGen
-   Instance path: vga/videoGen
+Report for cell vgaController
+   Instance path: vga/vgaCont
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	        193        75.4
-                               LUTGATE	        135        77.6
-                                LUTCCU	         58        70.7
-                                PFUREG	         52        72.2
-SUB MODULES
-                                  cell	      count    LUT4 Usage(%)
-                            chargenrom	          1        36.3
-       moving_box(BOX_WIDTH=10'b01010)	          1        28.1
-                               rectgen	          1         9.0
----------------------------------------------------
-Report for cell rectgen
-   Instance path: vga/videoGen/rectgen_inst
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                  LUT4	         23         9.0
-                               LUTGATE	         23        13.2
----------------------------------------------------
-Report for cell moving_box(BOX_WIDTH=10'b01010)
-   Instance path: vga/videoGen/moving_box_inst
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                  LUT4	         72        28.1
-                               LUTGATE	         14         8.0
-                                LUTCCU	         58        70.7
-                                PFUREG	         52        72.2
----------------------------------------------------
-Report for cell chargenrom
-   Instance path: vga/videoGen/chargenromb
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                  LUT4	         93        36.3
-                               LUTGATE	         93        53.4
+                                  LUT4	         59        95.2
+                               LUTGATE	         35        92.1
+                                LUTCCU	         24        100.0
+                                PFUREG	         20        100.0
 ---------------------------------------------------
 Report for cell no_lock_pll
    Instance path: vga/pll_inst
@@ -63,12 +34,3 @@ Report for cell no_lock_pll_ipgen_lscc_pll(DIVR="3",DIVF="66",DIVQ="5",FILTER_RA
    Instance path: vga/pll_inst/lscc_pll_inst
                      Cell usage:
                                   cell	      count    Res Usage(%)
----------------------------------------------------
-Report for cell vgaController
-   Instance path: vga/vgaCont
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                  LUT4	         59        23.0
-                               LUTGATE	         35        20.1
-                                LUTCCU	         24        29.3
-                                PFUREG	         20        27.8

@@ -14,7 +14,7 @@ Performance Grade:   High-Performance_1.2V
 
 
 
-Successfully loading udb, 0.05 seconds
+Successfully loading udb, 0.03 seconds
 
 Initializing timer
 Starting design annotation....
@@ -22,13 +22,13 @@ High-Performance_1.2V
 
 Starting full timing analysis...
 Performance Hardware Data Status:   Advanced       Version 1.0.
-Connections ignored  42  counted  924  covered  434
+Connections ignored  13  counted  187  covered  144
 Changing speed to m;   changing temperature to -40
 
 STA Runtime and Peak Memory Usage :
 Total CPU Time: 0 secs 
 Total REAL Time: 0 secs 
-Peak Memory Usage: 103 MB
+Peak Memory Usage: 100 MB
 
- 0.829862s wall, 0.640625s user + 0.078125s system = 0.718750s CPU (86.6%)
+ 0.612058s wall, 0.484375s user + 0.015625s system = 0.500000s CPU (81.7%)
 

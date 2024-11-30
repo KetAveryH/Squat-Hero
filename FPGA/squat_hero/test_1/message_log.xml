@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BaliMessageLog>
-    <Task name="Export">
-        <Message>
-            <ID>1081100</ID>
-            <Severity>1</Severity>
-            <Dynamic>Bitstream authenticated.</Dynamic>
-        </Message>
-    </Task>
     <Task name="Synthesis">
         <Message>
             <ID>35831026</ID>
@@ -378,42 +371,34 @@
         <Message>
             <ID>35901018</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(47): </Dynamic>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(48): </Dynamic>
             <Dynamic>vgaController</Dynamic>
             <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>47</Navigation>
+            <Navigation>48</Navigation>
         </Message>
         <Message>
             <ID>35901018</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(135): </Dynamic>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(161): </Dynamic>
             <Dynamic>videoGen</Dynamic>
             <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>135</Navigation>
+            <Navigation>161</Navigation>
         </Message>
         <Message>
             <ID>35901018</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(227): </Dynamic>
-            <Dynamic>chargenrom</Dynamic>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(141): </Dynamic>
+            <Dynamic>image_frame</Dynamic>
             <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>227</Navigation>
+            <Navigation>141</Navigation>
         </Message>
         <Message>
             <ID>35901018</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(102): </Dynamic>
-            <Dynamic>moving_box(BOX_WIDTH=10'b01010)</Dynamic>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(278): </Dynamic>
+            <Dynamic>rect_struct_gen</Dynamic>
             <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>102</Navigation>
-        </Message>
-        <Message>
-            <ID>35901018</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(244): </Dynamic>
-            <Dynamic>rectgen</Dynamic>
-            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>244</Navigation>
+            <Navigation>278</Navigation>
         </Message>
         <Message>
             <ID>35834005</ID>
@@ -815,76 +800,60 @@
         <Message>
             <ID>35901018</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(47): </Dynamic>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(48): </Dynamic>
             <Dynamic>vgaController</Dynamic>
             <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>47</Navigation>
+            <Navigation>48</Navigation>
         </Message>
         <Message>
             <ID>35901209</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(72): </Dynamic>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(73): </Dynamic>
             <Dynamic>32</Dynamic>
             <Dynamic>10</Dynamic>
             <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>72</Navigation>
+            <Navigation>73</Navigation>
         </Message>
         <Message>
             <ID>35901209</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(75): </Dynamic>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(76): </Dynamic>
             <Dynamic>32</Dynamic>
             <Dynamic>10</Dynamic>
             <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>75</Navigation>
+            <Navigation>76</Navigation>
         </Message>
         <Message>
             <ID>35901018</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(135): </Dynamic>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(161): </Dynamic>
             <Dynamic>videoGen</Dynamic>
             <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>135</Navigation>
+            <Navigation>161</Navigation>
         </Message>
         <Message>
             <ID>35901018</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(227): </Dynamic>
-            <Dynamic>chargenrom</Dynamic>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(141): </Dynamic>
+            <Dynamic>image_frame</Dynamic>
             <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>227</Navigation>
+            <Navigation>141</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(278): </Dynamic>
+            <Dynamic>rect_struct_gen</Dynamic>
+            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
+            <Navigation>278</Navigation>
         </Message>
         <Message>
             <ID>35931002</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(231): </Dynamic>
-            <Dynamic>charrom</Dynamic>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(169): </Dynamic>
+            <Dynamic>pixel</Dynamic>
             <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>231</Navigation>
-        </Message>
-        <Message>
-            <ID>35901018</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(102): </Dynamic>
-            <Dynamic>moving_box(BOX_WIDTH=10'b01010)</Dynamic>
-            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>102</Navigation>
-        </Message>
-        <Message>
-            <ID>35901018</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(244): </Dynamic>
-            <Dynamic>rectgen</Dynamic>
-            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>244</Navigation>
-        </Message>
-        <Message>
-            <ID>35931038</ID>
-            <Severity>16</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(231): </Dynamic>
-            <Dynamic>charrom_original_ramnet</Dynamic>
-            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>231</Navigation>
+            <Navigation>169</Navigation>
         </Message>
         <Message>
             <ID>35935049</ID>
@@ -900,6 +869,11 @@
             <ID>35002028</ID>
             <Severity>256</Severity>
             <Dynamic>clk</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002028</ID>
+            <Severity>256</Severity>
+            <Dynamic>reset1</Dynamic>
         </Message>
         <Message>
             <ID>35931002</ID>
@@ -921,6 +895,11 @@
             <ID>35002028</ID>
             <Severity>256</Severity>
             <Dynamic>clk</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002028</ID>
+            <Severity>256</Severity>
+            <Dynamic>reset1</Dynamic>
         </Message>
         <Message>
             <ID>35811117</ID>
@@ -1034,14 +1013,41 @@
         <Message>
             <ID>71003020</ID>
             <Severity>16</Severity>
+            <Dynamic>reset1</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
             <Dynamic>clk</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>reset1</Dynamic>
         </Message>
     </Task>
     <Task name="PAR">
         <Message>
-            <ID>71003020</ID>
+            <ID>77001032</ID>
             <Severity>16</Severity>
-            <Dynamic>clk</Dynamic>
+            <Dynamic>reset1</Dynamic>
+            <Dynamic>ldc_set_location -site {34} [get_ports reset1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {34} [get_ports reset1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>reset1</Dynamic>
+            <Dynamic>ldc_set_location -site {34} [get_ports reset1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {34} [get_ports reset1]</Dynamic>
         </Message>
         <Message>
             <ID>71003020</ID>
@@ -1051,12 +1057,59 @@
         <Message>
             <ID>71003020</ID>
             <Severity>16</Severity>
-            <Dynamic>clk</Dynamic>
+            <Dynamic>reset1</Dynamic>
         </Message>
         <Message>
             <ID>71003020</ID>
             <Severity>16</Severity>
             <Dynamic>clk</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>reset1</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>clk</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>reset1</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>clk</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>reset1</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>reset1</Dynamic>
+            <Dynamic>ldc_set_location -site {34} [get_ports reset1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {34} [get_ports reset1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>reset1</Dynamic>
+            <Dynamic>ldc_set_location -site {34} [get_ports reset1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {34} [get_ports reset1]</Dynamic>
         </Message>
     </Task>
 </BaliMessageLog>

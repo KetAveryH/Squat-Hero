@@ -8,7 +8,7 @@ Package: SG48
 Performance Grade:  High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 2024.1.0.34.2
-Mapped on: Fri Nov 29 17:33:58 2024
+Mapped on: Fri Nov 29 21:21:47 2024
 
 Design Information
 ------------------
@@ -22,11 +22,11 @@ Command line:   map -pdc C:/Users/KetHollingsworth/Desktop/Repositories/Microps/
 Design Summary
 --------------
 
-   Number of slice registers:  72 out of  5280 (1%)
+   Number of slice registers:  20 out of  5280 (<1%)
    Number of I/O registers:      0 out of   117 (0%)
-   Number of LUT4s:           256 out of  5280 (5%)
-      Number of logic LUT4s:             174
-      Number of ripple logic:             41 (82 LUT4s)
+   Number of LUT4s:            62 out of  5280 (1%)
+      Number of logic LUT4s:              38
+      Number of ripple logic:             12 (24 LUT4s)
    Number of IO sites used:   18 out of 39 (46%)
       Number of IO sites used for general PIO: 18
       Number of IO sites used for I3C: 0 out of 2 (0%)
@@ -50,16 +50,16 @@ Design Summary
    Number of PLLs:             1 out of 1 (100%)
    Number of Clocks:  2
       Net int_osc: 1 loads, 1 rising, 0 falling (Driver: Pin hf_osc/CLKHF)
-      Net vgaclk_c: 49 loads, 49 rising, 0 falling (Driver: Pin
+      Net vgaclk_c: 20 loads, 20 rising, 0 falling (Driver: Pin
      pll_inst.lscc_pll_inst.u_PLL_B/OUTCORE)
-   Number of Clock Enables:  3
+   Number of Clock Enables:  2
       Net VCC_net: 1 loads, 0 SLICEs
-      Net videoGen.moving_box_inst.n3: 12 loads, 12 SLICEs
-      Net vgaCont.n757: 10 loads, 10 SLICEs
-   Number of LSRs:  3
-      Net videoGen.moving_box_inst.n3: 17 loads, 17 SLICEs
-      Net videoGen.moving_box_inst.n796: 12 loads, 12 SLICEs
+      Net vgaCont.n19: 10 loads, 10 SLICEs
+   Number of LSRs:  1
       Pin reset: 20 loads, 20 SLICEs (Net: reset_c)
+   Top 10 highest fanout non-clock nets:
+      Net reset_c: 21 loads
+      Net vgaCont.n19: 20 loads
 
                                     Page 1
 
@@ -69,23 +69,20 @@ Design Summary
 
 Design Summary (cont)
 ---------------------
-   Top 10 highest fanout non-clock nets:
-      Net y[1]: 46 loads
-      Net y[2]: 46 loads
-      Net y[0]: 44 loads
-      Net y[3]: 43 loads
-      Net videoGen.moving_box_inst.n3: 30 loads
-      Net y[4]: 29 loads
-      Net reset_c: 21 loads
-      Net vgaCont.n757: 20 loads
-      Net y[5]: 19 loads
-      Net y[6]: 17 loads
+      Net vgaCont.n19_adj_30: 10 loads
+      Net VCC_net: 4 loads
+      Net vgaCont.x[7]: 4 loads
+      Net vgaCont.x[8]: 4 loads
+      Net vgaCont.x[9]: 4 loads
+      Net vgaCont.y[9]: 4 loads
+      Net vgaCont.y[5]: 3 loads
+      Net vgaCont.y[6]: 3 loads
 
 
 
 
 
-   Number of warnings:  14
+   Number of warnings:  16
    Number of criticals: 0
    Number of errors:    0
 
@@ -117,7 +114,9 @@ WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {31}
 WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {37}
      [get_ports {dip[3]}]'.
 WARNING <71003020> - map: Top module port 'clk' does not connect to anything.
+WARNING <71003020> - map: Top module port 'reset1' does not connect to anything.
 WARNING <71003020> - map: Top module port 'clk' does not connect to anything.
+WARNING <71003020> - map: Top module port 'reset1' does not connect to anything.
 
 IO (PIO) Attributes
 -------------------
@@ -126,7 +125,8 @@ IO (PIO) Attributes
 | IO Name             | Direction | Levelmode |  IO   |  IO   | Special   |
 |                     |           |  IO_TYPE  |  REG  |  DDR  | IO Buffer |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| reset               | INPUT     |           |       |       |           |
+| r[3]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
 
                                     Page 2
 
@@ -136,31 +136,6 @@ IO (PIO) Attributes
 
 IO (PIO) Attributes (cont)
 --------------------------
-+---------------------+-----------+-----------+-------+-------+-----------+
-| b[0]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| b[1]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| b[2]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| b[3]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| g[0]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| g[1]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| g[2]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| g[3]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| r[0]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| r[1]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| r[2]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| r[3]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
 | blank_b             | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | sync_b              | OUTPUT    |           |       |       |           |
@@ -170,6 +145,30 @@ IO (PIO) Attributes (cont)
 | hsync               | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | vgaclk              | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| r[2]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| r[1]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| r[0]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| g[3]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| g[2]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| g[1]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| g[0]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| b[3]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| b[2]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| b[1]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| b[0]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| reset               | INPUT     |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 
 PLL/DLL Summary
@@ -193,6 +192,7 @@ PLL 1:                                 Pin/Node Value
   Reference Divider:                            3
   Feedback Divider:                             66
   VCO Divider:                                  5
+  ENABLE_ICEGATE_PORTA:                         0
 
                                     Page 3
 
@@ -202,7 +202,6 @@ PLL 1:                                 Pin/Node Value
 
 PLL/DLL Summary (cont)
 ----------------------
-  ENABLE_ICEGATE_PORTA:                         0
   ENABLE_ICEGATE_PORTB:                         0
   PLLOUT_SELECT_PORTA:                          GENCLK
   PLLOUT_SELECT_PORTB:                          GENCLK
@@ -237,7 +236,7 @@ Instance Name: pll_inst/lscc_pll_inst/u_PLL_B
 Constraint Summary
 ------------------
 
-   Total number of constraints: 21
+   Total number of constraints: 22
    Total number of constraints dropped: 3
    Dropped constraints are:
      ldc_set_location -site {35} [get_ports {dip[1]}]
@@ -249,8 +248,9 @@ Run Time and Memory Usage
 
    Total CPU Time: 0 secs
    Total REAL Time: 0 secs
-   Peak Memory Usage: 67 MB
-Checksum -- map: 9304c142a19fa1c873ac259828ed597eb2ef99d4
+   Peak Memory Usage: 64 MB
+Checksum -- map: c11fd67dae2b494850485a8c8da0245ebaa48ae7
+
 
 
 

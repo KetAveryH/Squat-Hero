@@ -1,10 +1,10 @@
 DRC: Design Rule Check Radiant Software (64-bit) 2024.1.0.34.2
-Mon Nov 18 21:08:36 2024
+Fri Nov 29 19:13:09 2024
 
 WARNING <71003020> - Top module port 'clk' does not connect to anything.
 WARNING <1027013> - No port matched 'dip[1]'.
-WARNING <1026001> - C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc (17) : Can't resolve object 'dip[1]' in constraint 'ldc_set_location -site {35} [get_ports {dip[1]}]'.
+WARNING <1026001> - C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc (16) : Can't resolve object 'dip[1]' in constraint 'ldc_set_location -site {35} [get_ports {dip[1]}]'.
 WARNING <1027013> - No port matched 'dip[2]'.
-WARNING <1026001> - C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc (18) : Can't resolve object 'dip[2]' in constraint 'ldc_set_location -site {31} [get_ports {dip[2]}]'.
+WARNING <1026001> - C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc (17) : Can't resolve object 'dip[2]' in constraint 'ldc_set_location -site {31} [get_ports {dip[2]}]'.
 WARNING <1027013> - No port matched 'dip[3]'.
-WARNING <1026001> - C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc (19) : Can't resolve object 'dip[3]' in constraint 'ldc_set_location -site {37} [get_ports {dip[3]}]'.
+WARNING <1026001> - C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc (18) : Can't resolve object 'dip[3]' in constraint 'ldc_set_location -site {37} [get_ports {dip[3]}]'.

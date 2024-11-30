@@ -1,6 +1,6 @@
 Lattice Timing Report -  Setup  and Hold, Version Radiant Software (64-bit) 2024.1.0.34.2
 
-Fri Nov 29 17:34:09 2024
+Fri Nov 29 21:21:53 2024
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
@@ -53,7 +53,7 @@ create_generated_clock -name {vgaclk_c} -source [get_pins {pll_inst/lscc_pll_ins
 
 1.2  Constraint Coverage
 ---------------------------
-Constraint Coverage: 46.9697%
+Constraint Coverage: 77.0053%
 
 
 1.3  Overall Summary
@@ -83,25 +83,25 @@ Clocked but unconstrained timing end points
 -------------------------------------------------------------------
          Listing 10 End Points          |           Type           
 -------------------------------------------------------------------
-{vgaCont/hcnt_46__i0/SR   vgaCont/hcnt_46__i1/SR}                           
+{vgaCont/vcnt_19__i8/SR   vgaCont/vcnt_19__i9/SR}                           
                                         |           No arrival time
-{vgaCont/hcnt_46__i9/SR   vgaCont/hcnt_46__i8/SR}                           
+{vgaCont/vcnt_19__i7/SR   vgaCont/vcnt_19__i6/SR}                           
                                         |           No arrival time
-{vgaCont/hcnt_46__i7/SR   vgaCont/hcnt_46__i6/SR}                           
+{vgaCont/hcnt_20__i0/SR   vgaCont/hcnt_20__i1/SR}                           
                                         |           No arrival time
-{vgaCont/hcnt_46__i5/SR   vgaCont/hcnt_46__i4/SR}                           
+{vgaCont/vcnt_19__i5/SR   vgaCont/vcnt_19__i4/SR}                           
                                         |           No arrival time
-{vgaCont/hcnt_46__i3/SR   vgaCont/hcnt_46__i2/SR}                           
+{vgaCont/vcnt_19__i3/SR   vgaCont/vcnt_19__i2/SR}                           
                                         |           No arrival time
-{vgaCont/vcnt_45__i9/SR   vgaCont/vcnt_45__i8/SR}                           
+{vgaCont/vcnt_19__i1/SR   vgaCont/vcnt_19__i0/SR}                           
                                         |           No arrival time
-{vgaCont/vcnt_45__i7/SR   vgaCont/vcnt_45__i6/SR}                           
+{vgaCont/hcnt_20__i9/SR   vgaCont/hcnt_20__i8/SR}                           
                                         |           No arrival time
-{vgaCont/vcnt_45__i5/SR   vgaCont/vcnt_45__i4/SR}                           
+{vgaCont/hcnt_20__i7/SR   vgaCont/hcnt_20__i6/SR}                           
                                         |           No arrival time
-{vgaCont/vcnt_45__i3/SR   vgaCont/vcnt_45__i2/SR}                           
+{vgaCont/hcnt_20__i5/SR   vgaCont/hcnt_20__i4/SR}                           
                                         |           No arrival time
-{vgaCont/vcnt_45__i1/SR   vgaCont/vcnt_45__i0/SR}                           
+{vgaCont/hcnt_20__i3/SR   vgaCont/hcnt_20__i2/SR}                           
                                         |           No arrival time
 -------------------------------------------------------------------
                                         |                          
@@ -124,21 +124,18 @@ create_generated_clock,
 ...
 
 -------------------------------------------------------------------
-     Listing 10 Start or End Points     |           Type           
+     Listing 7 Start or End Points      |           Type           
 -------------------------------------------------------------------
 reset                                   |                     input
 clk                                     |                     input
-b[0]                                    |                    output
-b[1]                                    |                    output
-b[2]                                    |                    output
-b[3]                                    |                    output
-g[0]                                    |                    output
-g[1]                                    |                    output
-g[2]                                    |                    output
-g[3]                                    |                    output
+reset1                                  |                     input
+blank_b                                 |                    output
+vsync                                   |                    output
+hsync                                   |                    output
+vgaclk                                  |                    output
 -------------------------------------------------------------------
                                         |                          
-Number of I/O ports without constraint  |                        18
+Number of I/O ports without constraint  |                         7
                                         |                          
 -------------------------------------------------------------------
 
@@ -169,7 +166,7 @@ Single Clock Domain
              Clock vgaclk_c             |                    |       Period       |     Frequency      
 -------------------------------------------------------------------------------------------------------
  From vgaclk_c                          |             Target |          39.801 ns |         25.125 MHz 
-                                        | Actual (all paths) |          18.439 ns |         54.233 MHz 
+                                        | Actual (all paths) |          14.288 ns |         69.989 MHz 
 -------------------------------------------------------------------------------------------------------
 
 Clock Domain Crossing
@@ -204,23 +201,18 @@ Clock Domain Crossing
 -------------------------------------------------------
           Listing 10 End Points          |    Slack    
 -------------------------------------------------------
-videoGen/moving_box_inst/left_48__i0/SR  |   21.362 ns 
-{videoGen/moving_box_inst/left_48__i1/SR   videoGen/moving_box_inst/left_48__i2/SR}              
-                                         |   21.362 ns 
-{videoGen/moving_box_inst/left_48__i3/SR   videoGen/moving_box_inst/left_48__i4/SR}              
-                                         |   21.362 ns 
-{videoGen/moving_box_inst/left_48__i5/SR   videoGen/moving_box_inst/left_48__i6/SR}              
-                                         |   21.362 ns 
-videoGen/moving_box_inst/right_49__i0/SR |   21.388 ns 
-{videoGen/moving_box_inst/right_49__i1/SR   videoGen/moving_box_inst/right_49__i2/SR}              
-                                         |   21.388 ns 
-{videoGen/moving_box_inst/right_49__i3/SR   videoGen/moving_box_inst/right_49__i4/SR}              
-                                         |   21.388 ns 
-{videoGen/moving_box_inst/right_49__i5/SR   videoGen/moving_box_inst/right_49__i6/SR}              
-                                         |   21.388 ns 
-{videoGen/moving_box_inst/right_49__i7/SR   videoGen/moving_box_inst/right_49__i8/SR}              
-                                         |   21.388 ns 
-videoGen/moving_box_inst/right_49__i9/SR |   21.388 ns 
+vgaCont/hcnt_20__i3/D                    |   25.513 ns 
+vgaCont/hcnt_20__i5/D                    |   25.513 ns 
+vgaCont/hcnt_20__i0/D                    |   25.513 ns 
+vgaCont/hcnt_20__i2/D                    |   25.566 ns 
+vgaCont/hcnt_20__i4/D                    |   25.566 ns 
+vgaCont/hcnt_20__i1/D                    |   25.566 ns 
+{vgaCont/vcnt_19__i7/SP   vgaCont/vcnt_19__i6/SP}              
+                                         |   25.751 ns 
+{vgaCont/vcnt_19__i8/SP   vgaCont/vcnt_19__i9/SP}              
+                                         |   25.751 ns 
+vgaCont/hcnt_20__i7/D                    |   26.623 ns 
+vgaCont/hcnt_20__i9/D                    |   26.623 ns 
 -------------------------------------------------------
                                          |             
 Setup # of endpoints with negative slack:|           0 
@@ -243,15 +235,15 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
  ++++Path 1  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Path Begin       : videoGen/moving_box_inst/counter_50__i11/Q  (SLICE_R19C4B)
-Path End         : videoGen/moving_box_inst/left_48__i0/SR  (SLICE_R18C3A)
+Path Begin       : vgaCont/hcnt_20__i9/Q  (SLICE_R16C9D)
+Path End         : vgaCont/hcnt_20__i3/D  (SLICE_R15C8B)
 Source Clock     : vgaclk_c (R)
 Destination Clock: vgaclk_c (R)
-Logic Level      : 8
-Delay Ratio      : 71.4% (route), 28.6% (logic)
+Logic Level      : 4
+Delay Ratio      : 77.7% (route), 22.3% (logic)
 Clock Skew       : -1.705 ns 
 Setup Constraint : 39.800 ns 
-Path Slack       : 21.361 ns  (Passed)
+Path Slack       : 25.512 ns  (Passed)
 
 
 Source Clock Path
@@ -260,42 +252,30 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  2       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY           5.353                  5.353  2       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                         0.000                  5.353  40      
+                                          PLL_PLL_R13C32                         0.000                  5.353  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                         0.150                  5.503  40      
-vgaCont/vgaclk_c                                             NET DELAY           8.592                 14.095  40      
-{videoGen/moving_box_inst/counter_50__i10/CK   videoGen/moving_box_inst/counter_50__i11/CK}
-                                                             CLOCK PIN           0.000                 14.095  1       
+                                          PLL_PLL_R13C32                         0.150                  5.503  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY           7.772                 13.275  11      
+{vgaCont/hcnt_20__i9/CK   vgaCont/hcnt_20__i8/CK}
+                                                             CLOCK PIN           0.000                 13.275  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-videoGen/moving_box_inst/counter_50__i11/CK->videoGen/moving_box_inst/counter_50__i11/Q
-                                          SLICE_R19C4B       CLK_TO_Q1_DELAY     1.388                 15.483  2       
-videoGen/moving_box_inst/counter[10]                         NET DELAY           2.353                 17.836  2       
-videoGen/moving_box_inst/i3_3_lut/C->videoGen/moving_box_inst/i3_3_lut/Z
-                                          SLICE_R18C4C       D0_TO_F0_DELAY      0.449                 18.285  1       
-videoGen/moving_box_inst/n8_adj_111                          NET DELAY           2.168                 20.453  1       
-videoGen/moving_box_inst/i125_4_lut/C->videoGen/moving_box_inst/i125_4_lut/Z
-                                          SLICE_R18C5A       D1_TO_F1_DELAY      0.476                 20.929  1       
-videoGen/moving_box_inst/n30                                 NET DELAY           0.304                 21.233  1       
-videoGen/moving_box_inst/i4_4_lut/C->videoGen/moving_box_inst/i4_4_lut/Z
-                                          SLICE_R18C5B       C0_TO_F0_DELAY      0.476                 21.709  1       
-videoGen/moving_box_inst/n1968                               NET DELAY           0.304                 22.013  1       
-videoGen/moving_box_inst/i9_4_lut/A->videoGen/moving_box_inst/i9_4_lut/Z
-                                          SLICE_R18C5B       C1_TO_F1_DELAY      0.476                 22.489  1       
-videoGen/moving_box_inst/n22                                 NET DELAY           0.304                 22.793  1       
-videoGen/moving_box_inst/i11_4_lut/B->videoGen/moving_box_inst/i11_4_lut/Z
-                                          SLICE_R18C5C       C0_TO_F0_DELAY      0.476                 23.269  1       
-videoGen/moving_box_inst/n24                                 NET DELAY           0.304                 23.573  1       
-videoGen/moving_box_inst/i12_4_lut/B->videoGen/moving_box_inst/i12_4_lut/Z
-                                          SLICE_R18C5C       C1_TO_F1_DELAY      0.449                 24.022  30      
-videoGen/moving_box_inst/n3                                  NET DELAY           2.551                 26.573  30      
-videoGen/moving_box_inst/i699_4_lut/A->videoGen/moving_box_inst/i699_4_lut/Z
-                                          SLICE_R18C5D       A1_TO_F1_DELAY      0.449                 27.022  12      
-videoGen/moving_box_inst/n796                                NET DELAY           3.278                 30.300  12      
-videoGen/moving_box_inst/left_48__i0/SR                      ENDPOINT            0.000                 30.300  1       
+vgaCont/hcnt_20__i9/CK->vgaCont/hcnt_20__i9/Q
+                                          SLICE_R16C9D       CLK_TO_Q0_DELAY     1.388                 14.663  4       
+vgaCont/x[9]                                                 NET DELAY           4.375                 19.038  4       
+vgaCont/i6_4_lut_adj_10/A->vgaCont/i6_4_lut_adj_10/Z
+                                          SLICE_R16C7A       B1_TO_F1_DELAY      0.449                 19.487  1       
+vgaCont/n15_adj_37                                           NET DELAY           2.168                 21.655  1       
+vgaCont/i621_4_lut/A->vgaCont/i621_4_lut/Z
+                                          SLICE_R16C7B       D1_TO_F1_DELAY      0.449                 22.104  15      
+vgaCont/n19                                                  NET DELAY           3.080                 25.184  15      
+vgaCont/i310_2_lut/B->vgaCont/i310_2_lut/Z
+                                          SLICE_R15C8B       B0_TO_F0_DELAY      0.476                 25.660  1       
+vgaCont/x_9__N_1[3]                                          NET DELAY           0.000                 25.660  1       
+vgaCont/hcnt_20__i3/D                                        ENDPOINT            0.000                 25.660  1       
 
 
 Destination Clock Path
@@ -305,33 +285,34 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 39.800  2       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY           5.353                 45.153  2       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                         0.000                 45.153  40      
+                                          PLL_PLL_R13C32                         0.000                 45.153  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                         0.150                 45.303  40      
-vgaCont/vgaclk_c                                             NET DELAY           6.887                 52.190  40      
-videoGen/moving_box_inst/left_48__i0/CK                      CLOCK PIN           0.000                 52.190  1       
-                                                             Uncertainty      -(0.000)                 52.190  
-                                                             Setup time       -(0.529)                 51.661  
+                                          PLL_PLL_R13C32                         0.150                 45.303  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY           6.067                 51.370  11      
+{vgaCont/hcnt_20__i3/CK   vgaCont/hcnt_20__i2/CK}
+                                                             CLOCK PIN           0.000                 51.370  1       
+                                                             Uncertainty      -(0.000)                 51.370  
+                                                             Setup time       -(0.198)                 51.172  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Required Time                                                                                          51.661  
-Arrival Time                                                                                        -(30.299)  
+Required Time                                                                                          51.172  
+Arrival Time                                                                                        -(25.659)  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Path Slack  (Passed)                                                                                   21.361  
+Path Slack  (Passed)                                                                                   25.512  
 
 
 
 
 ++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : videoGen/moving_box_inst/counter_50__i11/Q  (SLICE_R19C4B)
-Path End         : {videoGen/moving_box_inst/left_48__i1/SR   videoGen/moving_box_inst/left_48__i2/SR}  (SLICE_R18C3B)
+Path Begin       : vgaCont/hcnt_20__i9/Q  (SLICE_R16C9D)
+Path End         : vgaCont/hcnt_20__i5/D  (SLICE_R15C8C)
 Source Clock     : vgaclk_c (R)
 Destination Clock: vgaclk_c (R)
-Logic Level      : 8
-Delay Ratio      : 71.4% (route), 28.6% (logic)
+Logic Level      : 4
+Delay Ratio      : 77.7% (route), 22.3% (logic)
 Clock Skew       : -1.705 ns 
 Setup Constraint : 39.800 ns 
-Path Slack       : 21.361 ns  (Passed)
+Path Slack       : 25.512 ns  (Passed)
 
 
 Source Clock Path
@@ -340,43 +321,30 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  2       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY           5.353                  5.353  2       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                         0.000                  5.353  40      
+                                          PLL_PLL_R13C32                         0.000                  5.353  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                         0.150                  5.503  40      
-vgaCont/vgaclk_c                                             NET DELAY           8.592                 14.095  40      
-{videoGen/moving_box_inst/counter_50__i10/CK   videoGen/moving_box_inst/counter_50__i11/CK}
-                                                             CLOCK PIN           0.000                 14.095  1       
+                                          PLL_PLL_R13C32                         0.150                  5.503  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY           7.772                 13.275  11      
+{vgaCont/hcnt_20__i9/CK   vgaCont/hcnt_20__i8/CK}
+                                                             CLOCK PIN           0.000                 13.275  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-videoGen/moving_box_inst/counter_50__i11/CK->videoGen/moving_box_inst/counter_50__i11/Q
-                                          SLICE_R19C4B       CLK_TO_Q1_DELAY     1.388                 15.483  2       
-videoGen/moving_box_inst/counter[10]                         NET DELAY           2.353                 17.836  2       
-videoGen/moving_box_inst/i3_3_lut/C->videoGen/moving_box_inst/i3_3_lut/Z
-                                          SLICE_R18C4C       D0_TO_F0_DELAY      0.449                 18.285  1       
-videoGen/moving_box_inst/n8_adj_111                          NET DELAY           2.168                 20.453  1       
-videoGen/moving_box_inst/i125_4_lut/C->videoGen/moving_box_inst/i125_4_lut/Z
-                                          SLICE_R18C5A       D1_TO_F1_DELAY      0.476                 20.929  1       
-videoGen/moving_box_inst/n30                                 NET DELAY           0.304                 21.233  1       
-videoGen/moving_box_inst/i4_4_lut/C->videoGen/moving_box_inst/i4_4_lut/Z
-                                          SLICE_R18C5B       C0_TO_F0_DELAY      0.476                 21.709  1       
-videoGen/moving_box_inst/n1968                               NET DELAY           0.304                 22.013  1       
-videoGen/moving_box_inst/i9_4_lut/A->videoGen/moving_box_inst/i9_4_lut/Z
-                                          SLICE_R18C5B       C1_TO_F1_DELAY      0.476                 22.489  1       
-videoGen/moving_box_inst/n22                                 NET DELAY           0.304                 22.793  1       
-videoGen/moving_box_inst/i11_4_lut/B->videoGen/moving_box_inst/i11_4_lut/Z
-                                          SLICE_R18C5C       C0_TO_F0_DELAY      0.476                 23.269  1       
-videoGen/moving_box_inst/n24                                 NET DELAY           0.304                 23.573  1       
-videoGen/moving_box_inst/i12_4_lut/B->videoGen/moving_box_inst/i12_4_lut/Z
-                                          SLICE_R18C5C       C1_TO_F1_DELAY      0.449                 24.022  30      
-videoGen/moving_box_inst/n3                                  NET DELAY           2.551                 26.573  30      
-videoGen/moving_box_inst/i699_4_lut/A->videoGen/moving_box_inst/i699_4_lut/Z
-                                          SLICE_R18C5D       A1_TO_F1_DELAY      0.449                 27.022  12      
-videoGen/moving_box_inst/n796                                NET DELAY           3.278                 30.300  12      
-{videoGen/moving_box_inst/left_48__i1/SR   videoGen/moving_box_inst/left_48__i2/SR}
-                                                             ENDPOINT            0.000                 30.300  1       
+vgaCont/hcnt_20__i9/CK->vgaCont/hcnt_20__i9/Q
+                                          SLICE_R16C9D       CLK_TO_Q0_DELAY     1.388                 14.663  4       
+vgaCont/x[9]                                                 NET DELAY           4.375                 19.038  4       
+vgaCont/i6_4_lut_adj_10/A->vgaCont/i6_4_lut_adj_10/Z
+                                          SLICE_R16C7A       B1_TO_F1_DELAY      0.449                 19.487  1       
+vgaCont/n15_adj_37                                           NET DELAY           2.168                 21.655  1       
+vgaCont/i621_4_lut/A->vgaCont/i621_4_lut/Z
+                                          SLICE_R16C7B       D1_TO_F1_DELAY      0.449                 22.104  15      
+vgaCont/n19                                                  NET DELAY           3.080                 25.184  15      
+vgaCont/i318_2_lut/B->vgaCont/i318_2_lut/Z
+                                          SLICE_R15C8C       B0_TO_F0_DELAY      0.476                 25.660  1       
+vgaCont/x_9__N_1[5]                                          NET DELAY           0.000                 25.660  1       
+vgaCont/hcnt_20__i5/D                                        ENDPOINT            0.000                 25.660  1       
 
 
 Destination Clock Path
@@ -386,34 +354,34 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 39.800  2       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY           5.353                 45.153  2       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                         0.000                 45.153  40      
+                                          PLL_PLL_R13C32                         0.000                 45.153  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                         0.150                 45.303  40      
-vgaCont/vgaclk_c                                             NET DELAY           6.887                 52.190  40      
-{videoGen/moving_box_inst/left_48__i1/CK   videoGen/moving_box_inst/left_48__i2/CK}
-                                                             CLOCK PIN           0.000                 52.190  1       
-                                                             Uncertainty      -(0.000)                 52.190  
-                                                             Setup time       -(0.529)                 51.661  
+                                          PLL_PLL_R13C32                         0.150                 45.303  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY           6.067                 51.370  11      
+{vgaCont/hcnt_20__i5/CK   vgaCont/hcnt_20__i4/CK}
+                                                             CLOCK PIN           0.000                 51.370  1       
+                                                             Uncertainty      -(0.000)                 51.370  
+                                                             Setup time       -(0.198)                 51.172  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Required Time                                                                                          51.661  
-Arrival Time                                                                                        -(30.299)  
+Required Time                                                                                          51.172  
+Arrival Time                                                                                        -(25.659)  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Path Slack  (Passed)                                                                                   21.361  
+Path Slack  (Passed)                                                                                   25.512  
 
 
 
 
 ++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : videoGen/moving_box_inst/counter_50__i11/Q  (SLICE_R19C4B)
-Path End         : {videoGen/moving_box_inst/left_48__i3/SR   videoGen/moving_box_inst/left_48__i4/SR}  (SLICE_R18C3C)
+Path Begin       : vgaCont/hcnt_20__i9/Q  (SLICE_R16C9D)
+Path End         : vgaCont/hcnt_20__i0/D  (SLICE_R15C8A)
 Source Clock     : vgaclk_c (R)
 Destination Clock: vgaclk_c (R)
-Logic Level      : 8
-Delay Ratio      : 71.4% (route), 28.6% (logic)
+Logic Level      : 4
+Delay Ratio      : 77.7% (route), 22.3% (logic)
 Clock Skew       : -1.705 ns 
 Setup Constraint : 39.800 ns 
-Path Slack       : 21.361 ns  (Passed)
+Path Slack       : 25.512 ns  (Passed)
 
 
 Source Clock Path
@@ -422,43 +390,30 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  2       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY           5.353                  5.353  2       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                         0.000                  5.353  40      
+                                          PLL_PLL_R13C32                         0.000                  5.353  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                         0.150                  5.503  40      
-vgaCont/vgaclk_c                                             NET DELAY           8.592                 14.095  40      
-{videoGen/moving_box_inst/counter_50__i10/CK   videoGen/moving_box_inst/counter_50__i11/CK}
-                                                             CLOCK PIN           0.000                 14.095  1       
+                                          PLL_PLL_R13C32                         0.150                  5.503  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY           7.772                 13.275  11      
+{vgaCont/hcnt_20__i9/CK   vgaCont/hcnt_20__i8/CK}
+                                                             CLOCK PIN           0.000                 13.275  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-videoGen/moving_box_inst/counter_50__i11/CK->videoGen/moving_box_inst/counter_50__i11/Q
-                                          SLICE_R19C4B       CLK_TO_Q1_DELAY     1.388                 15.483  2       
-videoGen/moving_box_inst/counter[10]                         NET DELAY           2.353                 17.836  2       
-videoGen/moving_box_inst/i3_3_lut/C->videoGen/moving_box_inst/i3_3_lut/Z
-                                          SLICE_R18C4C       D0_TO_F0_DELAY      0.449                 18.285  1       
-videoGen/moving_box_inst/n8_adj_111                          NET DELAY           2.168                 20.453  1       
-videoGen/moving_box_inst/i125_4_lut/C->videoGen/moving_box_inst/i125_4_lut/Z
-                                          SLICE_R18C5A       D1_TO_F1_DELAY      0.476                 20.929  1       
-videoGen/moving_box_inst/n30                                 NET DELAY           0.304                 21.233  1       
-videoGen/moving_box_inst/i4_4_lut/C->videoGen/moving_box_inst/i4_4_lut/Z
-                                          SLICE_R18C5B       C0_TO_F0_DELAY      0.476                 21.709  1       
-videoGen/moving_box_inst/n1968                               NET DELAY           0.304                 22.013  1       
-videoGen/moving_box_inst/i9_4_lut/A->videoGen/moving_box_inst/i9_4_lut/Z
-                                          SLICE_R18C5B       C1_TO_F1_DELAY      0.476                 22.489  1       
-videoGen/moving_box_inst/n22                                 NET DELAY           0.304                 22.793  1       
-videoGen/moving_box_inst/i11_4_lut/B->videoGen/moving_box_inst/i11_4_lut/Z
-                                          SLICE_R18C5C       C0_TO_F0_DELAY      0.476                 23.269  1       
-videoGen/moving_box_inst/n24                                 NET DELAY           0.304                 23.573  1       
-videoGen/moving_box_inst/i12_4_lut/B->videoGen/moving_box_inst/i12_4_lut/Z
-                                          SLICE_R18C5C       C1_TO_F1_DELAY      0.449                 24.022  30      
-videoGen/moving_box_inst/n3                                  NET DELAY           2.551                 26.573  30      
-videoGen/moving_box_inst/i699_4_lut/A->videoGen/moving_box_inst/i699_4_lut/Z
-                                          SLICE_R18C5D       A1_TO_F1_DELAY      0.449                 27.022  12      
-videoGen/moving_box_inst/n796                                NET DELAY           3.278                 30.300  12      
-{videoGen/moving_box_inst/left_48__i3/SR   videoGen/moving_box_inst/left_48__i4/SR}
-                                                             ENDPOINT            0.000                 30.300  1       
+vgaCont/hcnt_20__i9/CK->vgaCont/hcnt_20__i9/Q
+                                          SLICE_R16C9D       CLK_TO_Q0_DELAY     1.388                 14.663  4       
+vgaCont/x[9]                                                 NET DELAY           4.375                 19.038  4       
+vgaCont/i6_4_lut_adj_10/A->vgaCont/i6_4_lut_adj_10/Z
+                                          SLICE_R16C7A       B1_TO_F1_DELAY      0.449                 19.487  1       
+vgaCont/n15_adj_37                                           NET DELAY           2.168                 21.655  1       
+vgaCont/i621_4_lut/A->vgaCont/i621_4_lut/Z
+                                          SLICE_R16C7B       D1_TO_F1_DELAY      0.449                 22.104  15      
+vgaCont/n19                                                  NET DELAY           3.080                 25.184  15      
+vgaCont/i1_2_lut_adj_15/A->vgaCont/i1_2_lut_adj_15/Z
+                                          SLICE_R15C8A       B0_TO_F0_DELAY      0.476                 25.660  1       
+vgaCont/x_9__N_1[0]                                          NET DELAY           0.000                 25.660  1       
+vgaCont/hcnt_20__i0/D                                        ENDPOINT            0.000                 25.660  1       
 
 
 Destination Clock Path
@@ -468,34 +423,34 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 39.800  2       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY           5.353                 45.153  2       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                         0.000                 45.153  40      
+                                          PLL_PLL_R13C32                         0.000                 45.153  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                         0.150                 45.303  40      
-vgaCont/vgaclk_c                                             NET DELAY           6.887                 52.190  40      
-{videoGen/moving_box_inst/left_48__i3/CK   videoGen/moving_box_inst/left_48__i4/CK}
-                                                             CLOCK PIN           0.000                 52.190  1       
-                                                             Uncertainty      -(0.000)                 52.190  
-                                                             Setup time       -(0.529)                 51.661  
+                                          PLL_PLL_R13C32                         0.150                 45.303  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY           6.067                 51.370  11      
+{vgaCont/hcnt_20__i0/CK   vgaCont/hcnt_20__i1/CK}
+                                                             CLOCK PIN           0.000                 51.370  1       
+                                                             Uncertainty      -(0.000)                 51.370  
+                                                             Setup time       -(0.198)                 51.172  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Required Time                                                                                          51.661  
-Arrival Time                                                                                        -(30.299)  
+Required Time                                                                                          51.172  
+Arrival Time                                                                                        -(25.659)  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Path Slack  (Passed)                                                                                   21.361  
+Path Slack  (Passed)                                                                                   25.512  
 
 
 
 
 ++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : videoGen/moving_box_inst/counter_50__i11/Q  (SLICE_R19C4B)
-Path End         : {videoGen/moving_box_inst/left_48__i5/SR   videoGen/moving_box_inst/left_48__i6/SR}  (SLICE_R18C3D)
+Path Begin       : vgaCont/hcnt_20__i9/Q  (SLICE_R16C9D)
+Path End         : vgaCont/hcnt_20__i2/D  (SLICE_R15C8B)
 Source Clock     : vgaclk_c (R)
 Destination Clock: vgaclk_c (R)
-Logic Level      : 8
-Delay Ratio      : 71.4% (route), 28.6% (logic)
+Logic Level      : 4
+Delay Ratio      : 77.6% (route), 22.4% (logic)
 Clock Skew       : -1.705 ns 
 Setup Constraint : 39.800 ns 
-Path Slack       : 21.361 ns  (Passed)
+Path Slack       : 25.565 ns  (Passed)
 
 
 Source Clock Path
@@ -504,43 +459,30 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  2       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY           5.353                  5.353  2       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                         0.000                  5.353  40      
+                                          PLL_PLL_R13C32                         0.000                  5.353  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                         0.150                  5.503  40      
-vgaCont/vgaclk_c                                             NET DELAY           8.592                 14.095  40      
-{videoGen/moving_box_inst/counter_50__i10/CK   videoGen/moving_box_inst/counter_50__i11/CK}
-                                                             CLOCK PIN           0.000                 14.095  1       
+                                          PLL_PLL_R13C32                         0.150                  5.503  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY           7.772                 13.275  11      
+{vgaCont/hcnt_20__i9/CK   vgaCont/hcnt_20__i8/CK}
+                                                             CLOCK PIN           0.000                 13.275  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-videoGen/moving_box_inst/counter_50__i11/CK->videoGen/moving_box_inst/counter_50__i11/Q
-                                          SLICE_R19C4B       CLK_TO_Q1_DELAY     1.388                 15.483  2       
-videoGen/moving_box_inst/counter[10]                         NET DELAY           2.353                 17.836  2       
-videoGen/moving_box_inst/i3_3_lut/C->videoGen/moving_box_inst/i3_3_lut/Z
-                                          SLICE_R18C4C       D0_TO_F0_DELAY      0.449                 18.285  1       
-videoGen/moving_box_inst/n8_adj_111                          NET DELAY           2.168                 20.453  1       
-videoGen/moving_box_inst/i125_4_lut/C->videoGen/moving_box_inst/i125_4_lut/Z
-                                          SLICE_R18C5A       D1_TO_F1_DELAY      0.476                 20.929  1       
-videoGen/moving_box_inst/n30                                 NET DELAY           0.304                 21.233  1       
-videoGen/moving_box_inst/i4_4_lut/C->videoGen/moving_box_inst/i4_4_lut/Z
-                                          SLICE_R18C5B       C0_TO_F0_DELAY      0.476                 21.709  1       
-videoGen/moving_box_inst/n1968                               NET DELAY           0.304                 22.013  1       
-videoGen/moving_box_inst/i9_4_lut/A->videoGen/moving_box_inst/i9_4_lut/Z
-                                          SLICE_R18C5B       C1_TO_F1_DELAY      0.476                 22.489  1       
-videoGen/moving_box_inst/n22                                 NET DELAY           0.304                 22.793  1       
-videoGen/moving_box_inst/i11_4_lut/B->videoGen/moving_box_inst/i11_4_lut/Z
-                                          SLICE_R18C5C       C0_TO_F0_DELAY      0.476                 23.269  1       
-videoGen/moving_box_inst/n24                                 NET DELAY           0.304                 23.573  1       
-videoGen/moving_box_inst/i12_4_lut/B->videoGen/moving_box_inst/i12_4_lut/Z
-                                          SLICE_R18C5C       C1_TO_F1_DELAY      0.449                 24.022  30      
-videoGen/moving_box_inst/n3                                  NET DELAY           2.551                 26.573  30      
-videoGen/moving_box_inst/i699_4_lut/A->videoGen/moving_box_inst/i699_4_lut/Z
-                                          SLICE_R18C5D       A1_TO_F1_DELAY      0.449                 27.022  12      
-videoGen/moving_box_inst/n796                                NET DELAY           3.278                 30.300  12      
-{videoGen/moving_box_inst/left_48__i5/SR   videoGen/moving_box_inst/left_48__i6/SR}
-                                                             ENDPOINT            0.000                 30.300  1       
+vgaCont/hcnt_20__i9/CK->vgaCont/hcnt_20__i9/Q
+                                          SLICE_R16C9D       CLK_TO_Q0_DELAY     1.388                 14.663  4       
+vgaCont/x[9]                                                 NET DELAY           4.375                 19.038  4       
+vgaCont/i6_4_lut_adj_10/A->vgaCont/i6_4_lut_adj_10/Z
+                                          SLICE_R16C7A       B1_TO_F1_DELAY      0.449                 19.487  1       
+vgaCont/n15_adj_37                                           NET DELAY           2.168                 21.655  1       
+vgaCont/i621_4_lut/A->vgaCont/i621_4_lut/Z
+                                          SLICE_R16C7B       D1_TO_F1_DELAY      0.449                 22.104  15      
+vgaCont/n19                                                  NET DELAY           3.027                 25.131  15      
+vgaCont/i1_2_lut_adj_4/A->vgaCont/i1_2_lut_adj_4/Z
+                                          SLICE_R15C8B       C1_TO_F1_DELAY      0.476                 25.607  1       
+vgaCont/x_9__N_1[2]                                          NET DELAY           0.000                 25.607  1       
+vgaCont/hcnt_20__i2/D                                        ENDPOINT            0.000                 25.607  1       
 
 
 Destination Clock Path
@@ -550,34 +492,34 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 39.800  2       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY           5.353                 45.153  2       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                         0.000                 45.153  40      
+                                          PLL_PLL_R13C32                         0.000                 45.153  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                         0.150                 45.303  40      
-vgaCont/vgaclk_c                                             NET DELAY           6.887                 52.190  40      
-{videoGen/moving_box_inst/left_48__i5/CK   videoGen/moving_box_inst/left_48__i6/CK}
-                                                             CLOCK PIN           0.000                 52.190  1       
-                                                             Uncertainty      -(0.000)                 52.190  
-                                                             Setup time       -(0.529)                 51.661  
+                                          PLL_PLL_R13C32                         0.150                 45.303  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY           6.067                 51.370  11      
+{vgaCont/hcnt_20__i3/CK   vgaCont/hcnt_20__i2/CK}
+                                                             CLOCK PIN           0.000                 51.370  1       
+                                                             Uncertainty      -(0.000)                 51.370  
+                                                             Setup time       -(0.198)                 51.172  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Required Time                                                                                          51.661  
-Arrival Time                                                                                        -(30.299)  
+Required Time                                                                                          51.172  
+Arrival Time                                                                                        -(25.606)  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Path Slack  (Passed)                                                                                   21.361  
+Path Slack  (Passed)                                                                                   25.565  
 
 
 
 
 ++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : videoGen/moving_box_inst/counter_50__i11/Q  (SLICE_R19C4B)
-Path End         : videoGen/moving_box_inst/right_49__i0/SR  (SLICE_R16C3A)
+Path Begin       : vgaCont/hcnt_20__i9/Q  (SLICE_R16C9D)
+Path End         : vgaCont/hcnt_20__i4/D  (SLICE_R15C8C)
 Source Clock     : vgaclk_c (R)
 Destination Clock: vgaclk_c (R)
-Logic Level      : 8
-Delay Ratio      : 71.3% (route), 28.7% (logic)
+Logic Level      : 4
+Delay Ratio      : 77.6% (route), 22.4% (logic)
 Clock Skew       : -1.705 ns 
 Setup Constraint : 39.800 ns 
-Path Slack       : 21.387 ns  (Passed)
+Path Slack       : 25.565 ns  (Passed)
 
 
 Source Clock Path
@@ -586,42 +528,30 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  2       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY           5.353                  5.353  2       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                         0.000                  5.353  40      
+                                          PLL_PLL_R13C32                         0.000                  5.353  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                         0.150                  5.503  40      
-vgaCont/vgaclk_c                                             NET DELAY           8.592                 14.095  40      
-{videoGen/moving_box_inst/counter_50__i10/CK   videoGen/moving_box_inst/counter_50__i11/CK}
-                                                             CLOCK PIN           0.000                 14.095  1       
+                                          PLL_PLL_R13C32                         0.150                  5.503  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY           7.772                 13.275  11      
+{vgaCont/hcnt_20__i9/CK   vgaCont/hcnt_20__i8/CK}
+                                                             CLOCK PIN           0.000                 13.275  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-videoGen/moving_box_inst/counter_50__i11/CK->videoGen/moving_box_inst/counter_50__i11/Q
-                                          SLICE_R19C4B       CLK_TO_Q1_DELAY     1.388                 15.483  2       
-videoGen/moving_box_inst/counter[10]                         NET DELAY           2.353                 17.836  2       
-videoGen/moving_box_inst/i3_3_lut/C->videoGen/moving_box_inst/i3_3_lut/Z
-                                          SLICE_R18C4C       D0_TO_F0_DELAY      0.449                 18.285  1       
-videoGen/moving_box_inst/n8_adj_111                          NET DELAY           2.168                 20.453  1       
-videoGen/moving_box_inst/i125_4_lut/C->videoGen/moving_box_inst/i125_4_lut/Z
-                                          SLICE_R18C5A       D1_TO_F1_DELAY      0.476                 20.929  1       
-videoGen/moving_box_inst/n30                                 NET DELAY           0.304                 21.233  1       
-videoGen/moving_box_inst/i4_4_lut/C->videoGen/moving_box_inst/i4_4_lut/Z
-                                          SLICE_R18C5B       C0_TO_F0_DELAY      0.476                 21.709  1       
-videoGen/moving_box_inst/n1968                               NET DELAY           0.304                 22.013  1       
-videoGen/moving_box_inst/i9_4_lut/A->videoGen/moving_box_inst/i9_4_lut/Z
-                                          SLICE_R18C5B       C1_TO_F1_DELAY      0.476                 22.489  1       
-videoGen/moving_box_inst/n22                                 NET DELAY           0.304                 22.793  1       
-videoGen/moving_box_inst/i11_4_lut/B->videoGen/moving_box_inst/i11_4_lut/Z
-                                          SLICE_R18C5C       C0_TO_F0_DELAY      0.476                 23.269  1       
-videoGen/moving_box_inst/n24                                 NET DELAY           0.304                 23.573  1       
-videoGen/moving_box_inst/i12_4_lut/B->videoGen/moving_box_inst/i12_4_lut/Z
-                                          SLICE_R18C5C       C1_TO_F1_DELAY      0.449                 24.022  30      
-videoGen/moving_box_inst/n3                                  NET DELAY           2.551                 26.573  30      
-videoGen/moving_box_inst/i699_4_lut/A->videoGen/moving_box_inst/i699_4_lut/Z
-                                          SLICE_R18C5D       A1_TO_F1_DELAY      0.449                 27.022  12      
-videoGen/moving_box_inst/n796                                NET DELAY           3.252                 30.274  12      
-videoGen/moving_box_inst/right_49__i0/SR                     ENDPOINT            0.000                 30.274  1       
+vgaCont/hcnt_20__i9/CK->vgaCont/hcnt_20__i9/Q
+                                          SLICE_R16C9D       CLK_TO_Q0_DELAY     1.388                 14.663  4       
+vgaCont/x[9]                                                 NET DELAY           4.375                 19.038  4       
+vgaCont/i6_4_lut_adj_10/A->vgaCont/i6_4_lut_adj_10/Z
+                                          SLICE_R16C7A       B1_TO_F1_DELAY      0.449                 19.487  1       
+vgaCont/n15_adj_37                                           NET DELAY           2.168                 21.655  1       
+vgaCont/i621_4_lut/A->vgaCont/i621_4_lut/Z
+                                          SLICE_R16C7B       D1_TO_F1_DELAY      0.449                 22.104  15      
+vgaCont/n19                                                  NET DELAY           3.027                 25.131  15      
+vgaCont/i319_2_lut/B->vgaCont/i319_2_lut/Z
+                                          SLICE_R15C8C       C1_TO_F1_DELAY      0.476                 25.607  1       
+vgaCont/x_9__N_1[4]                                          NET DELAY           0.000                 25.607  1       
+vgaCont/hcnt_20__i4/D                                        ENDPOINT            0.000                 25.607  1       
 
 
 Destination Clock Path
@@ -631,33 +561,34 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 39.800  2       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY           5.353                 45.153  2       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                         0.000                 45.153  40      
+                                          PLL_PLL_R13C32                         0.000                 45.153  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                         0.150                 45.303  40      
-vgaCont/vgaclk_c                                             NET DELAY           6.887                 52.190  40      
-videoGen/moving_box_inst/right_49__i0/CK                     CLOCK PIN           0.000                 52.190  1       
-                                                             Uncertainty      -(0.000)                 52.190  
-                                                             Setup time       -(0.529)                 51.661  
+                                          PLL_PLL_R13C32                         0.150                 45.303  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY           6.067                 51.370  11      
+{vgaCont/hcnt_20__i5/CK   vgaCont/hcnt_20__i4/CK}
+                                                             CLOCK PIN           0.000                 51.370  1       
+                                                             Uncertainty      -(0.000)                 51.370  
+                                                             Setup time       -(0.198)                 51.172  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Required Time                                                                                          51.661  
-Arrival Time                                                                                        -(30.273)  
+Required Time                                                                                          51.172  
+Arrival Time                                                                                        -(25.606)  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Path Slack  (Passed)                                                                                   21.387  
+Path Slack  (Passed)                                                                                   25.565  
 
 
 
 
 ++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : videoGen/moving_box_inst/counter_50__i11/Q  (SLICE_R19C4B)
-Path End         : {videoGen/moving_box_inst/right_49__i1/SR   videoGen/moving_box_inst/right_49__i2/SR}  (SLICE_R16C3B)
+Path Begin       : vgaCont/hcnt_20__i9/Q  (SLICE_R16C9D)
+Path End         : vgaCont/hcnt_20__i1/D  (SLICE_R15C8A)
 Source Clock     : vgaclk_c (R)
 Destination Clock: vgaclk_c (R)
-Logic Level      : 8
-Delay Ratio      : 71.3% (route), 28.7% (logic)
+Logic Level      : 4
+Delay Ratio      : 77.6% (route), 22.4% (logic)
 Clock Skew       : -1.705 ns 
 Setup Constraint : 39.800 ns 
-Path Slack       : 21.387 ns  (Passed)
+Path Slack       : 25.565 ns  (Passed)
 
 
 Source Clock Path
@@ -666,43 +597,30 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  2       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY           5.353                  5.353  2       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                         0.000                  5.353  40      
+                                          PLL_PLL_R13C32                         0.000                  5.353  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                         0.150                  5.503  40      
-vgaCont/vgaclk_c                                             NET DELAY           8.592                 14.095  40      
-{videoGen/moving_box_inst/counter_50__i10/CK   videoGen/moving_box_inst/counter_50__i11/CK}
-                                                             CLOCK PIN           0.000                 14.095  1       
+                                          PLL_PLL_R13C32                         0.150                  5.503  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY           7.772                 13.275  11      
+{vgaCont/hcnt_20__i9/CK   vgaCont/hcnt_20__i8/CK}
+                                                             CLOCK PIN           0.000                 13.275  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-videoGen/moving_box_inst/counter_50__i11/CK->videoGen/moving_box_inst/counter_50__i11/Q
-                                          SLICE_R19C4B       CLK_TO_Q1_DELAY     1.388                 15.483  2       
-videoGen/moving_box_inst/counter[10]                         NET DELAY           2.353                 17.836  2       
-videoGen/moving_box_inst/i3_3_lut/C->videoGen/moving_box_inst/i3_3_lut/Z
-                                          SLICE_R18C4C       D0_TO_F0_DELAY      0.449                 18.285  1       
-videoGen/moving_box_inst/n8_adj_111                          NET DELAY           2.168                 20.453  1       
-videoGen/moving_box_inst/i125_4_lut/C->videoGen/moving_box_inst/i125_4_lut/Z
-                                          SLICE_R18C5A       D1_TO_F1_DELAY      0.476                 20.929  1       
-videoGen/moving_box_inst/n30                                 NET DELAY           0.304                 21.233  1       
-videoGen/moving_box_inst/i4_4_lut/C->videoGen/moving_box_inst/i4_4_lut/Z
-                                          SLICE_R18C5B       C0_TO_F0_DELAY      0.476                 21.709  1       
-videoGen/moving_box_inst/n1968                               NET DELAY           0.304                 22.013  1       
-videoGen/moving_box_inst/i9_4_lut/A->videoGen/moving_box_inst/i9_4_lut/Z
-                                          SLICE_R18C5B       C1_TO_F1_DELAY      0.476                 22.489  1       
-videoGen/moving_box_inst/n22                                 NET DELAY           0.304                 22.793  1       
-videoGen/moving_box_inst/i11_4_lut/B->videoGen/moving_box_inst/i11_4_lut/Z
-                                          SLICE_R18C5C       C0_TO_F0_DELAY      0.476                 23.269  1       
-videoGen/moving_box_inst/n24                                 NET DELAY           0.304                 23.573  1       
-videoGen/moving_box_inst/i12_4_lut/B->videoGen/moving_box_inst/i12_4_lut/Z
-                                          SLICE_R18C5C       C1_TO_F1_DELAY      0.449                 24.022  30      
-videoGen/moving_box_inst/n3                                  NET DELAY           2.551                 26.573  30      
-videoGen/moving_box_inst/i699_4_lut/A->videoGen/moving_box_inst/i699_4_lut/Z
-                                          SLICE_R18C5D       A1_TO_F1_DELAY      0.449                 27.022  12      
-videoGen/moving_box_inst/n796                                NET DELAY           3.252                 30.274  12      
-{videoGen/moving_box_inst/right_49__i1/SR   videoGen/moving_box_inst/right_49__i2/SR}
-                                                             ENDPOINT            0.000                 30.274  1       
+vgaCont/hcnt_20__i9/CK->vgaCont/hcnt_20__i9/Q
+                                          SLICE_R16C9D       CLK_TO_Q0_DELAY     1.388                 14.663  4       
+vgaCont/x[9]                                                 NET DELAY           4.375                 19.038  4       
+vgaCont/i6_4_lut_adj_10/A->vgaCont/i6_4_lut_adj_10/Z
+                                          SLICE_R16C7A       B1_TO_F1_DELAY      0.449                 19.487  1       
+vgaCont/n15_adj_37                                           NET DELAY           2.168                 21.655  1       
+vgaCont/i621_4_lut/A->vgaCont/i621_4_lut/Z
+                                          SLICE_R16C7B       D1_TO_F1_DELAY      0.449                 22.104  15      
+vgaCont/n19                                                  NET DELAY           3.027                 25.131  15      
+vgaCont/i1_2_lut_adj_3/A->vgaCont/i1_2_lut_adj_3/Z
+                                          SLICE_R15C8A       C1_TO_F1_DELAY      0.476                 25.607  1       
+vgaCont/x_9__N_1[1]                                          NET DELAY           0.000                 25.607  1       
+vgaCont/hcnt_20__i1/D                                        ENDPOINT            0.000                 25.607  1       
 
 
 Destination Clock Path
@@ -712,34 +630,34 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 39.800  2       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY           5.353                 45.153  2       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                         0.000                 45.153  40      
+                                          PLL_PLL_R13C32                         0.000                 45.153  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                         0.150                 45.303  40      
-vgaCont/vgaclk_c                                             NET DELAY           6.887                 52.190  40      
-{videoGen/moving_box_inst/right_49__i1/CK   videoGen/moving_box_inst/right_49__i2/CK}
-                                                             CLOCK PIN           0.000                 52.190  1       
-                                                             Uncertainty      -(0.000)                 52.190  
-                                                             Setup time       -(0.529)                 51.661  
+                                          PLL_PLL_R13C32                         0.150                 45.303  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY           6.067                 51.370  11      
+{vgaCont/hcnt_20__i0/CK   vgaCont/hcnt_20__i1/CK}
+                                                             CLOCK PIN           0.000                 51.370  1       
+                                                             Uncertainty      -(0.000)                 51.370  
+                                                             Setup time       -(0.198)                 51.172  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Required Time                                                                                          51.661  
-Arrival Time                                                                                        -(30.273)  
+Required Time                                                                                          51.172  
+Arrival Time                                                                                        -(25.606)  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Path Slack  (Passed)                                                                                   21.387  
+Path Slack  (Passed)                                                                                   25.565  
 
 
 
 
 ++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : videoGen/moving_box_inst/counter_50__i11/Q  (SLICE_R19C4B)
-Path End         : {videoGen/moving_box_inst/right_49__i3/SR   videoGen/moving_box_inst/right_49__i4/SR}  (SLICE_R16C3C)
+Path Begin       : vgaCont/hcnt_20__i9/Q  (SLICE_R16C9D)
+Path End         : {vgaCont/vcnt_19__i7/SP   vgaCont/vcnt_19__i6/SP}  (SLICE_R14C8D)
 Source Clock     : vgaclk_c (R)
 Destination Clock: vgaclk_c (R)
-Logic Level      : 8
-Delay Ratio      : 71.3% (route), 28.7% (logic)
+Logic Level      : 3
+Delay Ratio      : 81.2% (route), 18.8% (logic)
 Clock Skew       : -1.705 ns 
 Setup Constraint : 39.800 ns 
-Path Slack       : 21.387 ns  (Passed)
+Path Slack       : 25.750 ns  (Passed)
 
 
 Source Clock Path
@@ -748,43 +666,28 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  2       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY           5.353                  5.353  2       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                         0.000                  5.353  40      
+                                          PLL_PLL_R13C32                         0.000                  5.353  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                         0.150                  5.503  40      
-vgaCont/vgaclk_c                                             NET DELAY           8.592                 14.095  40      
-{videoGen/moving_box_inst/counter_50__i10/CK   videoGen/moving_box_inst/counter_50__i11/CK}
-                                                             CLOCK PIN           0.000                 14.095  1       
+                                          PLL_PLL_R13C32                         0.150                  5.503  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY           7.772                 13.275  11      
+{vgaCont/hcnt_20__i9/CK   vgaCont/hcnt_20__i8/CK}
+                                                             CLOCK PIN           0.000                 13.275  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-videoGen/moving_box_inst/counter_50__i11/CK->videoGen/moving_box_inst/counter_50__i11/Q
-                                          SLICE_R19C4B       CLK_TO_Q1_DELAY     1.388                 15.483  2       
-videoGen/moving_box_inst/counter[10]                         NET DELAY           2.353                 17.836  2       
-videoGen/moving_box_inst/i3_3_lut/C->videoGen/moving_box_inst/i3_3_lut/Z
-                                          SLICE_R18C4C       D0_TO_F0_DELAY      0.449                 18.285  1       
-videoGen/moving_box_inst/n8_adj_111                          NET DELAY           2.168                 20.453  1       
-videoGen/moving_box_inst/i125_4_lut/C->videoGen/moving_box_inst/i125_4_lut/Z
-                                          SLICE_R18C5A       D1_TO_F1_DELAY      0.476                 20.929  1       
-videoGen/moving_box_inst/n30                                 NET DELAY           0.304                 21.233  1       
-videoGen/moving_box_inst/i4_4_lut/C->videoGen/moving_box_inst/i4_4_lut/Z
-                                          SLICE_R18C5B       C0_TO_F0_DELAY      0.476                 21.709  1       
-videoGen/moving_box_inst/n1968                               NET DELAY           0.304                 22.013  1       
-videoGen/moving_box_inst/i9_4_lut/A->videoGen/moving_box_inst/i9_4_lut/Z
-                                          SLICE_R18C5B       C1_TO_F1_DELAY      0.476                 22.489  1       
-videoGen/moving_box_inst/n22                                 NET DELAY           0.304                 22.793  1       
-videoGen/moving_box_inst/i11_4_lut/B->videoGen/moving_box_inst/i11_4_lut/Z
-                                          SLICE_R18C5C       C0_TO_F0_DELAY      0.476                 23.269  1       
-videoGen/moving_box_inst/n24                                 NET DELAY           0.304                 23.573  1       
-videoGen/moving_box_inst/i12_4_lut/B->videoGen/moving_box_inst/i12_4_lut/Z
-                                          SLICE_R18C5C       C1_TO_F1_DELAY      0.449                 24.022  30      
-videoGen/moving_box_inst/n3                                  NET DELAY           2.551                 26.573  30      
-videoGen/moving_box_inst/i699_4_lut/A->videoGen/moving_box_inst/i699_4_lut/Z
-                                          SLICE_R18C5D       A1_TO_F1_DELAY      0.449                 27.022  12      
-videoGen/moving_box_inst/n796                                NET DELAY           3.252                 30.274  12      
-{videoGen/moving_box_inst/right_49__i3/SR   videoGen/moving_box_inst/right_49__i4/SR}
-                                                             ENDPOINT            0.000                 30.274  1       
+vgaCont/hcnt_20__i9/CK->vgaCont/hcnt_20__i9/Q
+                                          SLICE_R16C9D       CLK_TO_Q0_DELAY     1.388                 14.663  4       
+vgaCont/x[9]                                                 NET DELAY           4.375                 19.038  4       
+vgaCont/i6_4_lut_adj_10/A->vgaCont/i6_4_lut_adj_10/Z
+                                          SLICE_R16C7A       B1_TO_F1_DELAY      0.449                 19.487  1       
+vgaCont/n15_adj_37                                           NET DELAY           2.168                 21.655  1       
+vgaCont/i621_4_lut/A->vgaCont/i621_4_lut/Z
+                                          SLICE_R16C7B       D1_TO_F1_DELAY      0.449                 22.104  15      
+vgaCont/n19                                                  NET DELAY           3.318                 25.422  15      
+{vgaCont/vcnt_19__i7/SP   vgaCont/vcnt_19__i6/SP}
+                                                             ENDPOINT            0.000                 25.422  1       
 
 
 Destination Clock Path
@@ -794,34 +697,34 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 39.800  2       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY           5.353                 45.153  2       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                         0.000                 45.153  40      
+                                          PLL_PLL_R13C32                         0.000                 45.153  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                         0.150                 45.303  40      
-vgaCont/vgaclk_c                                             NET DELAY           6.887                 52.190  40      
-{videoGen/moving_box_inst/right_49__i3/CK   videoGen/moving_box_inst/right_49__i4/CK}
-                                                             CLOCK PIN           0.000                 52.190  1       
-                                                             Uncertainty      -(0.000)                 52.190  
-                                                             Setup time       -(0.529)                 51.661  
+                                          PLL_PLL_R13C32                         0.150                 45.303  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY           6.067                 51.370  11      
+{vgaCont/vcnt_19__i7/CK   vgaCont/vcnt_19__i6/CK}
+                                                             CLOCK PIN           0.000                 51.370  1       
+                                                             Uncertainty      -(0.000)                 51.370  
+                                                             Setup time       -(0.198)                 51.172  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Required Time                                                                                          51.661  
-Arrival Time                                                                                        -(30.273)  
+Required Time                                                                                          51.172  
+Arrival Time                                                                                        -(25.421)  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Path Slack  (Passed)                                                                                   21.387  
+Path Slack  (Passed)                                                                                   25.750  
 
 
 
 
 ++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : videoGen/moving_box_inst/counter_50__i11/Q  (SLICE_R19C4B)
-Path End         : {videoGen/moving_box_inst/right_49__i5/SR   videoGen/moving_box_inst/right_49__i6/SR}  (SLICE_R16C3D)
+Path Begin       : vgaCont/hcnt_20__i9/Q  (SLICE_R16C9D)
+Path End         : {vgaCont/vcnt_19__i8/SP   vgaCont/vcnt_19__i9/SP}  (SLICE_R14C8C)
 Source Clock     : vgaclk_c (R)
 Destination Clock: vgaclk_c (R)
-Logic Level      : 8
-Delay Ratio      : 71.3% (route), 28.7% (logic)
+Logic Level      : 3
+Delay Ratio      : 81.2% (route), 18.8% (logic)
 Clock Skew       : -1.705 ns 
 Setup Constraint : 39.800 ns 
-Path Slack       : 21.387 ns  (Passed)
+Path Slack       : 25.750 ns  (Passed)
 
 
 Source Clock Path
@@ -830,43 +733,28 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  2       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY           5.353                  5.353  2       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                         0.000                  5.353  40      
+                                          PLL_PLL_R13C32                         0.000                  5.353  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                         0.150                  5.503  40      
-vgaCont/vgaclk_c                                             NET DELAY           8.592                 14.095  40      
-{videoGen/moving_box_inst/counter_50__i10/CK   videoGen/moving_box_inst/counter_50__i11/CK}
-                                                             CLOCK PIN           0.000                 14.095  1       
+                                          PLL_PLL_R13C32                         0.150                  5.503  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY           7.772                 13.275  11      
+{vgaCont/hcnt_20__i9/CK   vgaCont/hcnt_20__i8/CK}
+                                                             CLOCK PIN           0.000                 13.275  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-videoGen/moving_box_inst/counter_50__i11/CK->videoGen/moving_box_inst/counter_50__i11/Q
-                                          SLICE_R19C4B       CLK_TO_Q1_DELAY     1.388                 15.483  2       
-videoGen/moving_box_inst/counter[10]                         NET DELAY           2.353                 17.836  2       
-videoGen/moving_box_inst/i3_3_lut/C->videoGen/moving_box_inst/i3_3_lut/Z
-                                          SLICE_R18C4C       D0_TO_F0_DELAY      0.449                 18.285  1       
-videoGen/moving_box_inst/n8_adj_111                          NET DELAY           2.168                 20.453  1       
-videoGen/moving_box_inst/i125_4_lut/C->videoGen/moving_box_inst/i125_4_lut/Z
-                                          SLICE_R18C5A       D1_TO_F1_DELAY      0.476                 20.929  1       
-videoGen/moving_box_inst/n30                                 NET DELAY           0.304                 21.233  1       
-videoGen/moving_box_inst/i4_4_lut/C->videoGen/moving_box_inst/i4_4_lut/Z
-                                          SLICE_R18C5B       C0_TO_F0_DELAY      0.476                 21.709  1       
-videoGen/moving_box_inst/n1968                               NET DELAY           0.304                 22.013  1       
-videoGen/moving_box_inst/i9_4_lut/A->videoGen/moving_box_inst/i9_4_lut/Z
-                                          SLICE_R18C5B       C1_TO_F1_DELAY      0.476                 22.489  1       
-videoGen/moving_box_inst/n22                                 NET DELAY           0.304                 22.793  1       
-videoGen/moving_box_inst/i11_4_lut/B->videoGen/moving_box_inst/i11_4_lut/Z
-                                          SLICE_R18C5C       C0_TO_F0_DELAY      0.476                 23.269  1       
-videoGen/moving_box_inst/n24                                 NET DELAY           0.304                 23.573  1       
-videoGen/moving_box_inst/i12_4_lut/B->videoGen/moving_box_inst/i12_4_lut/Z
-                                          SLICE_R18C5C       C1_TO_F1_DELAY      0.449                 24.022  30      
-videoGen/moving_box_inst/n3                                  NET DELAY           2.551                 26.573  30      
-videoGen/moving_box_inst/i699_4_lut/A->videoGen/moving_box_inst/i699_4_lut/Z
-                                          SLICE_R18C5D       A1_TO_F1_DELAY      0.449                 27.022  12      
-videoGen/moving_box_inst/n796                                NET DELAY           3.252                 30.274  12      
-{videoGen/moving_box_inst/right_49__i5/SR   videoGen/moving_box_inst/right_49__i6/SR}
-                                                             ENDPOINT            0.000                 30.274  1       
+vgaCont/hcnt_20__i9/CK->vgaCont/hcnt_20__i9/Q
+                                          SLICE_R16C9D       CLK_TO_Q0_DELAY     1.388                 14.663  4       
+vgaCont/x[9]                                                 NET DELAY           4.375                 19.038  4       
+vgaCont/i6_4_lut_adj_10/A->vgaCont/i6_4_lut_adj_10/Z
+                                          SLICE_R16C7A       B1_TO_F1_DELAY      0.449                 19.487  1       
+vgaCont/n15_adj_37                                           NET DELAY           2.168                 21.655  1       
+vgaCont/i621_4_lut/A->vgaCont/i621_4_lut/Z
+                                          SLICE_R16C7B       D1_TO_F1_DELAY      0.449                 22.104  15      
+vgaCont/n19                                                  NET DELAY           3.318                 25.422  15      
+{vgaCont/vcnt_19__i8/SP   vgaCont/vcnt_19__i9/SP}
+                                                             ENDPOINT            0.000                 25.422  1       
 
 
 Destination Clock Path
@@ -876,34 +764,34 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 39.800  2       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY           5.353                 45.153  2       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                         0.000                 45.153  40      
+                                          PLL_PLL_R13C32                         0.000                 45.153  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                         0.150                 45.303  40      
-vgaCont/vgaclk_c                                             NET DELAY           6.887                 52.190  40      
-{videoGen/moving_box_inst/right_49__i5/CK   videoGen/moving_box_inst/right_49__i6/CK}
-                                                             CLOCK PIN           0.000                 52.190  1       
-                                                             Uncertainty      -(0.000)                 52.190  
-                                                             Setup time       -(0.529)                 51.661  
+                                          PLL_PLL_R13C32                         0.150                 45.303  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY           6.067                 51.370  11      
+{vgaCont/vcnt_19__i8/CK   vgaCont/vcnt_19__i9/CK}
+                                                             CLOCK PIN           0.000                 51.370  1       
+                                                             Uncertainty      -(0.000)                 51.370  
+                                                             Setup time       -(0.198)                 51.172  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Required Time                                                                                          51.661  
-Arrival Time                                                                                        -(30.273)  
+Required Time                                                                                          51.172  
+Arrival Time                                                                                        -(25.421)  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Path Slack  (Passed)                                                                                   21.387  
+Path Slack  (Passed)                                                                                   25.750  
 
 
 
 
 ++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : videoGen/moving_box_inst/counter_50__i11/Q  (SLICE_R19C4B)
-Path End         : {videoGen/moving_box_inst/right_49__i7/SR   videoGen/moving_box_inst/right_49__i8/SR}  (SLICE_R16C4A)
+Path Begin       : vgaCont/hcnt_20__i9/Q  (SLICE_R16C9D)
+Path End         : vgaCont/hcnt_20__i7/D  (SLICE_R16C9C)
 Source Clock     : vgaclk_c (R)
 Destination Clock: vgaclk_c (R)
-Logic Level      : 8
-Delay Ratio      : 71.3% (route), 28.7% (logic)
-Clock Skew       : -1.705 ns 
+Logic Level      : 4
+Delay Ratio      : 78.7% (route), 21.3% (logic)
+Clock Skew       : 0.000 ns 
 Setup Constraint : 39.800 ns 
-Path Slack       : 21.387 ns  (Passed)
+Path Slack       : 26.622 ns  (Passed)
 
 
 Source Clock Path
@@ -912,43 +800,30 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  2       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY           5.353                  5.353  2       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                         0.000                  5.353  40      
+                                          PLL_PLL_R13C32                         0.000                  5.353  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                         0.150                  5.503  40      
-vgaCont/vgaclk_c                                             NET DELAY           8.592                 14.095  40      
-{videoGen/moving_box_inst/counter_50__i10/CK   videoGen/moving_box_inst/counter_50__i11/CK}
-                                                             CLOCK PIN           0.000                 14.095  1       
+                                          PLL_PLL_R13C32                         0.150                  5.503  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY           7.772                 13.275  11      
+{vgaCont/hcnt_20__i9/CK   vgaCont/hcnt_20__i8/CK}
+                                                             CLOCK PIN           0.000                 13.275  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-videoGen/moving_box_inst/counter_50__i11/CK->videoGen/moving_box_inst/counter_50__i11/Q
-                                          SLICE_R19C4B       CLK_TO_Q1_DELAY     1.388                 15.483  2       
-videoGen/moving_box_inst/counter[10]                         NET DELAY           2.353                 17.836  2       
-videoGen/moving_box_inst/i3_3_lut/C->videoGen/moving_box_inst/i3_3_lut/Z
-                                          SLICE_R18C4C       D0_TO_F0_DELAY      0.449                 18.285  1       
-videoGen/moving_box_inst/n8_adj_111                          NET DELAY           2.168                 20.453  1       
-videoGen/moving_box_inst/i125_4_lut/C->videoGen/moving_box_inst/i125_4_lut/Z
-                                          SLICE_R18C5A       D1_TO_F1_DELAY      0.476                 20.929  1       
-videoGen/moving_box_inst/n30                                 NET DELAY           0.304                 21.233  1       
-videoGen/moving_box_inst/i4_4_lut/C->videoGen/moving_box_inst/i4_4_lut/Z
-                                          SLICE_R18C5B       C0_TO_F0_DELAY      0.476                 21.709  1       
-videoGen/moving_box_inst/n1968                               NET DELAY           0.304                 22.013  1       
-videoGen/moving_box_inst/i9_4_lut/A->videoGen/moving_box_inst/i9_4_lut/Z
-                                          SLICE_R18C5B       C1_TO_F1_DELAY      0.476                 22.489  1       
-videoGen/moving_box_inst/n22                                 NET DELAY           0.304                 22.793  1       
-videoGen/moving_box_inst/i11_4_lut/B->videoGen/moving_box_inst/i11_4_lut/Z
-                                          SLICE_R18C5C       C0_TO_F0_DELAY      0.476                 23.269  1       
-videoGen/moving_box_inst/n24                                 NET DELAY           0.304                 23.573  1       
-videoGen/moving_box_inst/i12_4_lut/B->videoGen/moving_box_inst/i12_4_lut/Z
-                                          SLICE_R18C5C       C1_TO_F1_DELAY      0.449                 24.022  30      
-videoGen/moving_box_inst/n3                                  NET DELAY           2.551                 26.573  30      
-videoGen/moving_box_inst/i699_4_lut/A->videoGen/moving_box_inst/i699_4_lut/Z
-                                          SLICE_R18C5D       A1_TO_F1_DELAY      0.449                 27.022  12      
-videoGen/moving_box_inst/n796                                NET DELAY           3.252                 30.274  12      
-{videoGen/moving_box_inst/right_49__i7/SR   videoGen/moving_box_inst/right_49__i8/SR}
-                                                             ENDPOINT            0.000                 30.274  1       
+vgaCont/hcnt_20__i9/CK->vgaCont/hcnt_20__i9/Q
+                                          SLICE_R16C9D       CLK_TO_Q0_DELAY     1.388                 14.663  4       
+vgaCont/x[9]                                                 NET DELAY           4.375                 19.038  4       
+vgaCont/i6_4_lut_adj_10/A->vgaCont/i6_4_lut_adj_10/Z
+                                          SLICE_R16C7A       B1_TO_F1_DELAY      0.449                 19.487  1       
+vgaCont/n15_adj_37                                           NET DELAY           2.168                 21.655  1       
+vgaCont/i621_4_lut/A->vgaCont/i621_4_lut/Z
+                                          SLICE_R16C7B       D1_TO_F1_DELAY      0.449                 22.104  15      
+vgaCont/n19                                                  NET DELAY           3.675                 25.779  15      
+vgaCont/i316_2_lut/B->vgaCont/i316_2_lut/Z
+                                          SLICE_R16C9C       B0_TO_F0_DELAY      0.476                 26.255  1       
+vgaCont/x_9__N_1[7]                                          NET DELAY           0.000                 26.255  1       
+vgaCont/hcnt_20__i7/D                                        ENDPOINT            0.000                 26.255  1       
 
 
 Destination Clock Path
@@ -958,34 +833,34 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 39.800  2       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY           5.353                 45.153  2       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                         0.000                 45.153  40      
+                                          PLL_PLL_R13C32                         0.000                 45.153  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                         0.150                 45.303  40      
-vgaCont/vgaclk_c                                             NET DELAY           6.887                 52.190  40      
-{videoGen/moving_box_inst/right_49__i7/CK   videoGen/moving_box_inst/right_49__i8/CK}
-                                                             CLOCK PIN           0.000                 52.190  1       
-                                                             Uncertainty      -(0.000)                 52.190  
-                                                             Setup time       -(0.529)                 51.661  
+                                          PLL_PLL_R13C32                         0.150                 45.303  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY           7.772                 53.075  11      
+{vgaCont/hcnt_20__i7/CK   vgaCont/hcnt_20__i6/CK}
+                                                             CLOCK PIN           0.000                 53.075  1       
+                                                             Uncertainty      -(0.000)                 53.075  
+                                                             Setup time       -(0.198)                 52.877  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Required Time                                                                                          51.661  
-Arrival Time                                                                                        -(30.273)  
+Required Time                                                                                          52.877  
+Arrival Time                                                                                        -(26.254)  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Path Slack  (Passed)                                                                                   21.387  
+Path Slack  (Passed)                                                                                   26.622  
 
 
 
 
 ++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : videoGen/moving_box_inst/counter_50__i11/Q  (SLICE_R19C4B)
-Path End         : videoGen/moving_box_inst/right_49__i9/SR  (SLICE_R16C4B)
+Path Begin       : vgaCont/hcnt_20__i9/Q  (SLICE_R16C9D)
+Path End         : vgaCont/hcnt_20__i9/D  (SLICE_R16C9D)
 Source Clock     : vgaclk_c (R)
 Destination Clock: vgaclk_c (R)
-Logic Level      : 8
-Delay Ratio      : 71.3% (route), 28.7% (logic)
-Clock Skew       : -1.705 ns 
+Logic Level      : 4
+Delay Ratio      : 78.7% (route), 21.3% (logic)
+Clock Skew       : 0.000 ns 
 Setup Constraint : 39.800 ns 
-Path Slack       : 21.387 ns  (Passed)
+Path Slack       : 26.622 ns  (Passed)
 
 
 Source Clock Path
@@ -994,42 +869,30 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  2       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY           5.353                  5.353  2       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                         0.000                  5.353  40      
+                                          PLL_PLL_R13C32                         0.000                  5.353  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                         0.150                  5.503  40      
-vgaCont/vgaclk_c                                             NET DELAY           8.592                 14.095  40      
-{videoGen/moving_box_inst/counter_50__i10/CK   videoGen/moving_box_inst/counter_50__i11/CK}
-                                                             CLOCK PIN           0.000                 14.095  1       
+                                          PLL_PLL_R13C32                         0.150                  5.503  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY           7.772                 13.275  11      
+{vgaCont/hcnt_20__i9/CK   vgaCont/hcnt_20__i8/CK}
+                                                             CLOCK PIN           0.000                 13.275  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-videoGen/moving_box_inst/counter_50__i11/CK->videoGen/moving_box_inst/counter_50__i11/Q
-                                          SLICE_R19C4B       CLK_TO_Q1_DELAY     1.388                 15.483  2       
-videoGen/moving_box_inst/counter[10]                         NET DELAY           2.353                 17.836  2       
-videoGen/moving_box_inst/i3_3_lut/C->videoGen/moving_box_inst/i3_3_lut/Z
-                                          SLICE_R18C4C       D0_TO_F0_DELAY      0.449                 18.285  1       
-videoGen/moving_box_inst/n8_adj_111                          NET DELAY           2.168                 20.453  1       
-videoGen/moving_box_inst/i125_4_lut/C->videoGen/moving_box_inst/i125_4_lut/Z
-                                          SLICE_R18C5A       D1_TO_F1_DELAY      0.476                 20.929  1       
-videoGen/moving_box_inst/n30                                 NET DELAY           0.304                 21.233  1       
-videoGen/moving_box_inst/i4_4_lut/C->videoGen/moving_box_inst/i4_4_lut/Z
-                                          SLICE_R18C5B       C0_TO_F0_DELAY      0.476                 21.709  1       
-videoGen/moving_box_inst/n1968                               NET DELAY           0.304                 22.013  1       
-videoGen/moving_box_inst/i9_4_lut/A->videoGen/moving_box_inst/i9_4_lut/Z
-                                          SLICE_R18C5B       C1_TO_F1_DELAY      0.476                 22.489  1       
-videoGen/moving_box_inst/n22                                 NET DELAY           0.304                 22.793  1       
-videoGen/moving_box_inst/i11_4_lut/B->videoGen/moving_box_inst/i11_4_lut/Z
-                                          SLICE_R18C5C       C0_TO_F0_DELAY      0.476                 23.269  1       
-videoGen/moving_box_inst/n24                                 NET DELAY           0.304                 23.573  1       
-videoGen/moving_box_inst/i12_4_lut/B->videoGen/moving_box_inst/i12_4_lut/Z
-                                          SLICE_R18C5C       C1_TO_F1_DELAY      0.449                 24.022  30      
-videoGen/moving_box_inst/n3                                  NET DELAY           2.551                 26.573  30      
-videoGen/moving_box_inst/i699_4_lut/A->videoGen/moving_box_inst/i699_4_lut/Z
-                                          SLICE_R18C5D       A1_TO_F1_DELAY      0.449                 27.022  12      
-videoGen/moving_box_inst/n796                                NET DELAY           3.252                 30.274  12      
-videoGen/moving_box_inst/right_49__i9/SR                     ENDPOINT            0.000                 30.274  1       
+vgaCont/hcnt_20__i9/CK->vgaCont/hcnt_20__i9/Q
+                                          SLICE_R16C9D       CLK_TO_Q0_DELAY     1.388                 14.663  4       
+vgaCont/x[9]                                                 NET DELAY           4.375                 19.038  4       
+vgaCont/i6_4_lut_adj_10/A->vgaCont/i6_4_lut_adj_10/Z
+                                          SLICE_R16C7A       B1_TO_F1_DELAY      0.449                 19.487  1       
+vgaCont/n15_adj_37                                           NET DELAY           2.168                 21.655  1       
+vgaCont/i621_4_lut/A->vgaCont/i621_4_lut/Z
+                                          SLICE_R16C7B       D1_TO_F1_DELAY      0.449                 22.104  15      
+vgaCont/n19                                                  NET DELAY           3.675                 25.779  15      
+vgaCont/i1_2_lut_adj_5/A->vgaCont/i1_2_lut_adj_5/Z
+                                          SLICE_R16C9D       B0_TO_F0_DELAY      0.476                 26.255  1       
+vgaCont/x_9__N_1[9]                                          NET DELAY           0.000                 26.255  1       
+vgaCont/hcnt_20__i9/D                                        ENDPOINT            0.000                 26.255  1       
 
 
 Destination Clock Path
@@ -1039,18 +902,19 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 39.800  2       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY           5.353                 45.153  2       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                         0.000                 45.153  40      
+                                          PLL_PLL_R13C32                         0.000                 45.153  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                         0.150                 45.303  40      
-vgaCont/vgaclk_c                                             NET DELAY           6.887                 52.190  40      
-videoGen/moving_box_inst/right_49__i9/CK                     CLOCK PIN           0.000                 52.190  1       
-                                                             Uncertainty      -(0.000)                 52.190  
-                                                             Setup time       -(0.529)                 51.661  
+                                          PLL_PLL_R13C32                         0.150                 45.303  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY           7.772                 53.075  11      
+{vgaCont/hcnt_20__i9/CK   vgaCont/hcnt_20__i8/CK}
+                                                             CLOCK PIN           0.000                 53.075  1       
+                                                             Uncertainty      -(0.000)                 53.075  
+                                                             Setup time       -(0.198)                 52.877  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Required Time                                                                                          51.661  
-Arrival Time                                                                                        -(30.273)  
+Required Time                                                                                          52.877  
+Arrival Time                                                                                        -(26.254)  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Path Slack  (Passed)                                                                                   21.387  
+Path Slack  (Passed)                                                                                   26.622  
 
 
 
@@ -1072,18 +936,19 @@ Path Slack  (Passed)                                                            
 -------------------------------------------------------
           Listing 10 End Points          |    Slack    
 -------------------------------------------------------
-videoGen/moving_box_inst/counter_50__i8/D|    1.808 ns 
-videoGen/moving_box_inst/left_48__i0/D   |    1.913 ns 
-videoGen/moving_box_inst/left_48__i1/D   |    1.913 ns 
-videoGen/moving_box_inst/left_48__i2/D   |    1.913 ns 
-videoGen/moving_box_inst/left_48__i3/D   |    1.913 ns 
-videoGen/moving_box_inst/left_48__i4/D   |    1.913 ns 
-videoGen/moving_box_inst/counter_50__i24/D              
-                                         |    1.913 ns 
-videoGen/moving_box_inst/counter_50__i25/D              
-                                         |    1.913 ns 
-videoGen/moving_box_inst/left_48__i5/D   |    1.913 ns 
-videoGen/moving_box_inst/left_48__i6/D   |    1.913 ns 
+vgaCont/hcnt_20__i6/D                    |    2.468 ns 
+vgaCont/hcnt_20__i7/D                    |    2.876 ns 
+{vgaCont/vcnt_19__i1/SP   vgaCont/vcnt_19__i0/SP}              
+                                         |    2.958 ns 
+{vgaCont/vcnt_19__i3/SP   vgaCont/vcnt_19__i2/SP}              
+                                         |    2.958 ns 
+{vgaCont/vcnt_19__i5/SP   vgaCont/vcnt_19__i4/SP}              
+                                         |    2.958 ns 
+vgaCont/hcnt_20__i8/D                    |    3.032 ns 
+vgaCont/vcnt_19__i7/D                    |    3.113 ns 
+vgaCont/vcnt_19__i6/D                    |    3.113 ns 
+vgaCont/vcnt_19__i8/D                    |    3.113 ns 
+vgaCont/vcnt_19__i9/D                    |    3.113 ns 
 -------------------------------------------------------
                                          |             
 Hold # of endpoints with negative slack: |           0 
@@ -1106,15 +971,15 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
  ++++Path 1  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Path Begin       : videoGen/moving_box_inst/counter_50__i7/Q  (SLICE_R19C3D)
-Path End         : videoGen/moving_box_inst/counter_50__i8/D  (SLICE_R19C4A)
+Path Begin       : vgaCont/hcnt_20__i5/Q  (SLICE_R15C8C)
+Path End         : vgaCont/hcnt_20__i6/D  (SLICE_R16C9C)
 Source Clock     : vgaclk_c (R)
 Destination Clock: vgaclk_c (R)
-Logic Level      : 3
-Delay Ratio      : 57.2% (route), 42.8% (logic)
-Clock Skew       : 0.668 ns 
+Logic Level      : 4
+Delay Ratio      : 61.3% (route), 38.7% (logic)
+Clock Skew       : 0.956 ns 
 Hold Constraint  : 0.000 ns 
-Path Slack       : 1.808 ns  (Passed)
+Path Slack       : 2.468 ns  (Passed)
 
 
 Source Clock Path
@@ -1123,28 +988,30 @@ Name                                      Cell/Site Name     Delay Name         
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY      0.000                  0.000  3       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY          3.002                  3.002  3       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                        0.000                  3.002  40      
+                                          PLL_PLL_R13C32                        0.000                  3.002  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                        0.150                  3.152  40      
-vgaCont/vgaclk_c                                             NET DELAY          4.151                  7.303  40      
-{videoGen/moving_box_inst/counter_50__i6/CK   videoGen/moving_box_inst/counter_50__i7/CK}
-                                                             CLOCK PIN          0.000                  7.303  1       
+                                          PLL_PLL_R13C32                        0.150                  3.152  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY          3.403                  6.555  11      
+{vgaCont/hcnt_20__i5/CK   vgaCont/hcnt_20__i4/CK}
+                                                             CLOCK PIN          0.000                  6.555  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name         Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  -----------------  -----  ---------------------  ------  
-videoGen/moving_box_inst/counter_50__i7/CK->videoGen/moving_box_inst/counter_50__i7/Q
-                                          SLICE_R19C3D       CLK_TO_Q1_DELAY    0.779                  8.082  2       
-videoGen/moving_box_inst/counter[6]                          NET DELAY          0.882                  8.964  2       
-videoGen/moving_box_inst/counter_50_add_4_7/C1->videoGen/moving_box_inst/counter_50_add_4_7/CO1
-                                          SLICE_R19C3D       C1_TO_COUT1_DELAY  0.029                  8.993  2       
-videoGen/moving_box_inst/n1637                               NET DELAY          0.534                  9.527  2       
-videoGen/moving_box_inst/counter_50_add_4_9/D0->videoGen/moving_box_inst/counter_50_add_4_9/S0
-                                          SLICE_R19C4A       D0_TO_F0_DELAY     0.252                  9.779  1       
-videoGen/moving_box_inst/n133[7]                             NET DELAY          0.000                  9.779  1       
-videoGen/moving_box_inst/counter_50__i8/D
-                                                             ENDPOINT           0.000                  9.779  1       
+vgaCont/hcnt_20__i5/CK->vgaCont/hcnt_20__i5/Q
+                                          SLICE_R15C8C       CLK_TO_Q0_DELAY    0.779                  7.334  3       
+vgaCont/x[5]                                                 NET DELAY          0.882                  8.216  3       
+vgaCont/hcnt_20_add_4_7/C0->vgaCont/hcnt_20_add_4_7/CO0
+                                          SLICE_R16C8D       C0_TO_COUT0_DELAY  0.029                  8.245  2       
+vgaCont/n922                                                 NET DELAY          0.282                  8.527  2       
+vgaCont/hcnt_20_add_4_7/D1->vgaCont/hcnt_20_add_4_7/S1
+                                          SLICE_R16C8D       D1_TO_F1_DELAY     0.266                  8.793  1       
+vgaCont/n45[6]                                               NET DELAY          0.934                  9.727  1       
+vgaCont/i317_2_lut/A->vgaCont/i317_2_lut/Z
+                                          SLICE_R16C9C       D1_TO_F1_DELAY     0.252                  9.979  1       
+vgaCont/x_9__N_1[6]                                          NET DELAY          0.000                  9.979  1       
+vgaCont/hcnt_20__i6/D                                        ENDPOINT           0.000                  9.979  1       
 
 
 Destination Clock Path
@@ -1154,95 +1021,106 @@ Name                                      Cell/Site Name     Delay Name         
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY      0.000                  0.000  3       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY          3.002                  3.002  3       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                        0.000                  3.002  40      
+                                          PLL_PLL_R13C32                        0.000                  3.002  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                        0.150                  3.152  40      
-vgaCont/vgaclk_c                                             NET DELAY          4.819                  7.971  40      
-{videoGen/moving_box_inst/counter_50__i8/CK   videoGen/moving_box_inst/counter_50__i9/CK}
-                                                             CLOCK PIN          0.000                  7.971  1       
-                                                             Uncertainty        0.000                  7.971  
-                                                             Hold time          0.000                  7.971  
+                                          PLL_PLL_R13C32                        0.150                  3.152  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY          4.359                  7.511  11      
+{vgaCont/hcnt_20__i7/CK   vgaCont/hcnt_20__i6/CK}
+                                                             CLOCK PIN          0.000                  7.511  1       
+                                                             Uncertainty        0.000                  7.511  
+                                                             Hold time          0.000                  7.511  
 ----------------------------------------  -----------------  -----------------  -----  ---------------------  ------  
-Required Time                                                                                         -7.971  
-Arrival Time                                                                                           9.779  
+Required Time                                                                                         -7.511  
+Arrival Time                                                                                           9.979  
 ----------------------------------------  -----------------  -----------------  -----  ---------------------  ------  
-Path Slack  (Passed)                                                                                   1.808  
+Path Slack  (Passed)                                                                                   2.468  
 
 
 
 
 ++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : videoGen/moving_box_inst/left_48__i0/Q  (SLICE_R18C3A)
-Path End         : videoGen/moving_box_inst/left_48__i0/D  (SLICE_R18C3A)
+Path Begin       : vgaCont/hcnt_20__i5/Q  (SLICE_R15C8C)
+Path End         : vgaCont/hcnt_20__i7/D  (SLICE_R16C9C)
 Source Clock     : vgaclk_c (R)
 Destination Clock: vgaclk_c (R)
-Logic Level      : 2
-Delay Ratio      : 46.1% (route), 53.9% (logic)
-Clock Skew       : 0.000 ns 
+Logic Level      : 5
+Delay Ratio      : 61.3% (route), 38.7% (logic)
+Clock Skew       : 0.956 ns 
 Hold Constraint  : 0.000 ns 
-Path Slack       : 1.913 ns  (Passed)
+Path Slack       : 2.876 ns  (Passed)
 
 
 Source Clock Path
-Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
-----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  3       
-pll_inst/lscc_pll_inst/int_osc                               NET DELAY        3.002                  3.002  3       
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  3       
+pll_inst/lscc_pll_inst/int_osc                               NET DELAY            3.002                  3.002  3       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                      0.000                  3.002  40      
+                                          PLL_PLL_R13C32                          0.000                  3.002  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                      0.150                  3.152  40      
-vgaCont/vgaclk_c                                             NET DELAY        3.862                  7.014  40      
-videoGen/moving_box_inst/left_48__i0/CK                      CLOCK PIN        0.000                  7.014  1       
+                                          PLL_PLL_R13C32                          0.150                  3.152  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY            3.403                  6.555  11      
+{vgaCont/hcnt_20__i5/CK   vgaCont/hcnt_20__i4/CK}
+                                                             CLOCK PIN            0.000                  6.555  1       
 
 
 Data Path
-Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
-----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-videoGen/moving_box_inst/left_48__i0/CK->videoGen/moving_box_inst/left_48__i0/Q
-                                          SLICE_R18C3A       CLK_TO_Q1_DELAY  0.779                  7.793  3       
-videoGen/moving_box_inst/box_left[0]                         NET DELAY        0.882                  8.675  3       
-videoGen/moving_box_inst/left_48_add_4_1/C1->videoGen/moving_box_inst/left_48_add_4_1/S1
-                                          SLICE_R18C3A       C1_TO_F1_DELAY   0.252                  8.927  1       
-videoGen/moving_box_inst/n45[0]                              NET DELAY        0.000                  8.927  1       
-videoGen/moving_box_inst/left_48__i0/D                       ENDPOINT         0.000                  8.927  1       
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+vgaCont/hcnt_20__i5/CK->vgaCont/hcnt_20__i5/Q
+                                          SLICE_R15C8C       CLK_TO_Q0_DELAY      0.779                  7.334  3       
+vgaCont/x[5]                                                 NET DELAY            0.882                  8.216  3       
+vgaCont/hcnt_20_add_4_7/C0->vgaCont/hcnt_20_add_4_7/CO0
+                                          SLICE_R16C8D       C0_TO_COUT0_DELAY    0.029                  8.245  2       
+vgaCont/n922                                                 NET DELAY            0.000                  8.245  2       
+vgaCont/hcnt_20_add_4_7/CI1->vgaCont/hcnt_20_add_4_7/CO1
+                                          SLICE_R16C8D       CIN1_TO_COUT1_DELAY  0.156                  8.401  2       
+vgaCont/n497                                                 NET DELAY            0.534                  8.935  2       
+vgaCont/hcnt_20_add_4_9/D0->vgaCont/hcnt_20_add_4_9/S0
+                                          SLICE_R16C9A       D0_TO_F0_DELAY       0.266                  9.201  1       
+vgaCont/n45[7]                                               NET DELAY            0.934                 10.135  1       
+vgaCont/i316_2_lut/A->vgaCont/i316_2_lut/Z
+                                          SLICE_R16C9C       D0_TO_F0_DELAY       0.252                 10.387  1       
+vgaCont/x_9__N_1[7]                                          NET DELAY            0.000                 10.387  1       
+vgaCont/hcnt_20__i7/D                                        ENDPOINT             0.000                 10.387  1       
 
 
 Destination Clock Path
-Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
-----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-                                                             CONSTRAINT       0.000                  0.000  1       
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  3       
-pll_inst/lscc_pll_inst/int_osc                               NET DELAY        3.002                  3.002  3       
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+                                                             CONSTRAINT           0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  3       
+pll_inst/lscc_pll_inst/int_osc                               NET DELAY            3.002                  3.002  3       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                      0.000                  3.002  40      
+                                          PLL_PLL_R13C32                          0.000                  3.002  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                      0.150                  3.152  40      
-vgaCont/vgaclk_c                                             NET DELAY        3.862                  7.014  40      
-videoGen/moving_box_inst/left_48__i0/CK                      CLOCK PIN        0.000                  7.014  1       
-                                                             Uncertainty      0.000                  7.014  
-                                                             Hold time        0.000                  7.014  
-----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-Required Time                                                                                       -7.014  
-Arrival Time                                                                                         8.927  
-----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-Path Slack  (Passed)                                                                                 1.913  
+                                          PLL_PLL_R13C32                          0.150                  3.152  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY            4.359                  7.511  11      
+{vgaCont/hcnt_20__i7/CK   vgaCont/hcnt_20__i6/CK}
+                                                             CLOCK PIN            0.000                  7.511  1       
+                                                             Uncertainty          0.000                  7.511  
+                                                             Hold time            0.000                  7.511  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+Required Time                                                                                           -7.511  
+Arrival Time                                                                                            10.387  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                     2.876  
 
 
 
 
 ++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : videoGen/moving_box_inst/left_48__i1/Q  (SLICE_R18C3B)
-Path End         : videoGen/moving_box_inst/left_48__i1/D  (SLICE_R18C3B)
+Path Begin       : vgaCont/hcnt_20__i0/Q  (SLICE_R15C8A)
+Path End         : {vgaCont/vcnt_19__i1/SP   vgaCont/vcnt_19__i0/SP}  (SLICE_R15C7B)
 Source Clock     : vgaclk_c (R)
 Destination Clock: vgaclk_c (R)
 Logic Level      : 2
-Delay Ratio      : 46.1% (route), 53.9% (logic)
-Clock Skew       : 0.000 ns 
+Delay Ratio      : 67.8% (route), 32.2% (logic)
+Clock Skew       : 0.289 ns 
 Hold Constraint  : 0.000 ns 
-Path Slack       : 1.913 ns  (Passed)
+Path Slack       : 2.958 ns  (Passed)
 
 
 Source Clock Path
@@ -1251,24 +1129,25 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  3       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY        3.002                  3.002  3       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                      0.000                  3.002  40      
+                                          PLL_PLL_R13C32                      0.000                  3.002  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                      0.150                  3.152  40      
-vgaCont/vgaclk_c                                             NET DELAY        3.862                  7.014  40      
-{videoGen/moving_box_inst/left_48__i1/CK   videoGen/moving_box_inst/left_48__i2/CK}
-                                                             CLOCK PIN        0.000                  7.014  1       
+                                          PLL_PLL_R13C32                      0.150                  3.152  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY        3.403                  6.555  11      
+{vgaCont/hcnt_20__i0/CK   vgaCont/hcnt_20__i1/CK}
+                                                             CLOCK PIN        0.000                  6.555  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-videoGen/moving_box_inst/left_48__i1/CK->videoGen/moving_box_inst/left_48__i1/Q
-                                          SLICE_R18C3B       CLK_TO_Q0_DELAY  0.779                  7.793  3       
-videoGen/moving_box_inst/box_left[1]                         NET DELAY        0.882                  8.675  3       
-videoGen/moving_box_inst/left_48_add_4_3/C0->videoGen/moving_box_inst/left_48_add_4_3/S0
-                                          SLICE_R18C3B       C0_TO_F0_DELAY   0.252                  8.927  1       
-videoGen/moving_box_inst/n45[1]                              NET DELAY        0.000                  8.927  1       
-videoGen/moving_box_inst/left_48__i1/D                       ENDPOINT         0.000                  8.927  1       
+vgaCont/hcnt_20__i0/CK->vgaCont/hcnt_20__i0/Q
+                                          SLICE_R15C8A       CLK_TO_Q0_DELAY  0.779                  7.334  2       
+vgaCont/x[0]                                                 NET DELAY        0.912                  8.246  2       
+vgaCont/i621_4_lut/B->vgaCont/i621_4_lut/Z
+                                          SLICE_R16C7B       B1_TO_F1_DELAY   0.266                  8.512  15      
+vgaCont/n19                                                  NET DELAY        1.290                  9.802  15      
+{vgaCont/vcnt_19__i1/SP   vgaCont/vcnt_19__i0/SP}
+                                                             ENDPOINT         0.000                  9.802  1       
 
 
 Destination Clock Path
@@ -1278,34 +1157,34 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  3       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY        3.002                  3.002  3       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                      0.000                  3.002  40      
+                                          PLL_PLL_R13C32                      0.000                  3.002  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                      0.150                  3.152  40      
-vgaCont/vgaclk_c                                             NET DELAY        3.862                  7.014  40      
-{videoGen/moving_box_inst/left_48__i1/CK   videoGen/moving_box_inst/left_48__i2/CK}
-                                                             CLOCK PIN        0.000                  7.014  1       
-                                                             Uncertainty      0.000                  7.014  
-                                                             Hold time        0.000                  7.014  
+                                          PLL_PLL_R13C32                      0.150                  3.152  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY        3.692                  6.844  11      
+{vgaCont/vcnt_19__i1/CK   vgaCont/vcnt_19__i0/CK}
+                                                             CLOCK PIN        0.000                  6.844  1       
+                                                             Uncertainty      0.000                  6.844  
+                                                             Hold time        0.000                  6.844  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-Required Time                                                                                       -7.014  
-Arrival Time                                                                                         8.927  
+Required Time                                                                                       -6.844  
+Arrival Time                                                                                         9.802  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-Path Slack  (Passed)                                                                                 1.913  
+Path Slack  (Passed)                                                                                 2.958  
 
 
 
 
 ++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : videoGen/moving_box_inst/left_48__i2/Q  (SLICE_R18C3B)
-Path End         : videoGen/moving_box_inst/left_48__i2/D  (SLICE_R18C3B)
+Path Begin       : vgaCont/hcnt_20__i0/Q  (SLICE_R15C8A)
+Path End         : {vgaCont/vcnt_19__i3/SP   vgaCont/vcnt_19__i2/SP}  (SLICE_R15C7C)
 Source Clock     : vgaclk_c (R)
 Destination Clock: vgaclk_c (R)
 Logic Level      : 2
-Delay Ratio      : 46.1% (route), 53.9% (logic)
-Clock Skew       : 0.000 ns 
+Delay Ratio      : 67.8% (route), 32.2% (logic)
+Clock Skew       : 0.289 ns 
 Hold Constraint  : 0.000 ns 
-Path Slack       : 1.913 ns  (Passed)
+Path Slack       : 2.958 ns  (Passed)
 
 
 Source Clock Path
@@ -1314,24 +1193,25 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  3       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY        3.002                  3.002  3       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                      0.000                  3.002  40      
+                                          PLL_PLL_R13C32                      0.000                  3.002  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                      0.150                  3.152  40      
-vgaCont/vgaclk_c                                             NET DELAY        3.862                  7.014  40      
-{videoGen/moving_box_inst/left_48__i1/CK   videoGen/moving_box_inst/left_48__i2/CK}
-                                                             CLOCK PIN        0.000                  7.014  1       
+                                          PLL_PLL_R13C32                      0.150                  3.152  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY        3.403                  6.555  11      
+{vgaCont/hcnt_20__i0/CK   vgaCont/hcnt_20__i1/CK}
+                                                             CLOCK PIN        0.000                  6.555  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-videoGen/moving_box_inst/left_48__i2/CK->videoGen/moving_box_inst/left_48__i2/Q
-                                          SLICE_R18C3B       CLK_TO_Q1_DELAY  0.779                  7.793  3       
-videoGen/moving_box_inst/box_left[2]                         NET DELAY        0.882                  8.675  3       
-videoGen/moving_box_inst/left_48_add_4_3/C1->videoGen/moving_box_inst/left_48_add_4_3/S1
-                                          SLICE_R18C3B       C1_TO_F1_DELAY   0.252                  8.927  1       
-videoGen/moving_box_inst/n45[2]                              NET DELAY        0.000                  8.927  1       
-videoGen/moving_box_inst/left_48__i2/D                       ENDPOINT         0.000                  8.927  1       
+vgaCont/hcnt_20__i0/CK->vgaCont/hcnt_20__i0/Q
+                                          SLICE_R15C8A       CLK_TO_Q0_DELAY  0.779                  7.334  2       
+vgaCont/x[0]                                                 NET DELAY        0.912                  8.246  2       
+vgaCont/i621_4_lut/B->vgaCont/i621_4_lut/Z
+                                          SLICE_R16C7B       B1_TO_F1_DELAY   0.266                  8.512  15      
+vgaCont/n19                                                  NET DELAY        1.290                  9.802  15      
+{vgaCont/vcnt_19__i3/SP   vgaCont/vcnt_19__i2/SP}
+                                                             ENDPOINT         0.000                  9.802  1       
 
 
 Destination Clock Path
@@ -1341,34 +1221,34 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  3       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY        3.002                  3.002  3       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                      0.000                  3.002  40      
+                                          PLL_PLL_R13C32                      0.000                  3.002  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                      0.150                  3.152  40      
-vgaCont/vgaclk_c                                             NET DELAY        3.862                  7.014  40      
-{videoGen/moving_box_inst/left_48__i1/CK   videoGen/moving_box_inst/left_48__i2/CK}
-                                                             CLOCK PIN        0.000                  7.014  1       
-                                                             Uncertainty      0.000                  7.014  
-                                                             Hold time        0.000                  7.014  
+                                          PLL_PLL_R13C32                      0.150                  3.152  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY        3.692                  6.844  11      
+{vgaCont/vcnt_19__i3/CK   vgaCont/vcnt_19__i2/CK}
+                                                             CLOCK PIN        0.000                  6.844  1       
+                                                             Uncertainty      0.000                  6.844  
+                                                             Hold time        0.000                  6.844  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-Required Time                                                                                       -7.014  
-Arrival Time                                                                                         8.927  
+Required Time                                                                                       -6.844  
+Arrival Time                                                                                         9.802  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-Path Slack  (Passed)                                                                                 1.913  
+Path Slack  (Passed)                                                                                 2.958  
 
 
 
 
 ++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : videoGen/moving_box_inst/left_48__i3/Q  (SLICE_R18C3C)
-Path End         : videoGen/moving_box_inst/left_48__i3/D  (SLICE_R18C3C)
+Path Begin       : vgaCont/hcnt_20__i0/Q  (SLICE_R15C8A)
+Path End         : {vgaCont/vcnt_19__i5/SP   vgaCont/vcnt_19__i4/SP}  (SLICE_R15C7A)
 Source Clock     : vgaclk_c (R)
 Destination Clock: vgaclk_c (R)
 Logic Level      : 2
-Delay Ratio      : 46.1% (route), 53.9% (logic)
-Clock Skew       : 0.000 ns 
+Delay Ratio      : 67.8% (route), 32.2% (logic)
+Clock Skew       : 0.289 ns 
 Hold Constraint  : 0.000 ns 
-Path Slack       : 1.913 ns  (Passed)
+Path Slack       : 2.958 ns  (Passed)
 
 
 Source Clock Path
@@ -1377,24 +1257,25 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  3       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY        3.002                  3.002  3       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                      0.000                  3.002  40      
+                                          PLL_PLL_R13C32                      0.000                  3.002  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                      0.150                  3.152  40      
-vgaCont/vgaclk_c                                             NET DELAY        3.862                  7.014  40      
-{videoGen/moving_box_inst/left_48__i3/CK   videoGen/moving_box_inst/left_48__i4/CK}
-                                                             CLOCK PIN        0.000                  7.014  1       
+                                          PLL_PLL_R13C32                      0.150                  3.152  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY        3.403                  6.555  11      
+{vgaCont/hcnt_20__i0/CK   vgaCont/hcnt_20__i1/CK}
+                                                             CLOCK PIN        0.000                  6.555  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-videoGen/moving_box_inst/left_48__i3/CK->videoGen/moving_box_inst/left_48__i3/Q
-                                          SLICE_R18C3C       CLK_TO_Q0_DELAY  0.779                  7.793  3       
-videoGen/moving_box_inst/box_left[3]                         NET DELAY        0.882                  8.675  3       
-videoGen/moving_box_inst/left_48_add_4_5/C0->videoGen/moving_box_inst/left_48_add_4_5/S0
-                                          SLICE_R18C3C       C0_TO_F0_DELAY   0.252                  8.927  1       
-videoGen/moving_box_inst/n45[3]                              NET DELAY        0.000                  8.927  1       
-videoGen/moving_box_inst/left_48__i3/D                       ENDPOINT         0.000                  8.927  1       
+vgaCont/hcnt_20__i0/CK->vgaCont/hcnt_20__i0/Q
+                                          SLICE_R15C8A       CLK_TO_Q0_DELAY  0.779                  7.334  2       
+vgaCont/x[0]                                                 NET DELAY        0.912                  8.246  2       
+vgaCont/i621_4_lut/B->vgaCont/i621_4_lut/Z
+                                          SLICE_R16C7B       B1_TO_F1_DELAY   0.266                  8.512  15      
+vgaCont/n19                                                  NET DELAY        1.290                  9.802  15      
+{vgaCont/vcnt_19__i5/SP   vgaCont/vcnt_19__i4/SP}
+                                                             ENDPOINT         0.000                  9.802  1       
 
 
 Destination Clock Path
@@ -1404,97 +1285,109 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  3       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY        3.002                  3.002  3       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                      0.000                  3.002  40      
+                                          PLL_PLL_R13C32                      0.000                  3.002  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                      0.150                  3.152  40      
-vgaCont/vgaclk_c                                             NET DELAY        3.862                  7.014  40      
-{videoGen/moving_box_inst/left_48__i3/CK   videoGen/moving_box_inst/left_48__i4/CK}
-                                                             CLOCK PIN        0.000                  7.014  1       
-                                                             Uncertainty      0.000                  7.014  
-                                                             Hold time        0.000                  7.014  
+                                          PLL_PLL_R13C32                      0.150                  3.152  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY        3.692                  6.844  11      
+{vgaCont/vcnt_19__i5/CK   vgaCont/vcnt_19__i4/CK}
+                                                             CLOCK PIN        0.000                  6.844  1       
+                                                             Uncertainty      0.000                  6.844  
+                                                             Hold time        0.000                  6.844  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-Required Time                                                                                       -7.014  
-Arrival Time                                                                                         8.927  
+Required Time                                                                                       -6.844  
+Arrival Time                                                                                         9.802  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-Path Slack  (Passed)                                                                                 1.913  
+Path Slack  (Passed)                                                                                 2.958  
 
 
 
 
 ++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : videoGen/moving_box_inst/left_48__i4/Q  (SLICE_R18C3C)
-Path End         : videoGen/moving_box_inst/left_48__i4/D  (SLICE_R18C3C)
+Path Begin       : vgaCont/hcnt_20__i5/Q  (SLICE_R15C8C)
+Path End         : vgaCont/hcnt_20__i8/D  (SLICE_R16C9D)
 Source Clock     : vgaclk_c (R)
 Destination Clock: vgaclk_c (R)
-Logic Level      : 2
-Delay Ratio      : 46.1% (route), 53.9% (logic)
-Clock Skew       : 0.000 ns 
+Logic Level      : 6
+Delay Ratio      : 58.9% (route), 41.1% (logic)
+Clock Skew       : 0.956 ns 
 Hold Constraint  : 0.000 ns 
-Path Slack       : 1.913 ns  (Passed)
+Path Slack       : 3.032 ns  (Passed)
 
 
 Source Clock Path
-Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
-----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  3       
-pll_inst/lscc_pll_inst/int_osc                               NET DELAY        3.002                  3.002  3       
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  3       
+pll_inst/lscc_pll_inst/int_osc                               NET DELAY            3.002                  3.002  3       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                      0.000                  3.002  40      
+                                          PLL_PLL_R13C32                          0.000                  3.002  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                      0.150                  3.152  40      
-vgaCont/vgaclk_c                                             NET DELAY        3.862                  7.014  40      
-{videoGen/moving_box_inst/left_48__i3/CK   videoGen/moving_box_inst/left_48__i4/CK}
-                                                             CLOCK PIN        0.000                  7.014  1       
+                                          PLL_PLL_R13C32                          0.150                  3.152  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY            3.403                  6.555  11      
+{vgaCont/hcnt_20__i5/CK   vgaCont/hcnt_20__i4/CK}
+                                                             CLOCK PIN            0.000                  6.555  1       
 
 
 Data Path
-Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
-----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-videoGen/moving_box_inst/left_48__i4/CK->videoGen/moving_box_inst/left_48__i4/Q
-                                          SLICE_R18C3C       CLK_TO_Q1_DELAY  0.779                  7.793  3       
-videoGen/moving_box_inst/box_left[4]                         NET DELAY        0.882                  8.675  3       
-videoGen/moving_box_inst/left_48_add_4_5/C1->videoGen/moving_box_inst/left_48_add_4_5/S1
-                                          SLICE_R18C3C       C1_TO_F1_DELAY   0.252                  8.927  1       
-videoGen/moving_box_inst/n45[4]                              NET DELAY        0.000                  8.927  1       
-videoGen/moving_box_inst/left_48__i4/D                       ENDPOINT         0.000                  8.927  1       
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+vgaCont/hcnt_20__i5/CK->vgaCont/hcnt_20__i5/Q
+                                          SLICE_R15C8C       CLK_TO_Q0_DELAY      0.779                  7.334  3       
+vgaCont/x[5]                                                 NET DELAY            0.882                  8.216  3       
+vgaCont/hcnt_20_add_4_7/C0->vgaCont/hcnt_20_add_4_7/CO0
+                                          SLICE_R16C8D       C0_TO_COUT0_DELAY    0.029                  8.245  2       
+vgaCont/n922                                                 NET DELAY            0.000                  8.245  2       
+vgaCont/hcnt_20_add_4_7/CI1->vgaCont/hcnt_20_add_4_7/CO1
+                                          SLICE_R16C8D       CIN1_TO_COUT1_DELAY  0.156                  8.401  2       
+vgaCont/n497                                                 NET DELAY            0.252                  8.653  2       
+vgaCont/hcnt_20_add_4_9/CI0->vgaCont/hcnt_20_add_4_9/CO0
+                                          SLICE_R16C9A       CIN0_TO_COUT0_DELAY  0.156                  8.809  2       
+vgaCont/n925                                                 NET DELAY            0.282                  9.091  2       
+vgaCont/hcnt_20_add_4_9/D1->vgaCont/hcnt_20_add_4_9/S1
+                                          SLICE_R16C9A       D1_TO_F1_DELAY       0.266                  9.357  1       
+vgaCont/n45[8]                                               NET DELAY            0.934                 10.291  1       
+vgaCont/i315_2_lut/A->vgaCont/i315_2_lut/Z
+                                          SLICE_R16C9D       D1_TO_F1_DELAY       0.252                 10.543  1       
+vgaCont/x_9__N_1[8]                                          NET DELAY            0.000                 10.543  1       
+vgaCont/hcnt_20__i8/D                                        ENDPOINT             0.000                 10.543  1       
 
 
 Destination Clock Path
-Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
-----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-                                                             CONSTRAINT       0.000                  0.000  1       
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  3       
-pll_inst/lscc_pll_inst/int_osc                               NET DELAY        3.002                  3.002  3       
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+                                                             CONSTRAINT           0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  3       
+pll_inst/lscc_pll_inst/int_osc                               NET DELAY            3.002                  3.002  3       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                      0.000                  3.002  40      
+                                          PLL_PLL_R13C32                          0.000                  3.002  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                      0.150                  3.152  40      
-vgaCont/vgaclk_c                                             NET DELAY        3.862                  7.014  40      
-{videoGen/moving_box_inst/left_48__i3/CK   videoGen/moving_box_inst/left_48__i4/CK}
-                                                             CLOCK PIN        0.000                  7.014  1       
-                                                             Uncertainty      0.000                  7.014  
-                                                             Hold time        0.000                  7.014  
-----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-Required Time                                                                                       -7.014  
-Arrival Time                                                                                         8.927  
-----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-Path Slack  (Passed)                                                                                 1.913  
+                                          PLL_PLL_R13C32                          0.150                  3.152  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY            4.359                  7.511  11      
+{vgaCont/hcnt_20__i9/CK   vgaCont/hcnt_20__i8/CK}
+                                                             CLOCK PIN            0.000                  7.511  1       
+                                                             Uncertainty          0.000                  7.511  
+                                                             Hold time            0.000                  7.511  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+Required Time                                                                                           -7.511  
+Arrival Time                                                                                            10.543  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                     3.032  
 
 
 
 
 ++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : videoGen/moving_box_inst/counter_50__i24/Q  (SLICE_R19C6A)
-Path End         : videoGen/moving_box_inst/counter_50__i24/D  (SLICE_R19C6A)
+Path Begin       : vgaCont/vcnt_19__i7/Q  (SLICE_R14C8D)
+Path End         : vgaCont/vcnt_19__i7/D  (SLICE_R14C8D)
 Source Clock     : vgaclk_c (R)
 Destination Clock: vgaclk_c (R)
-Logic Level      : 2
-Delay Ratio      : 46.1% (route), 53.9% (logic)
+Logic Level      : 3
+Delay Ratio      : 58.3% (route), 41.7% (logic)
 Clock Skew       : 0.000 ns 
 Hold Constraint  : 0.000 ns 
-Path Slack       : 1.913 ns  (Passed)
+Path Slack       : 3.113 ns  (Passed)
 
 
 Source Clock Path
@@ -1503,25 +1396,27 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  3       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY        3.002                  3.002  3       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                      0.000                  3.002  40      
+                                          PLL_PLL_R13C32                      0.000                  3.002  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                      0.150                  3.152  40      
-vgaCont/vgaclk_c                                             NET DELAY        4.151                  7.303  40      
-{videoGen/moving_box_inst/counter_50__i24/CK   videoGen/moving_box_inst/counter_50__i25/CK}
-                                                             CLOCK PIN        0.000                  7.303  1       
+                                          PLL_PLL_R13C32                      0.150                  3.152  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY        3.403                  6.555  11      
+{vgaCont/vcnt_19__i7/CK   vgaCont/vcnt_19__i6/CK}
+                                                             CLOCK PIN        0.000                  6.555  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-videoGen/moving_box_inst/counter_50__i24/CK->videoGen/moving_box_inst/counter_50__i24/Q
-                                          SLICE_R19C6A       CLK_TO_Q0_DELAY  0.779                  8.082  2       
-videoGen/moving_box_inst/counter[23]                         NET DELAY        0.882                  8.964  2       
-videoGen/moving_box_inst/counter_50_add_4_25/C0->videoGen/moving_box_inst/counter_50_add_4_25/S0
-                                          SLICE_R19C6A       C0_TO_F0_DELAY   0.252                  9.216  1       
-videoGen/moving_box_inst/n133[23]                            NET DELAY        0.000                  9.216  1       
-videoGen/moving_box_inst/counter_50__i24/D
-                                                             ENDPOINT         0.000                  9.216  1       
+vgaCont/vcnt_19__i7/CK->vgaCont/vcnt_19__i7/Q
+                                          SLICE_R14C8D       CLK_TO_Q0_DELAY  0.779                  7.334  3       
+vgaCont/y[7]                                                 NET DELAY        0.882                  8.216  3       
+vgaCont/vcnt_19_add_4_9/C0->vgaCont/vcnt_19_add_4_9/S0
+                                          SLICE_R14C8A       C0_TO_F0_DELAY   0.266                  8.482  1       
+vgaCont/n35[7]                                               NET DELAY        0.934                  9.416  1       
+vgaCont/i1_2_lut_adj_16/B->vgaCont/i1_2_lut_adj_16/Z
+                                          SLICE_R14C8D       D0_TO_F0_DELAY   0.252                  9.668  1       
+vgaCont/n46[7]                                               NET DELAY        0.000                  9.668  1       
+vgaCont/vcnt_19__i7/D                                        ENDPOINT         0.000                  9.668  1       
 
 
 Destination Clock Path
@@ -1531,34 +1426,34 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  3       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY        3.002                  3.002  3       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                      0.000                  3.002  40      
+                                          PLL_PLL_R13C32                      0.000                  3.002  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                      0.150                  3.152  40      
-vgaCont/vgaclk_c                                             NET DELAY        4.151                  7.303  40      
-{videoGen/moving_box_inst/counter_50__i24/CK   videoGen/moving_box_inst/counter_50__i25/CK}
-                                                             CLOCK PIN        0.000                  7.303  1       
-                                                             Uncertainty      0.000                  7.303  
-                                                             Hold time        0.000                  7.303  
+                                          PLL_PLL_R13C32                      0.150                  3.152  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY        3.403                  6.555  11      
+{vgaCont/vcnt_19__i7/CK   vgaCont/vcnt_19__i6/CK}
+                                                             CLOCK PIN        0.000                  6.555  1       
+                                                             Uncertainty      0.000                  6.555  
+                                                             Hold time        0.000                  6.555  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-Required Time                                                                                       -7.303  
-Arrival Time                                                                                         9.216  
+Required Time                                                                                       -6.555  
+Arrival Time                                                                                         9.668  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-Path Slack  (Passed)                                                                                 1.913  
+Path Slack  (Passed)                                                                                 3.113  
 
 
 
 
 ++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : videoGen/moving_box_inst/counter_50__i25/Q  (SLICE_R19C6A)
-Path End         : videoGen/moving_box_inst/counter_50__i25/D  (SLICE_R19C6A)
+Path Begin       : vgaCont/vcnt_19__i6/Q  (SLICE_R14C8D)
+Path End         : vgaCont/vcnt_19__i6/D  (SLICE_R14C8D)
 Source Clock     : vgaclk_c (R)
 Destination Clock: vgaclk_c (R)
-Logic Level      : 2
-Delay Ratio      : 46.1% (route), 53.9% (logic)
+Logic Level      : 3
+Delay Ratio      : 58.3% (route), 41.7% (logic)
 Clock Skew       : 0.000 ns 
 Hold Constraint  : 0.000 ns 
-Path Slack       : 1.913 ns  (Passed)
+Path Slack       : 3.113 ns  (Passed)
 
 
 Source Clock Path
@@ -1567,25 +1462,27 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  3       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY        3.002                  3.002  3       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                      0.000                  3.002  40      
+                                          PLL_PLL_R13C32                      0.000                  3.002  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                      0.150                  3.152  40      
-vgaCont/vgaclk_c                                             NET DELAY        4.151                  7.303  40      
-{videoGen/moving_box_inst/counter_50__i24/CK   videoGen/moving_box_inst/counter_50__i25/CK}
-                                                             CLOCK PIN        0.000                  7.303  1       
+                                          PLL_PLL_R13C32                      0.150                  3.152  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY        3.403                  6.555  11      
+{vgaCont/vcnt_19__i7/CK   vgaCont/vcnt_19__i6/CK}
+                                                             CLOCK PIN        0.000                  6.555  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-videoGen/moving_box_inst/counter_50__i25/CK->videoGen/moving_box_inst/counter_50__i25/Q
-                                          SLICE_R19C6A       CLK_TO_Q1_DELAY  0.779                  8.082  2       
-videoGen/moving_box_inst/counter[24]                         NET DELAY        0.882                  8.964  2       
-videoGen/moving_box_inst/counter_50_add_4_25/C1->videoGen/moving_box_inst/counter_50_add_4_25/S1
-                                          SLICE_R19C6A       C1_TO_F1_DELAY   0.252                  9.216  1       
-videoGen/moving_box_inst/n133[24]                            NET DELAY        0.000                  9.216  1       
-videoGen/moving_box_inst/counter_50__i25/D
-                                                             ENDPOINT         0.000                  9.216  1       
+vgaCont/vcnt_19__i6/CK->vgaCont/vcnt_19__i6/Q
+                                          SLICE_R14C8D       CLK_TO_Q1_DELAY  0.779                  7.334  3       
+vgaCont/y[6]                                                 NET DELAY        0.882                  8.216  3       
+vgaCont/vcnt_19_add_4_7/C1->vgaCont/vcnt_19_add_4_7/S1
+                                          SLICE_R14C7D       C1_TO_F1_DELAY   0.266                  8.482  1       
+vgaCont/n35[6]                                               NET DELAY        0.934                  9.416  1       
+vgaCont/i1_2_lut_adj_14/B->vgaCont/i1_2_lut_adj_14/Z
+                                          SLICE_R14C8D       D1_TO_F1_DELAY   0.252                  9.668  1       
+vgaCont/n46[6]                                               NET DELAY        0.000                  9.668  1       
+vgaCont/vcnt_19__i6/D                                        ENDPOINT         0.000                  9.668  1       
 
 
 Destination Clock Path
@@ -1595,34 +1492,34 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  3       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY        3.002                  3.002  3       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                      0.000                  3.002  40      
+                                          PLL_PLL_R13C32                      0.000                  3.002  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                      0.150                  3.152  40      
-vgaCont/vgaclk_c                                             NET DELAY        4.151                  7.303  40      
-{videoGen/moving_box_inst/counter_50__i24/CK   videoGen/moving_box_inst/counter_50__i25/CK}
-                                                             CLOCK PIN        0.000                  7.303  1       
-                                                             Uncertainty      0.000                  7.303  
-                                                             Hold time        0.000                  7.303  
+                                          PLL_PLL_R13C32                      0.150                  3.152  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY        3.403                  6.555  11      
+{vgaCont/vcnt_19__i7/CK   vgaCont/vcnt_19__i6/CK}
+                                                             CLOCK PIN        0.000                  6.555  1       
+                                                             Uncertainty      0.000                  6.555  
+                                                             Hold time        0.000                  6.555  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-Required Time                                                                                       -7.303  
-Arrival Time                                                                                         9.216  
+Required Time                                                                                       -6.555  
+Arrival Time                                                                                         9.668  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-Path Slack  (Passed)                                                                                 1.913  
+Path Slack  (Passed)                                                                                 3.113  
 
 
 
 
 ++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : videoGen/moving_box_inst/left_48__i5/Q  (SLICE_R18C3D)
-Path End         : videoGen/moving_box_inst/left_48__i5/D  (SLICE_R18C3D)
+Path Begin       : vgaCont/vcnt_19__i8/Q  (SLICE_R14C8C)
+Path End         : vgaCont/vcnt_19__i8/D  (SLICE_R14C8C)
 Source Clock     : vgaclk_c (R)
 Destination Clock: vgaclk_c (R)
-Logic Level      : 2
-Delay Ratio      : 46.1% (route), 53.9% (logic)
+Logic Level      : 3
+Delay Ratio      : 58.3% (route), 41.7% (logic)
 Clock Skew       : 0.000 ns 
 Hold Constraint  : 0.000 ns 
-Path Slack       : 1.913 ns  (Passed)
+Path Slack       : 3.113 ns  (Passed)
 
 
 Source Clock Path
@@ -1631,24 +1528,27 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  3       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY        3.002                  3.002  3       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                      0.000                  3.002  40      
+                                          PLL_PLL_R13C32                      0.000                  3.002  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                      0.150                  3.152  40      
-vgaCont/vgaclk_c                                             NET DELAY        3.862                  7.014  40      
-{videoGen/moving_box_inst/left_48__i5/CK   videoGen/moving_box_inst/left_48__i6/CK}
-                                                             CLOCK PIN        0.000                  7.014  1       
+                                          PLL_PLL_R13C32                      0.150                  3.152  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY        3.403                  6.555  11      
+{vgaCont/vcnt_19__i8/CK   vgaCont/vcnt_19__i9/CK}
+                                                             CLOCK PIN        0.000                  6.555  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-videoGen/moving_box_inst/left_48__i5/CK->videoGen/moving_box_inst/left_48__i5/Q
-                                          SLICE_R18C3D       CLK_TO_Q0_DELAY  0.779                  7.793  3       
-videoGen/moving_box_inst/box_left[5]                         NET DELAY        0.882                  8.675  3       
-videoGen/moving_box_inst/left_48_add_4_7/C0->videoGen/moving_box_inst/left_48_add_4_7/S0
-                                          SLICE_R18C3D       C0_TO_F0_DELAY   0.252                  8.927  1       
-videoGen/moving_box_inst/n45[5]                              NET DELAY        0.000                  8.927  1       
-videoGen/moving_box_inst/left_48__i5/D                       ENDPOINT         0.000                  8.927  1       
+vgaCont/vcnt_19__i8/CK->vgaCont/vcnt_19__i8/Q
+                                          SLICE_R14C8C       CLK_TO_Q0_DELAY  0.779                  7.334  3       
+vgaCont/y[8]                                                 NET DELAY        0.882                  8.216  3       
+vgaCont/vcnt_19_add_4_9/C1->vgaCont/vcnt_19_add_4_9/S1
+                                          SLICE_R14C8A       C1_TO_F1_DELAY   0.266                  8.482  1       
+vgaCont/n35[8]                                               NET DELAY        0.934                  9.416  1       
+vgaCont/i1_2_lut_adj_17/B->vgaCont/i1_2_lut_adj_17/Z
+                                          SLICE_R14C8C       D0_TO_F0_DELAY   0.252                  9.668  1       
+vgaCont/n46[8]                                               NET DELAY        0.000                  9.668  1       
+vgaCont/vcnt_19__i8/D                                        ENDPOINT         0.000                  9.668  1       
 
 
 Destination Clock Path
@@ -1658,34 +1558,34 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  3       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY        3.002                  3.002  3       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                      0.000                  3.002  40      
+                                          PLL_PLL_R13C32                      0.000                  3.002  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                      0.150                  3.152  40      
-vgaCont/vgaclk_c                                             NET DELAY        3.862                  7.014  40      
-{videoGen/moving_box_inst/left_48__i5/CK   videoGen/moving_box_inst/left_48__i6/CK}
-                                                             CLOCK PIN        0.000                  7.014  1       
-                                                             Uncertainty      0.000                  7.014  
-                                                             Hold time        0.000                  7.014  
+                                          PLL_PLL_R13C32                      0.150                  3.152  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY        3.403                  6.555  11      
+{vgaCont/vcnt_19__i8/CK   vgaCont/vcnt_19__i9/CK}
+                                                             CLOCK PIN        0.000                  6.555  1       
+                                                             Uncertainty      0.000                  6.555  
+                                                             Hold time        0.000                  6.555  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-Required Time                                                                                       -7.014  
-Arrival Time                                                                                         8.927  
+Required Time                                                                                       -6.555  
+Arrival Time                                                                                         9.668  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-Path Slack  (Passed)                                                                                 1.913  
+Path Slack  (Passed)                                                                                 3.113  
 
 
 
 
 ++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : videoGen/moving_box_inst/left_48__i6/Q  (SLICE_R18C3D)
-Path End         : videoGen/moving_box_inst/left_48__i6/D  (SLICE_R18C3D)
+Path Begin       : vgaCont/vcnt_19__i9/Q  (SLICE_R14C8C)
+Path End         : vgaCont/vcnt_19__i9/D  (SLICE_R14C8C)
 Source Clock     : vgaclk_c (R)
 Destination Clock: vgaclk_c (R)
-Logic Level      : 2
-Delay Ratio      : 46.1% (route), 53.9% (logic)
+Logic Level      : 3
+Delay Ratio      : 58.3% (route), 41.7% (logic)
 Clock Skew       : 0.000 ns 
 Hold Constraint  : 0.000 ns 
-Path Slack       : 1.913 ns  (Passed)
+Path Slack       : 3.113 ns  (Passed)
 
 
 Source Clock Path
@@ -1694,24 +1594,27 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  3       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY        3.002                  3.002  3       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                      0.000                  3.002  40      
+                                          PLL_PLL_R13C32                      0.000                  3.002  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                      0.150                  3.152  40      
-vgaCont/vgaclk_c                                             NET DELAY        3.862                  7.014  40      
-{videoGen/moving_box_inst/left_48__i5/CK   videoGen/moving_box_inst/left_48__i6/CK}
-                                                             CLOCK PIN        0.000                  7.014  1       
+                                          PLL_PLL_R13C32                      0.150                  3.152  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY        3.403                  6.555  11      
+{vgaCont/vcnt_19__i8/CK   vgaCont/vcnt_19__i9/CK}
+                                                             CLOCK PIN        0.000                  6.555  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-videoGen/moving_box_inst/left_48__i6/CK->videoGen/moving_box_inst/left_48__i6/Q
-                                          SLICE_R18C3D       CLK_TO_Q1_DELAY  0.779                  7.793  3       
-videoGen/moving_box_inst/box_left[6]                         NET DELAY        0.882                  8.675  3       
-videoGen/moving_box_inst/left_48_add_4_7/C1->videoGen/moving_box_inst/left_48_add_4_7/S1
-                                          SLICE_R18C3D       C1_TO_F1_DELAY   0.252                  8.927  1       
-videoGen/moving_box_inst/n45[6]                              NET DELAY        0.000                  8.927  1       
-videoGen/moving_box_inst/left_48__i6/D                       ENDPOINT         0.000                  8.927  1       
+vgaCont/vcnt_19__i9/CK->vgaCont/vcnt_19__i9/Q
+                                          SLICE_R14C8C       CLK_TO_Q1_DELAY  0.779                  7.334  4       
+vgaCont/y[9]                                                 NET DELAY        0.882                  8.216  4       
+vgaCont/vcnt_19_add_4_11/C0->vgaCont/vcnt_19_add_4_11/S0
+                                          SLICE_R14C8B       C0_TO_F0_DELAY   0.266                  8.482  1       
+vgaCont/n35[9]                                               NET DELAY        0.934                  9.416  1       
+vgaCont/i311_2_lut/A->vgaCont/i311_2_lut/Z
+                                          SLICE_R14C8C       D1_TO_F1_DELAY   0.252                  9.668  1       
+vgaCont/n46[9]                                               NET DELAY        0.000                  9.668  1       
+vgaCont/vcnt_19__i9/D                                        ENDPOINT         0.000                  9.668  1       
 
 
 Destination Clock Path
@@ -1721,19 +1624,19 @@ Name                                      Cell/Site Name     Delay Name       In
 hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  3       
 pll_inst/lscc_pll_inst/int_osc                               NET DELAY        3.002                  3.002  3       
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE
-                                          PLL_PLL_R13C32                      0.000                  3.002  40      
+                                          PLL_PLL_R13C32                      0.000                  3.002  11      
 pll_inst/lscc_pll_inst/u_PLL_B/REFERENCECLK->pll_inst/lscc_pll_inst/u_PLL_B/OUTCORE (TOTAL_ADJUSTMENTS)
-                                          PLL_PLL_R13C32                      0.150                  3.152  40      
-vgaCont/vgaclk_c                                             NET DELAY        3.862                  7.014  40      
-{videoGen/moving_box_inst/left_48__i5/CK   videoGen/moving_box_inst/left_48__i6/CK}
-                                                             CLOCK PIN        0.000                  7.014  1       
-                                                             Uncertainty      0.000                  7.014  
-                                                             Hold time        0.000                  7.014  
+                                          PLL_PLL_R13C32                      0.150                  3.152  11      
+pll_inst/lscc_pll_inst/vgaclk_c                              NET DELAY        3.403                  6.555  11      
+{vgaCont/vcnt_19__i8/CK   vgaCont/vcnt_19__i9/CK}
+                                                             CLOCK PIN        0.000                  6.555  1       
+                                                             Uncertainty      0.000                  6.555  
+                                                             Hold time        0.000                  6.555  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-Required Time                                                                                       -7.014  
-Arrival Time                                                                                         8.927  
+Required Time                                                                                       -6.555  
+Arrival Time                                                                                         9.668  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-Path Slack  (Passed)                                                                                 1.913  
+Path Slack  (Passed)                                                                                 3.113  
 
 
 

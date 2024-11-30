@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<userSetting name="C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/promote.xml" version="Diamond (64-bit) 2024.1.0.34.2" date="Fri Nov 29 17:34:10 2024" vendor="Lattice Semiconductor Corporation" >
+<userSetting name="C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/promote.xml" version="Diamond (64-bit) 2024.1.0.34.2" date="Fri Nov 29 21:21:55 2024" vendor="Lattice Semiconductor Corporation" >
+  <msg mid="35901172" type="Warning" internal="true" />
+  <msg mid="35901167" type="Warning" internal="true" />
+  <msg mid="35901137" type="Warning" internal="true" />
   <msg mid="35901209" type="Warning" internal="true" />
   <msg mid="35931038" type="Warning" internal="true" />
   <msg mid="35901328" type="Info" internal="true" />
@@ -12,4 +15,6 @@
   <msg mid="35901038" type="Error" internal="true" />
   <msg mid="35901128" type="Warning" internal="true" />
   <msg mid="35901466" type="Warning" internal="true" />
+  <msg mid="35901419" type="Warning" internal="true" />
+  <msg mid="35901349" type="Warning" internal="true" />
 </userSetting>
