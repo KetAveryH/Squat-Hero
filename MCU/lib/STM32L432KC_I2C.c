@@ -59,11 +59,11 @@ void init_I2C(void) {
   I2C1->TIMINGR |= (0x4 << I2C_TIMINGR_SCLDEL_Pos); // Set SCLH
 
   // write to the IMU WHO_AM_I register
-  //write_I2C(IMU_ADDRESS, WHO_AM_I, 1, 0);
-  //volatile uint8_t who_am_i_value = read_I2C(IMU_ADDRESS, WHO_AM_I, 1);
+  //write_I2C(IMU_ADDRESS_SHIN, WHO_AM_I, 1, 0);
+ // volatile uint8_t who_am_i_value = read_I2C(IMU_ADDRESS_SHIN, WHO_AM_I, 1);
 
   //while (who_am_i_value != 0b01101100) {
-  //    who_am_i_value = read_I2C(IMU_ADDRESS, WHO_AM_I, 1);
+   //   who_am_i_value = read_I2C(IMU_ADDRESS_SHIN, WHO_AM_I, 1);
   //}
 }
 

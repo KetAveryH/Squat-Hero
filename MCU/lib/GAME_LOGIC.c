@@ -46,35 +46,30 @@ volatile int x_accel; // 'volatile' because its value changes asynchronously
 
 // No need for function, casting should be fine
 
-int16_t twoComplement2Signed(uint16_t raw_value) {
-    // Check if the MSB (bit 15) is set (indicating a negative number)
-    if (raw_value & 0x8000) {
-        // Convert to negative value by applying two's complement
-        return (int16_t)(raw_value - 0x10000);
-    } else {
-        // Otherwise, it's already positive
-        return (int16_t)raw_value;
-    }
-}
+//int16_t twoComplement2Signed(uint16_t raw_value) {
+//    // Check if the MSB (bit 15) is set (indicating a negative number)
+//    if (raw_value & 0x8000) {
+//        // Convert to negative value by applying two's complement
+//        return (int16_t)(raw_value - 0x10000);
+//    } else {
+//        // Otherwise, it's already positive
+//        return (int16_t)raw_value;
+//    }
+//}
 
-int16_t decode_angle(char *str, int16_t accel_x, int16_t accel_y, int16_t accel_z) {
+int16_t decode_angle(int body_part, int16_t accel_x, int16_t accel_y, int16_t accel_z) {
 
-    // Ensure no divide-by-zero occurs
-    if (accel_x == 0) {
-        return -1; // Error code for divide-by-zero
-    }
-
-    if (strcmp(str, "ankle") == 0) {
+    if (body_part == ANKLE) {
         theta_1 = (int16_t)(atan((float)accel_y / (float)accel_x) * 180 / M_PI); // Convert radians to degrees
         theta_ankle = 90 - theta_1;
         return theta_ankle;
-    } else if (strcmp(str, "knee") == 0) {
+    } else if (body_part == KNEE) {
         theta_2 = 90; // Assumes theta_ankle has been calculated previously
         theta_3 = (int16_t)(atan((float)-accel_y / (float)accel_x) * 180 / M_PI); // Convert radians to degrees
         theta_4 = 90 - theta_3;
         theta_knee = theta_2 + theta_4;
         return theta_knee;
-    } else if (strcmp(str, "hip") == 0) {
+    } else if (body_part == HIP) {
         theta_5 = theta_4; // Assumes theta_4 has been calculated previously
         theta_6 = (int16_t)(atan((float)accel_z / (float)accel_x) * 180 / M_PI); // Convert radians to degrees
         theta_7 = 90 - theta_6;
@@ -86,63 +81,63 @@ int16_t decode_angle(char *str, int16_t accel_x, int16_t accel_y, int16_t accel_
     return -1; // Error code for invalid input
 }
 
-uint16_t decode_pos(char *str1, char *str2) {
+uint16_t decode_pos(int body_part, int axis) {
 
-    if (strcmp(str1, "toe") == 0) {
-        if (strcmp(str2, "x") == 0) {
+    if (body_part == TOE) {
+        if (axis == X_AXIS) {
             toe_x = heel_x - FOOT_LENGTH;
             return toe_x;
-        } else if (strcmp(str2, "y") == 0) {
+        } else if (axis == Y_AXIS) {
             toe_y = 0.5 * LINE_THICKNESS;
             return toe_y;
         } else {
-            return -1;
+            return -1; // default case
         }
-    } else if (strcmp(str1, "heel") == 0) {
-        if (strcmp(str2, "x") == 0) {
+    } else if (body_part == HEEL) {
+        if (axis == X_AXIS) {
             heel_x = 0.5 * MAX_DIMENSION;
             return heel_x;
-        } else if (strcmp(str2, "y") == 0) {
+        } else if (axis == Y_AXIS) {
             heel_y = 0.5 * LINE_THICKNESS;
             return heel_y;
         } else {
-            return -1;
+            return -1; // default case
         }
-    } else if (strcmp(str1, "knee") == 0) {
-        if (strcmp(str2, "x") == 0) {
+    } else if (body_part == KNEE) {
+        if (axis == X_AXIS) {
             heel2knee_x = asin(theta_1) * SHIN_LENGTH;
             knee_x = heel_x - heel2knee_x;
             return knee_x;
-        } else if (strcmp(str2, "y") == 0) {
+        } else if (axis == Y_AXIS) {
             heel2knee_y = acos(theta_1) * SHIN_LENGTH;
             knee_y = heel_y + heel2knee_y;
             return knee_y;
         } else {
-            return -1;
+            return -1; // default case
         }
-    } else if (strcmp(str1, "hip") == 0) {
-        if (strcmp(str2, "x") == 0) {
+    } else if (body_part == HIP) {
+        if (axis == X_AXIS) {
             knee2hip_x = asin(theta_3) * FEMAR_LENGTH;
             hip_x = knee_x + knee2hip_x;
             return hip_x;
-        } else if (strcmp(str2, "y") == 0) {
+        } else if (axis == Y_AXIS) {
             knee2hip_y = acos(theta_3) * FEMAR_LENGTH;
             hip_y = knee_y + knee2hip_y;
             return hip_y;
         } else {
-            return -1;
+            return -1; // default case
         }
-    } else if (strcmp(str1, "head") == 0) {
-        if (strcmp(str2, "x") == 0) {
+    } else if (body_part == HEAD) {
+        if (axis == X_AXIS) {
             hip2head_x = asin(theta_6) * TORSO_LENGTH;
             head_x = hip_x - hip2head_x;
             return head_x;
-        } else if (strcmp(str2, "y") == 0) {
+        } else if (axis == Y_AXIS) {
             hip2head_y = acos(theta_6) * TORSO_LENGTH;
             head_y = hip_y + hip2head_y;
             return head_y;
         } else {
-            return -1;
+            return -1; // default case
         }
     }
 
