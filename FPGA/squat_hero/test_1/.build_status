@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BuildStatus>
     <Strategy name="Strategy1">
-        <Milestone name="Export" build_result="2" build_time="1732944115">
-            <Task name="Bitgen" build_result="2" update_result="0" update_time="1732944115"/>
+        <Milestone name="Export" build_result="2" build_time="1733024768">
+            <Task name="Bitgen" build_result="2" update_result="0" update_time="1733024768"/>
             <Task name="IBIS" build_result="0" update_result="3" update_time="0"/>
             <Task name="TimingSimFileVlg" build_result="0" update_result="3" update_time="0"/>
         </Milestone>
-        <Milestone name="Map" build_result="2" build_time="1732944108">
-            <Task name="Map" build_result="2" update_result="0" update_time="1732944108"/>
+        <Milestone name="Map" build_result="2" build_time="1733024761">
+            <Task name="Map" build_result="2" update_result="0" update_time="1733024761"/>
             <Task name="MapTrace" build_result="0" update_result="2" update_time="1731975599"/>
         </Milestone>
-        <Milestone name="PAR" build_result="2" build_time="1732944113">
-            <Task name="PAR" build_result="2" update_result="0" update_time="1732944113"/>
-            <Task name="PARTrace" build_result="2" update_result="0" update_time="1732944113"/>
+        <Milestone name="PAR" build_result="2" build_time="1733024766">
+            <Task name="PAR" build_result="2" update_result="0" update_time="1733024766"/>
+            <Task name="PARTrace" build_result="2" update_result="0" update_time="1733024767"/>
             <Task name="IOTiming" build_result="0" update_result="3" update_time="0"/>
         </Milestone>
-        <Milestone name="Synthesis" build_result="2" build_time="1732944107">
-            <Task name="Lattice_Synthesis" build_result="2" update_result="0" update_time="1732944107"/>
-            <Task name="LSE_Compile" build_result="2" update_result="0" update_time="1732944113"/>
+        <Milestone name="Synthesis" build_result="2" build_time="1733024720">
+            <Task name="Lattice_Synthesis" build_result="2" update_result="0" update_time="1733024720"/>
+            <Task name="LSE_Compile" build_result="2" update_result="0" update_time="1733024728"/>
             <Task name="SynTrace" build_result="0" update_result="2" update_time="1732939916"/>
             <Task name="SynVerilogSimFile" build_result="0" update_result="2" update_time="1732939916"/>
         </Milestone>
@@ -28,14 +28,14 @@
             <Task name="PIODRC" build_result="0" update_result="3" update_time="0"/>
             <Task name="DEC" build_result="0" update_result="3" update_time="0"/>
         </Milestone>
-        <Report name="squat_hero_test_1.bgn" last_build_time="1732944115" last_build_size="1246"/>
-        <Report name="squat_hero_test_1.bin" last_build_time="1732944115" last_build_size="104156"/>
+        <Report name="squat_hero_test_1.bgn" last_build_time="1733024768" last_build_size="1246"/>
+        <Report name="squat_hero_test_1.bin" last_build_time="1733024768" last_build_size="104156"/>
         <Report name="squat_hero_test_1.lsedata" last_build_time="0" last_build_size="0"/>
-        <Report name="squat_hero_test_1.twr.html" last_build_time="1732944113" last_build_size="264136"/>
-        <Report name="squat_hero_test_1.udb" last_build_time="1732944113" last_build_size="11669"/>
-        <Report name="squat_hero_test_1_map.udb" last_build_time="1732944108" last_build_size="8249"/>
-        <Report name="squat_hero_test_1_rtl.udb" last_build_time="1732944106" last_build_size="20965"/>
-        <Report name="squat_hero_test_1_syn.udb" last_build_time="1732944107" last_build_size="5914"/>
+        <Report name="squat_hero_test_1.twr.html" last_build_time="1733024767" last_build_size="265730"/>
+        <Report name="squat_hero_test_1.udb" last_build_time="1733024766" last_build_size="18137"/>
+        <Report name="squat_hero_test_1_map.udb" last_build_time="1733024761" last_build_size="11690"/>
+        <Report name="squat_hero_test_1_rtl.udb" last_build_time="1733024719" last_build_size="69850"/>
+        <Report name="squat_hero_test_1_syn.udb" last_build_time="1733024720" last_build_size="8633"/>
     </Strategy>
 </BuildStatus>
-                  
+            

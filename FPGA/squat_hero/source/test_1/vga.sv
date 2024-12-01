@@ -1,4 +1,5 @@
-module vga(input logic clk, reset, reset1,
+module vga(input logic clk, reset,
+		   input logic frame_switch,
 		   output logic vgaclk, // 25 MHz VGA clock  25.175MHz
 		   output logic hsync, vsync,
 		   output logic sync_b, blank_b, // to monitor & DAC
@@ -33,7 +34,7 @@ module vga(input logic clk, reset, reset1,
 	videoGen videoGen(
 		.vgaclk(vgaclk),
 		.reset(reset),
-		.reset1(reset1),
+		.frame_switch(frame_switch),  
 		.x(x),
 		.y(y),
 		.blank_b(blank_b),
@@ -89,48 +90,6 @@ module vgaController #(parameter HBP     = 10'd48,  // horizontal back porch
 	assign blank_b = (hcnt < HACTIVE) & (vcnt < VACTIVE);
 endmodule
 
-// module moving_box #(
-//     parameter BOX_WIDTH = 10'd100,
-//     parameter INITIAL_LEFT = 10'd48,
-//     parameter INITIAL_RIGHT = INITIAL_LEFT + BOX_WIDTH,
-//     parameter VERTICAL_TOP = 10'd150,
-//     parameter VERTICAL_BOT = 10'd230
-// )(
-//     input  logic        vgaclk,
-//     input  logic        reset,
-//     output logic [9:0]  left,
-//     output logic [9:0]  right,
-//     output logic [9:0]  top,
-//     output logic [9:0]  bot
-// );
-    
-//     logic [31:0] counter;
-    
-//     // Fixed vertical position assignments
-//     assign top = VERTICAL_TOP;
-//     assign bot = VERTICAL_BOT;
-    
-//     always_ff @(posedge vgaclk or posedge reset) begin
-//         if (reset) begin
-//             counter <= 32'd0;
-//             left <= INITIAL_LEFT;
-//             right <= INITIAL_RIGHT;
-//         end else if (counter >= 1_000_000) begin
-//             counter <= 0;
-//             if (left <= (10'd48 + 10'd480)) begin // If not at the end of the screen, move the box
-//                 left <= left + 1'd1;    
-//                 right <= right + 1'd1;  
-//             end else begin
-//                 left <= INITIAL_LEFT;
-//                 right <= INITIAL_RIGHT;
-//             end
-//         end else begin // Increment the counter
-//             counter <= counter + 1'd1;
-//         end
-//     end
-    
-// endmodule
-
 typedef struct packed {
     logic [9:0] left;
     logic [9:0] right;
@@ -138,118 +97,98 @@ typedef struct packed {
     logic [9:0] bot;
 } rect_t;
 
-module image_frame(
-    output rect_t [13:0] rects
+module image_frame0(
+    output rect_t [13:0] frame0_rects
 );
     // Use assign statements instead of procedural blocks
-    assign rects[0] = '{left: 10'd300, right: 10'd340, top: 10'd100, bot: 10'd140};  // Head
-    assign rects[1] = '{left: 10'd310, right: 10'd330, top: 10'd140, bot: 10'd220};  // Body
-    assign rects[2] = '{left: 10'd270, right: 10'd310, top: 10'd150, bot: 10'd170};  // Left Arm
-    assign rects[3] = '{left: 10'd330, right: 10'd370, top: 10'd150, bot: 10'd170};  // Right Arm
-    assign rects[4] = '{left: 10'd310, right: 10'd320, top: 10'd220, bot: 10'd300};  // Left Leg
-    assign rects[5] = '{left: 10'd320, right: 10'd330, top: 10'd220, bot: 10'd300};  // Right Leg
+    assign frame0_rects[0] = '{left: 10'd300, right: 10'd340, top: 10'd100, bot: 10'd140};  // Head
+    assign frame0_rects[1] = '{left: 10'd310, right: 10'd330, top: 10'd140, bot: 10'd220};  // Body
+    assign frame0_rects[2] = '{left: 10'd270, right: 10'd310, top: 10'd150, bot: 10'd170};  // Left Arm
+    assign frame0_rects[3] = '{left: 10'd330, right: 10'd370, top: 10'd150, bot: 10'd170};  // Right Arm
+    assign frame0_rects[4] = '{left: 10'd310, right: 10'd320, top: 10'd220, bot: 10'd300};  // Left Leg
+    assign frame0_rects[5] = '{left: 10'd320, right: 10'd330, top: 10'd220, bot: 10'd300};  // Right Leg
     
     // Initialize remaining rectangles to 0
     genvar i;
     generate
         for (i = 6; i < 14; i = i + 1) begin : init_rects
-            assign rects[i] = '{default: '0};
+            assign frame0_rects[i] = '{left: 10'd0, right: 10'd0, top: 10'd0, bot: 10'd0};
         end
     endgenerate
 endmodule
 
+module image_frame1(
+    output rect_t [13:0] frame1_rects
+);
+
+    assign frame1_rects[0] = '{left: 10'd310, right: 10'd340, top: 10'd100, bot: 10'd140};  // Head
+    assign frame1_rects[1] = '{left: 10'd310, right: 10'd330, top: 10'd140, bot: 10'd220};  // Body
+    assign frame1_rects[2] = '{left: 10'd270, right: 10'd310, top: 10'd150, bot: 10'd170};  // Left Arm
+    assign frame1_rects[3] = '{left: 10'd330, right: 10'd370, top: 10'd150, bot: 10'd170};  // Right Arm
+    assign frame1_rects[4] = '{left: 10'd310, right: 10'd320, top: 10'd220, bot: 10'd300};  // Left Leg
+    assign frame1_rects[5] = '{left: 10'd320, right: 10'd330, top: 10'd220, bot: 10'd300};  // Right Leg
+
+    genvar i;
+    generate
+        for (i = 6; i < 14; i = i + 1) begin : init_rects
+            assign frame1_rects[i] = '{left: 10'd0, right: 10'd0, top: 10'd0, bot: 10'd0};
+        end
+    endgenerate
+endmodule
+
+
+module frame_mux(
+    input  logic         frame_switch,
+    input  rect_t [13:0] frame0_rects,
+    input  rect_t [13:0] frame1_rects,
+    output rect_t [13:0] selected_rects
+);
+    always_comb begin
+        selected_rects = frame_switch ? frame1_rects : frame0_rects;
+    end
+endmodule
+
 module videoGen(
-    input  logic        vgaclk,     // Add vgaclk input
-    input  logic        reset,      // Add reset input
-	    input  logic        reset1,
+    input  logic        vgaclk,
+    input  logic        reset,
+    input  logic        frame_switch,
     input  logic [9:0]  x, y,
     input  logic        blank_b,
     output logic [3:0]  r, g, b
 );
-    logic pixel, inrect[14];
-    logic [9:0] box_left, box_right, box_top, box_bot;  // Add signals to connect modules
+    rect_t [13:0] frame0_rects;
+    rect_t [13:0] frame1_rects;
+    rect_t [13:0] selected_rects;
 
-	  rect_t [13:0] rects;  // Only need one array
-
-    // Instantiate image_frame with only output
-    image_frame image_frame_inst(
-        .rects(rects)    // Connect to the output-only port
+    // Frame 0 instantiation
+    image_frame0 frame0_inst(
+        .frame0_rects(frame0_rects)
     );
 
-  
+    image_frame1 frame1_inst(
+        .frame1_rects(frame1_rects)  
+    );
 
-     //Instantiate the character generator ROM
-    //chargenrom chargenromb(
-        //.ch(y[8:3] + 8'd65),
-        //.xoff(x[2:0]),
-        //.yoff(y[2:0]),
-        //.pixel(pixel)
-    //);
-
+    // Instantiate the multiplexer
+    frame_mux frame_mux_inst(
+        .frame_switch(frame_switch),
+        .frame0_rects(frame0_rects),
+        .frame1_rects(frame1_rects),
+        .selected_rects(selected_rects)
+    );
 
     logic inrect_all;
     
     rect_struct_gen rect_struct_gen_inst(
         .x(x),
         .y(y),
-        .rects(rects),
+        .selected_rects(selected_rects),
         .inrect_all(inrect_all)
     );
+    // Set the color based on whether the pixel is in the rectangle
+    assign {r, b} = inrect_all ? 4'b1111 : 4'b0000;
+    assign g = 4'b0000;
 
-    
-
-    // Instantiate moving box with connections
-    // moving_box #(
-    //     .BOX_WIDTH(10'd10),
-    //     .INITIAL_LEFT(10'd48),
-    //     .INITIAL_RIGHT(10'd58),  // or let it calculate from INITIAL_LEFT + BOX_WIDTH
-    //     .VERTICAL_TOP(10'd150),
-    //     .VERTICAL_BOT(10'd230)
-    // ) moving_box_inst(
-    //     .vgaclk(vgaclk),
-    //     .reset(reset),
-    //     .left(box_left),
-    //     .right(box_right),
-    //     .top(box_top),
-    //     .bot(box_bot)
-    // );
-
-    // Use the moving box coordinates for rectgen
-    // rectgen rectgen_inst(
-    //     .x(x),
-    //     .y(y),
-    //     .left(box_left),    // Use moving box coordinates
-    //     .right(box_right),  // instead of fixed values
-    //     .top(box_top),
-    //     .bot(box_bot),
-    //     .inrect(inrect)
-    // );
-
-    
-
-    
-
-    // Use an always_comb block for conditional assignments
-    always_comb begin
-        if (blank_b == 0) begin
-            // During blanking periods, set all pixel outputs to zero
-            r = 4'h0;
-            g = 4'h0;
-            b = 4'h0;
-        end else begin
-            // When not blanking, apply your original logic
-            // Assign green and blue channels based on pixel and y[3]
-            if (y[3] == 0) begin
-                g = {4{pixel}};
-                b = 4'h0;
-            end else begin
-                g = 4'h0;
-                b = {4{pixel}};
-            end
-            // Assign red channel based on inrect
-            r = inrect_all ? 4'hF : 4'h0; // Maximum value for 4 bits is 4'hF (15 in decimal)
-        end
-    end
 endmodule
 
 
@@ -277,7 +216,7 @@ endmodule
 
 module rect_struct_gen(
     input logic [9:0] x, y,     // Add missing x,y inputs
-    input rect_t [13:0] rects,
+    input rect_t [13:0] selected_rects,
     output logic inrect_all
 );
     logic [13:0] inrect;
@@ -285,8 +224,8 @@ module rect_struct_gen(
     genvar i;
     generate
         for (i = 0; i < 14; i = i + 1) begin : rect_gen
-            assign inrect[i] = (x >= rects[i].left & x < rects[i].right & 
-                              y >= rects[i].top & y < rects[i].bot);
+            assign inrect[i] = (x >= selected_rects[i].left & x < selected_rects[i].right & 
+                              y >= selected_rects[i].top & y < selected_rects[i].bot);
         end
     endgenerate
     
