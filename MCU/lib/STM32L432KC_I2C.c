@@ -7,6 +7,7 @@
 
 void init_I2C(void) {
   // initialize for I2C to work on 'B' I/Os
+  //GPIOA-> = 0x0;
   gpioEnable(GPIO_PORT_A);
   RCC->APB1ENR1 |= RCC_APB1ENR1_I2C1EN; //enable the clock to run on I2C1 peripheral
 
@@ -25,7 +26,6 @@ void init_I2C(void) {
 
   // Configure the I2C control registers to be enables and working
   I2C1->CR1 |= (1<<0);  // Enable I2C
-  I2C1->CR1 |= (1<<10);  // Enable the ACK
   I2C1->CR1 |= I2C_CR1_PE;  // Generate peripheral enable
  
   //set I2C clk as the SYSCLK

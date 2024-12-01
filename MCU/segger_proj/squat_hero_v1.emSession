@@ -47,8 +47,26 @@
  </TraceWindow>
  <Watch1>
   <Watches active="1" update="Never">
-   <Watchpoint expression="who_am_i_value" name="who_am_i_value" radix="2" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="accel_x_shin" name="accel_x_shin" radix="-1" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="accel_y_shin" name="accel_y_shin" radix="-1" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="accel_z_shin" name="accel_z_shin" radix="-1" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="angle_ankle" name="angle_ankle" radix="-1" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="heel2knee_x" name="heel2knee_x" radix="-1" linenumber="0" filename="../segger_proj"/>
    <Watchpoint expression="output" name="output" radix="-1" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="raw_accel_x_shin" name="raw_accel_x_shin" radix="16" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="raw_accel_y_shin" name="raw_accel_y_shin" radix="16" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="raw_accel_z_shin" name="raw_accel_z_shin" radix="16" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="who_am_i_value" name="who_am_i_value" radix="2" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="x_head" name="x_head" radix="11" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="x_heel" name="x_heel" radix="11" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="x_hip" name="x_hip" radix="11" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="x_knee" name="x_knee" radix="11" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="x_toe" name="x_toe" radix="11" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="y_head" name="y_head" radix="11" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="y_heel" name="y_heel" radix="11" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="y_hip" name="y_hip" radix="11" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="y_knee" name="y_knee" radix="11" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="y_toe" name="y_toe" radix="11" linenumber="0" filename="../segger_proj"/>
   </Watches>
  </Watch1>
  <Watch2>
@@ -61,13 +79,11 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="57" y="71" useTextEdit="1" path="../lib/GAME_LOGIC.c" left="0" top="71" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="76" y="23" useTextEdit="1" path="../lib/GAME_LOGIC.h" left="0" top="0" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="27" y="19" useTextEdit="1" path="../lib/STM32L432KC_I2C.h" left="0" top="0" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="26" useTextEdit="1" path="main.c" left="0" top="8" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="122" useTextEdit="1" path="../lib/STM32L432KC_I2C.c" left="0" selected="1" top="95" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="26" useTextEdit="1" path="../lib/STM32L432KC_IMU.c" left="0" top="0" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="46" y="17" useTextEdit="1" path="../lib/STM32L432KC_IMU.h" left="0" top="8" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="19" useTextEdit="1" path="../lib/STM32L432KC_I2C.h" left="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="25" useTextEdit="1" path="main.c" left="0" selected="1" top="15" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="3" y="150" useTextEdit="1" path="../lib/STM32L432KC_I2C.c" left="0" top="119" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="16" useTextEdit="1" path="../lib/STM32L432KC_IMU.c" left="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="29" y="12" useTextEdit="1" path="../lib/STM32L432KC_IMU.h" left="0" top="8" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="6" useTextEdit="1" path="../lib/STM32L432KC_FLASH.c" left="0" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="17" useTextEdit="1" path="../lib/STM32L432KC_RCC.c" left="0" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="1" y="89" useTextEdit="1" path="../lib/STM32L432KC_GPIO.c" left="0" top="62" codecName="Default"/>
