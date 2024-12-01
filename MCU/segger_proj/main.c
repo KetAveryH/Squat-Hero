@@ -75,13 +75,13 @@ int main(void) {
         int16_t accel_y_shin = raw_accel_y_shin;
         int16_t accel_z_shin = raw_accel_z_shin; 
 
-        int16_t accel_x_femar = raw_accel_x_shin;
-        int16_t accel_y_femar = raw_accel_y_shin;
-        int16_t accel_z_femar = raw_accel_z_shin;
+        //int16_t accel_x_femar = raw_accel_x_femar;
+        //int16_t accel_y_femar = raw_accel_y_femar;
+        //int16_t accel_z_femar = raw_accel_z_femar;
 
-        int16_t accel_x_torso = raw_accel_x_shin;
-        int16_t accel_y_torso = raw_accel_y_shin;
-        int16_t accel_z_torso = raw_accel_z_shin; 
+        //int16_t accel_x_torso = raw_accel_x_torso;
+        //int16_t accel_y_torso = raw_accel_y_torso;
+        //int16_t accel_z_torso = raw_accel_z_torso; 
         //************************************************
 
         //************************************************

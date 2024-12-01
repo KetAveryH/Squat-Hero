@@ -59,12 +59,12 @@ void init_I2C(void) {
   I2C1->TIMINGR |= (0x4 << I2C_TIMINGR_SCLDEL_Pos); // Set SCLH
 
   // write to the IMU WHO_AM_I register
-  //write_I2C(IMU_ADDRESS_SHIN, WHO_AM_I, 1, 0);
- // volatile uint8_t who_am_i_value = read_I2C(IMU_ADDRESS_SHIN, WHO_AM_I, 1);
+  write_I2C(IMU_ADDRESS_SHIN, WHO_AM_I, 1, 0);
+  volatile uint8_t who_am_i_value = read_I2C(IMU_ADDRESS_SHIN, WHO_AM_I, 1);
 
-  //while (who_am_i_value != 0b01101100) {
-   //   who_am_i_value = read_I2C(IMU_ADDRESS_SHIN, WHO_AM_I, 1);
-  //}
+  while (who_am_i_value != 0b01101100) {
+      who_am_i_value = read_I2C(IMU_ADDRESS_SHIN, WHO_AM_I, 1);
+  }
 }
 
 
@@ -94,9 +94,10 @@ void write_I2C(int address, char reg, int num_bytes, int stop){
     I2C1->CR2 |= I2C_CR2_START; // THIS WILL NOT TURN ON NO MATTER HOW I SET IT
 
     // send over each byte in the data package
-    //for (int i = 0; i < num_bytes; i++) {
+    for (int i = 0; i < num_bytes; i++) {
       while (!(I2C1->ISR & I2C_ISR_TXE)); // wait until transmit buffer is empty
       I2C1->TXDR = reg;
+    }
 }
 
 
@@ -121,6 +122,6 @@ char read_I2C(int address, char reg, int num_bytes) {
 
    // read in each byte desired
       while(!(I2C1->ISR & I2C_ISR_RXNE)); // wait until data is ready to be read
-      output = I2C1->RXDR;
+        output = I2C1->RXDR;
       return output;   
 }
