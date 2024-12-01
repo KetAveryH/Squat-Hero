@@ -1,4 +1,4 @@
-module vga(input logic clk, reset,
+module vga(input logic reset,
 		   input logic frame_switch,
 		   output logic vgaclk, // 25 MHz VGA clock  25.175MHz
 		   output logic hsync, vsync,
@@ -101,7 +101,7 @@ module image_frame0(
     output rect_t [13:0] frame0_rects
 );
     // Use assign statements instead of procedural blocks
-    assign frame0_rects[0] = '{left: 10'd300, right: 10'd340, top: 10'd100, bot: 10'd140};  // Head
+    assign frame0_rects[0] = '{left: 10'd20, right: 10'd340, top: 10'd100, bot: 10'd140};  // Head
     assign frame0_rects[1] = '{left: 10'd310, right: 10'd330, top: 10'd140, bot: 10'd220};  // Body
     assign frame0_rects[2] = '{left: 10'd270, right: 10'd310, top: 10'd150, bot: 10'd170};  // Left Arm
     assign frame0_rects[3] = '{left: 10'd330, right: 10'd370, top: 10'd150, bot: 10'd170};  // Right Arm
@@ -121,12 +121,12 @@ module image_frame1(
     output rect_t [13:0] frame1_rects
 );
 
-    assign frame1_rects[0] = '{left: 10'd310, right: 10'd340, top: 10'd100, bot: 10'd140};  // Head
+    assign frame1_rects[0] = '{left: 10'd0, right: 10'd340, top: 10'd100, bot: 10'd140};  // Head
     assign frame1_rects[1] = '{left: 10'd310, right: 10'd330, top: 10'd140, bot: 10'd220};  // Body
     assign frame1_rects[2] = '{left: 10'd270, right: 10'd310, top: 10'd150, bot: 10'd170};  // Left Arm
     assign frame1_rects[3] = '{left: 10'd330, right: 10'd370, top: 10'd150, bot: 10'd170};  // Right Arm
     assign frame1_rects[4] = '{left: 10'd310, right: 10'd320, top: 10'd220, bot: 10'd300};  // Left Leg
-    assign frame1_rects[5] = '{left: 10'd320, right: 10'd330, top: 10'd220, bot: 10'd300};  // Right Leg
+    assign frame1_rects[5] = '{left: 10'd270, right: 10'd330, top: 10'd220, bot: 10'd300};  // Right Leg
 
     genvar i;
     generate
@@ -159,6 +159,8 @@ module videoGen(
     rect_t [13:0] frame0_rects;
     rect_t [13:0] frame1_rects;
     rect_t [13:0] selected_rects;
+	logic inrect_all;
+	logic inline;
 
     // Frame 0 instantiation
     image_frame0 frame0_inst(
@@ -185,8 +187,24 @@ module videoGen(
         .selected_rects(selected_rects),
         .inrect_all(inrect_all)
     );
+
+    line_gen line_gen_inst(
+        .x(x),
+        .y(y),
+        .x_1(10'd0),
+        .y_1(10'd0),
+        .x_2(10'd200),
+        .y_2(10'd200),
+        .inline(inline)
+    );
+
     // Set the color based on whether the pixel is in the rectangle
-    assign {r, b} = inrect_all ? 4'b1111 : 4'b0000;
+    // assign {r, b} = inrect_all ? 4'b1111 : 4'b0000;
+    // assign g = 4'b0000;
+
+    
+
+    assign {r, b} = inline ? 4'b1111 : 4'b0000;
     assign g = 4'b0000;
 
 endmodule
@@ -213,6 +231,40 @@ module rectgen(input logic [9:0] x, y, left, top, right, bot,
                output logic inrect);
   assign inrect = (x >= left & x < right & y >= top & y < bot);
 endmodule
+
+// NOTES: we wil assume that x_1 is always less than x_2
+module line_gen(
+    input  logic [9:0] x, y,    // Current pixel coordinates
+    input  logic [9:0] x_1, y_1, // Line start point
+    input  logic [9:0] x_2, y_2, // Line end point
+    output logic inline          // True if pixel is on the line
+);
+
+    // Declare intermediate signals with sufficient bit widths
+    logic signed [10:0] delta_x, delta_y;
+    logic signed [21:0] cross_product;
+    logic [21:0] abs_cross_product;
+    logic signed [10:0] x_diff, y_diff;
+    parameter logic [21:0] TOLERANCE = 22'd100; // Adjust tolerance as needed
+
+    always_comb begin
+        delta_x = signed'(x_2) - signed'(x_1);
+        delta_y = signed'(y_2) - signed'(y_1);
+
+        x_diff = signed'(x) - signed'(x_1);
+        y_diff = signed'(y) - signed'(y_1);
+
+        // Compute the cross product
+        cross_product = x_diff * delta_y - y_diff * delta_x;
+
+        // Take absolute value
+        abs_cross_product = (cross_product < 0) ? -cross_product : cross_product;
+
+        // Determine if the point is close enough to the line
+        inline = (abs_cross_product <= TOLERANCE);
+    end
+endmodule
+
 
 module rect_struct_gen(
     input logic [9:0] x, y,     // Add missing x,y inputs

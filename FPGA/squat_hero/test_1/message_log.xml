@@ -2,53 +2,68 @@
 <BaliMessageLog>
     <Task name="PAR">
         <Message>
-            <ID>71003020</ID>
+            <ID>77001032</ID>
             <Severity>16</Severity>
-            <Dynamic>clk</Dynamic>
+            <Dynamic>frame_switch</Dynamic>
+            <Dynamic>ldc_set_location -site {34} [get_ports frame_switch]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {34} [get_ports frame_switch]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>frame_switch</Dynamic>
+            <Dynamic>ldc_set_location -site {34} [get_ports frame_switch]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {34} [get_ports frame_switch]</Dynamic>
         </Message>
         <Message>
             <ID>71003020</ID>
             <Severity>16</Severity>
-            <Dynamic>clk</Dynamic>
+            <Dynamic>frame_switch</Dynamic>
         </Message>
         <Message>
             <ID>71003020</ID>
             <Severity>16</Severity>
-            <Dynamic>clk</Dynamic>
+            <Dynamic>frame_switch</Dynamic>
         </Message>
         <Message>
             <ID>71003020</ID>
             <Severity>16</Severity>
-            <Dynamic>clk</Dynamic>
-        </Message>
-    </Task>
-    <Task name="Export">
-        <Message>
-            <ID>1026001</ID>
-            <Severity>16</Severity>
-            <Dynamic>C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc</Dynamic>
-            <Dynamic>16</Dynamic>
-            <Dynamic>No port matched 'dip[1]'.</Dynamic>
-            <Navigation>C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc</Navigation>
-            <Navigation>16</Navigation>
+            <Dynamic>frame_switch</Dynamic>
         </Message>
         <Message>
-            <ID>1026001</ID>
+            <ID>71003020</ID>
             <Severity>16</Severity>
-            <Dynamic>C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc</Dynamic>
-            <Dynamic>17</Dynamic>
-            <Dynamic>No port matched 'dip[2]'.</Dynamic>
-            <Navigation>C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc</Navigation>
-            <Navigation>17</Navigation>
+            <Dynamic>frame_switch</Dynamic>
         </Message>
         <Message>
-            <ID>1026001</ID>
+            <ID>77001032</ID>
             <Severity>16</Severity>
-            <Dynamic>C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc</Dynamic>
-            <Dynamic>18</Dynamic>
-            <Dynamic>No port matched 'dip[3]'.</Dynamic>
-            <Navigation>C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc</Navigation>
-            <Navigation>18</Navigation>
+            <Dynamic>frame_switch</Dynamic>
+            <Dynamic>ldc_set_location -site {34} [get_ports frame_switch]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {34} [get_ports frame_switch]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>frame_switch</Dynamic>
+            <Dynamic>ldc_set_location -site {34} [get_ports frame_switch]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {34} [get_ports frame_switch]</Dynamic>
         </Message>
     </Task>
     <Task name="Map">
@@ -142,12 +157,12 @@
         <Message>
             <ID>71003020</ID>
             <Severity>16</Severity>
-            <Dynamic>clk</Dynamic>
+            <Dynamic>frame_switch</Dynamic>
         </Message>
         <Message>
             <ID>71003020</ID>
             <Severity>16</Severity>
-            <Dynamic>clk</Dynamic>
+            <Dynamic>frame_switch</Dynamic>
         </Message>
     </Task>
     <Task name="Synthesis">
@@ -561,10 +576,18 @@
         <Message>
             <ID>35901018</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(217): </Dynamic>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(269): </Dynamic>
             <Dynamic>rect_struct_gen</Dynamic>
             <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>217</Navigation>
+            <Navigation>269</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(236): </Dynamic>
+            <Dynamic>line_gen</Dynamic>
+            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
+            <Navigation>236</Navigation>
         </Message>
         <Message>
             <ID>35834005</ID>
@@ -900,6 +923,14 @@
             <Navigation>17</Navigation>
         </Message>
         <Message>
+            <ID>35901329</ID>
+            <Severity>16</Severity>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(182): </Dynamic>
+            <Dynamic>inrect_all</Dynamic>
+            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
+            <Navigation>182</Navigation>
+        </Message>
+        <Message>
             <ID>35921014</ID>
             <Severity>1</Severity>
             <Dynamic>c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.vhd(4): </Dynamic>
@@ -1024,10 +1055,18 @@
         <Message>
             <ID>35901018</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(217): </Dynamic>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(269): </Dynamic>
             <Dynamic>rect_struct_gen</Dynamic>
             <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
-            <Navigation>217</Navigation>
+            <Navigation>269</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(236): </Dynamic>
+            <Dynamic>line_gen</Dynamic>
+            <Navigation>c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv</Navigation>
+            <Navigation>236</Navigation>
         </Message>
         <Message>
             <ID>35935049</ID>
@@ -1042,7 +1081,7 @@
         <Message>
             <ID>35002028</ID>
             <Severity>256</Severity>
-            <Dynamic>clk</Dynamic>
+            <Dynamic>frame_switch</Dynamic>
         </Message>
         <Message>
             <ID>35931002</ID>
@@ -1063,7 +1102,7 @@
         <Message>
             <ID>35002028</ID>
             <Severity>256</Severity>
-            <Dynamic>clk</Dynamic>
+            <Dynamic>frame_switch</Dynamic>
         </Message>
         <Message>
             <ID>35811117</ID>

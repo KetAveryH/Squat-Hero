@@ -48,7 +48,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
-Sat Nov 30 19:45:17 2024
+Sat Nov 30 21:15:41 2024
 
 
 Command Line:  C:\lscc\radiant\2024.1\ispfpga\bin\nt64\synthesis.exe -f squat_hero_test_1_lattice.synproj -logfile squat_hero_test_1_lattice.srp -gui -msgset C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/promote.xml 
@@ -177,6 +177,7 @@ Analyzing Verilog file c:/users/kethollingsworth/desktop/repositories/microps/sq
 Analyzing Verilog file c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/actual_pll/rtl/actual_pll.v. VERI-1482
 Analyzing Verilog file c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/no_lock_pll/rtl/no_lock_pll.v. VERI-1482
 Analyzing Verilog file c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv. VERI-1482
+WARNING <35901329> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(182): second declaration of inrect_all ignored. VERI-1329
 Analyzing VHDL file c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.vhd. VHDL-1481
 Analyzing VHDL file c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.vhd
 
@@ -198,7 +199,8 @@ INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/micr
 INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(100): compiling module image_frame0. VERI-1018
 INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(120): compiling module image_frame1. VERI-1018
 INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(140): compiling module frame_mux. VERI-1018
-INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(217): compiling module rect_struct_gen. VERI-1018
+INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(269): compiling module rect_struct_gen. VERI-1018
+INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(236): compiling module line_gen. VERI-1018
                                                          
 
 
@@ -225,7 +227,7 @@ INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/micr
 
 WARNING <35935049> - synthesis: input port sclk_i remains unconnected for this instance. VDB-5049
 WARNING <35935049> - synthesis: input port sdi_i remains unconnected for this instance. VDB-5049
-CRITICAL <35002028> - synthesis: I/O Port clk 's net has no driver and is unused.
+CRITICAL <35002028> - synthesis: I/O Port frame_switch 's net has no driver and is unused.
 WARNING <35931002> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/no_lock_pll/rtl/no_lock_pll.v(139): net \pll_inst/lscc_pll_inst/sclk_i does not have a driver. VDB-1002
 WARNING <35931002> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/no_lock_pll/rtl/no_lock_pll.v(140): net \pll_inst/lscc_pll_inst/sdi_i does not have a driver. VDB-1002
 ######## Missing driver on net \pll_inst/lscc_pll_inst/sclk_i. Patching with GND.
@@ -233,22 +235,26 @@ WARNING <35931002> - synthesis: c:/users/kethollingsworth/desktop/repositories/m
 
 
 
-CRITICAL <35002028> - synthesis: I/O Port clk 's net has no driver and is unused.
+Mapped 2 multiplier(s)
+
+
+CRITICAL <35002028> - synthesis: I/O Port frame_switch 's net has no driver and is unused.
 
 
 <A name="lse_area"></A><B><U><big>Area Report</big></U></B>
 
 ################### Begin Area Report (vga)######################
 Number of register bits => 20 of 5280 (0 % )
-CCU2 => 12
+CCU2 => 32
 FD1P3XZ => 20
 HSOSC_CORE => 1
-IB => 2
-LUT4 => 77
+IB => 1
+LUT4 => 89
+MAC16 => 2
 OB => 17
 PLL_B => 1
 ################### End Area Report ##################
-Number of odd-length carry chains : 0
+Number of odd-length carry chains : 2
 Number of even-length carry chains : 2
 
 
@@ -264,15 +270,15 @@ Number of Clock Enables: 0
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
   Net : reset_c, loads : 21
-  Net : vgaCont/n939, loads : 20
-  Net : vgaCont/x[8], loads : 10
-  Net : vgaCont/n375, loads : 10
-  Net : vgaCont/x[4], loads : 9
-  Net : vgaCont/x[5], loads : 9
-  Net : vgaCont/y[7], loads : 8
-  Net : vgaCont/y[5], loads : 8
-  Net : vgaCont/y[6], loads : 8
-  Net : vgaCont/y[4], loads : 8
+  Net : vgaCont/n19_adj_768, loads : 20
+  Net : vgaCont/x[9], loads : 10
+  Net : vgaCont/y[9], loads : 10
+  Net : vgaCont/n19, loads : 10
+  Net : vgaCont/x[8], loads : 4
+  Net : vgaCont/x[7], loads : 4
+  Net : vgaCont/y[8], loads : 4
+  Net : vgaCont/y[7], loads : 4
+  Net : vgaCont/y[6], loads : 4
 ################### End Clock Report ##################
 
 
@@ -288,13 +294,13 @@ Constraint Summary:
 Total number of design rule violations: 0
 ###################  End DRC Report  ######################
 
-Peak Memory Usage: 101 MB
+Peak Memory Usage: 94 MB
 
 --------------------------------------------------------------
-Total CPU Time: 0 secs 
-Total REAL Time: 2 secs 
+Total CPU Time: 2 secs 
+Total REAL Time: 3 secs 
 --------------------------------------------------------------
-Checksum -- synthesis -- netlist: 9b0e11072a96ddb45325d6d0d62033c426cf8bae
+Checksum -- synthesis -- netlist: 9b3bb7c15a4e4978b92b45b6d633e006c4ce1a5
 
 
 

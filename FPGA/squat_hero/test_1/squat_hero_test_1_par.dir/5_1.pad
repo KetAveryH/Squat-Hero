@@ -6,32 +6,31 @@ Performance Grade:      High-Performance_1.2V
 PACKAGE:          SG48
 Package Status:                     Preliminary    Version 1.5
 
-Sat Nov 30 19:46:05 2024
+Sat Nov 30 21:15:54 2024
 
 Pinout by Port Name:
-+--------------+----------+--------------+-------+------------------------------------------+
-| Port Name    | Pin/Bank | Buffer Type  | Site  | Properties                               |
-+--------------+----------+--------------+-------+------------------------------------------+
-| b[0]         | 18/1     | LVCMOS33_OUT | PL23B | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
-| b[1]         | 13/1     | LVCMOS33_OUT | PL20A | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
-| b[2]         | 12/1     | LVCMOS33_OUT | PL19A | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
-| b[3]         | 20/1     | LVCMOS33_OUT | PL20B | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
-| blank_b      | 28/0     | LVCMOS33_OUT | PR18A | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
-| frame_switch | 34/0     | LVCMOS33_IN  | PR14B | DRIVE:NA IO_TYPE:LVCMOS33 PULLMODE:100K  |
-| g[0]         | 45/2     | LVCMOS33_OUT | PL8B  | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
-| g[1]         | 3/2      | LVCMOS33_OUT | PL10B | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
-| g[2]         | 44/2     | LVCMOS33_OUT | PL7B  | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
-| g[3]         | 9/1      | LVCMOS33_OUT | PL16A | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
-| hsync        | 11/1     | LVCMOS33_OUT | PL18A | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
-| r[0]         | 2/2      | LVCMOS33_OUT | PL9A  | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
-| r[1]         | 47/2     | LVCMOS33_OUT | PL7A  | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
-| r[2]         | 48/2     | LVCMOS33_OUT | PL8A  | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
-| r[3]         | 4/2      | LVCMOS33_OUT | PL10A | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
-| reset        | 32/0     | LVCMOS33_IN  | PR17A | DRIVE:NA IO_TYPE:LVCMOS33 PULLMODE:100K  |
-| sync_b       | 10/1     | LVCMOS33_OUT | PL17A | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
-| vgaclk       | 27/0     | LVCMOS33_OUT | PR19B | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
-| vsync        | 6/1      | LVCMOS33_OUT | PL14B | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
-+--------------+----------+--------------+-------+------------------------------------------+
++-----------+----------+--------------+-------+------------------------------------------+
+| Port Name | Pin/Bank | Buffer Type  | Site  | Properties                               |
++-----------+----------+--------------+-------+------------------------------------------+
+| b[0]      | 18/1     | LVCMOS33_OUT | PL23B | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
+| b[1]      | 13/1     | LVCMOS33_OUT | PL20A | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
+| b[2]      | 12/1     | LVCMOS33_OUT | PL19A | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
+| b[3]      | 20/1     | LVCMOS33_OUT | PL20B | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
+| blank_b   | 16/1     | LVCMOS33_OUT | PL25B | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
+| g[0]      | 45/2     | LVCMOS33_OUT | PL8B  | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
+| g[1]      | 3/2      | LVCMOS33_OUT | PL10B | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
+| g[2]      | 44/2     | LVCMOS33_OUT | PL7B  | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
+| g[3]      | 9/1      | LVCMOS33_OUT | PL16A | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
+| hsync     | 11/1     | LVCMOS33_OUT | PL18A | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
+| r[0]      | 2/2      | LVCMOS33_OUT | PL9A  | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
+| r[1]      | 47/2     | LVCMOS33_OUT | PL7A  | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
+| r[2]      | 48/2     | LVCMOS33_OUT | PL8A  | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
+| r[3]      | 4/2      | LVCMOS33_OUT | PL10A | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
+| reset     | 32/0     | LVCMOS33_IN  | PR17A | DRIVE:NA IO_TYPE:LVCMOS33 PULLMODE:100K  |
+| sync_b    | 46/2     | LVCMOS33_OUT | PL6A  | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
+| vgaclk    | 17/1     | LVCMOS33_OUT | PL24B | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
+| vsync     | 6/1      | LVCMOS33_OUT | PL14B | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
++-----------+----------+--------------+-------+------------------------------------------+
 
 Vccio by Bank:
 +------+-------+
@@ -51,14 +50,14 @@ Pinout by Pin Number:
 | 4/2      | r[3]                | LOCATED    | LVCMOS33_OUT | PL10A |                  |
 | 6/1      | vsync               | LOCATED    | LVCMOS33_OUT | PL14B |                  |
 | 9/1      | g[3]                | LOCATED    | LVCMOS33_OUT | PL16A |                  |
-| 10/1     | sync_b              |            | LVCMOS33_OUT | PL17A |                  |
+| 10/1     |     unused, PULL:UP |            |              | PL17A |                  |
 | 11/1     | hsync               | LOCATED    | LVCMOS33_OUT | PL18A |                  |
 | 12/1     | b[2]                | LOCATED    | LVCMOS33_OUT | PL19A |                  |
 | 13/1     | b[1]                | LOCATED    | LVCMOS33_OUT | PL20A |                  |
 | 14/1     |     unused, PULL:UP |            |              | PL24A | SPI_SO           |
 | 15/1     |     unused, PULL:UP |            |              | PL25A | SPISCK           |
-| 16/1     |     unused, PULL:UP |            |              | PL25B | SPI_SS           |
-| 17/1     |     unused, PULL:UP |            |              | PL24B | SPI_SI           |
+| 16/1     | blank_b             |            | LVCMOS33_OUT | PL25B | SPI_SS           |
+| 17/1     | vgaclk              |            | LVCMOS33_OUT | PL24B | SPI_SI           |
 | 18/1     | b[0]                | LOCATED    | LVCMOS33_OUT | PL23B |                  |
 | 19/1     |     unused, PULL:UP |            |              | PL22B |                  |
 | 20/1     | b[3]                | LOCATED    | LVCMOS33_OUT | PL20B | PCLKT1_0         |
@@ -66,11 +65,11 @@ Pinout by Pin Number:
 | 23/0     |     unused, PULL:UP |            |              | PR20A |                  |
 | 25/0     |     unused, PULL:UP |            |              | PR20B |                  |
 | 26/0     |     unused, PULL:UP |            |              | PR19A |                  |
-| 27/0     | vgaclk              |            | LVCMOS33_OUT | PR19B |                  |
-| 28/0     | blank_b             |            | LVCMOS33_OUT | PR18A |                  |
+| 27/0     |     unused, PULL:UP |            |              | PR19B |                  |
+| 28/0     |     unused, PULL:UP |            |              | PR18A |                  |
 | 31/0     |     unused, PULL:UP |            |              | PR17B |                  |
 | 32/0     | reset               | LOCATED    | LVCMOS33_IN  | PR17A |                  |
-| 34/0     | frame_switch        | LOCATED    | LVCMOS33_IN  | PR14B |                  |
+| 34/0     |     unused, PULL:UP |            |              | PR14B |                  |
 | 35/0     |     unused, PULL:UP |            |              | PR13B | GPLL_IN/PCLKT0_1 |
 | 36/0     |     unused, PULL:UP |            |              | PR10B |                  |
 | 37/0     |     unused, PULL:UP |            |              | PR14A | PCLKT0_0         |
@@ -82,7 +81,7 @@ Pinout by Pin Number:
 | 43/0     |     unused, PULL:UP |            |              | PR10A |                  |
 | 44/2     | g[2]                | LOCATED    | LVCMOS33_OUT | PL7B  | PCLKT2_0         |
 | 45/2     | g[0]                | LOCATED    | LVCMOS33_OUT | PL8B  |                  |
-| 46/2     |     unused, PULL:UP |            |              | PL6A  |                  |
+| 46/2     | sync_b              |            | LVCMOS33_OUT | PL6A  |                  |
 | 47/2     | r[1]                | LOCATED    | LVCMOS33_OUT | PL7A  |                  |
 | 48/2     | r[2]                | LOCATED    | LVCMOS33_OUT | PL8A  |                  |
 | PL6B/2   |     unused, PULL:UP |            |              | PL6B  |                  |
@@ -111,8 +110,7 @@ ldc_set_location -site {18} [ get_ports {b[0]} ]
 ldc_set_location -site {13} [ get_ports {b[1]} ]
 ldc_set_location -site {12} [ get_ports {b[2]} ]
 ldc_set_location -site {20} [ get_ports {b[3]} ]
-ldc_set_location -site {28} [ get_ports {blank_b} ]
-ldc_set_location -site {34} [ get_ports {frame_switch} ]
+ldc_set_location -site {16} [ get_ports {blank_b} ]
 ldc_set_location -site {45} [ get_ports {g[0]} ]
 ldc_set_location -site {3} [ get_ports {g[1]} ]
 ldc_set_location -site {44} [ get_ports {g[2]} ]
@@ -123,8 +121,8 @@ ldc_set_location -site {47} [ get_ports {r[1]} ]
 ldc_set_location -site {48} [ get_ports {r[2]} ]
 ldc_set_location -site {4} [ get_ports {r[3]} ]
 ldc_set_location -site {32} [ get_ports {reset} ]
-ldc_set_location -site {10} [ get_ports {sync_b} ]
-ldc_set_location -site {27} [ get_ports {vgaclk} ]
+ldc_set_location -site {46} [ get_ports {sync_b} ]
+ldc_set_location -site {17} [ get_ports {vgaclk} ]
 ldc_set_location -site {6} [ get_ports {vsync} ]
 
 
@@ -133,5 +131,5 @@ ldc_set_location -site {6} [ get_ports {vsync} ]
 
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
 
-Sat Nov 30 19:46:05 2024
+Sat Nov 30 21:15:54 2024
 
