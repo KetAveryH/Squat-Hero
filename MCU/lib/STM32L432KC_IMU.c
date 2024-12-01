@@ -11,14 +11,14 @@ void IMU_config(uint8_t IMU_ADDRESS, uint8_t reg_address) { // congif accel (CTR
   write_I2C(IMU_ADDRESS, 0b01001100, 1, 1); //writing this value to CTRL1_XL, which enables it and configures it to be 104kHz - +/- 16g
 }
 
-uint16_t read_accel(uint8_t IMU_ADDRESS, uint8_t lsb_reg_address) {
+uint16_t read_accel(uint8_t IMU_ADDRESS, uint8_t reg_address) {
 
   // send where I want to read from x accel values
-  write_I2C(IMU_ADDRESS, lsb_reg_address, 1, 0);
-  char accel_data_lsb = read_I2C(IMU_ADDRESS, lsb_reg_address, 1);
+  write_I2C(IMU_ADDRESS, reg_address, 1, 0);
+  char accel_data_lsb = read_I2C(IMU_ADDRESS, reg_address, 1);
 
-  write_I2C(IMU_ADDRESS, (lsb_reg_address + 0x01), 1, 0);
-  char accel_data_msb = read_I2C(IMU_ADDRESS, (lsb_reg_address + 0x01), 1);
+  write_I2C(IMU_ADDRESS, (reg_address + 0x01), 1, 0);
+  char accel_data_msb = read_I2C(IMU_ADDRESS, (reg_address + 0x01), 1);
 
   //combine accel data
   uint16_t raw_accel = (uint16_t)((accel_data_msb << 8) | accel_data_lsb);
