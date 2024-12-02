@@ -73,8 +73,8 @@ void init_I2C(void) {
   // check I2C communication with who_am_i register
 #define TIMEOUT 1000  // Adjust this value as needed
 
-  write_I2C(IMU_ADDRESS_SHIN, WHO_AM_I, 1, 0);
   volatile uint8_t who_am_i_value = read_I2C(IMU_ADDRESS_SHIN, WHO_AM_I, 1);
+
  // int timeout_counter = 0;
 
   while (who_am_i_value != 0b01101100) {
@@ -89,72 +89,71 @@ void init_I2C(void) {
 
 
 
-void write_I2C(int address, char reg, int num_bytes, int stop){
+void write_I2C(int address, char reg, int num_bytes, int stop) {
+    I2C1->CR2 = 0; // Clear CR2 to prevent stale settings
 
-    // configure address, assumes 7 bit address
+    // Set address and write mode (write = RD_WRN = 0)
     I2C1->CR2 |= (address << 1);
 
-    // if we are not stopping, we reload at the end of num_bytes, otherwise we autoend
+    // Configure stop condition
     if (stop) {
-      I2C1->CR2 |= I2C_CR2_AUTOEND;
-    } 
-    else { 
-      I2C1->CR2 &= ~I2C_CR2_AUTOEND;
+        I2C1->CR2 |= I2C_CR2_AUTOEND;
+    } else {
+        I2C1->CR2 &= ~I2C_CR2_AUTOEND;
     }
 
-    // configure size of data package
-    I2C1->CR2 &= ~I2C_CR2_NBYTES;
+    // Configure number of bytes
     I2C1->CR2 |= _VAL2FLD(I2C_CR2_NBYTES, (uint8_t)num_bytes);
 
-    // set the read/not write bit to 0 for write
+    // Clear RD_WRN for write
     I2C1->CR2 &= ~I2C_CR2_RD_WRN;
 
-    // signal to start
-   // I2C1->CR1 |= I2C_CR1_PE; 
-    I2C1->CR2 |= I2C_CR2_START; // THIS WILL NOT TURN ON NO MATTER HOW I SET IT
+    // Signal start
+    I2C1->CR2 |= I2C_CR2_START;
 
-    // send over each byte in the data package
-    //for (int i = 0; i < num_bytes; i++) {
-      while (!(I2C1->ISR & I2C_ISR_TXE)); // wait until transmit buffer is empty
-      I2C1->TXDR = reg;
-
-      //I2C1->TXDR &= ~(I2C_TXDR_TXDATA);
-
-   // }
+    // Wait for TX buffer to be empty and send data
+    while (!(I2C1->ISR & I2C_ISR_TXE));
+    I2C1->TXDR = reg;
 }
+
 
 
 char read_I2C(int address, char reg, int num_bytes) {
+volatile char output;
 
-    volatile char output;
-    // configure address, assumes 7 bit address
-    I2C1->CR2 |= (address << 1); // put seven bits of address in starting in bit 1 of the CR2 register
+    // Step 1: Write the register address
+    I2C1->CR2 = 0; // Clear CR2
+    I2C1->CR2 |= (address << 1); // Device address with write bit
+    I2C1->CR2 &= ~I2C_CR2_RD_WRN; // Write operation
+    I2C1->CR2 |= _VAL2FLD(I2C_CR2_NBYTES, 1); // 1 byte to send (register address)
+    I2C1->CR2 |= I2C_CR2_START; // Generate start condition
 
-    // set autoend
+    // Wait for TX buffer to be ready and send the register address
+    while (!(I2C1->ISR & I2C_ISR_TXE));
+    I2C1->TXDR = reg;
+
+    // Wait for transfer to complete
+    while (!(I2C1->ISR & I2C_ISR_TC));
+
+    // Step 2: Read the register value
+    I2C1->CR2 = 0; // Clear CR2
+    I2C1->CR2 |= (address << 1); // Device address with read bit
+    I2C1->CR2 |= I2C_CR2_RD_WRN; // Read operation
+    I2C1->CR2 |= _VAL2FLD(I2C_CR2_NBYTES, 1); // 1 byte to read
     I2C1->CR2 |= I2C_CR2_AUTOEND;
+    I2C1->CR2 |= I2C_CR2_START; // Generate restart condition
 
-    // configure size of data package
-    I2C1->CR2 &= ~I2C_CR2_NBYTES;
-    I2C1->CR2 |= _VAL2FLD(I2C_CR2_NBYTES, (uint8_t)num_bytes);
+    // Wait for RX buffer to have data
+    while (!(I2C1->ISR & I2C_ISR_RXNE));
 
-    // set the read/not write bit to 1 for read
-    I2C1->CR2 |= I2C_CR2_RD_WRN;
+    // Read the data
+    output = I2C1->RXDR;
 
-    // signal to start
-    I2C1->CR2 |= I2C_CR2_START;
+    // Wait for the stop condition
+    while (!(I2C1->ISR & I2C_ISR_STOPF));
 
-   // read in each byte desired
-   // for (int i = 0; i < num_bytes; i++) {
- int timeout = 5;
-    while (!(I2C1->ISR & I2C_ISR_RXNE)) {
-      if (--timeout == 0) {
-        // Handle timeout error
-        return -1; // Indicate failure
-    }
-}
+    // Clear the stop flag
+    I2C1->ICR |= I2C_ICR_STOPCF;
 
-    
-     // wait until data is ready to be read
-      output = I2C1->RXDR;
-    return output;   
+    return output;
 }

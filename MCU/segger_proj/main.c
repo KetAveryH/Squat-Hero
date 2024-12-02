@@ -26,7 +26,7 @@ int _write(int file, char *ptr, int len) {
 // main function ///////////////////////////////////////////
 int main(void) {
 
-    char buffer[6];     // Buffer to hold the read data
+   // char buffer[6];     // Buffer to hold the read data
 
 
     // Step 1: System Initialization
@@ -44,9 +44,9 @@ int main(void) {
 
         //************************************************
         // accelerometer data from all 3 axis, getting a uint16_t form outputs. Raw data format not in g's
-        uint16_t raw_accel_x_shin = read_accel(IMU_ADDRESS_SHIN, OUTX_L_A);
-        uint16_t raw_accel_y_shin = read_accel(IMU_ADDRESS_SHIN, OUTY_L_A);
-        uint16_t raw_accel_z_shin = read_accel(IMU_ADDRESS_SHIN, OUTZ_L_A);
+        volatile uint16_t raw_accel_x_shin = read_accel(IMU_ADDRESS_SHIN, OUTX_L_A);
+        volatile uint16_t raw_accel_y_shin = read_accel(IMU_ADDRESS_SHIN, OUTY_L_A);
+        volatile uint16_t raw_accel_z_shin = read_accel(IMU_ADDRESS_SHIN, OUTZ_L_A);
 
         //uint16_t raw_accel_x_femar = read_accel(IMU_ADDRESS_FEMAR, OUTX_L_A);
         //uint16_t raw_accel_y_femar = read_accel(IMU_ADDRESS_FEMAR, OUTY_L_A);

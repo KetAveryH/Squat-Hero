@@ -6,25 +6,31 @@
 #include "STM32L432KC_I2C.h"
 
 // This will configure for accel data and check functionality of I2C
-void IMU_config(uint8_t IMU_ADDRESS, uint8_t reg_address) { // congif accel (CTRL1_XL), read and check WHO_AM_I
-  write_I2C(IMU_ADDRESS, reg_address, 1, 0);
-  write_I2C(IMU_ADDRESS, 0b01001100, 1, 1); //writing this value to CTRL1_XL, which enables it and configures it to be 104kHz - +/- 16g
+// Configure the IMU - Writes to CTRL1_XL and ensures the stop bit is set after writing.
+void IMU_config(uint8_t IMU_ADDRESS, uint8_t reg_address) {
+    // First write: Write the register address (CTRL1_XL) to initiate configuration
+    write_I2C(IMU_ADDRESS, reg_address, 1, 1); // Write to CTRL1_XL to set up the address
+
+    // Second write: Write the configuration value to CTRL1_XL
+    uint8_t config_value = 0b01001100;  // Value for 104kHz, +/- 16g in CTRL1_XL register
+    write_I2C(IMU_ADDRESS, config_value, 1, 1); // Write the configuration value with AUTOEND enabled
 }
+
 
 uint16_t read_accel(uint8_t IMU_ADDRESS, uint8_t lsb_reg_address) {
+    // Step 1: Write the register address (e.g., OUTX_L_A) to the I2C
+    write_I2C(IMU_ADDRESS, lsb_reg_address, 1, 0); // write register address
 
-  // send where I want to read from x accel values
-  write_I2C(IMU_ADDRESS, lsb_reg_address, 1, 0);
-  char accel_data_lsb = read_I2C(IMU_ADDRESS, lsb_reg_address, 1);
+    // Step 2: Read the lower byte (LSB) from the register
+    volatile uint8_t accel_data_lsb = read_I2C(IMU_ADDRESS, lsb_reg_address, 1);
 
-  write_I2C(IMU_ADDRESS, (lsb_reg_address + 0x01), 1, 0);
-  char accel_data_msb = read_I2C(IMU_ADDRESS, (lsb_reg_address + 0x01), 1);
+    // Step 3: Read the higher byte (MSB) from the next register (e.g., OUTX_H_A)
+    volatile uint8_t accel_data_msb = read_I2C(IMU_ADDRESS, (lsb_reg_address + 0x01), 1);
 
-  //combine accel data
-  uint16_t raw_accel = (uint16_t)((accel_data_msb << 8) | accel_data_lsb);
+    // Step 4: Combine the MSB and LSB to form the 16-bit raw data
+    volatile uint16_t raw_accel = (uint16_t)((accel_data_msb << 8) | accel_data_lsb);
 
-  uint16_t acceleration = raw_accel;
-
-  return acceleration;
+    return raw_accel; // Return the combined raw value
 }
+
 
