@@ -9,7 +9,7 @@
 // Configure the IMU - Writes to CTRL1_XL and ensures the stop bit is set after writing.
 void IMU_config(uint8_t IMU_ADDRESS, uint8_t reg_address) {
     // First write: Write the register address (CTRL1_XL) to initiate configuration
-    write_I2C(IMU_ADDRESS, reg_address, 1, 1); // Write to CTRL1_XL to set up the address
+    write_I2C(IMU_ADDRESS, reg_address, 1, 0); // Write to CTRL1_XL to set up the address
 
     // Second write: Write the configuration value to CTRL1_XL
     uint8_t config_value = 0b01001100;  // Value for 104kHz, +/- 16g in CTRL1_XL register
