@@ -4,7 +4,6 @@
 #include "STM32L432KC_RCC.h"
 
 void configureMSI(void) {
-   RCC->CR = 0x0;  // Clear the entire RCC->CR register
    RCC->CR |= _VAL2FLD(RCC_CR_MSION, 0b1);       // Turn on MSI
    RCC->CR |= _VAL2FLD(RCC_CR_MSIRANGE, 0b0111); // configure MSI to be 8MHz
    while(!RCC_CR_MSIRDY);                        // wait for the HSI to be ready

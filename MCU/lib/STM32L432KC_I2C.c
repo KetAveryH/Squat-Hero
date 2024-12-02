@@ -145,9 +145,16 @@ char read_I2C(int address, char reg, int num_bytes) {
 
    // read in each byte desired
    // for (int i = 0; i < num_bytes; i++) {
-     // while(!(I2C1->ISR & I2C_ISR_RXNE)); // wait until data is ready to be read
+ int timeout = 5;
+    while (!(I2C1->ISR & I2C_ISR_RXNE)) {
+      if (--timeout == 0) {
+        // Handle timeout error
+        return -1; // Indicate failure
+    }
+}
+
+    
+     // wait until data is ready to be read
       output = I2C1->RXDR;
-      return output;
-   // }
-   
+    return output;   
 }

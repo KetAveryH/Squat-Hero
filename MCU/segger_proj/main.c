@@ -25,6 +25,10 @@ int _write(int file, char *ptr, int len) {
 
 // main function ///////////////////////////////////////////
 int main(void) {
+
+    char buffer[6];     // Buffer to hold the read data
+
+
     // Step 1: System Initialization
     configureFlash();   // Configure flash memory access
     configureClock();   // Configure the system clock
