@@ -2,9 +2,6 @@
 <session>
  <Bookmarks/>
  <Breakpoints groups="Breakpoints" active_group="Breakpoints">
-  <BreakpointListItem trigger="" line="80" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" stopAll="false" group="Breakpoints" type="Breakpoint" state="2" filename="../lib/STM32L432KC_I2C.c" useHWbreakpoint="false"/>
-  <BreakpointListItem trigger="" line="81" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" stopAll="false" group="Breakpoints" type="Breakpoint" state="2" filename="../lib/STM32L432KC_I2C.c" useHWbreakpoint="false"/>
-  <BreakpointListItem trigger="" line="88" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" stopAll="false" group="Breakpoints" type="Breakpoint" state="2" filename="../lib/STM32L432KC_I2C.c" useHWbreakpoint="false"/>
   <Exceptions set="MemManage;UsageFault_Coprocessor;UsageFault_CheckingError;UsageFault_StateError;BusFault;ExceptionEntryReturnFault;HardFault"/>
  </Breakpoints>
  <ExecutionProfileWindow/>
@@ -71,6 +68,7 @@
    <Watchpoint expression="y_hip" name="y_hip" radix="11" linenumber="0" filename="../segger_proj"/>
    <Watchpoint expression="y_knee" name="y_knee" radix="11" linenumber="0" filename="../segger_proj"/>
    <Watchpoint expression="y_toe" name="y_toe" radix="11" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="timeout" name="timeout" radix="-1" linenumber="0" filename="../segger_proj"/>
   </Watches>
  </Watch1>
  <Watch2>
@@ -83,15 +81,15 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="6" y="20" useTextEdit="1" path="../lib/STM32L432KC_I2C.h" left="0" top="0" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="32" useTextEdit="1" path="main.c" left="0" top="11" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="94" useTextEdit="1" path="../lib/STM32L432KC_I2C.c" left="0" top="52" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="19" useTextEdit="1" path="../lib/STM32L432KC_I2C.h" left="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="25" useTextEdit="1" path="main.c" left="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="138" useTextEdit="1" path="../lib/STM32L432KC_I2C.c" left="0" selected="1" top="122" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="8" useTextEdit="1" path="../lib/STM32L432KC_IMU.c" left="0" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="24" y="12" useTextEdit="1" path="../lib/STM32L432KC_IMU.h" left="0" top="2" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="7" useTextEdit="1" path="../lib/STM32L432KC_FLASH.c" left="0" top="0" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="89" y="12" useTextEdit="1" path="../lib/STM32L432KC_RCC.c" left="0" selected="1" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="1" y="20" useTextEdit="1" path="../lib/STM32L432KC_RCC.c" left="0" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="13" useTextEdit="1" path="../lib/STM32L432KC_GPIO.c" left="0" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="228" useTextEdit="1" path="STM32L4xx/Source/STM32L4xx_Startup.s" left="0" top="213" codecName="Default"/>
  </Files>
- <EMStudioWindow activeProject="squat_hero_v1" fileDialogDefaultFilter="*" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="/Users/jasonbowman/Desktop/Micro-Ps/Squat-Hero/MCU/lib" debugSearchPath="" autoConnectCapabilities="3711"/>
+ <EMStudioWindow activeProject="squat_hero_v1" fileDialogDefaultFilter="*" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="/Users/jasonbowman/Desktop/Micro-Ps/Squat-Hero/MCU/lib" debugSearchPath="" autoConnectCapabilities="3199"/>
 </session>
