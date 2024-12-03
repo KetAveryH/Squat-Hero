@@ -61,9 +61,9 @@ int main(void) {
         volatile int16_t raw_accel_y_femar = read_accel_I2C3(IMU_ADDRESS_FEMAR, OUTY_L_A);
         volatile int16_t raw_accel_z_femar = read_accel_I2C3(IMU_ADDRESS_FEMAR, OUTZ_L_A);
 
-        //uint16_t raw_accel_x_torso = read_accel(IMU_ADDRESS_TORSO, OUTX_L_A);
-        //uint16_t raw_accel_y_torso = read_accel(IMU_ADDRESS_TORSO, OUTY_L_A);
-        //uint16_t raw_accel_z_torso = read_accel(IMU_ADDRESS_TORSO, OUTZ_L_A);
+        //volatile int16_t raw_accel_x_torso = read_accel(IMU_ADDRESS_TORSO, OUTX_L_A);
+        //volatile int16_t raw_accel_y_torso = read_accel(IMU_ADDRESS_TORSO, OUTY_L_A);
+        //volatile int16_t raw_accel_z_torso = read_accel(IMU_ADDRESS_TORSO, OUTZ_L_A);
 
         /************************************************************************************************
         *           CONVERT ACCEL TO ANGLES                                                             *
