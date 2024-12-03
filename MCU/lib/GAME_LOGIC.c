@@ -85,7 +85,7 @@ uint16_t decode_pos(int body_part, int axis) {
         }
     } else if (body_part == HEEL) {
         if (axis == X_AXIS) {
-            heel_x = 0.5 * MAX_DIMENSION;
+            heel_x = 0.5 * MAX_DIMENSION_HOR;
             return heel_x;
         } else if (axis == Y_AXIS) {
             heel_y = 0.5 * LINE_THICKNESS;

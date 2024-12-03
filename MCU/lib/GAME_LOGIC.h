@@ -10,7 +10,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 // shin = 0.8*femar length / total leg length = torso length
 // basing this on a 10'b X 10'b array per request of Ket for the VGA display logic
-#define MAX_DIMENSION 450
+#define MAX_DIMENSION 480
+#define MAX_DIMENSION_HOR 640
 #define FOOT_LENGTH ((uint16_t)(0.075 * MAX_DIMENSION))
 #define SHIN_LENGTH ((uint16_t)(0.22 * MAX_DIMENSION))
 #define FEMAR_LENGTH ((uint16_t)(0.28 * MAX_DIMENSION))

@@ -118,17 +118,17 @@ int main(void) {
 
         // Print the angles
         //***************************************
-        printf("ANKLE: %d | KNEE: %d | HIP: %d\n", 
-              angle_ankle, 
-              angle_knee, 
-              angle_hip);
+        //printf("ANKLE: %d | KNEE: %d | HIP: %d\n", 
+        //      angle_ankle, 
+        //      angle_knee, 
+        //      angle_hip);
         //***************************************
         //***************************************
-        //printf("TOE: X: %u, Y: %u | KNEE: X: %u, Y: %u | HIP: X: %u, Y: %u | HEAD: X: %u, Y: %u\n", 
-        //        x_toe, y_toe, 
-        //        x_knee, y_knee, 
-        //        x_hip, y_hip, 
-        //        x_head, y_head);
+        printf("TOE: X: %u, Y: %u | KNEE: X: %u, Y: %u | HIP: X: %u, Y: %u | HEAD: X: %u, Y: %u\n", 
+                x_toe, y_toe, 
+                x_knee, y_knee, 
+                x_hip, y_hip, 
+                x_head, y_head);
         //***************************************
 
 
