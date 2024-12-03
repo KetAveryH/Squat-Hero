@@ -42,20 +42,7 @@
 volatile int x_accel; // 'volatile' because its value changes asynchronously
 
 
-// Function to convert 16-bit two's complement to signed integer
 
-// No need for function, casting should be fine
-
-//int16_t twoComplement2Signed(uint16_t raw_value) {
-//    // Check if the MSB (bit 15) is set (indicating a negative number)
-//    if (raw_value & 0x8000) {
-//        // Convert to negative value by applying two's complement
-//        return (int16_t)(raw_value - 0x10000);
-//    } else {
-//        // Otherwise, it's already positive
-//        return (int16_t)raw_value;
-//    }
-//}
 
 int16_t decode_angle(int body_part, int16_t accel_x, int16_t accel_y, int16_t accel_z) {
 
