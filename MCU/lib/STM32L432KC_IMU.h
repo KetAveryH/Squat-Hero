@@ -28,8 +28,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 void IMU_config_I2C1(uint8_t IMU_ADDRESS, uint8_t reg_address);
-void IMU_config_I2C2(uint8_t IMU_ADDRESS, uint8_t reg_address);
 uint16_t read_accel_I2C1(uint8_t IMU_ADDRESS, uint8_t reg_address);
-uint16_t read_accel_I2C2(uint8_t IMU_ADDRESS, uint8_t reg_address);
+
+void IMU_config_I2C3(uint8_t IMU_ADDRESS, uint8_t reg_address);
+uint16_t read_accel_I2C3(uint8_t IMU_ADDRESS, uint8_t reg_address);
+
 
 #endif

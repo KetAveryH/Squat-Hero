@@ -157,26 +157,28 @@ volatile char output;
  *       read_I2C3: reads data from requested sub reg in addressed chip         *
  ********************************************************************************/
 
-void init_I2C2(void) {
-  // Enable GPIOB clock (if not done already)
+void init_I2C3(void) {
+  // Enable GPIOA and GPIOB clocks (if not done already)
   gpioEnable(GPIO_PORT_B);
 
   // Enable the clock for I2C3 peripheral (verify if the macro exists in your version of the HAL)
   RCC->APB1ENR1 |= RCC_APB1ENR1_I2C3EN; // This is for STM32L4, but if not working, check datasheet
 
   // Set both of the I2C lines to the correct alternate function mode
-  pinMode(PB6, GPIO_ALT); // SCL
-  pinMode(PB7, GPIO_ALT); // SDA
+  pinMode(SCL2, GPIO_ALT); // SCL
+  pinMode(SDA2, GPIO_ALT); // SDA
 
   // Select high-speed GPIO for both pins
-  GPIOB->OSPEEDR |= (GPIO_OSPEEDR_OSPEED6 | GPIO_OSPEEDR_OSPEED7);
+  GPIOA->OSPEEDR |= GPIO_OSPEEDR_OSPEED7; // PA7 (SCL)
+  GPIOB->OSPEEDR |= GPIO_OSPEEDR_OSPEED4; // PB4 (SDA)
 
   // Set open-drain for SCL and SDA
-  GPIOB->OTYPER |= (GPIO_OTYPER_OT6 | GPIO_OTYPER_OT7);
+  GPIOA->OTYPER |= GPIO_OTYPER_OT7; // PA7 (SCL)
+  GPIOB->OTYPER |= GPIO_OTYPER_OT4; // PB4 (SDA)
 
-  // Set AF4 for I2C functionality on PB6 (SCL) and PB7 (SDA)
-  GPIOB->AFR[0] |= _VAL2FLD(GPIO_AFRL_AFSEL6, 4); // PB6 -> AF4
-  GPIOB->AFR[0] |= _VAL2FLD(GPIO_AFRL_AFSEL7, 4); // PB7 -> AF4
+  // Set AF4 for I2C functionality on PA7 (SCL) and PB4 (SDA)
+  GPIOA->AFR[0] |= _VAL2FLD(GPIO_AFRL_AFSEL7, 4); // PA7 -> AF4
+  GPIOB->AFR[0] |= _VAL2FLD(GPIO_AFRL_AFSEL4, 4); // PB4 -> AF4
 
   // Set I2C clock source to SYSCLK (if relevant)
   RCC->CCIPR &= ~RCC_CCIPR_I2C3SEL;  // Clear previous selection
@@ -212,15 +214,16 @@ void init_I2C2(void) {
   I2C3->CR1 |= I2C_CR1_PE;
 
   // Test communication with the WHO_AM_I register on the IMU
-  volatile uint8_t who_am_i_value = read_I2C2(IMU_ADDRESS_SHIN, WHO_AM_I, 1);
+  volatile uint8_t who_am_i_value2 = read_I2C3(IMU_ADDRESS_FEMAR, WHO_AM_I, 1);
 
-  while (who_am_i_value != 0b01101100) {
-      who_am_i_value = read_I2C2(IMU_ADDRESS_SHIN, WHO_AM_I, 1);
+  while (who_am_i_value2 != 0b01101100) {
+      who_am_i_value2 = read_I2C3(IMU_ADDRESS_FEMAR, WHO_AM_I, 1);
   }
 }
 
 
-void write_I2C2(int address, uint8_t reg, uint8_t data, int num_bytes, int stop) {
+
+void write_I2C3(int address, uint8_t reg, uint8_t data, int num_bytes, int stop) {
     I2C3->CR2 = 0; // Clear CR2 to prevent stale settings
 
     // Set address and write mode (write = RD_WRN = 0)
@@ -261,7 +264,7 @@ void write_I2C2(int address, uint8_t reg, uint8_t data, int num_bytes, int stop)
     }
 }
 
-char read_I2C2(int address, char reg, int num_bytes) {
+char read_I2C3(int address, char reg, int num_bytes) {
     volatile char output;
 
     // Step 1: Write the register address
