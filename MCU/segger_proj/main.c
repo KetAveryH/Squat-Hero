@@ -43,9 +43,9 @@ int main(void) {
     init_I2C3();        // Initialize the I2C3 peripheral & corresponding GPIOs
 
     // Step 2: Initialize all of the LSM6DSO32 IMU
-    IMU_config_I2C1(IMU_ADDRESS_SHIN, CTRL1_XL);
     IMU_config_I2C3(IMU_ADDRESS_FEMAR, CTRL1_XL);
-    //IMU_config(IMU_ADDRESS_TORSO, CTRL1_XL);
+    IMU_config_I2C1(IMU_ADDRESS_SHIN, CTRL1_XL);
+    IMU_config_I2C1(IMU_ADDRESS_TORSO, CTRL1_XL);
 
     // Step 3: Run while(1) loop until the end of tiiiimmmmeee (there is no time limit)
     while (1) {
@@ -57,13 +57,13 @@ int main(void) {
         volatile int16_t accel_y_shin = read_accel_I2C1(IMU_ADDRESS_SHIN, OUTY_L_A);
         volatile int16_t accel_z_shin = read_accel_I2C1(IMU_ADDRESS_SHIN, OUTZ_L_A);
 
-        volatile int16_t raw_accel_x_femar = read_accel_I2C3(IMU_ADDRESS_FEMAR, OUTX_L_A);
-        volatile int16_t raw_accel_y_femar = read_accel_I2C3(IMU_ADDRESS_FEMAR, OUTY_L_A);
-        volatile int16_t raw_accel_z_femar = read_accel_I2C3(IMU_ADDRESS_FEMAR, OUTZ_L_A);
+        volatile int16_t accel_x_femar = read_accel_I2C3(IMU_ADDRESS_FEMAR, OUTX_L_A);
+        volatile int16_t accel_y_femar = read_accel_I2C3(IMU_ADDRESS_FEMAR, OUTY_L_A);
+        volatile int16_t accel_z_femar = read_accel_I2C3(IMU_ADDRESS_FEMAR, OUTZ_L_A);
 
-        //volatile int16_t raw_accel_x_torso = read_accel(IMU_ADDRESS_TORSO, OUTX_L_A);
-        //volatile int16_t raw_accel_y_torso = read_accel(IMU_ADDRESS_TORSO, OUTY_L_A);
-        //volatile int16_t raw_accel_z_torso = read_accel(IMU_ADDRESS_TORSO, OUTZ_L_A);
+        volatile int16_t accel_x_torso = read_accel_I2C1(IMU_ADDRESS_TORSO, OUTX_L_A);
+        volatile int16_t accel_y_torso = read_accel_I2C1(IMU_ADDRESS_TORSO, OUTY_L_A);
+        volatile int16_t accel_z_torso = read_accel_I2C1(IMU_ADDRESS_TORSO, OUTZ_L_A);
 
         /************************************************************************************************
         *           CONVERT ACCEL TO ANGLES                                                             *
@@ -74,8 +74,8 @@ int main(void) {
         ************************************************************************************************/
 
         int16_t angle_ankle = decode_angle(ANKLE, accel_x_shin, accel_y_shin, accel_z_shin);
-        //int16_t angle_knee = decode_angle(KNEE, accel_x_femar, accel_y_femar, accel_z_femar);
-        //int16_t angle_hip = decode_angle(HIP, accel_x_torso, accel_y_torso, accel_z_torso);
+        int16_t angle_knee = decode_angle(KNEE, accel_x_femar, accel_y_femar, accel_z_femar);
+        int16_t angle_hip = decode_angle(HIP, accel_x_torso, accel_y_torso, accel_z_torso);
 
         /**********************************************************************************
         *                           LINE LENGTH CALCULATIONS                              *
@@ -109,7 +109,28 @@ int main(void) {
         // FOLLOW THE pinMode function for the outline to choose different things in the game logic functions I have written
 
         // Print the X-axis accelerometer value (this assumes you have some serial or debug output setup)
-printf("SHIN X: %d, Y: %d, Z: %d | FEMUR X: %d, Y: %d, Z: %d\n", accel_x_shin, accel_y_shin, accel_z_shin, raw_accel_x_femar, raw_accel_y_femar, raw_accel_z_femar);
+        //***************************************
+        //printf("SHIN X: %d, Y: %d, Z: %d | FEMUR X: %d, Y: %d, Z: %d | TORSO X: %d, Y: %d, Z: %d\n", 
+        //       accel_x_shin, accel_y_shin, accel_z_shin, 
+        //       accel_x_femar, accel_y_femar, accel_z_femar, 
+        //       accel_x_torso, accel_y_torso, accel_z_torso);
+        //***************************************
+
+        // Print the angles
+        //***************************************
+        printf("ANKLE: %d | KNEE: %d | HIP: %d\n", 
+              angle_ankle, 
+              angle_knee, 
+              angle_hip);
+        //***************************************
+        //***************************************
+        //printf("TOE: X: %u, Y: %u | KNEE: X: %u, Y: %u | HIP: X: %u, Y: %u | HEAD: X: %u, Y: %u\n", 
+        //        x_toe, y_toe, 
+        //        x_knee, y_knee, 
+        //        x_hip, y_hip, 
+        //        x_head, y_head);
+        //***************************************
+
 
         // Delay (for demonstration purposes, adjust as needed)
         for (volatile int i = 0; i < 100; i++); // Simple delay

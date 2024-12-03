@@ -63,16 +63,22 @@ void init_I2C1(void) {
   I2C1->CR1 |= I2C_CR1_PE;  // Generate START
 
   volatile uint8_t who_am_i_value = read_I2C1(IMU_ADDRESS_SHIN, WHO_AM_I, 1);
+  volatile uint8_t who_am_i_value3 = read_I2C1(IMU_ADDRESS_TORSO, WHO_AM_I, 1);
 
   while (who_am_i_value != 0b01101100) {
       who_am_i_value = read_I2C1(IMU_ADDRESS_SHIN, WHO_AM_I, 1);
+    }
+
+  while (who_am_i_value3 != 0b01101100) {
+      who_am_i_value = read_I2C1(IMU_ADDRESS_TORSO, WHO_AM_I, 1);
   }
 }
 
 void write_I2C1(int address, uint8_t reg, uint8_t data, int num_bytes, int stop) {
-    I2C1->CR2 = 0; // Clear CR2 to prevent stale settings
+    // Clear CR2 to prevent stale settings
+    I2C1->CR2 = 0;
 
-    // Set address and write mode (write = RD_WRN = 0)
+    // Set address and write mode
     I2C1->CR2 |= (address << 1);
 
     // Configure stop condition
@@ -82,30 +88,30 @@ void write_I2C1(int address, uint8_t reg, uint8_t data, int num_bytes, int stop)
         I2C1->CR2 &= ~I2C_CR2_AUTOEND;
     }
 
-    // Configure number of bytes (register address + 1 data byte)
+    // Configure number of bytes
     I2C1->CR2 |= _VAL2FLD(I2C_CR2_NBYTES, num_bytes);
 
-    // Clear RD_WRN for write
+    // Write operation
     I2C1->CR2 &= ~I2C_CR2_RD_WRN;
 
-    // Signal start
+    // Generate start condition
     I2C1->CR2 |= I2C_CR2_START;
 
-    // Wait for TX buffer to be empty and send the register address
+    // Send register address
     while (!(I2C1->ISR & I2C_ISR_TXE));
     I2C1->TXDR = reg;
 
-    // Wait for TX buffer to be empty and send the data byte
+    // Send data byte
     while (!(I2C1->ISR & I2C_ISR_TXE));
     I2C1->TXDR = data;
 
-    // Wait for transfer to complete
+    // Wait for transfer complete or stop
     while (!(I2C1->ISR & I2C_ISR_TC));
 
-    // If autoend is not enabled, manually generate the stop condition
+    // Manually generate stop if needed
     if (!stop) {
         I2C1->CR2 |= I2C_CR2_STOP;
-        while (I2C1->ISR & I2C_ISR_STOPF);
+        while (!(I2C1->ISR & I2C_ISR_STOPF));
         I2C1->ICR |= I2C_ICR_STOPCF; // Clear stop flag
     }
 }

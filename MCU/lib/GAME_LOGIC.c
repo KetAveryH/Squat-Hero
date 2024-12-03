@@ -51,16 +51,19 @@ int16_t decode_angle(int body_part, int16_t accel_x, int16_t accel_y, int16_t ac
         theta_ankle = 90 - theta_1;
         return theta_ankle;
     } else if (body_part == KNEE) {
-        theta_2 = 90; // Assumes theta_ankle has been calculated previously
-        theta_3 = (int16_t)(atan((float)-accel_y / (float)accel_x) * 180 / M_PI); // Convert radians to degrees
+        theta_2 = theta_ankle; // Assumes theta_ankle has been calculated previously
+        theta_3 = (int16_t)(atan2((float)accel_y, (float)-accel_x) * 180 / M_PI); // Convert radians to degrees
         theta_4 = 90 - theta_3;
         theta_knee = theta_2 + theta_4;
         return theta_knee;
     } else if (body_part == HIP) {
         theta_5 = theta_4; // Assumes theta_4 has been calculated previously
-        theta_6 = (int16_t)(atan((float)accel_z / (float)accel_x) * 180 / M_PI); // Convert radians to degrees
+        theta_6 = (int16_t)(atan2((float)accel_z, (float)accel_x) * 180 / M_PI); // Convert radians to degrees
+        if (theta_6 < 0) {
+          theta_6 += 360; // Normalize to 0–360°
+        }
         theta_7 = 90 - theta_6;
-        theta_hip = theta_5 + theta_7;
+        theta_hip = 180 + theta_5 + theta_7;
         return theta_hip;
     }
 
