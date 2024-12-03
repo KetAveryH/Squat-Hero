@@ -44,9 +44,9 @@ int main(void) {
 
         //************************************************
         // accelerometer data from all 3 axis, getting a uint16_t form outputs. Raw data format not in g's
-        volatile uint16_t raw_accel_x_shin = read_accel(IMU_ADDRESS_SHIN, OUTX_L_A);
-        volatile uint16_t raw_accel_y_shin = read_accel(IMU_ADDRESS_SHIN, OUTY_L_A);
-        volatile uint16_t raw_accel_z_shin = read_accel(IMU_ADDRESS_SHIN, OUTZ_L_A);
+        volatile int16_t raw_accel_x_shin = read_accel(IMU_ADDRESS_SHIN, OUTX_L_A);
+        volatile int16_t raw_accel_y_shin = read_accel(IMU_ADDRESS_SHIN, OUTY_L_A);
+        volatile int16_t raw_accel_z_shin = read_accel(IMU_ADDRESS_SHIN, OUTZ_L_A);
 
         //uint16_t raw_accel_x_femar = read_accel(IMU_ADDRESS_FEMAR, OUTX_L_A);
         //uint16_t raw_accel_y_femar = read_accel(IMU_ADDRESS_FEMAR, OUTY_L_A);
@@ -57,37 +57,6 @@ int main(void) {
         //uint16_t raw_accel_z_torso = read_accel(IMU_ADDRESS_TORSO, OUTZ_L_A);
         //************************************************
 
-
-        //************************************************
-        // converting the twos compliment values into signed values
-
-        //int16_t accel_x_shin = twoComplement2Signed(raw_accel_x_shin);
-        //int16_t accel_y_shin = twoComplement2Signed(raw_accel_y_shin);
-        //int16_t accel_z_shin = twoComplement2Signed(raw_accel_z_shin);
-        
-        //int16_t accel_x_femar = twoComplement2Signed(raw_accel_x_femar);
-        //int16_t accel_y_femar = twoComplement2Signed(raw_accel_y_femar);
-        //int16_t accel_z_femar = twoComplement2Signed(raw_accel_z_femar);
-
-        //int16_t accel_x_torso = twoComplement2Signed(raw_accel_x_torso);
-        //int16_t accel_y_torso = twoComplement2Signed(raw_accel_y_torso);
-        //int16_t accel_z_torso = twoComplement2Signed(raw_accel_z_torso);
-
-        // ------------------
-
-        int16_t accel_x_shin = raw_accel_x_shin;
-        int16_t accel_y_shin = raw_accel_y_shin;
-        int16_t accel_z_shin = raw_accel_z_shin; 
-
-        //int16_t accel_x_femar = raw_accel_x_femar;
-        //int16_t accel_y_femar = raw_accel_y_femar;
-        //int16_t accel_z_femar = raw_accel_z_femar;
-
-        //int16_t accel_x_torso = raw_accel_x_torso;
-        //int16_t accel_y_torso = raw_accel_y_torso;
-        //int16_t accel_z_torso = raw_accel_z_torso; 
-        //************************************************
-
         //************************************************
         // converstion into angles, this is different for all of the indivisual IMUs due to orientaition they are mounted
         // KEY: (X/Y/Z)(+/- as you squat): explination
@@ -95,7 +64,7 @@ int main(void) {
         // - thigh (screws forward, chip on side of leg): X(+)=down, Z(N/A)=right, Y(-)=forward
         // - shin (screws forward, chip on side of leg): X(+)=down, Z(N/A)=right, Y(+)=forward
 
-        int16_t angle_ankle = decode_angle(ANKLE, accel_x_shin, accel_y_shin, accel_z_shin);
+        //int16_t angle_ankle = decode_angle(ANKLE, accel_x_shin, accel_y_shin, accel_z_shin);
         //int16_t angle_knee = decode_angle(KNEE, accel_x_femar, accel_y_femar, accel_z_femar);
         //int16_t angle_hip = decode_angle(HIP, accel_x_torso, accel_y_torso, accel_z_torso);
         //************************************************
@@ -130,7 +99,7 @@ int main(void) {
         // FOLLOW THE pinMode function for the outline to choose different things in the game logic functions I have written
 
         // Print the X-axis accelerometer value (this assumes you have some serial or debug output setup)
-        printf("Accelerometer X-axis: %d\n", angle_ankle);
+      printf("X:%d Y:%d Z:%d\n", raw_accel_x_shin, raw_accel_y_shin, raw_accel_z_shin);
 
         // Delay (for demonstration purposes, adjust as needed)
         for (volatile int i = 0; i < 100; i++); // Simple delay

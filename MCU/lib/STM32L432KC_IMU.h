@@ -10,7 +10,7 @@
 // Definitions
 ///////////////////////////////////////////////////////////////////////////////
 
-#define IMU_ADDRESS_SHIN 0x6A   // [0] = 1 to read, [1] = 0 because address hardware not bridged
+#define IMU_ADDRESS_SHIN 0x6B   // [0] = 1 to read, [1] = 0 because address hardware not bridged
 
 #define WHO_AM_I 0x0F      // used for I2C verification
 #define CTRL1_XL 0x10      // 104kHz - +/- 16g

@@ -10,7 +10,7 @@
 void IMU_config(uint8_t IMU_ADDRESS, uint8_t reg_address) {
 
     // configure accel control register with the following value for 104kHz, +/- 16g in CTRL1_XL register
-    uint8_t config_value = 0b01001100;  // Value for 104kHz, +/- 16g in CTRL1_XL register
+    uint8_t config_value = 0b01001010;  // Value for 104kHz, +/- 16g in CTRL1_XL register
     write_I2C(IMU_ADDRESS, reg_address, config_value, 2, 0); // Write the configuration value with AUTOEND disabled
 }
 
