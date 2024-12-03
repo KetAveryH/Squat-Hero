@@ -15,7 +15,7 @@
 void init_I2C(void);
 
 // Write one byte of data
-void write_I2C(int address, char reg, int num_bytes, int stop);
+void write_I2C(int address, uint8_t reg, uint8_t data, int num_bytes, int stop);
 char read_I2C(int address, char reg, int num_bytes);
 
 #endif

@@ -9,17 +9,17 @@
 // Configure the IMU - Writes to CTRL1_XL and ensures the stop bit is set after writing.
 void IMU_config(uint8_t IMU_ADDRESS, uint8_t reg_address) {
     // First write: Write the register address (CTRL1_XL) to initiate configuration
-    write_I2C(IMU_ADDRESS, reg_address, 1, 0); // Write to CTRL1_XL to set up the address
+   // write_I2C(IMU_ADDRESS, reg_address, 1, 0); // Write to CTRL1_XL to set up the address
 
     // Second write: Write the configuration value to CTRL1_XL
     uint8_t config_value = 0b01001100;  // Value for 104kHz, +/- 16g in CTRL1_XL register
-    write_I2C(IMU_ADDRESS, config_value, 1, 1); // Write the configuration value with AUTOEND enabled
+    write_I2C(IMU_ADDRESS, reg_address, config_value, 2, 0); // Write the configuration value with AUTOEND enabled
 }
 
 
 uint16_t read_accel(uint8_t IMU_ADDRESS, uint8_t lsb_reg_address) {
     // Step 1: Write the register address (e.g., OUTX_L_A) to the I2C
-    write_I2C(IMU_ADDRESS, lsb_reg_address, 1, 0); // write register address
+    //write_I2C(IMU_ADDRESS, lsb_reg_address, 1, 0); // write register address
 
     // Step 2: Read the lower byte (LSB) from the register
     volatile uint8_t accel_data_lsb = read_I2C(IMU_ADDRESS, lsb_reg_address, 1);
