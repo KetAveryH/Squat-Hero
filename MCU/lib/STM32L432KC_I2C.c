@@ -38,7 +38,7 @@ void init_I2C(void) {
   // enable byte control
   I2C1->CR1 |= I2C_CR1_SBC;
 
-  // Set the I2C Timing register for a 100kHz I2C clock with a 8 MHz system clock (LOOK AT PAGE 1159) in reference manual 
+  // Set the I2C Timing register for a 100kHz I2C clock with a 8 MHz system clock (LOOK AT PAGE 1159) in reference manual  
   I2C1->TIMINGR &= ~I2C_TIMINGR_PRESC;     // Clear the PRESC field
   I2C1->TIMINGR |= (1 << I2C_TIMINGR_PRESC_Pos); // Set PRESC
 
