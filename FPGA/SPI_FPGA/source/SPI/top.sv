@@ -8,8 +8,9 @@ module top(
     input  logic sck, 
     input  logic sdi,
     output logic sdo,
-    input  logic load,
-    output logic done
+    input  logic load, // initialize 128 bit frame
+    output logic done,  // We don't need lowkey... orrr... we count x number of packets?
+	output logic true
 );
 
     LSOSC #() 
@@ -23,8 +24,16 @@ module top(
     logic [9:0] x_1, y_1, x_2, y_2, x_3, y_3, x_4, y_4;
     logic [3:0] r, g, b;
 
+	always_comb begin
+        if (x_1 == 10'b1010101010)
+            true = 1;
+        else
+            true = 0;
+    end
+
+	
     spi spi_inst(
-        .clk(clk),
+        .clk(int_osc),
         .sck(sck),
         .sdi(sdi),
         .sdo(sdo),
@@ -69,37 +78,39 @@ module spi(
         done = 1'b0;
     end
 
-    // SPI shift operation: Handle all data capture here
-    always_ff @(posedge sck or posedge load) begin
-        if (load) begin
-            // Reset logic when load is asserted
-            datacaptured <= 128'b0;
-            bit_index <= 0;
-            done <= 1'b0;
-        end else if (bit_index < 128) begin
-            // Shift in new bit from sdi
-            datacaptured <= {datacaptured[126:0], sdi};
-            bit_index <= bit_index + 1;
+    // SPI IN shift operation: Handle all data capture here
+    //if (load) begin
+        always_ff @(posedge sck) begin
+            if (load) begin
+                // Reset logic when load is asserted
+                datacaptured <= 128'b0;
+                bit_index <= 0;
+                done <= 1'b0;
+            end else if (bit_index < 128) begin
+                // Shift in new bit from sdi
+                datacaptured <= {datacaptured[126:0], sdi}; // data capture fill from MSB down
+                bit_index <= bit_index + 1;
 
-            // Assert done when the last bit is captured
-            if (bit_index == 127) begin
-                done <= 1'b1;
+                // Assert done when the last bit is captured
+                if (bit_index == 127) begin
+                    done <= 1'b1;
+                end
             end
         end
-    end
+    //end
 
     // Assign captured data to output once done
     always_ff @(posedge clk) begin
         if (done) begin
-            {x_1, y_1, x_2, y_2, x_3, y_3, x_4, y_4, r, g, b} <= datacaptured;
+            {x_1, y_1, x_2, y_2, x_3, y_3, x_4, y_4, r, g, b} <= datacaptured; //81 bits << 128 bits with 81 filled
         end
     end
 
     // Handle sdo on the negative edge of sck
-    always_ff @(negedge sck) begin
-        sdodelayed <= datacaptured[127]; // Shift out MSB first
-    end
+    // always_ff @(negedge sck) begin
+    //     sdodelayed <= datacaptured[127]; // Shift out MSB first
+    // end
 
     // Assign sdo
-    assign sdo = sdodelayed;
+    //assign sdo = sdodelayed;
 endmodule

@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BuildStatus>
     <Strategy name="Strategy1">
-        <Milestone name="Export" build_result="0" build_time="1733306095">
-            <Task name="Bitgen" build_result="0" update_result="2" update_time="1733306095"/>
+        <Milestone name="Export" build_result="2" build_time="1733309870">
+            <Task name="Bitgen" build_result="2" update_result="0" update_time="1733309870"/>
             <Task name="IBIS" build_result="0" update_result="3" update_time="0"/>
             <Task name="TimingSimFileVlg" build_result="0" update_result="3" update_time="0"/>
         </Milestone>
-        <Milestone name="Map" build_result="0" build_time="1733306095">
-            <Task name="Map" build_result="0" update_result="2" update_time="1733306095"/>
-            <Task name="MapTrace" build_result="0" update_result="3" update_time="0"/>
+        <Milestone name="Map" build_result="2" build_time="1733309862">
+            <Task name="Map" build_result="2" update_result="0" update_time="1733309862"/>
+            <Task name="MapTrace" build_result="0" update_result="2" update_time="1733308424"/>
         </Milestone>
-        <Milestone name="PAR" build_result="0" build_time="1733306095">
-            <Task name="PAR" build_result="0" update_result="2" update_time="1733306095"/>
-            <Task name="PARTrace" build_result="0" update_result="2" update_time="1733306095"/>
+        <Milestone name="PAR" build_result="2" build_time="1733309868">
+            <Task name="PAR" build_result="2" update_result="0" update_time="1733309868"/>
+            <Task name="PARTrace" build_result="2" update_result="0" update_time="1733309869"/>
             <Task name="IOTiming" build_result="0" update_result="3" update_time="0"/>
         </Milestone>
-        <Milestone name="Synthesis" build_result="1" build_time="1733306131">
-            <Task name="Lattice_Synthesis" build_result="1" update_result="2" update_time="1733306131"/>
-            <Task name="LSE_Compile" build_result="0" update_result="2" update_time="1733306131"/>
+        <Milestone name="Synthesis" build_result="2" build_time="1733309651">
+            <Task name="Lattice_Synthesis" build_result="2" update_result="0" update_time="1733309651"/>
+            <Task name="LSE_Compile" build_result="2" update_result="0" update_time="1733309658"/>
             <Task name="SynTrace" build_result="0" update_result="2" update_time="1733301585"/>
             <Task name="SynVerilogSimFile" build_result="0" update_result="2" update_time="1733301585"/>
         </Milestone>
-        <Report name="SPI_FPGA_SPI.bgn" last_build_time="1733305928" last_build_size="1262"/>
-        <Report name="SPI_FPGA_SPI.bin" last_build_time="1733305928" last_build_size="104156"/>
+        <Report name="SPI_FPGA_SPI.bgn" last_build_time="1733309870" last_build_size="1262"/>
+        <Report name="SPI_FPGA_SPI.bin" last_build_time="1733309870" last_build_size="104156"/>
         <Report name="SPI_FPGA_SPI.lsedata" last_build_time="0" last_build_size="0"/>
-        <Report name="SPI_FPGA_SPI.twr.html" last_build_time="1733305927" last_build_size="12400"/>
-        <Report name="SPI_FPGA_SPI.udb" last_build_time="1733305926" last_build_size="19588"/>
-        <Report name="SPI_FPGA_SPI_map.udb" last_build_time="1733305922" last_build_size="12564"/>
-        <Report name="SPI_FPGA_SPI_rtl.udb" last_build_time="1733306104" last_build_size="14823"/>
-        <Report name="SPI_FPGA_SPI_syn.udb" last_build_time="1733305921" last_build_size="6734"/>
+        <Report name="SPI_FPGA_SPI.twr.html" last_build_time="1733309869" last_build_size="16044"/>
+        <Report name="SPI_FPGA_SPI.udb" last_build_time="1733309868" last_build_size="19699"/>
+        <Report name="SPI_FPGA_SPI_map.udb" last_build_time="1733309862" last_build_size="12647"/>
+        <Report name="SPI_FPGA_SPI_rtl.udb" last_build_time="1733309651" last_build_size="16536"/>
+        <Report name="SPI_FPGA_SPI_syn.udb" last_build_time="1733309651" last_build_size="6708"/>
     </Strategy>
 </BuildStatus>
-  
+      

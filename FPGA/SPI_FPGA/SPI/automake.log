@@ -1,19 +1,34 @@
-/rtl/lscc_subtractor.v. VERI-1328
-INFO <35901328> - c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.v(15): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/pmi_ram_dp_be.v. VERI-1328
-INFO <35901328> - c:/lscc/radiant/2024.1/ip/pmi/pmi_ram_dp_be.v(49): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/../common/ram_dp/rtl/lscc_ram_dp.v. VERI-1328
-INFO <35901328> - c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.v(16): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/pmi_ram_dq_be.v. VERI-1328
-INFO <35901328> - c:/lscc/radiant/2024.1/ip/pmi/pmi_ram_dq_be.v(45): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/../common/ram_dq/rtl/lscc_ram_dq.v. VERI-1328
-INFO <35901328> - c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.v(17): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/pmi_dsp.v. VERI-1328
-Analyzing Verilog file c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv. VERI-1482
-Analyzing VHDL file c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.vhd. VHDL-1481
-Analyzing VHDL file c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.vhd
 
-INFO <35921014> - c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.vhd(4): analyzing package components. VHDL-1014
-WARNING <35001200> - Setting top as the top-level module. To specify the top-level module explicitly, go to View->Set Views->Hierarchy or Project->Active Implementation->Set Top-Level Unit.
-INFO <35921504> - The default VHDL library search path is now "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/SPI". VHDL-1504
-Top module language type = Verilog.
-Top module name (Verilog, mixed language): top
-INFO <35901018> - c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv(6): compiling module top. VERI-1018
-ERROR <35901063> - c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv(16): instantiating unknown module lf_osc. VERI-1063
+timing -sethld -v 10 -u 10 -endpoints 10 -nperend 1 -sp High-Performance_1.2V -hsp m   -pwrprd -html -rpt "SPI_FPGA_SPI.twr" "SPI_FPGA_SPI.udb" 
+timing -sethld -v 10 -u 10 -endpoints 10 -nperend 1 -sp High-Performance_1.2V -hsp m -pwrprd -html -rpt SPI_FPGA_SPI.twr SPI_FPGA_SPI.udb -gui -msgset C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/promote.xml
+Starting design reading...
+Loading device for application GENERIC from file 'itpa08.nph' in environment: C:/lscc/radiant/2024.1/ispfpga.
+Package Status:                     Preliminary    Version 1.5.
+Performance Hardware Data Status:   Advanced       Version 1.0.
+Loading udb::Database ...
+Design:  top
+Family:  iCE40UP
+Device:  iCE40UP5K
+Package: SG48
+Performance Grade:   High-Performance_1.2V
 
-child process exited abnormally
+
+
+Successfully loading udb, 0.00 seconds
+
+Initializing timer
+Starting design annotation....
+High-Performance_1.2V
+
+Starting full timing analysis...
+Performance Hardware Data Status:   Advanced       Version 1.0.
+Connections ignored  69  counted  529  covered  0
+Changing speed to m;   changing temperature to -40
+
+STA Runtime and Peak Memory Usage :
+Total CPU Time: 0 secs 
+Total REAL Time: 0 secs 
+Peak Memory Usage: 102 MB
+
+ 0.741626s wall, 0.187500s user + 0.015625s system = 0.203125s CPU (27.4%)
+

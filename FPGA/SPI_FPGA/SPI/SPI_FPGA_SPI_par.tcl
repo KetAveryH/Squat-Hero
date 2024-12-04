@@ -18,6 +18,9 @@ if {[file exists {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-H
   file copy -force -- {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/SPI/SPI_FPGA_SPI_syn.udb} {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/SPI/incr/postsyn.udb}
   file copy -force -- {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/SPI/SPI_FPGA_SPI_map.udb} {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/SPI/incr/postmap.udb}
   file copy -force -- {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/SPI/SPI_FPGA_SPI.udb} {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/SPI/incr/postpar.udb}
+  if [file exists {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/test.pdc}] {
+    file copy -force -- {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/test.pdc} {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/SPI/incr/lastrun.pdc}
+  }
 }
 
 } out]} {

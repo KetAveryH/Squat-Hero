@@ -43,6 +43,7 @@
 
 
 -path "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA"
+-top top
 -udb "SPI_FPGA_SPI_rtl.udb"
 -output_hdl "SPI_FPGA_SPI.vm"
 

@@ -1,0 +1,4 @@
+DRC: Design Rule Check Radiant Software (64-bit) 2024.1.0.34.2
+Wed Dec  4 02:57:39 2024
+
+WARNING <71003020> - Top module port 'clk' does not connect to anything.
