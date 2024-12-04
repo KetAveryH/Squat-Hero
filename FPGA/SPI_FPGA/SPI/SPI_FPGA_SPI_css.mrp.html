@@ -49,7 +49,7 @@ Package: SG48
 Performance Grade:  High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 2024.1.0.34.2
-Mapped on: Wed Dec  4 03:46:26 2024
+Mapped on: Wed Dec  4 05:11:43 2024
 
 <A name="mrp_di"></A><B><U><big>Design Information</big></U></B>
 
@@ -62,20 +62,20 @@ Command line:   map -pdc C:/Users/KetHollingsworth/Desktop/Repositories/Microps/
 <A name="mrp_ds"></A><B><U><big>Design Summary</big></U></B>
 
    Number of slice registers: 161 out of  5280 (3%)
-   Number of I/O registers:      1 out of   117 (1%)
+   Number of I/O registers:      2 out of   117 (2%)
    Number of LUT4s:           178 out of  5280 (3%)
       Number of logic LUT4s:              16
       Number of inserted feedthru LUT4s: 128
       Number of ripple logic:             17 (34 LUT4s)
-   Number of IO sites used:   6 out of 39 (15%)
-      Number of IO sites used for general PIO: 6
+   Number of IO sites used:   7 out of 39 (18%)
+      Number of IO sites used for general PIO: 7
       Number of IO sites used for I3C: 0 out of 2 (0%)
       (note: If I3C is not used, its site can be used as general PIO)
-      Number of IO sites used for PIO+I3C: 6 out of 36 (17%)
+      Number of IO sites used for PIO+I3C: 7 out of 36 (19%)
       Number of IO sites used for OD+RGB IO buffers: 0 out of 3 (0%)
       (note: If RGB LED drivers are not used, sites can be used as OD outputs,
        see TN1288 iCE40 LED Driver Usage Guide)
-      Number of IO sites used for PIO+I3C+OD+RGB: 6 out of 39 (15%)
+      Number of IO sites used for PIO+I3C+OD+RGB: 7 out of 39 (18%)
    Number of DSPs:             0 out of 8 (0%)
    Number of I2Cs:             0 out of 2 (0%)
    Number of High Speed OSCs:  0 out of 1 (0%)
@@ -89,43 +89,35 @@ Command line:   map -pdc C:/Users/KetHollingsworth/Desktop/Repositories/Microps/
    Number of EBRs:             0 out of 30 (0%)
    Number of PLLs:             0 out of 1 (0%)
    Number of Clocks:  1
-      Net sck_c: 147 loads, 146 rising, 1 falling (Driver: Port sck)
+      Net sck_c: 148 loads, 146 rising, 2 falling (Driver: Port sck)
    Number of Clock Enables:  1
-      Net spi_inst.n1068: 144 loads, 144 SLICEs
+      Net spi_inst.n1069: 144 loads, 144 SLICEs
    Number of LSRs:  1
       Pin load: 145 loads, 145 SLICEs (Net: load_c)
    Top 10 highest fanout non-clock nets:
       Net load_c: 147 loads
-      Net spi_inst.n1068: 146 loads
+      Net spi_inst.n1069: 146 loads
       Net spi_inst.bit_index[31]: 3 loads
       Net spi_inst.bit_index[7]: 3 loads
       Net spi_inst.bit_index[27]: 2 loads
       Net spi_inst.bit_index[28]: 2 loads
       Net spi_inst.bit_index[29]: 2 loads
       Net spi_inst.bit_index[30]: 2 loads
-      Net spi_inst.n1445: 2 loads
-      Net spi_inst.n1448: 2 loads
+      Net spi_inst.n1446: 2 loads
+      Net spi_inst.n1449: 2 loads
 
-   Number of warnings:  10
+   Number of warnings:  6
    Number of criticals: 0
    Number of errors:    0
 
 <A name="mrp_dwe"></A><B><U><big>Design Errors/Criticals/Warnings</big></U></B>
 
 WARNING &lt;1026001&gt; - map: C:/Users/KetHollingsworth/Desktop/Repositories/Microps/
-     Squat-Hero/FPGA/SPI_FPGA/test.pdc (5) : No port matched &apos;true&apos;.
-WARNING &lt;1026001&gt; - map: C:/Users/KetHollingsworth/Desktop/Repositories/Microps/
-     Squat-Hero/FPGA/SPI_FPGA/test.pdc (6) : No port matched &apos;true&apos;.
+     Squat-Hero/FPGA/SPI_FPGA/test.pdc (3) : No port matched &apos;true&apos;.
 WARNING &lt;1027013&gt; - map: No port matched &apos;true&apos;.
 WARNING &lt;1026001&gt; - map: C:/Users/KetHollingsworth/Desktop/Repositories/Microps/
-     Squat-Hero/FPGA/SPI_FPGA/test.pdc (5) : Can&apos;t resolve object &apos;true&apos; in
-     constraint &apos;ldc_set_location -site {2} [get_ports true]&apos;.
-WARNING &lt;1027013&gt; - map: No port matched &apos;true&apos;.
-WARNING &lt;1026001&gt; - map: C:/Users/KetHollingsworth/Desktop/Repositories/Microps/
-     Squat-Hero/FPGA/SPI_FPGA/test.pdc (6) : Can&apos;t resolve object &apos;true&apos; in
+     Squat-Hero/FPGA/SPI_FPGA/test.pdc (3) : Can&apos;t resolve object &apos;true&apos; in
      constraint &apos;ldc_set_port -iobuf {PULLMODE=NA} [get_ports true]&apos;.
-WARNING &lt;1011001&gt; - map: Remove invalid constraint &apos;ldc_set_location -site {2}
-     [get_ports true]&apos;.
 WARNING &lt;1011001&gt; - map: Remove invalid constraint &apos;ldc_set_port -iobuf
      {PULLMODE=NA} [get_ports true]&apos;.
 WARNING &lt;71003020&gt; - map: Top module port &apos;clk&apos; does not connect to anything.
@@ -141,7 +133,9 @@ WARNING &lt;71003020&gt; - map: Top module port &apos;clk&apos; does not connect
 +---------------------+-----------+-----------+-------+-------+-----------+
 | done                | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| msb_true            | OUTPUT    |           |       |       |           |
+| msb_true            | OUTPUT    |           | O     |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| msb_true1           | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | sck                 | INPUT     | LVCMOS33  |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
@@ -162,10 +156,9 @@ Instance Name: spi_inst/sdodelayed
 
 <A name="mrp_consum"></A><B><U><big>Constraint Summary</big></U></B>
 
-   Total number of constraints: 10
-   Total number of constraints dropped: 2
-   Dropped constraints are:
-     ldc_set_location -site {2} [get_ports true]
+   Total number of constraints: 12
+   Total number of constraints dropped: 1
+   Dropped constraint is:
      ldc_set_port -iobuf {PULLMODE=NA} [get_ports true]
 
 <A name="mrp_runtime"></A><B><U><big>Run Time and Memory Usage</big></U></B>
@@ -173,7 +166,7 @@ Instance Name: spi_inst/sdodelayed
    Total CPU Time: 0 secs
    Total REAL Time: 0 secs
    Peak Memory Usage: 66 MB
-Checksum -- map: ce983aa16a088ab421434d36852073d71536470e
+Checksum -- map: 527a3b9b61605651620aa93c529ad5c1263deeb4
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995
      AT&amp;T Corp.   All rights reserved.

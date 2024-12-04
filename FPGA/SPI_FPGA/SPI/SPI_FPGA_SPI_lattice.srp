@@ -5,7 +5,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
-Wed Dec  4 03:46:23 2024
+Wed Dec  4 05:11:39 2024
 
 
 Command Line:  C:\lscc\radiant\2024.1\ispfpga\bin\nt64\synthesis.exe -f SPI_FPGA_SPI_lattice.synproj -logfile SPI_FPGA_SPI_lattice.srp -gui -msgset C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/promote.xml 
@@ -133,8 +133,8 @@ Top module language type = Verilog.
 Top module name (Verilog, mixed language): top
 INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv(6): compiling module top. VERI-1018
 INFO <35901018> - synthesis: C:/lscc/radiant/2024.1/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v(764): compiling module LSOSC. VERI-1018
-INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv(51): compiling module spi. VERI-1018
-WARNING <35901209> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv(99): expression size 128 truncated to fit in target size 92. VERI-1209
+INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv(53): compiling module spi. VERI-1018
+WARNING <35901209> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv(104): expression size 128 truncated to fit in target size 92. VERI-1209
                                                          
 
 
@@ -174,7 +174,7 @@ IB => 3
 INV => 1
 IOL_B => 1
 LUT4 => 15
-OB => 3
+OB => 4
 ################### End Area Report ##################
 Number of odd-length carry chains : 0
 Number of even-length carry chains : 1
@@ -188,15 +188,15 @@ Number of Clock Enables: 0
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
   Net : load_c, loads : 162
-  Net : spi_inst/n1068, loads : 161
+  Net : spi_inst/n1069, loads : 161
   Net : spi_inst/bit_index[7], loads : 3
   Net : spi_inst/bit_index[31], loads : 3
-  Net : spi_inst/n801, loads : 2
-  Net : spi_inst/n1448, loads : 2
+  Net : msb_true1_c_c, loads : 2
+  Net : spi_inst/n802, loads : 2
+  Net : spi_inst/n1449, loads : 2
   Net : spi_inst/bit_index[29], loads : 2
   Net : spi_inst/bit_index[30], loads : 2
-  Net : spi_inst/n803, loads : 2
-  Net : spi_inst/n799, loads : 2
+  Net : spi_inst/n804, loads : 2
 ################### End Clock Report ##################
 
 ################### Begin Constraint Report ######################
@@ -209,10 +209,10 @@ Constraint Summary:
 Total number of design rule violations: 0
 ###################  End DRC Report  ######################
 
-Peak Memory Usage: 87 MB
+Peak Memory Usage: 88 MB
 
 --------------------------------------------------------------
-Total CPU Time: 0 secs 
+Total CPU Time: 2 secs 
 Total REAL Time: 2 secs 
 --------------------------------------------------------------
-Checksum -- synthesis -- netlist: f265b63a347cd28fca1e091ce5efca5ca4b569c9
+Checksum -- synthesis -- netlist: e162a09a228d1bd61954249fb375932b26109b

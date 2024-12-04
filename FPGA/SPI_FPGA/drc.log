@@ -1,3 +1,6 @@
 DRC: Design Rule Check Radiant Software (64-bit) 2024.1.0.34.2
-Wed Dec  4 03:31:07 2024
+Wed Dec  4 05:11:16 2024
 
+WARNING <71003020> - Top module port 'clk' does not connect to anything.
+WARNING <1027013> - No port matched 'true'.
+WARNING <1026001> - C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/test.pdc (5) : Can't resolve object 'true' in constraint 'ldc_set_port -iobuf {PULLMODE=NA} [get_ports true]'.
