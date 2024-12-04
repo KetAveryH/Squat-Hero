@@ -9,6 +9,7 @@
 #include "../lib/STM32L432KC_FLASH.h"
 #include "../lib/STM32L432KC_IMU.h"
 #include "../lib/GAME_LOGIC.h"
+#include "../lib/STM32L432KC_SPI.h"
 #include <stdio.h>
 
 /*************************************************
@@ -41,6 +42,7 @@ int main(void) {
     configureClock();   // Configure the system clock
     init_I2C1();        // Initialize the I2C1 peripheral & corresponding GPIOs
     init_I2C3();        // Initialize the I2C3 peripheral & corresponding GPIOs
+    initSPI(1, 0, 0);
 
     // Step 2: Initialize all of the LSM6DSO32 IMU
     IMU_config_I2C3(IMU_ADDRESS_FEMAR, CTRL1_XL);
@@ -129,13 +131,13 @@ int main(void) {
 
         // Print (X,Y) positions
         //***************************************
-        printf("HEEL: X: %u, Y: %u | TOE: X: %u, Y: %u | KNEE: X: %u, Y: %u | HIP: X: %u, Y: %u | HEAD: X: %u, Y: %u\n", 
-             x_heel, y_heel, 
-             x_toe, y_toe, 
-             x_knee, y_knee, 
-             x_hip, y_hip, 
-             x_head, y_head);
-        delay_ms(5);
+        //printf("HEEL: X: %u, Y: %u | TOE: X: %u, Y: %u | KNEE: X: %u, Y: %u | HIP: X: %u, Y: %u | HEAD: X: %u, Y: %u\n", 
+        //     x_heel, y_heel, 
+        //     x_toe, y_toe, 
+        //     x_knee, y_knee, 
+        //     x_hip, y_hip, 
+        //     x_head, y_head);
+        //delay_ms(5);
         //***************************************
 
         // Print ALL angles and positions
@@ -181,10 +183,18 @@ int main(void) {
         //       x_head, y_head);
         //delay_ms(5);
         //***************************************
+        
+      char data[16] = {x_toe, y_toe, x_heel, y_heel, x_knee, y_knee, x_hip, y_hip,
+                x_head, y_head, 0x15, 0x88, 0x09, 0xCF, 0x4F, 0x3C};
+
+      int i;
 
 
-        // Delay (for demonstration purposes, adjust as needed)
-        for (volatile int i = 0; i < 100; i++); // Simple delay
+         for(i = 0; i < 16; i++) {
+            digitalWrite(PA11, 1); // Arificial CE high
+            spiSendReceive(data[i]);
+            digitalWrite(PA11, 0); // Arificial CE low
+          }
     }
 
     return 0;
