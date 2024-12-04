@@ -8,6 +8,7 @@
 #include "../lib/STM32L432KC_RCC.h"
 #include "../lib/STM32L432KC_FLASH.h"
 #include "../lib/STM32L432KC_IMU.h"
+#include "../lib/STM32L432KC_SPI.h"
 #include "../lib/GAME_LOGIC.h"
 #include <stdio.h>
 
@@ -183,9 +184,24 @@ int main(void) {
         //***************************************
 
 
-        // Delay (for demonstration purposes, adjust as needed)
-        for (volatile int i = 0; i < 100; i++); // Simple delay
-    }
+        //  pinMode(LOAD, GPIO_OUTPUT); // LOAD
+      
+        char data[16] = {0xAA, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+
+        digitalWrite(LOAD, 1);
+      
+        int i;
+
+           for(i = 0; i < 16; i++) {
+              digitalWrite(SPI_CE, 1); // Arificial CE high
+              spiSendReceive(data[i]);
+              digitalWrite(SPI_CE, 0); // Arificial CE low\
+            }
+            digitalWrite(LOAD, 0);
+      }
+
+      }
 
     return 0;
 }
