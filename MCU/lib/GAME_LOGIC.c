@@ -39,7 +39,7 @@
 
 
 
-volatile int x_accel; // 'volatile' because its value changes asynchronously
+//volatile int x_accel; // 'volatile' because its value changes asynchronously
 
 
 
@@ -95,11 +95,11 @@ uint16_t decode_pos(int body_part, int axis) {
         }
     } else if (body_part == KNEE) {
         if (axis == X_AXIS) {
-            heel2knee_x = asin(theta_1) * SHIN_LENGTH;
+            heel2knee_x = asin(theta_1 * M_PI / 180.0) * SHIN_LENGTH;
             knee_x = heel_x - heel2knee_x;
             return knee_x;
         } else if (axis == Y_AXIS) {
-            heel2knee_y = acos(theta_1) * SHIN_LENGTH;
+            heel2knee_y = acos(theta_1 * M_PI / 180.0) * SHIN_LENGTH;
             knee_y = heel_y + heel2knee_y;
             return knee_y;
         } else {
@@ -107,11 +107,11 @@ uint16_t decode_pos(int body_part, int axis) {
         }
     } else if (body_part == HIP) {
         if (axis == X_AXIS) {
-            knee2hip_x = asin(theta_3) * FEMAR_LENGTH;
+            knee2hip_x = asin(theta_3 * M_PI / 180.0) * FEMAR_LENGTH;
             hip_x = knee_x + knee2hip_x;
             return hip_x;
         } else if (axis == Y_AXIS) {
-            knee2hip_y = acos(theta_3) * FEMAR_LENGTH;
+            knee2hip_y = acos(theta_3 * M_PI / 180.0) * FEMAR_LENGTH;
             hip_y = knee_y + knee2hip_y;
             return hip_y;
         } else {
@@ -119,11 +119,11 @@ uint16_t decode_pos(int body_part, int axis) {
         }
     } else if (body_part == HEAD) {
         if (axis == X_AXIS) {
-            hip2head_x = asin(theta_6) * TORSO_LENGTH;
+            hip2head_x = asin(theta_6 * M_PI / 180.0) * TORSO_LENGTH;
             head_x = hip_x - hip2head_x;
             return head_x;
         } else if (axis == Y_AXIS) {
-            hip2head_y = acos(theta_6) * TORSO_LENGTH;
+            hip2head_y = acos(theta_6 * M_PI / 180.0) * TORSO_LENGTH;
             head_y = hip_y + hip2head_y;
             return head_y;
         } else {
