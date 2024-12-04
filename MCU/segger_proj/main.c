@@ -48,6 +48,9 @@ int main(void) {
     IMU_config_I2C1(IMU_ADDRESS_SHIN, CTRL1_XL);
     IMU_config_I2C1(IMU_ADDRESS_TORSO, CTRL1_XL);
 
+    initSPI(7, 0, 0);
+    initSPI(7, 0, 0);
+
     // Step 3: Run while(1) loop until the end of tiiiimmmmeee (there is no time limit)
     while (1) {
 
@@ -184,22 +187,22 @@ int main(void) {
         //***************************************
         
 
-    //  pinMode(LOAD, GPIO_OUTPUT); // LOAD
+      pinMode(LOAD, GPIO_OUTPUT); // LOAD
       
-    //  char data[16] = {0xAA, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    //            0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+      char data[16] = {0xAA, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 
-    //  digitalWrite(LOAD, 1);
+      digitalWrite(LOAD, 1);
       
-    //  int i;
+      int i;
 
-    //     for(i = 0; i < 16; i++) {
-    //        digitalWrite(SPI_CE, 1); // Arificial CE high
-    //        spiSendReceive(data[i]);
-    //        digitalWrite(SPI_CE, 0); // Arificial CE low\
-    //      }
-    //      digitalWrite(LOAD, 0);
-    //}
+         for(i = 0; i < 16; i++) {
+            digitalWrite(SPI_CE, 1); // Arificial CE high
+            spiSendReceive(data[i]);
+            digitalWrite(SPI_CE, 0); // Arificial CE low\
+          }
+          digitalWrite(LOAD, 0);
+    }
 
     return 0;
 
