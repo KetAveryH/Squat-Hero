@@ -41,8 +41,6 @@
   uint16_t head_y;
 
 
-
-
 void delay_ms(uint32_t ms) {
     // Assuming the system clock is running at a frequency of 16 MHz
     // You may need to adjust this based on your clock speed
@@ -56,37 +54,109 @@ void delay_ms(uint32_t ms) {
 }
 
 
-
 int16_t decode_angle(int body_part, int16_t accel_x, int16_t accel_y, int16_t accel_z) {
-
-    if (body_part == ANKLE) {
-        // Use atan2 to handle all quadrants and avoid issues with negative values
-        theta_1 = (int16_t)(atan2((float)accel_y, (float)accel_x) * 180 / M_PI); // Convert radians to degrees
-        theta_ankle = 90 - theta_1;
-        return theta_ankle;
-    } else if (body_part == KNEE) {
-        theta_2 = theta_ankle; // Assumes theta_ankle has been calculated previously
-        theta_3 = (int16_t)(atan2((float)accel_y, (float)-accel_x) * 180 / M_PI); // Convert radians to degrees
-        theta_4 = 90 - theta_3;
-        theta_knee = theta_2 + theta_4;
-        return theta_knee;
-    } else if (body_part == HIP) {
-        theta_5 = -theta_4; // Assumes theta_4 has been calculated previously
-        theta_6 = (int16_t)(atan2((float)accel_z, (float)accel_x) * 180 / M_PI); // Convert radians to degrees
-        
-        // Normalize the angle theta_6 to keep it within a consistent range (-180 to 180)
-        if (theta_6 > 180) {
-            theta_6 -= 360; // Wrap around to negative angles if greater than 180
-        } else if (theta_6 < -180) {
-            theta_6 += 360; // Wrap around to positive angles if less than -180
+    // ANKLE
+    if (body_part == ANKLE) { // normal scenario
+      if (accel_x < 0) {
+        if (accel_y > 0) {
+          theta_1 = (int16_t)(atan((float)accel_y / (float)-accel_x) * 180 / M_PI); // Convert radians to degrees
+          theta_ankle = 90 + theta_1;
+          return theta_ankle;
+        } else if (accel_y < 0) {
+          theta_1 = (int16_t)(atan((float)-accel_y / (float)-accel_x) * 180 / M_PI); // Convert radians to degrees
+          theta_ankle = 90 - theta_1;
+          return theta_ankle;
+        } else {
+          return 90;
         }
-        
-        theta_7 = 90 - theta_6;
-        theta_hip = 180 - (theta_5 + theta_7); // No 180 adjustment here, use the standard calculation
-        return theta_hip;
+      } else if (accel_x > 0) { // unexpected scenario
+        if (accel_y > 0) {
+          theta_1 = (int16_t)(atan((float)accel_y / (float)-accel_x) * 180 / M_PI); // Convert radians to degrees
+          theta_ankle = 270 + theta_1;
+          return theta_ankle;
+        } else if (accel_y < 0) {
+          theta_1 = (int16_t)(atan((float)-accel_y / (float)-accel_x) * 180 / M_PI); // Convert radians to degrees
+          theta_ankle = -(360 - (270 - theta_1));
+          return theta_ankle;
+        } else {
+          return 90;
+        }
+      }
+    // KNEE
+    } else if (body_part == KNEE) {
+      if (accel_x < 0) { // normal scenario
+        if (accel_y > 0) {
+          theta_2 = theta_ankle;
+          theta_3 = (int16_t)(atan((float)accel_y / (float)-accel_x) * 180 / M_PI); // Convert radians to degrees
+          theta_4 = 90 - theta_3;
+          theta_knee = theta_2 + theta_4;
+          return theta_knee;
+        } else if (accel_y < 0) {
+          theta_2 = theta_ankle;
+          theta_3 = (int16_t)(atan((float)-accel_y / (float)-accel_x) * 180 / M_PI); // Convert radians to degrees
+          theta_4 = 90 + theta_3;
+          theta_knee = theta_2 + theta_4;
+          return theta_knee;
+        } else {
+          theta_knee = 180 - (theta_3 + theta_1);
+          return theta_knee;
+        }
+      } else if (accel_x > 0) { // unexpected scenario
+        if (accel_y > 0) {
+          theta_2 = theta_ankle;
+          theta_3 = (int16_t)(atan((float)accel_y / (float)-accel_x) * 180 / M_PI); // Convert radians to degrees
+          theta_4 = 90 + theta_3;
+          theta_3 = theta_3 + 180;
+          theta_knee = theta_2 - theta_4;
+          return theta_knee;
+        } else if (accel_y < 0) {
+          theta_2 = theta_ankle;
+          theta_3 = (int16_t)(atan((float)-accel_y / (float)-accel_x) * 180 / M_PI); // Convert radians to degrees
+          theta_4 = -(360 - (270 + theta_3));
+          theta_knee = theta_2 + theta_4;
+          return theta_knee;
+        } else {
+          theta_knee = 180 - (theta_3 + theta_1);
+          return theta_knee;
+        }
+      }
+    // HIP
+    } else if (body_part == HIP) {
+      if (accel_x > 0) { // normal scenario
+        if (accel_z > 0) {
+          theta_5 = 90 - theta_3;
+          theta_6 = (int16_t)(atan((float)accel_z / (float)accel_x) * 180 / M_PI); // Convert radians to degrees
+          theta_7 = 90 + theta_6;
+          theta_hip = theta_5 + theta_7;
+          return theta_hip;
+        } else if (accel_z < 0) {
+          theta_5 = 90 - theta_3;
+          theta_6 = (int16_t)(atan((float)-accel_z / (float)accel_x) * 180 / M_PI); // Convert radians to degrees
+          theta_7 = 90 - theta_6;
+          theta_hip = theta_5 + theta_7;
+          return theta_hip;
+        } else {
+          theta_hip = 180 - theta_3;
+        }
+      } else if (accel_x < 0) { // unexpected scenario
+        if (accel_z > 0) {
+          theta_5 = 90 - theta_3;
+          theta_6 = (int16_t)(atan((float)accel_z / (float)accel_x) * 180 / M_PI); // Convert radians to degrees
+          theta_7 = 90 + theta_6;
+          theta_hip = theta_5 - theta_7;
+          return theta_hip;
+        } else if (accel_z < 0) {
+          theta_5 = 90 - theta_3;
+          theta_6 = (int16_t)(atan((float)-accel_z / (float)accel_x) * 180 / M_PI); // Convert radians to degrees
+          theta_7 = -(360 - (270 - theta_6));
+          theta_hip = theta_5 + theta_7;
+          return theta_hip;
+        } else {
+          theta_hip = 180 - theta_3;
+        }
+      }
     }
 
-    // Default case if no match
     return -1; // Error code for invalid input
 }
 

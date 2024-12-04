@@ -53,17 +53,17 @@ int main(void) {
         /************************************************
         *          READ RAW DATA FROM ALL IMUs          *
         ************************************************/
-        volatile int16_t accel_x_shin = read_accel_I2C1(IMU_ADDRESS_SHIN, OUTX_L_A);
-        volatile int16_t accel_y_shin = read_accel_I2C1(IMU_ADDRESS_SHIN, OUTY_L_A);
-        volatile int16_t accel_z_shin = read_accel_I2C1(IMU_ADDRESS_SHIN, OUTZ_L_A);
+        int16_t accel_x_shin = read_accel_I2C1(IMU_ADDRESS_SHIN, OUTX_L_A);
+        int16_t accel_y_shin = read_accel_I2C1(IMU_ADDRESS_SHIN, OUTY_L_A);
+        int16_t accel_z_shin = read_accel_I2C1(IMU_ADDRESS_SHIN, OUTZ_L_A);
 
-        volatile int16_t accel_x_femar = read_accel_I2C3(IMU_ADDRESS_FEMAR, OUTX_L_A);
-        volatile int16_t accel_y_femar = read_accel_I2C3(IMU_ADDRESS_FEMAR, OUTY_L_A);
-        volatile int16_t accel_z_femar = read_accel_I2C3(IMU_ADDRESS_FEMAR, OUTZ_L_A);
+        int16_t accel_x_femar = read_accel_I2C3(IMU_ADDRESS_FEMAR, OUTX_L_A);
+        int16_t accel_y_femar = read_accel_I2C3(IMU_ADDRESS_FEMAR, OUTY_L_A);
+        int16_t accel_z_femar = read_accel_I2C3(IMU_ADDRESS_FEMAR, OUTZ_L_A);
 
-        volatile int16_t accel_x_torso = read_accel_I2C1(IMU_ADDRESS_TORSO, OUTX_L_A);
-        volatile int16_t accel_y_torso = read_accel_I2C1(IMU_ADDRESS_TORSO, OUTY_L_A);
-        volatile int16_t accel_z_torso = read_accel_I2C1(IMU_ADDRESS_TORSO, OUTZ_L_A);
+        int16_t accel_x_torso = read_accel_I2C1(IMU_ADDRESS_TORSO, OUTX_L_A);
+        int16_t accel_y_torso = read_accel_I2C1(IMU_ADDRESS_TORSO, OUTY_L_A);
+        int16_t accel_z_torso = read_accel_I2C1(IMU_ADDRESS_TORSO, OUTZ_L_A);
 
         /************************************************************************************************
         *           CONVERT ACCEL TO ANGLES                                                             *
@@ -120,11 +120,11 @@ int main(void) {
 
         // Print the angles
         //***************************************
-        //printf("ANKLE: %d | KNEE: %d | HIP: %d\n", 
-        //      angle_ankle, 
-        //      angle_knee, 
-        //      angle_hip);
-        //delay_ms(5);
+        printf("ANKLE: %d | KNEE: %d | HIP: %d\n", 
+              angle_ankle, 
+              angle_knee, 
+              angle_hip);
+        delay_ms(5);
         //***************************************
 
         // Print (X,Y) positions
