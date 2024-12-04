@@ -18,4 +18,5 @@ Output/Debug/Obj/squat_hero_v1/main.o: \
   C:\Users\spenc\OneDrive\Documents\Desktop\HMC\microPs\Squat-Hero\MCU\segger_proj\..\lib\STM32L432KC_FLASH.h \
   C:\Users\spenc\OneDrive\Documents\Desktop\HMC\microPs\Squat-Hero\MCU\segger_proj\..\lib\STM32L432KC_IMU.h \
   C:\Users\spenc\OneDrive\Documents\Desktop\HMC\microPs\Squat-Hero\MCU\segger_proj\..\lib\GAME_LOGIC.h \
+  C:\Users\spenc\OneDrive\Documents\Desktop\HMC\microPs\Squat-Hero\MCU\segger_proj\..\lib\STM32L432KC_SPI.h \
   C:\Program\ Files\SEGGER\SEGGER\ Embedded\ Studio\ for\ ARM\ 7.32a\include\stdio.h
