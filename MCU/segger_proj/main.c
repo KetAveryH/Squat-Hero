@@ -188,8 +188,8 @@ int main(void) {
 
       pinMode(LOAD, GPIO_OUTPUT); // LOAD
       
-      char data[16] = {x_toe, y_toe, x_heel, y_heel, x_knee, y_knee, x_hip, y_hip,
-                x_head, y_head, 0x15, 0x88, 0x09, 0xCF, 0x4F, 0x3C};
+      char data[16] = {0b10101010, 0b10000000, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 
       digitalWrite(LOAD, 1);
       
