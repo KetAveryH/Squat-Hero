@@ -49,7 +49,7 @@ Package: SG48
 Performance Grade:  High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 2024.1.1.259.1
-Mapped on: Wed Dec  4 06:12:43 2024
+Mapped on: Wed Dec  4 06:43:15 2024
 
 <A name="mrp_di"></A><B><U><big>Design Information</big></U></B>
 
@@ -61,24 +61,25 @@ Command line:   map -pdc C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/S
 
 <A name="mrp_ds"></A><B><U><big>Design Summary</big></U></B>
 
-   Number of slice registers:  33 out of  5280 (1%)
-   Number of I/O registers:      0 out of   117 (0%)
-   Number of LUT4s:            60 out of  5280 (1%)
-      Number of logic LUT4s:              26
+   Number of slice registers: 161 out of  5280 (3%)
+   Number of I/O registers:      1 out of   117 (1%)
+   Number of LUT4s:           234 out of  5280 (4%)
+      Number of logic LUT4s:              72
+      Number of inserted feedthru LUT4s: 128
       Number of ripple logic:             17 (34 LUT4s)
-   Number of IO sites used:   7 out of 39 (18%)
-      Number of IO sites used for general PIO: 7
+   Number of IO sites used:   6 out of 39 (15%)
+      Number of IO sites used for general PIO: 6
       Number of IO sites used for I3C: 0 out of 2 (0%)
       (note: If I3C is not used, its site can be used as general PIO)
-      Number of IO sites used for PIO+I3C: 7 out of 36 (19%)
+      Number of IO sites used for PIO+I3C: 6 out of 36 (17%)
       Number of IO sites used for OD+RGB IO buffers: 0 out of 3 (0%)
       (note: If RGB LED drivers are not used, sites can be used as OD outputs,
        see TN1288 iCE40 LED Driver Usage Guide)
-      Number of IO sites used for PIO+I3C+OD+RGB: 7 out of 39 (18%)
+      Number of IO sites used for PIO+I3C+OD+RGB: 6 out of 39 (15%)
    Number of DSPs:             0 out of 8 (0%)
    Number of I2Cs:             0 out of 2 (0%)
    Number of High Speed OSCs:  0 out of 1 (0%)
-   Number of Low Speed OSCs:   0 out of 1 (0%)
+   Number of Low Speed OSCs:   1 out of 1 (100%)
    Number of RGB PWM:          0 out of 1 (0%)
    Number of RGB Drivers:      0 out of 1 (0%)
    Number of SCL FILTERs:      0 out of 2 (0%)
@@ -87,38 +88,48 @@ Command line:   map -pdc C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/S
    Number of SPIs:             0 out of 2 (0%)
    Number of EBRs:             0 out of 30 (0%)
    Number of PLLs:             0 out of 1 (0%)
-   Number of Clocks:  1
-      Net sck_c: 18 loads, 18 rising, 0 falling (Driver: Port sck)
-   Number of Clock Enables:  1
-      Net n389: 16 loads, 16 SLICEs
+   Number of Clocks:  2
+      Net int_osc: 1 loads, 1 rising, 0 falling (Driver: Pin lf_osc/CLKLF)
+      Net sck_c: 146 loads, 146 rising, 0 falling (Driver: Port sck)
+   Number of Clock Enables:  2
+      Net VCC_net: 1 loads, 0 SLICEs
+      Net n841: 144 loads, 144 SLICEs
    Number of LSRs:  1
-      Net n111: 17 loads, 17 SLICEs
+      Net n116: 145 loads, 145 SLICEs
    Top 10 highest fanout non-clock nets:
-      Net n111: 19 loads
-      Net n389: 16 loads
+      Net n116: 147 loads
+      Net n841: 144 loads
       Net spi_inst.bit_index[31]: 4 loads
       Net spi_inst.bit_index[7]: 4 loads
-      Net n106: 3 loads
-      Net spi_inst.bit_index[11]: 3 loads
-      Net spi_inst.bit_index[12]: 3 loads
-      Net spi_inst.bit_index[13]: 3 loads
-      Net spi_inst.bit_index[19]: 3 loads
-      Net spi_inst.bit_index[25]: 3 loads
+      Net spi_inst.bit_index[0]: 3 loads
+      Net spi_inst.bit_index[1]: 3 loads
+      Net spi_inst.bit_index[2]: 3 loads
+      Net spi_inst.bit_index[3]: 3 loads
+      Net spi_inst.bit_index[6]: 3 loads
+      Net VCC_net: 3 loads
 
-   Number of warnings:  6
+   Number of warnings:  10
    Number of criticals: 0
    Number of errors:    0
 
 <A name="mrp_dwe"></A><B><U><big>Design Errors/Criticals/Warnings</big></U></B>
 
 WARNING &lt;1026001&gt; - map: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/S
-     quat-Hero/FPGA/SPI_FPGA/test.pdc (3) : No port matched &apos;true&apos;.
-WARNING &lt;1027013&gt; - map: No port matched &apos;true&apos;.
+     quat-Hero/FPGA/SPI_FPGA/test.pdc (9) : No port matched &apos;msb_true1&apos;.
 WARNING &lt;1026001&gt; - map: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/S
-     quat-Hero/FPGA/SPI_FPGA/test.pdc (3) : Can&apos;t resolve object &apos;true&apos; in
-     constraint &apos;ldc_set_port -iobuf {PULLMODE=NA} [get_ports true]&apos;.
+     quat-Hero/FPGA/SPI_FPGA/test.pdc (10) : No port matched &apos;msb_true1&apos;.
+WARNING &lt;1027013&gt; - map: No port matched &apos;msb_true1&apos;.
+WARNING &lt;1026001&gt; - map: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/S
+     quat-Hero/FPGA/SPI_FPGA/test.pdc (9) : Can&apos;t resolve object &apos;msb_true1&apos; in
+     constraint &apos;ldc_set_location -site {47} [get_ports msb_true1]&apos;.
+WARNING &lt;1027013&gt; - map: No port matched &apos;msb_true1&apos;.
+WARNING &lt;1026001&gt; - map: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/S
+     quat-Hero/FPGA/SPI_FPGA/test.pdc (10) : Can&apos;t resolve object &apos;msb_true1&apos; in
+     constraint &apos;ldc_set_port -iobuf {PULLMODE=NA} [get_ports msb_true1]&apos;.
+WARNING &lt;1011001&gt; - map: Remove invalid constraint &apos;ldc_set_location -site {47}
+     [get_ports msb_true1]&apos;.
 WARNING &lt;1011001&gt; - map: Remove invalid constraint &apos;ldc_set_port -iobuf
-     {PULLMODE=NA} [get_ports true]&apos;.
+     {PULLMODE=NA} [get_ports msb_true1]&apos;.
 WARNING &lt;71003020&gt; - map: Top module port &apos;clk&apos; does not connect to anything.
 WARNING &lt;71003020&gt; - map: Top module port &apos;clk&apos; does not connect to anything.
 
@@ -132,9 +143,7 @@ WARNING &lt;71003020&gt; - map: Top module port &apos;clk&apos; does not connect
 +---------------------+-----------+-----------+-------+-------+-----------+
 | done                | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| msb_true            | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| msb_true1           | OUTPUT    |           |       |       |           |
+| true                | OUTPUT    |           | O     |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | sck                 | INPUT     | LVCMOS33  |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
@@ -146,22 +155,35 @@ WARNING &lt;71003020&gt; - map: Top module port &apos;clk&apos; does not connect
 <A name="mrp_rm"></A><B><U><big>Removed logic</big></U></B>
 
 
+<A name="mrp_osc"></A><B><U><big>OSC Summary</big></U></B>
+
+OSC 1:                                 Pin/Node Value
+  OSC Instance Name:                            lf_osc
+  Power UP:                            NODE     VCC_net
+  Enable Signal:                       NODE     VCC_net
+  OSC Output:                          NODE     int_osc
+
 <A name="mrp_asic"></A><B><U><big>ASIC Components</big></U></B>
 
+Instance Name: lf_osc
+         Type: LFOSC
+Instance Name: spi_inst/true
+         Type: IOLOGIC
 
 <A name="mrp_consum"></A><B><U><big>Constraint Summary</big></U></B>
 
-   Total number of constraints: 11
-   Total number of constraints dropped: 1
-   Dropped constraint is:
-     ldc_set_port -iobuf {PULLMODE=NA} [get_ports true]
+   Total number of constraints: 12
+   Total number of constraints dropped: 2
+   Dropped constraints are:
+     ldc_set_location -site {47} [get_ports msb_true1]
+     ldc_set_port -iobuf {PULLMODE=NA} [get_ports msb_true1]
 
 <A name="mrp_runtime"></A><B><U><big>Run Time and Memory Usage</big></U></B>
 
    Total CPU Time: 0 secs
    Total REAL Time: 0 secs
-   Peak Memory Usage: 66 MB
-Checksum -- map: 2eb2e11beb9d7cec306809abd61b7fca6977d8a
+   Peak Memory Usage: 68 MB
+Checksum -- map: 389e21a476f2e5da953623040d1d14d595a2046
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995
      AT&amp;T Corp.   All rights reserved.
@@ -179,6 +201,7 @@ Copyright (c) 2002-2024 Lattice Semiconductor
 <LI><A href=#mrp_dwe>Design Errors/Criticals/Warnings</A></LI>
 <LI><A href=#mrp_ioa>IO (PIO) Attributes</A></LI>
 <LI><A href=#mrp_rm>Removed logic</A></LI>
+<LI><A href=#mrp_osc>OSC Summary</A></LI>
 <LI><A href=#mrp_asic>ASIC Components</A></LI>
 <LI><A href=#mrp_consum>Constraint Summary</A></LI>
 <LI><A href=#mrp_runtime>Run Time and Memory Usage</A></LI>

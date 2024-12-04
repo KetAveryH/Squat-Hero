@@ -188,7 +188,7 @@ int main(void) {
 
       pinMode(LOAD, GPIO_OUTPUT); // LOAD
       
-      char data[16] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+      char data[16] = {0xAA, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
                 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 
       digitalWrite(LOAD, 1);
@@ -199,25 +199,12 @@ int main(void) {
             digitalWrite(SPI_CE, 1); // Arificial CE high
             spiSendReceive(data[i]);
             digitalWrite(SPI_CE, 0); // Arificial CE low\
-            
-          }
-          digitalWrite(LOAD, 0);
-      
-      char data1[16] = {0xFF, 0xFF, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
-
-      digitalWrite(LOAD, 1);
-    
-
-         for(i = 0; i < 16; i++) {
-            digitalWrite(SPI_CE, 1); // Arificial CE high
-            spiSendReceive(data1[i]);
-            digitalWrite(SPI_CE, 0); // Arificial CE low\
-            
           }
           digitalWrite(LOAD, 0);
     }
 
     return 0;
+
+    }
 }
 

@@ -1,6 +1,6 @@
 Lattice Timing Report -  Setup  and Hold, Version Radiant Software (64-bit) 2024.1.1.259.1
 
-Wed Dec  4 06:12:59 2024
+Wed Dec  4 06:43:31 2024
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
@@ -48,6 +48,7 @@ Package Status:                     Preliminary    Version 1.5
 
 1.1  SDC Constraints
 =====================
+create_clock -name {int_osc} -period 100000 [get_pins {lf_osc/CLKLF }] 
 
 1.2  Constraint Coverage
 ---------------------------
@@ -66,14 +67,28 @@ Constraint Coverage: 0%
 --------------------------------------
 
 Clocked but unconstrained timing start points
---------------------------------------------------
-There is no start point satisfying reporting criteria
-
+-------------------------------------------------------------------
+         Listing 1 Start Points         |           Type           
+-------------------------------------------------------------------
+spi_inst/true/PADDO                     |          No required time
+-------------------------------------------------------------------
+                                        |                          
+Number of unconstrained timing start po |                          
+ints                                    |                         1
+                                        |                          
+-------------------------------------------------------------------
 
 Clocked but unconstrained timing end points
---------------------------------------------------
-There is no end point satisfying reporting criteria
-
+-------------------------------------------------------------------
+          Listing 1 End Points          |           Type           
+-------------------------------------------------------------------
+spi_inst/true/DO0                       |           No arrival time
+-------------------------------------------------------------------
+                                        |                          
+Number of unconstrained timing end poin |                          
+ts                                      |                         1
+                                        |                          
+-------------------------------------------------------------------
 
 1.4.2  Start/End Points Without Timing Constraints
 ---------------------------------------------------
@@ -96,7 +111,7 @@ sdi                                     |                     input
 load                                    |                     input
 clk                                     |                     input
 done                                    |                    output
-msb_true1                               |                    output
+true                                    |                    output
 -------------------------------------------------------------------
                                         |                          
 Number of I/O ports without constraint  |                         6
@@ -127,6 +142,21 @@ None
 
 2.1  Clock Summary
 =======================
+
+2.1.1 Clock "int_osc"
+=======================
+create_clock -name {int_osc} -period 100000 [get_pins {lf_osc/CLKLF }] 
+
+Single Clock Domain
+-------------------------------------------------------------------------------------------------------
+             Clock int_osc              |                    |       Period       |     Frequency      
+-------------------------------------------------------------------------------------------------------
+ From int_osc                           |             Target |      100000.000 ns |          0.010 MHz 
+                                        | Actual (all paths) |       99820.000 ns |          0.010 MHz 
+lf_osc/CLKLF (MPW)                      |   (50% duty cycle) |       99820.000 ns |          0.010 MHz 
+-------------------------------------------------------------------------------------------------------
+
+Clock Domain Crossing
 
 2.2  Endpoint slacks
 =======================

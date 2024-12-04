@@ -5,7 +5,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
-Wed Dec  4 06:12:25 2024
+Wed Dec  4 06:42:56 2024
 
 
 Command Line:  C:\Lattice Radiant\ispfpga\bin\nt64\synthesis.exe -f SPI_FPGA_SPI_lattice.synproj -logfile SPI_FPGA_SPI_lattice.srp -gui -msgset C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/promote.xml 
@@ -134,7 +134,7 @@ Top module name (Verilog, mixed language): top
 INFO <35901018> - synthesis: c:/users/spenc/onedrive/documents/desktop/hmc/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv(6): compiling module top. VERI-1018
 INFO <35901018> - synthesis: C:/Lattice Radiant/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v(764): compiling module LSOSC. VERI-1018
 INFO <35901018> - synthesis: c:/users/spenc/onedrive/documents/desktop/hmc/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv(55): compiling module spi. VERI-1018
-WARNING <35901209> - synthesis: c:/users/spenc/onedrive/documents/desktop/hmc/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv(107): expression size 128 truncated to fit in target size 92. VERI-1209
+WARNING <35901209> - synthesis: c:/users/spenc/onedrive/documents/desktop/hmc/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv(116): expression size 128 truncated to fit in target size 92. VERI-1209
                                                          
 
 
@@ -161,44 +161,45 @@ WARNING <35901209> - synthesis: c:/users/spenc/onedrive/documents/desktop/hmc/mi
 
 CRITICAL <35002028> - synthesis: I/O Port clk 's net has no driver and is unused.
 CRITICAL <35002028> - synthesis: I/O Port sdo 's net has no driver and is unused.
-CRITICAL <35002028> - synthesis: I/O Port msb_true 's net has no driver and is unused.
 ######## Missing driver on net sdo. Patching with GND.
 
 
 
 CRITICAL <35002028> - synthesis: I/O Port clk 's net has no driver and is unused.
-CRITICAL <35002028> - synthesis: I/O Port sdi 's net has no driver and is unused.
-CRITICAL <35002028> - synthesis: I/O Port msb_true1 's net has no driver and is unused.
+INFO <35002039> - synthesis: Special Primitives IFD1P3AZ and OFD1P3AZ for ThunderPlus are synthesized using IOL_B.
 
 ################### Begin Area Report (top)######################
-Number of register bits => 33 of 5280 (0 % )
+Number of register bits => 161 of 5280 (3 % )
 CCU2 => 17
-FD1P3XZ => 33
+FD1P3XZ => 161
 IB => 3
-LUT4 => 24
-OB => 4
+IOL_B => 1
+LSOSC_CORE => 1
+LUT4 => 70
+OB => 3
 ################### End Area Report ##################
 Number of odd-length carry chains : 0
 Number of even-length carry chains : 1
 
 ################### Begin Clock Report ######################
 Clock Nets
-Number of Clocks: 1
+Number of Clocks: 2
   Net : sck_c, loads : 0
+  Net : int_osc, loads : 0
 Clock Enable Nets
 Number of Clock Enables: 0
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
-  Net : spi_inst/n111, loads : 33
-  Net : n389, loads : 31
+  Net : spi_inst/n116, loads : 161
+  Net : n841, loads : 159
   Net : spi_inst/bit_index[31], loads : 4
   Net : spi_inst/bit_index[7], loads : 4
-  Net : spi_inst/bit_index[13], loads : 3
-  Net : spi_inst/bit_index[12], loads : 3
-  Net : spi_inst/bit_index[11], loads : 3
-  Net : spi_inst/bit_index[19], loads : 3
+  Net : spi_inst/bit_index[1], loads : 3
+  Net : spi_inst/bit_index[0], loads : 3
+  Net : spi_inst/bit_index[2], loads : 3
+  Net : spi_inst/bit_index[6], loads : 3
+  Net : spi_inst/bit_index[3], loads : 3
   Net : spi_inst/bit_index[28], loads : 3
-  Net : spi_inst/bit_index[26], loads : 3
 ################### End Clock Report ##################
 
 ################### Begin Constraint Report ######################
@@ -211,10 +212,10 @@ Constraint Summary:
 Total number of design rule violations: 0
 ###################  End DRC Report  ######################
 
-Peak Memory Usage: 90 MB
+Peak Memory Usage: 97 MB
 
 --------------------------------------------------------------
 Total CPU Time: 9 secs 
-Total REAL Time: 9 secs 
+Total REAL Time: 10 secs 
 --------------------------------------------------------------
-Checksum -- synthesis -- netlist: b6372642e5de2b09a3f4b74946bc86f93f6a31aa
+Checksum -- synthesis -- netlist: ed3357f7c459194a61bfd13e93e1bcde28a8c22

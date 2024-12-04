@@ -48,19 +48,19 @@
  </TraceWindow>
  <Watch1>
   <Watches active="1" update="Never">
-   <Watchpoint expression="accel_x_femar" name="accel_x_femar" radix="16" linenumber="0" filename=""/>
-   <Watchpoint expression="accel_x_shin" name="accel_x_shin" radix="16" linenumber="0" filename=""/>
-   <Watchpoint expression="accel_y_femar" name="accel_y_femar" radix="16" linenumber="0" filename=""/>
-   <Watchpoint expression="accel_y_shin" name="accel_y_shin" radix="16" linenumber="0" filename=""/>
-   <Watchpoint expression="accel_z_shin" name="accel_z_shin" radix="16" linenumber="0" filename=""/>
-   <Watchpoint expression="theta_1" name="theta_1" radix="11" linenumber="0" filename=""/>
-   <Watchpoint expression="theta_2" name="theta_2" radix="11" linenumber="0" filename=""/>
-   <Watchpoint expression="theta_3" name="theta_3" radix="11" linenumber="0" filename=""/>
-   <Watchpoint expression="theta_4" name="theta_4" radix="11" linenumber="0" filename=""/>
-   <Watchpoint expression="theta_5" name="theta_5" radix="11" linenumber="0" filename=""/>
-   <Watchpoint expression="theta_6" name="theta_6" radix="11" linenumber="0" filename=""/>
-   <Watchpoint expression="theta_7" name="theta_7" radix="11" linenumber="0" filename=""/>
-   <Watchpoint expression="x_toe" name="x_toe" radix="16" linenumber="0" filename=""/>
+   <Watchpoint expression="accel_x_femar" name="accel_x_femar" radix="16" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="accel_x_shin" name="accel_x_shin" radix="16" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="accel_y_femar" name="accel_y_femar" radix="16" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="accel_y_shin" name="accel_y_shin" radix="16" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="accel_z_shin" name="accel_z_shin" radix="16" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="theta_1" name="theta_1" radix="11" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="theta_2" name="theta_2" radix="11" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="theta_3" name="theta_3" radix="11" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="theta_4" name="theta_4" radix="11" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="theta_5" name="theta_5" radix="11" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="theta_6" name="theta_6" radix="11" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="theta_7" name="theta_7" radix="11" linenumber="0" filename="../segger_proj"/>
+   <Watchpoint expression="x_toe" name="x_toe" radix="16" linenumber="0" filename="../segger_proj"/>
   </Watches>
  </Watch1>
  <Watch2>
@@ -73,17 +73,18 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="41" y="15" useTextEdit="1" path="main.c" left="0" selected="1" top="12" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="15" y="238" useTextEdit="1" path="../lib/STM32L432KC_I2C.c" left="0" top="236" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="28" useTextEdit="1" path="main.c" left="0" selected="1" top="13" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="133" useTextEdit="1" path="../lib/STM32L432KC_I2C.c" left="0" top="111" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="11" y="14" useTextEdit="1" path="../lib/STM32L432KC_I2C.h" left="0" top="0" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="19" useTextEdit="1" path="../lib/STM32L432KC_IMU.c" left="0" top="12" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="19" useTextEdit="1" path="../lib/STM32L432KC_IMU.c" left="0" top="18" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="4" y="29" useTextEdit="1" path="../lib/STM32L432KC_IMU.h" left="0" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="55" y="18" useTextEdit="1" path="../lib/GAME_LOGIC.h" left="0" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="17" y="31" useTextEdit="1" path="../lib/GAME_LOGIC.c" left="0" top="27" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="51" y="48" useTextEdit="1" path="../lib/STM32L432KC_SPI.c" left="0" top="18" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="14" y="10" useTextEdit="1" path="../lib/STM32L432KC_SPI.h" left="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="46" y="40" useTextEdit="1" path="../lib/STM32L432KC_SPI.c" left="0" top="26" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="4" y="31" useTextEdit="1" path="../lib/STM32L432KC_SPI.h" left="0" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="1" y="20" useTextEdit="1" path="../lib/STM32L432KC_RCC.c" left="0" top="0" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="27" y="79" useTextEdit="1" path="../lib/STM32L432KC_GPIO.c" left="0" top="59" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="9" y="84" useTextEdit="1" path="../lib/STM32L432KC_GPIO.c" left="0" top="77" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="198" useTextEdit="1" path="SEGGER_THUMB_Startup.s" left="0" top="177" codecName="Default"/>
  </Files>
  <EMStudioWindow activeProject="squat_hero_v1" fileDialogDefaultFilter="*" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="/Users/jasonbowman/Desktop/Micro-Ps/Squat-Hero/MCU/lib" debugSearchPath="" autoConnectCapabilities="3711"/>
 </session>

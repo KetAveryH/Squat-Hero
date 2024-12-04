@@ -9,9 +9,9 @@ module top(
     input  logic sdi,
     output logic sdo,
     input  logic load, // Initialize 128-bit frame
-    output logic done, 
-    output logic msb_true, // Renamed from "true" for clarity
-	output logic msb_true1
+    output logic done,
+    output logic true // Renamed from "true" for clarity
+	//output logic msb_true1
 );
 
     LSOSC #() 
@@ -41,8 +41,8 @@ module top(
         .r(r),
         .g(g),
         .b(b),
-        .true(msb_true), // Connect the MSB signal\
-		.true_1(msb_true1)
+        .true(true) // Connect the MSB signal\
+		//.true_1(msb_true1)
     );
 	//assign msb_true = x_1[9];
 endmodule
@@ -61,8 +61,8 @@ module spi(
     output logic done,
     output logic [9:0] x_1, y_1, x_2, y_2, x_3, y_3, x_4, y_4,
     output logic [3:0] r, g, b,
-    output logic true, // Changed to output
-	output logic true_1
+    output logic true // Changed to output
+	//output logic true_1
 );
     // Internal variables
     logic [127:0] datacaptured; // Internal shift register for the 128-bit packet
@@ -79,8 +79,17 @@ module spi(
 
     // Assign MSB of datacaptured to "true"
     
-	assign true_1 = sdi;
-	assign true = sdo;
+	//assign true_1 = sdi;
+	//logic true;
+	
+	always_ff @(posedge clk) begin
+        if (datacaptured == 128'hFF00FF00FF00FF00FF00FF00FF00FF00) begin
+            true <= 1;
+		end else begin
+            true <= 0;
+        end
+    end
+
 	
     // SPI IN shift operation: Handle all data capture here
     always_ff @(posedge sck) begin
@@ -107,7 +116,7 @@ module spi(
             {x_1, y_1, x_2, y_2, x_3, y_3, x_4, y_4, r, g, b} <= datacaptured; // Map captured data to outputs
         end
     end
-
+	
     // Handle sdo on the negative edge of sck
     //always_ff @(negedge sck) begin
         //sdodelayed <= datacaptured[127]; // Shift out MSB first
