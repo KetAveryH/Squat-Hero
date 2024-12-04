@@ -8,8 +8,8 @@
 #include "../lib/STM32L432KC_RCC.h"
 #include "../lib/STM32L432KC_FLASH.h"
 #include "../lib/STM32L432KC_IMU.h"
-#include "../lib/STM32L432KC_SPI.h"
 #include "../lib/GAME_LOGIC.h"
+#include "../lib/STM32L432KC_SPI.h"
 #include <stdio.h>
 
 /*************************************************
@@ -37,19 +37,18 @@ int main(void) {
     /*******************************************
     *   INITIALIZE AND CONFIUGRE MCU / IMUs    *
     *******************************************/
-    // Step 1: System Initialization
+    // Step 1: System Initialization 
     configureFlash();   // Configure flash memory access
     configureClock();   // Configure the system clock
     init_I2C1();        // Initialize the I2C1 peripheral & corresponding GPIOs
     init_I2C3();        // Initialize the I2C3 peripheral & corresponding GPIOs
+    initSPI(1, 0, 0);
 
     // Step 2: Initialize all of the LSM6DSO32 IMU
     IMU_config_I2C3(IMU_ADDRESS_FEMAR, CTRL1_XL);
     IMU_config_I2C1(IMU_ADDRESS_SHIN, CTRL1_XL);
     IMU_config_I2C1(IMU_ADDRESS_TORSO, CTRL1_XL);
-
-    initSPI(7, 0, 0);
-    initSPI(7, 0, 0);
+    digitalWrite(LOAD, 0); // make sure SPI LOAD is low
 
     // Step 3: Run while(1) loop until the end of tiiiimmmmeee (there is no time limit)
     while (1) {
@@ -124,22 +123,22 @@ int main(void) {
 
         // Print the angles
         //***************************************
-        //printf("ANKLE: %d | KNEE: %d | HIP: %d\n", 
-        //      angle_ankle, 
-        //      angle_knee, 
-        //      angle_hip);
-        //delay_ms(5);
+        printf("ANKLE: %d | KNEE: %d | HIP: %d\n", 
+              angle_ankle, 
+              angle_knee, 
+              angle_hip);
+        delay_ms(5);
         //***************************************
 
         // Print (X,Y) positions
         //***************************************
-        printf("HEEL: X: %u, Y: %u | TOE: X: %u, Y: %u | KNEE: X: %u, Y: %u | HIP: X: %u, Y: %u | HEAD: X: %u, Y: %u\n", 
-             x_heel, y_heel, 
-             x_toe, y_toe, 
-             x_knee, y_knee, 
-             x_hip, y_hip, 
-             x_head, y_head);
-        delay_ms(5);
+        //printf("HEEL: X: %u, Y: %u | TOE: X: %u, Y: %u | KNEE: X: %u, Y: %u | HIP: X: %u, Y: %u | HEAD: X: %u, Y: %u\n", 
+        //     x_heel, y_heel, 
+        //     x_toe, y_toe, 
+        //     x_knee, y_knee, 
+        //     x_hip, y_hip, 
+        //     x_head, y_head);
+        //delay_ms(5);
         //***************************************
 
         // Print ALL angles and positions
@@ -189,7 +188,7 @@ int main(void) {
 
       pinMode(LOAD, GPIO_OUTPUT); // LOAD
       
-      char data[16] = {0xAA, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+      char data[16] = {0b10101010, 0b10000000, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
                 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 
       digitalWrite(LOAD, 1);
@@ -199,13 +198,10 @@ int main(void) {
          for(i = 0; i < 16; i++) {
             digitalWrite(SPI_CE, 1); // Arificial CE high
             spiSendReceive(data[i]);
-            digitalWrite(SPI_CE, 0); // Arificial CE low\
+            digitalWrite(SPI_CE, 0); // Arificial CE low
           }
           digitalWrite(LOAD, 0);
     }
 
     return 0;
-
-    }
 }
-
