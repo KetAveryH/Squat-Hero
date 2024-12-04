@@ -1,0 +1,211 @@
+
+Lattice Place and Route Report for Design "SPI_FPGA_SPI_map.udb"
+Wed Dec  4 01:52:03 2024
+
+PAR: Place And Route Radiant Software (64-bit) 2024.1.0.34.2.
+Command Line: par -w -t 1 -cores 1 -hsp m -exp parPathBased=ON \
+	SPI_FPGA_SPI_map.udb SPI_FPGA_SPI_par.dir/5_1.udb 
+
+Loading SPI_FPGA_SPI_map.udb ...
+Loading device for application GENERIC from file 'itpa08.nph' in environment: C:/lscc/radiant/2024.1/ispfpga.
+Package Status:                     Preliminary    Version 1.5.
+Performance Hardware Data Status:   Advanced       Version 1.0.
+
+
+
+Design:  top
+Family:  iCE40UP
+Device:  iCE40UP5K
+Package: SG48
+Performance Grade:   High-Performance_1.2V
+
+Constraint Summary
+   Total number of constraints: 0
+   Total number of constraints dropped: 0
+
+WARNING <71003020> - par: Top module port 'clk' does not connect to anything.
+WARNING <71003020> - par: Top module port 'clk' does not connect to anything.
+WARNING <71003020> - par: Top module port 'clk' does not connect to anything.
+WARNING <71003020> - par: Top module port 'clk' does not connect to anything.
+Number of Signals: 371
+Number of Connections: 859
+Device utilization summary:
+
+   SLICE (est.)      90/2640          3% used
+     LUT            175/5280          3% used
+     REG            161/5280          3% used
+   PIO                5/56            9% used
+                      5/36           13% bonded
+   IOLOGIC            1/56            2% used
+   DSP                0/8             0% used
+   I2C                0/2             0% used
+   HFOSC              0/1             0% used
+   LFOSC              0/1             0% used
+   LEDDA_IP           0/1             0% used
+   RGBA_DRV           0/1             0% used
+   FILTER             0/2             0% used
+   SRAM               0/4             0% used
+   WARMBOOT           0/1             0% used
+   SPI                0/2             0% used
+   EBR                0/30            0% used
+   PLL                0/1             0% used
+   RGBOUTBUF          0/3             0% used
+   I3C                0/2             0% used
+   OPENDRAIN          0/3             0% used
+
+Pin Constraint Summary:
+   0 out of 5 pins locked (0% locked).
+.
+..............
+Finished Placer Phase 0 (HIER). CPU time: 0 secs , REAL time: 0 secs 
+
+
+................
+Finished Placer Phase 0 (AP).  CPU time: 0 secs , REAL time: 0 secs 
+
+Starting Placer Phase 1. CPU time: 0 secs , REAL time: 0 secs 
+..  ..
+....................
+
+Placer score = 8335.
+
+Device SLICE utilization summary after final SLICE packing:
+   SLICE             90/2640          3% used
+
+Finished Placer Phase 1. CPU time: 2 secs , REAL time: 3 secs 
+
+Starting Placer Phase 2.
+.
+
+Placer score =  31270
+Finished Placer Phase 2.  CPU time: 2 secs , REAL time: 3 secs 
+
+
+------------------ Clock Report ------------------
+
+Global Clocks :
+  PRIMARY "sck_c" from comp "sck" on CLK_PIN site "35 (PR13B)", clk load = 83, ce load = 0, sr load = 0
+  PRIMARY "load_c" from comp "load" on CLK_PIN site "37 (PR14A)", clk load = 0, ce load = 0, sr load = 82
+  PRIMARY "spi_inst.n3" from F0 on comp "spi_inst.SLICE_153" on site "R13C2A", clk load = 0, ce load = 64, sr load = 0
+
+  PRIMARY  : 3 out of 8 (37%)
+
+--------------- End of Clock Report ---------------
+
+
+I/O Usage Summary (final):
+   5 out of 56 (8.9%) I/O sites used.
+   5 out of 36 (13.9%) bonded I/O sites used.
+   Number of I/O components: 5; differential: 0
+   Number of Vref pins used: 0
+
+I/O Bank Usage Summary:
++----------+---------------+------------+------------+------------+
+| I/O Bank | Usage         | Bank Vccio | Bank Vref1 | Bank Vref2 |
++----------+---------------+------------+------------+------------+
+| 0        | 3 / 14 ( 21%) | 3.3V       |            |            |
+| 1        | 2 / 14 ( 14%) | 3.3V       |            |            |
+| 2        | 0 / 8 (  0%)  | OFF        |            |            |
++----------+---------------+------------+------------+------------+
+
+Total Placer CPU time: 2 secs , REAL time: 3 secs 
+
+
+Checksum -- place: 5bcb964a718d51c27e2202222f3dcf589f6b49db
+Writing design to file SPI_FPGA_SPI_par.dir/5_1.udb ...
+
+
+-----------------------------------------------------------------
+INFO - par: ASE feature is off due to non timing-driven settings.  
+-----------------------------------------------------------------
+
+
+Start NBR router at 01:52:06 12/04/24
+
+*****************************************************************
+Info: NBR allows conflicts(one node used by more than one signal)
+      in the earlier iterations. In each iteration, it tries to  
+      solve the conflicts while keeping the critical connections 
+      routed as short as possible. The routing process is said to
+      be completed when no conflicts exist and all connections   
+      are routed.                                                
+Note: NBR uses a different method to calculate timing slacks. The
+      worst slack and total negative slack may not be the same as
+      that in timing report. You should always run the timing    
+      tool to verify your design.                                
+*****************************************************************
+
+Starting routing resource preassignment
+Preassignment Summary:
+--------------------------------------------------------------------------------
+2 global clock signals routed
+360 connections routed (of 667 total) (53.97%)
+---------------------------------------------------------
+Clock routing summary:
+Primary clocks (3 used out of 8 available):
+#2  Signal "load_c"
+       Control loads: 82    out of    82 routed (100.00%)
+#5  Signal "spi_inst.n3"
+       Control loads: 0     out of    64 routed (  0.00%)
+       Data    loads: 0     out of     1 routed (  0.00%)
+#7  Signal "sck_c"
+       Clock   loads: 83    out of    83 routed (100.00%)
+---------------------------------------------------------
+--------------------------------------------------------------------------------
+Completed routing resource preassignment
+
+Start NBR section for initial routing at 01:52:06 12/04/24
+Level 4, iteration 1
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Routing in Serial Mode ......
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; real time: 0 secs 
+
+Info: Initial congestion level at 75.00% usage is 0
+Info: Initial congestion area  at 75.00% usage is 0 (0.00%)
+
+Start NBR section for normal routing at 01:52:06 12/04/24
+Level 4, iteration 1
+1(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; real time: 0 secs 
+Level 4, iteration 2
+0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; real time: 0 secs 
+
+Start NBR section for post-routing at 01:52:06 12/04/24
+
+End NBR router with 0 unrouted connection(s)
+
+Checksum -- route: fe752f60fa80202030b8b724f19574075a0b004c
+
+Total CPU time 0 secs 
+Total REAL time: 0 secs 
+Completely routed.
+End of route.  667 routed (100.00%); 0 unrouted.
+
+Writing design to file SPI_FPGA_SPI_par.dir/5_1.udb ...
+
+
+All signals are completely routed.
+
+
+PAR_SUMMARY::Run status = Completed
+PAR_SUMMARY::Number of unrouted conns = 0
+PAR_SUMMARY::Estimated worst slack<setup/<ns>> = <n/a>
+PAR_SUMMARY::Timing score<setup/<ns>> = <n/a>
+PAR_SUMMARY::Estimated worst slack<hold/<ns>> = <n/a>
+PAR_SUMMARY::Timing score<hold/<ns>> = <n/a>
+PAR_SUMMARY::Number of errors = 0
+
+Note: user must run 'timing' for timing closure signoff.
+
+Total CPU  Time: 3 secs 
+Total REAL Time: 3 secs 
+Peak Memory Usage: 104.57 MB
+
+
+par done!
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
