@@ -97,6 +97,14 @@ typedef struct packed {
     logic [9:0] bot;
 } rect_t;
 
+// Add this struct definition after the rect_t struct
+typedef struct packed {
+    logic [9:0] x_1;
+    logic [9:0] y_1;
+    logic [9:0] x_2;
+    logic [9:0] y_2;
+} line_t;
+
 module image_frame0(
     output rect_t [13:0] frame0_rects
 );
@@ -191,11 +199,18 @@ module videoGen(
     line_gen line_gen_inst(
         .x(x),
         .y(y),
-        .x_1(10'd0),
-        .y_1(10'd0),
-        .x_2(10'd200),
+        .x_1(10'd100),
+        .y_1(10'd100),
+        .x_2(10'd50),
         .y_2(10'd200),
         .inline(inline)
+    );
+
+    line_struct_gen line_struct_gen_inst(
+        .x(x),
+        .y(y),
+        .selected_lines(selected_lines),
+        .inline_all(inline_all)
     );
 
     // Set the color based on whether the pixel is in the rectangle
@@ -232,7 +247,6 @@ module rectgen(input logic [9:0] x, y, left, top, right, bot,
   assign inrect = (x >= left & x < right & y >= top & y < bot);
 endmodule
 
-// NOTES: we wil assume that x_1 is always less than x_2
 module line_gen(
     input  logic [9:0] x, y,    // Current pixel coordinates
     input  logic [9:0] x_1, y_1, // Line start point
@@ -242,10 +256,13 @@ module line_gen(
 
     // Declare intermediate signals with sufficient bit widths
     logic signed [10:0] delta_x, delta_y;
-    logic signed [21:0] cross_product;
-    logic [21:0] abs_cross_product;
     logic signed [10:0] x_diff, y_diff;
-    parameter logic [21:0] TOLERANCE = 22'd100; // Adjust tolerance as needed
+    logic signed [21:0] cross_product;
+    logic [42:0] error_squared;
+    logic signed [21:0] length_squared;
+    logic [42:0] threshold;
+
+    parameter int TOLERANCE = 2; // Adjust tolerance as needed
 
     always_comb begin
         delta_x = signed'(x_2) - signed'(x_1);
@@ -257,11 +274,17 @@ module line_gen(
         // Compute the cross product
         cross_product = x_diff * delta_y - y_diff * delta_x;
 
-        // Take absolute value
-        abs_cross_product = (cross_product < 0) ? -cross_product : cross_product;
+        // Compute squared error
+        error_squared = cross_product * cross_product;
+
+        // Compute squared length of the line
+        length_squared = delta_x * delta_x + delta_y * delta_y;
+
+        // Compute threshold scaled with length squared
+        threshold = TOLERANCE * TOLERANCE * length_squared;
 
         // Determine if the point is close enough to the line
-        inline = (abs_cross_product <= TOLERANCE);
+        inline = (error_squared <= threshold);
     end
 endmodule
 
@@ -283,3 +306,29 @@ module rect_struct_gen(
     
     assign inrect_all = |inrect; //Logical OR of all inrect signals
 endmodule
+
+module line_struct_gen(
+    input logic [9:0] x, y,
+    input line_t [4:0] selected_lines,  // Changed from [13:0] to [4:0] for 5 lines
+    output logic inline_all
+);
+    logic [4:0] inline;  // Changed from [13:0] to [4:0]
+    
+    genvar i;
+    generate
+        for (i = 0; i < 5; i = i + 1) begin : line_gen  // Changed from 14 to 5
+            line_gen line_inst (
+                .x(x),
+                .y(y),
+                .x_1(selected_lines[i].x_1),
+                .y_1(selected_lines[i].y_1),
+                .x_2(selected_lines[i].x_2),
+                .y_2(selected_lines[i].y_2),
+                .inline(inline[i])
+            );
+        end
+    endgenerate
+    
+    assign inline_all = |inline;
+endmodule
+

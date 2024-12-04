@@ -8,7 +8,7 @@ Package: SG48
 Performance Grade:  High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 2024.1.0.34.2
-Mapped on: Sat Nov 30 21:15:46 2024
+Mapped on: Tue Dec  3 23:43:09 2024
 
 Design Information
 ------------------
@@ -24,9 +24,9 @@ Design Summary
 
    Number of slice registers:  20 out of  5280 (<1%)
    Number of I/O registers:      0 out of   117 (0%)
-   Number of LUT4s:           155 out of  5280 (3%)
-      Number of logic LUT4s:              91
-      Number of ripple logic:             32 (64 LUT4s)
+   Number of LUT4s:           255 out of  5280 (5%)
+      Number of logic LUT4s:              93
+      Number of ripple logic:             81 (162 LUT4s)
    Number of IO sites used:   18 out of 39 (46%)
       Number of IO sites used for general PIO: 18
       Number of IO sites used for I3C: 0 out of 2 (0%)
@@ -36,7 +36,7 @@ Design Summary
       (note: If RGB LED drivers are not used, sites can be used as OD outputs,
        see TN1288 iCE40 LED Driver Usage Guide)
       Number of IO sites used for PIO+I3C+OD+RGB: 18 out of 39 (46%)
-   Number of DSPs:             2 out of 8 (25%)
+   Number of DSPs:             8 out of 8 (100%)
    Number of I2Cs:             0 out of 2 (0%)
    Number of High Speed OSCs:  1 out of 1 (100%)
    Number of Low Speed OSCs:   0 out of 1 (0%)
@@ -54,12 +54,12 @@ Design Summary
      pll_inst.lscc_pll_inst.u_PLL_B/OUTCORE)
    Number of Clock Enables:  2
       Net VCC_net: 1 loads, 0 SLICEs
-      Net vgaCont.n19_adj_768: 10 loads, 10 SLICEs
+      Net vgaCont.n19: 10 loads, 10 SLICEs
    Number of LSRs:  1
       Pin reset: 20 loads, 20 SLICEs (Net: reset_c)
    Top 10 highest fanout non-clock nets:
+      Net VCC_net: 70 loads
       Net reset_c: 21 loads
-      Net vgaCont.n19_adj_768: 20 loads
 
                                     Page 1
 
@@ -69,14 +69,14 @@ Design Summary
 
 Design Summary (cont)
 ---------------------
-      Net VCC_net: 12 loads
-      Net x[9]: 11 loads
-      Net y[9]: 11 loads
-      Net vgaCont.n19: 10 loads
-      Net x[7]: 5 loads
-      Net x[8]: 5 loads
-      Net y[5]: 5 loads
-      Net y[6]: 5 loads
+      Net vgaCont.n19: 20 loads
+      Net videoGen.line_gen_inst.error_squared_42__N_919[22]: 15 loads
+      Net videoGen.line_gen_inst.n178[22]: 15 loads
+      Net videoGen.line_gen_inst.length_squared[21]: 11 loads
+      Net vgaCont.n19_adj_4284: 10 loads
+      Net videoGen.line_gen_inst.x_diff[10]: 6 loads
+      Net videoGen.line_gen_inst.y_diff[10]: 6 loads
+      Net x[9]: 6 loads
 
 
 
@@ -142,33 +142,33 @@ IO (PIO) Attributes (cont)
 +---------------------+-----------+-----------+-------+-------+-----------+
 | sync_b              | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| reset               | INPUT     |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| b[0]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| b[1]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| b[2]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| b[3]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| g[0]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| g[1]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| g[2]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| g[3]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| r[0]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| r[1]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
 | vsync               | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | hsync               | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | vgaclk              | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| r[1]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| r[0]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| g[3]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| g[2]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| g[1]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| g[0]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| b[3]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| b[2]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| b[1]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| b[0]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| reset               | INPUT     |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 
 PLL/DLL Summary
@@ -230,9 +230,21 @@ ASIC Components
 
 Instance Name: hf_osc
          Type: HFOSC
+Instance Name: videoGen/line_gen_inst/cross_product_1__I_0
+         Type: DSP
+Instance Name: videoGen/line_gen_inst/mult_68
+         Type: DSP
+Instance Name: videoGen/line_gen_inst/mult_69
+         Type: DSP
+Instance Name: videoGen/line_gen_inst/mult_67
+         Type: DSP
+Instance Name: videoGen/line_gen_inst/mult_66
+         Type: DSP
 Instance Name: videoGen/line_gen_inst/mult_71
          Type: DSP
 Instance Name: videoGen/line_gen_inst/mult_72
+         Type: DSP
+Instance Name: videoGen/line_gen_inst/mult_70
          Type: DSP
 Instance Name: pll_inst/lscc_pll_inst/u_PLL_B
          Type: PLL
@@ -247,20 +259,74 @@ Constraint Summary
      ldc_set_location -site {31} [get_ports {dip[2]}]
      ldc_set_location -site {37} [get_ports {dip[3]}]
 
+
+                                    Page 4
+
+
+
+
+
 Run Time and Memory Usage
 -------------------------
 
    Total CPU Time: 0 secs
    Total REAL Time: 0 secs
-   Peak Memory Usage: 65 MB
-Checksum -- map: be37188f7a2486c290974c930184474d365ae6f
+   Peak Memory Usage: 67 MB
+Checksum -- map: 19749f42c9b17b63620115bd80e988fe618d7ee
 
 
 
 
 
 
-                                    Page 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    Page 5
 
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.

@@ -1,8 +1,8 @@
 <top name = "vga"  library = "work"  arch = ""  entry = "Verilog">
 
 <clocks>
-    <clockitem name = "vgaclk"  type = "net" />
     <clockitem name = "int_osc"  type = "net" />
+    <clockitem name = "vgaclk"  type = "net" />
     <clockitem name = "pll_inst/lscc_pll_inst/outglobalb_o"  type = "net" />
     <clockitem name = "pll_inst/lscc_pll_inst/outcoreb_o"  type = "net" />
     <clockitem name = "pll_inst/outglobal_o"  type = "net" />
