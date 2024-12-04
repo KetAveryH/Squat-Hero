@@ -161,75 +161,7 @@ int16_t decode_angle(int body_part, int16_t accel_x, int16_t accel_y, int16_t ac
 }
 
 
-//// (X,Y) bottom left
-//uint16_t decode_pos(int body_part, int axis) {
-//    const float DEG_TO_RAD = M_PI / 180.0; // Conversion factor from degrees to radians
-
-//    if (body_part == TOE) {
-//        if (axis == X_AXIS) {
-//            toe_x = heel_x - FOOT_LENGTH;
-//            return toe_x;
-//        } else if (axis == Y_AXIS) {
-//            toe_y = 0.5 * LINE_THICKNESS;
-//            return toe_y;
-//        } else {
-//            return -1; // default case
-//        }
-//    } else if (body_part == HEEL) {
-//        if (axis == X_AXIS) {
-//            heel_x = 0.5 * MAX_DIMENSION_HOR;
-//            return heel_x;
-//        } else if (axis == Y_AXIS) {
-//            heel_y = 0.5 * LINE_THICKNESS;
-//            return heel_y;
-//        } else {
-//            return -1; // default case
-//        }
-//    } else if (body_part == KNEE) {
-//        if (axis == X_AXIS) {
-//            heel2knee_x = sin(theta_1 * DEG_TO_RAD) * SHIN_LENGTH;
-//            knee_x = heel_x - heel2knee_x;
-//            return knee_x;
-//        } else if (axis == Y_AXIS) {
-//            heel2knee_y = cos(theta_1 * DEG_TO_RAD) * SHIN_LENGTH;
-//            knee_y = heel_y + heel2knee_y;
-//            return knee_y;
-//        } else {
-//            return -1; // default case
-//        }
-//    } else if (body_part == HIP) {
-//        if (axis == X_AXIS) {
-//            knee2hip_x = sin(theta_3 * DEG_TO_RAD) * FEMAR_LENGTH;
-//            hip_x = knee_x + knee2hip_x;
-//            return hip_x;
-//        } else if (axis == Y_AXIS) {
-//            knee2hip_y = cos(theta_3 * DEG_TO_RAD) * FEMAR_LENGTH;
-//            hip_y = knee_y + knee2hip_y;
-//            return hip_y;
-//        } else {
-//            return -1; // default case
-//        }
-//    } else if (body_part == HEAD) {
-//        if (axis == X_AXIS) {
-//            hip2head_x = sin(theta_6 * DEG_TO_RAD) * TORSO_LENGTH;
-//            head_x = hip_x + hip2head_x;
-//            return head_x;
-//        } else if (axis == Y_AXIS) {
-//            hip2head_y = cos(theta_6 * DEG_TO_RAD) * TORSO_LENGTH;
-//            head_y = hip_y + hip2head_y;
-//            return head_y;
-//        } else {
-//            return -1; // default case
-//        }
-//    }
-
-//    // Explicit default case for invalid `body_part`
-//    return -1;
-//}
-
-
-
-// (X,Y) top left
+// (X,Y) bottom left
 uint16_t decode_pos(int body_part, int axis) {
     const float DEG_TO_RAD = M_PI / 180.0; // Conversion factor from degrees to radians
 
@@ -238,7 +170,7 @@ uint16_t decode_pos(int body_part, int axis) {
             toe_x = heel_x - FOOT_LENGTH;
             return toe_x;
         } else if (axis == Y_AXIS) {
-            toe_y = heel_y;
+            toe_y = 0.5 * LINE_THICKNESS;
             return toe_y;
         } else {
             return -1; // default case
@@ -248,43 +180,43 @@ uint16_t decode_pos(int body_part, int axis) {
             heel_x = 0.5 * MAX_DIMENSION_HOR;
             return heel_x;
         } else if (axis == Y_AXIS) {
-            heel_y = MAX_DIMENSION - (0.5 * LINE_THICKNESS);
+            heel_y = 0.5 * LINE_THICKNESS;
             return heel_y;
         } else {
             return -1; // default case
         }
     } else if (body_part == KNEE) {
         if (axis == X_AXIS) {
-            heel2knee_x = sin(theta_1 * DEG_TO_RAD) * SHIN_LENGTH;
+            heel2knee_x = sin((90 - theta_ankle) * DEG_TO_RAD) * SHIN_LENGTH;
             knee_x = heel_x - heel2knee_x;
             return knee_x;
         } else if (axis == Y_AXIS) {
-            heel2knee_y = cos(theta_1 * DEG_TO_RAD) * SHIN_LENGTH;
-            knee_y = MAX_DIMENSION - (heel_y + heel2knee_y);
-            return theta_1;
+            heel2knee_y = cos((90 - theta_ankle) * DEG_TO_RAD) * SHIN_LENGTH;
+            knee_y = heel_y + heel2knee_y;
+            return knee_y;
         } else {
             return -1; // default case
         }
     } else if (body_part == HIP) {
         if (axis == X_AXIS) {
-            knee2hip_x = sin(theta_3 * DEG_TO_RAD) * FEMAR_LENGTH;
+            knee2hip_x = sin((180 - (90 - theta_ankle) - theta_knee) * DEG_TO_RAD) * FEMAR_LENGTH;
             hip_x = knee_x + knee2hip_x;
             return hip_x;
         } else if (axis == Y_AXIS) {
-            knee2hip_y = cos(theta_3 * DEG_TO_RAD) * FEMAR_LENGTH;
-            hip_y = MAX_DIMENSION - (knee_y + knee2hip_y);
+            knee2hip_y = cos((180 - (90 - theta_ankle) - theta_knee) * DEG_TO_RAD) * FEMAR_LENGTH;
+            hip_y = knee_y + knee2hip_y;
             return hip_y;
         } else {
             return -1; // default case
         }
     } else if (body_part == HEAD) {
         if (axis == X_AXIS) {
-            hip2head_x = sin(theta_6 * DEG_TO_RAD) * TORSO_LENGTH;
-            head_x = hip_x + hip2head_x;
+            hip2head_x = sin((180 - ((180 - (90 - theta_ankle) - theta_knee)) - theta_hip) * DEG_TO_RAD) * TORSO_LENGTH;
+            head_x = hip_x - hip2head_x;
             return head_x;
         } else if (axis == Y_AXIS) {
-            hip2head_y = cos(theta_6 * DEG_TO_RAD) * TORSO_LENGTH;
-            head_y = MAX_DIMENSION - (hip_y + hip2head_y);
+            hip2head_y = cos((180 - ((180 - (90 - theta_ankle) - theta_knee)) - theta_hip) * DEG_TO_RAD) * TORSO_LENGTH;
+            head_y = hip_y + hip2head_y;
             return head_y;
         } else {
             return -1; // default case
@@ -294,3 +226,75 @@ uint16_t decode_pos(int body_part, int axis) {
     // Explicit default case for invalid `body_part`
     return -1;
 }
+
+
+//uint16_t decode_pos(int body_part, int axis) {
+//    const float DEG_TO_RAD = M_PI / 180.0; // Conversion factor from degrees to radians
+
+//    if (body_part == TOE) {
+//        if (axis == X_AXIS) {
+//            toe_x = heel_x - FOOT_LENGTH;
+//            return toe_x;
+//        } else if (axis == Y_AXIS) {
+//            toe_y = MAX_DIMENSION - (0.5 * LINE_THICKNESS); // Flip Y-axis
+//            return toe_y;
+//        } else {
+//            return -1; // default case
+//        }
+//    } else if (body_part == HEEL) {
+//        if (axis == X_AXIS) {
+//            heel_x = 0.5 * MAX_DIMENSION_HOR;
+//            return heel_x;
+//        } else if (axis == Y_AXIS) {
+//            heel_y = MAX_DIMENSION - (0.5 * LINE_THICKNESS); // Flip Y-axis
+//            return heel_y;
+//        } else {
+//            return -1; // default case
+//        }
+//    } else if (body_part == KNEE) {
+//        if (axis == X_AXIS) {
+//            heel2knee_x = sin((90 - theta_ankle) * DEG_TO_RAD) * SHIN_LENGTH;
+//            knee_x = heel_x - heel2knee_x;
+//            return knee_x;
+//        } else if (axis == Y_AXIS) {
+//            heel2knee_y = cos((90 - theta_ankle) * DEG_TO_RAD) * SHIN_LENGTH;
+//            knee_y = heel_y + heel2knee_y;
+//            if (knee_y > MAX_DIMENSION) knee_y = MAX_DIMENSION; // Clamp to bounds
+//            knee_y = MAX_DIMENSION - knee_y; // Flip Y-axis
+//            return knee_y;
+//        } else {
+//            return -1; // default case
+//        }
+//    } else if (body_part == HIP) {
+//        if (axis == X_AXIS) {
+//            knee2hip_x = sin((180 - (90 - theta_ankle) - theta_knee) * DEG_TO_RAD) * FEMAR_LENGTH;
+//            hip_x = knee_x + knee2hip_x;
+//            return hip_x;
+//        } else if (axis == Y_AXIS) {
+//            knee2hip_y = cos((180 - (90 - theta_ankle) - theta_knee) * DEG_TO_RAD) * FEMAR_LENGTH;
+//            hip_y = knee_y + knee2hip_y;
+//            if (hip_y > MAX_DIMENSION) hip_y = MAX_DIMENSION; // Clamp to bounds
+//            hip_y = MAX_DIMENSION - hip_y; // Flip Y-axis
+//            return hip_y;
+//        } else {
+//            return -1; // default case
+//        }
+//    } else if (body_part == HEAD) {
+//        if (axis == X_AXIS) {
+//            hip2head_x = sin((180 - ((180 - (90 - theta_ankle) - theta_knee)) - theta_hip) * DEG_TO_RAD) * TORSO_LENGTH;
+//            head_x = hip_x - hip2head_x;
+//            return head_x;
+//        } else if (axis == Y_AXIS) {
+//            hip2head_y = cos((180 - ((180 - (90 - theta_ankle) - theta_knee)) - theta_hip) * DEG_TO_RAD) * TORSO_LENGTH;
+//            head_y = hip_y + hip2head_y;
+//            if (head_y > MAX_DIMENSION) head_y = MAX_DIMENSION; // Clamp to bounds
+//            head_y = MAX_DIMENSION - head_y; // Flip Y-axis
+//            return head_y;
+//        } else {
+//            return -1; // default case
+//        }
+//    }
+
+//    // Explicit default case for invalid `body_part`
+//    return -1;
+//}
