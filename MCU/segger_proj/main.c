@@ -120,11 +120,11 @@ int main(void) {
 
         // Print the angles
         //***************************************
-        printf("ANKLE: %d | KNEE: %d | HIP: %d\n", 
-              angle_ankle, 
-              angle_knee, 
-              angle_hip);
-        delay_ms(5);
+        //printf("ANKLE: %d | KNEE: %d | HIP: %d\n", 
+        //      angle_ankle, 
+        //      angle_knee, 
+        //      angle_hip);
+        //delay_ms(5);
         //***************************************
 
         // Print (X,Y) positions
@@ -161,6 +161,7 @@ int main(void) {
         //***************************************
         //printf("HEEL: X: %u, Y: %u\n", 
         //       x_heel, y_heel);
+        //delay_ms(5);
         //***************************************
 
         //***************************************
