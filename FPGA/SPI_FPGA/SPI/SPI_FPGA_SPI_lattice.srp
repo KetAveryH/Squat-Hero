@@ -1,14 +1,14 @@
-synthesis:  version Radiant Software (64-bit) 2024.1.0.34.2
+synthesis:  version Radiant Software (64-bit) 2024.1.1.259.1
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
-Wed Dec  4 05:11:39 2024
+Wed Dec  4 06:12:25 2024
 
 
-Command Line:  C:\lscc\radiant\2024.1\ispfpga\bin\nt64\synthesis.exe -f SPI_FPGA_SPI_lattice.synproj -logfile SPI_FPGA_SPI_lattice.srp -gui -msgset C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/promote.xml 
+Command Line:  C:\Lattice Radiant\ispfpga\bin\nt64\synthesis.exe -f SPI_FPGA_SPI_lattice.synproj -logfile SPI_FPGA_SPI_lattice.srp -gui -msgset C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/promote.xml 
 
 Synthesis options:
 The -a option is iCE40UP.
@@ -67,14 +67,14 @@ ROM style = auto
 RAM style = auto
 The -comp option is FALSE.
 The -syn option is FALSE.
--path C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA (searchpath added)
--path C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/SPI (searchpath added)
--path C:/lscc/radiant/2024.1/ispfpga/ice40tp/data (searchpath added)
+-path C:/Lattice Radiant/ispfpga/ice40tp/data (searchpath added)
+-path C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA (searchpath added)
+-path C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/SPI (searchpath added)
 Mixed language design
-Verilog design file = C:/lscc/radiant/2024.1/ip/pmi/pmi_iCE40UP.v
-Verilog design file = C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/source/SPI/top.sv
+Verilog design file = C:/Lattice Radiant/ip/pmi/pmi_iCE40UP.v
+Verilog design file = C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/source/SPI/top.sv
 VHDL library = pmi
-VHDL design file = C:/lscc/radiant/2024.1/ip/pmi/pmi_iCE40UP.vhd
+VHDL design file = C:/Lattice Radiant/ip/pmi/pmi_iCE40UP.vhd
 The -r option is OFF. [ Remove LOC Properties is OFF. ]
 WARNING <35935050> - synthesis: input port TRIM9 is not connected on this instance. VDB-5050
 WARNING <35935050> - synthesis: input port TRIM8 is not connected on this instance. VDB-5050
@@ -89,52 +89,52 @@ WARNING <35935050> - synthesis: input port TRIM0 is not connected on this instan
 WARNING <35935050> - synthesis: input port I is not connected on this instance. VDB-5050
 Compile design.
 Compile Design Begin
-Analyzing Verilog file c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.v. VERI-1482
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.v(1): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/pmi_addsub.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_addsub.v(40): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/../common/adder_subtractor/rtl/lscc_add_sub.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.v(2): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/pmi_add.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_add.v(50): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/../common/adder/rtl/lscc_adder.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.v(3): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/pmi_complex_mult.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_complex_mult.v(52): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/../common/complex_mult/rtl/lscc_complex_mult.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.v(4): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/pmi_counter.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_counter.v(39): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/../common/counter/rtl/lscc_cntr.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.v(5): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/pmi_fifo.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_fifo.v(44): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/../common/fifo/rtl/lscc_fifo.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.v(6): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/pmi_fifo_dc.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_fifo_dc.v(47): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/../common/fifo_dc/rtl/lscc_fifo_dc.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.v(7): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/pmi_mac.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_mac.v(52): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/../common/mult_accumulate/rtl/lscc_mult_accumulate.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.v(8): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/pmi_multaddsubsum.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_multaddsubsum.v(53): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/../common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.v(9): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/pmi_multaddsub.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_multaddsub.v(52): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/../common/mult_add_sub/rtl/lscc_mult_add_sub.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.v(10): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/pmi_mult.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_mult.v(51): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/../common/multiplier/rtl/lscc_multiplier.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.v(11): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/pmi_ram_dp.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_ram_dp.v(48): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/../common/ram_dp/rtl/lscc_ram_dp.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.v(12): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/pmi_ram_dq.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_ram_dq.v(45): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/../common/ram_dq/rtl/lscc_ram_dq.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.v(13): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/pmi_rom.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_rom.v(45): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/../common/rom/rtl/lscc_rom.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.v(14): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/pmi_sub.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_sub.v(50): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/../common/subtractor/rtl/lscc_subtractor.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.v(15): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/pmi_ram_dp_be.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_ram_dp_be.v(49): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/../common/ram_dp/rtl/lscc_ram_dp.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.v(16): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/pmi_ram_dq_be.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_ram_dq_be.v(45): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/../common/ram_dq/rtl/lscc_ram_dq.v. VERI-1328
-INFO <35901328> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.v(17): analyzing included file c:/lscc/radiant/2024.1/ip/pmi/pmi_dsp.v. VERI-1328
-Analyzing Verilog file c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv. VERI-1482
-Analyzing VHDL file c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.vhd. VHDL-1481
-Analyzing VHDL file c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.vhd
+Analyzing Verilog file c:/lattice radiant/ip/pmi/pmi_ice40up.v. VERI-1482
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_ice40up.v(1): analyzing included file c:/lattice radiant/ip/pmi/pmi_addsub.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_addsub.v(40): analyzing included file c:/lattice radiant/ip/pmi/../common/adder_subtractor/rtl/lscc_add_sub.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_ice40up.v(2): analyzing included file c:/lattice radiant/ip/pmi/pmi_add.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_add.v(50): analyzing included file c:/lattice radiant/ip/pmi/../common/adder/rtl/lscc_adder.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_ice40up.v(3): analyzing included file c:/lattice radiant/ip/pmi/pmi_complex_mult.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_complex_mult.v(52): analyzing included file c:/lattice radiant/ip/pmi/../common/complex_mult/rtl/lscc_complex_mult.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_ice40up.v(4): analyzing included file c:/lattice radiant/ip/pmi/pmi_counter.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_counter.v(39): analyzing included file c:/lattice radiant/ip/pmi/../common/counter/rtl/lscc_cntr.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_ice40up.v(5): analyzing included file c:/lattice radiant/ip/pmi/pmi_fifo.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_fifo.v(44): analyzing included file c:/lattice radiant/ip/pmi/../common/fifo/rtl/lscc_fifo.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_ice40up.v(6): analyzing included file c:/lattice radiant/ip/pmi/pmi_fifo_dc.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_fifo_dc.v(47): analyzing included file c:/lattice radiant/ip/pmi/../common/fifo_dc/rtl/lscc_fifo_dc.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_ice40up.v(7): analyzing included file c:/lattice radiant/ip/pmi/pmi_mac.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_mac.v(52): analyzing included file c:/lattice radiant/ip/pmi/../common/mult_accumulate/rtl/lscc_mult_accumulate.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_ice40up.v(8): analyzing included file c:/lattice radiant/ip/pmi/pmi_multaddsubsum.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_multaddsubsum.v(53): analyzing included file c:/lattice radiant/ip/pmi/../common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_ice40up.v(9): analyzing included file c:/lattice radiant/ip/pmi/pmi_multaddsub.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_multaddsub.v(52): analyzing included file c:/lattice radiant/ip/pmi/../common/mult_add_sub/rtl/lscc_mult_add_sub.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_ice40up.v(10): analyzing included file c:/lattice radiant/ip/pmi/pmi_mult.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_mult.v(51): analyzing included file c:/lattice radiant/ip/pmi/../common/multiplier/rtl/lscc_multiplier.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_ice40up.v(11): analyzing included file c:/lattice radiant/ip/pmi/pmi_ram_dp.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_ram_dp.v(48): analyzing included file c:/lattice radiant/ip/pmi/../common/ram_dp/rtl/lscc_ram_dp.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_ice40up.v(12): analyzing included file c:/lattice radiant/ip/pmi/pmi_ram_dq.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_ram_dq.v(45): analyzing included file c:/lattice radiant/ip/pmi/../common/ram_dq/rtl/lscc_ram_dq.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_ice40up.v(13): analyzing included file c:/lattice radiant/ip/pmi/pmi_rom.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_rom.v(45): analyzing included file c:/lattice radiant/ip/pmi/../common/rom/rtl/lscc_rom.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_ice40up.v(14): analyzing included file c:/lattice radiant/ip/pmi/pmi_sub.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_sub.v(50): analyzing included file c:/lattice radiant/ip/pmi/../common/subtractor/rtl/lscc_subtractor.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_ice40up.v(15): analyzing included file c:/lattice radiant/ip/pmi/pmi_ram_dp_be.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_ram_dp_be.v(49): analyzing included file c:/lattice radiant/ip/pmi/../common/ram_dp/rtl/lscc_ram_dp.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_ice40up.v(16): analyzing included file c:/lattice radiant/ip/pmi/pmi_ram_dq_be.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_ram_dq_be.v(45): analyzing included file c:/lattice radiant/ip/pmi/../common/ram_dq/rtl/lscc_ram_dq.v. VERI-1328
+INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_ice40up.v(17): analyzing included file c:/lattice radiant/ip/pmi/pmi_dsp.v. VERI-1328
+Analyzing Verilog file c:/users/spenc/onedrive/documents/desktop/hmc/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv. VERI-1482
+Analyzing VHDL file c:/lattice radiant/ip/pmi/pmi_ice40up.vhd. VHDL-1481
+Analyzing VHDL file c:/lattice radiant/ip/pmi/pmi_ice40up.vhd
 
-INFO <35921014> - synthesis: c:/lscc/radiant/2024.1/ip/pmi/pmi_ice40up.vhd(4): analyzing package components. VHDL-1014
-INFO <35921504> - synthesis: The default VHDL library search path is now "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/SPI". VHDL-1504
+INFO <35921014> - synthesis: c:/lattice radiant/ip/pmi/pmi_ice40up.vhd(4): analyzing package components. VHDL-1014
+INFO <35921504> - synthesis: The default VHDL library search path is now "C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/SPI". VHDL-1504
 Top module language type = Verilog.
 Top module name (Verilog, mixed language): top
-INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv(6): compiling module top. VERI-1018
-INFO <35901018> - synthesis: C:/lscc/radiant/2024.1/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v(764): compiling module LSOSC. VERI-1018
-INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv(53): compiling module spi. VERI-1018
-WARNING <35901209> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv(104): expression size 128 truncated to fit in target size 92. VERI-1209
+INFO <35901018> - synthesis: c:/users/spenc/onedrive/documents/desktop/hmc/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv(6): compiling module top. VERI-1018
+INFO <35901018> - synthesis: C:/Lattice Radiant/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v(764): compiling module LSOSC. VERI-1018
+INFO <35901018> - synthesis: c:/users/spenc/onedrive/documents/desktop/hmc/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv(55): compiling module spi. VERI-1018
+WARNING <35901209> - synthesis: c:/users/spenc/onedrive/documents/desktop/hmc/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv(107): expression size 128 truncated to fit in target size 92. VERI-1209
                                                          
 
 
@@ -160,20 +160,22 @@ WARNING <35901209> - synthesis: c:/users/kethollingsworth/desktop/repositories/m
 
 
 CRITICAL <35002028> - synthesis: I/O Port clk 's net has no driver and is unused.
+CRITICAL <35002028> - synthesis: I/O Port sdo 's net has no driver and is unused.
+CRITICAL <35002028> - synthesis: I/O Port msb_true 's net has no driver and is unused.
+######## Missing driver on net sdo. Patching with GND.
 
 
 
 CRITICAL <35002028> - synthesis: I/O Port clk 's net has no driver and is unused.
-INFO <35002039> - synthesis: Special Primitives IFD1P3AZ and OFD1P3AZ for ThunderPlus are synthesized using IOL_B.
+CRITICAL <35002028> - synthesis: I/O Port sdi 's net has no driver and is unused.
+CRITICAL <35002028> - synthesis: I/O Port msb_true1 's net has no driver and is unused.
 
 ################### Begin Area Report (top)######################
-Number of register bits => 161 of 5280 (3 % )
+Number of register bits => 33 of 5280 (0 % )
 CCU2 => 17
-FD1P3XZ => 161
+FD1P3XZ => 33
 IB => 3
-INV => 1
-IOL_B => 1
-LUT4 => 15
+LUT4 => 24
 OB => 4
 ################### End Area Report ##################
 Number of odd-length carry chains : 0
@@ -182,21 +184,21 @@ Number of even-length carry chains : 1
 ################### Begin Clock Report ######################
 Clock Nets
 Number of Clocks: 1
-  Net : sck_c, loads : 1
+  Net : sck_c, loads : 0
 Clock Enable Nets
 Number of Clock Enables: 0
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
-  Net : load_c, loads : 162
-  Net : spi_inst/n1069, loads : 161
-  Net : spi_inst/bit_index[7], loads : 3
-  Net : spi_inst/bit_index[31], loads : 3
-  Net : msb_true1_c_c, loads : 2
-  Net : spi_inst/n802, loads : 2
-  Net : spi_inst/n1449, loads : 2
-  Net : spi_inst/bit_index[29], loads : 2
-  Net : spi_inst/bit_index[30], loads : 2
-  Net : spi_inst/n804, loads : 2
+  Net : spi_inst/n111, loads : 33
+  Net : n389, loads : 31
+  Net : spi_inst/bit_index[31], loads : 4
+  Net : spi_inst/bit_index[7], loads : 4
+  Net : spi_inst/bit_index[13], loads : 3
+  Net : spi_inst/bit_index[12], loads : 3
+  Net : spi_inst/bit_index[11], loads : 3
+  Net : spi_inst/bit_index[19], loads : 3
+  Net : spi_inst/bit_index[28], loads : 3
+  Net : spi_inst/bit_index[26], loads : 3
 ################### End Clock Report ##################
 
 ################### Begin Constraint Report ######################
@@ -209,10 +211,10 @@ Constraint Summary:
 Total number of design rule violations: 0
 ###################  End DRC Report  ######################
 
-Peak Memory Usage: 88 MB
+Peak Memory Usage: 90 MB
 
 --------------------------------------------------------------
-Total CPU Time: 2 secs 
-Total REAL Time: 2 secs 
+Total CPU Time: 9 secs 
+Total REAL Time: 9 secs 
 --------------------------------------------------------------
-Checksum -- synthesis -- netlist: e162a09a228d1bd61954249fb375932b26109b
+Checksum -- synthesis -- netlist: b6372642e5de2b09a3f4b74946bc86f93f6a31aa

@@ -42,13 +42,13 @@ int main(void) {
     configureClock();   // Configure the system clock
     init_I2C1();        // Initialize the I2C1 peripheral & corresponding GPIOs
     init_I2C3();        // Initialize the I2C3 peripheral & corresponding GPIOs
-    initSPI(1, 0, 0);
+    initSPI(7, 0, 0);
 
     // Step 2: Initialize all of the LSM6DSO32 IMU
     IMU_config_I2C3(IMU_ADDRESS_FEMAR, CTRL1_XL);
     IMU_config_I2C1(IMU_ADDRESS_SHIN, CTRL1_XL);
     IMU_config_I2C1(IMU_ADDRESS_TORSO, CTRL1_XL);
-    digitalWrite(LOAD, 0); // make sure SPI LOAD is low
+    //digitalWrite(LOAD, 0); // make sure SPI LOAD is low
 
     // Step 3: Run while(1) loop until the end of tiiiimmmmeee (there is no time limit)
     while (1) {
@@ -60,13 +60,13 @@ int main(void) {
         int16_t accel_y_shin = read_accel_I2C1(IMU_ADDRESS_SHIN, OUTY_L_A);
         int16_t accel_z_shin = read_accel_I2C1(IMU_ADDRESS_SHIN, OUTZ_L_A);
 
-        int16_t accel_x_femar = read_accel_I2C3(IMU_ADDRESS_FEMAR, OUTX_L_A);
-        int16_t accel_y_femar = read_accel_I2C3(IMU_ADDRESS_FEMAR, OUTY_L_A);
-        int16_t accel_z_femar = read_accel_I2C3(IMU_ADDRESS_FEMAR, OUTZ_L_A);
+        int16_t accel_x_femar = read_accel_I2C1(IMU_ADDRESS_FEMAR, OUTX_L_A);
+        int16_t accel_y_femar = read_accel_I2C1(IMU_ADDRESS_FEMAR, OUTY_L_A);
+        int16_t accel_z_femar = read_accel_I2C1(IMU_ADDRESS_FEMAR, OUTZ_L_A);
 
-        int16_t accel_x_torso = read_accel_I2C1(IMU_ADDRESS_TORSO, OUTX_L_A);
-        int16_t accel_y_torso = read_accel_I2C1(IMU_ADDRESS_TORSO, OUTY_L_A);
-        int16_t accel_z_torso = read_accel_I2C1(IMU_ADDRESS_TORSO, OUTZ_L_A);
+        int16_t accel_x_torso = read_accel_I2C3(IMU_ADDRESS_TORSO, OUTX_L_A);
+        int16_t accel_y_torso = read_accel_I2C3(IMU_ADDRESS_TORSO, OUTY_L_A);
+        int16_t accel_z_torso = read_accel_I2C3(IMU_ADDRESS_TORSO, OUTZ_L_A);
 
         /************************************************************************************************
         *           CONVERT ACCEL TO ANGLES                                                             *
@@ -123,11 +123,11 @@ int main(void) {
 
         // Print the angles
         //***************************************
-        //printf("ANKLE: %d | KNEE: %d | HIP: %d\n", 
-        //      angle_ankle, 
-        //      angle_knee, 
-        //      angle_hip);
-        //delay_ms(5);
+        printf("ANKLE: %d | KNEE: %d | HIP: %d\n", 
+              angle_ankle, 
+              angle_knee, 
+              angle_hip);
+        delay_ms(5);
         //***************************************
 
         // Print (X,Y) positions
@@ -188,7 +188,7 @@ int main(void) {
 
       pinMode(LOAD, GPIO_OUTPUT); // LOAD
       
-      char data[16] = {0b10101010, 0b10000000, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+      char data[16] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
                 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 
       digitalWrite(LOAD, 1);
@@ -198,7 +198,22 @@ int main(void) {
          for(i = 0; i < 16; i++) {
             digitalWrite(SPI_CE, 1); // Arificial CE high
             spiSendReceive(data[i]);
-            digitalWrite(SPI_CE, 0); // Arificial CE low
+            digitalWrite(SPI_CE, 0); // Arificial CE low\
+            
+          }
+          digitalWrite(LOAD, 0);
+      
+      char data1[16] = {0xFF, 0xFF, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+
+      digitalWrite(LOAD, 1);
+    
+
+         for(i = 0; i < 16; i++) {
+            digitalWrite(SPI_CE, 1); // Arificial CE high
+            spiSendReceive(data1[i]);
+            digitalWrite(SPI_CE, 0); // Arificial CE low\
+            
           }
           digitalWrite(LOAD, 0);
     }

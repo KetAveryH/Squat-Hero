@@ -20,7 +20,8 @@ module top(
     // Declare output variables
     logic [9:0] x_1, y_1, x_2, y_2, x_3, y_3, x_4, y_4;
     logic [3:0] r, g, b;
-
+	
+	
     // Instantiate SPI module
     spi spi_inst(
         .clk(int_osc),
@@ -43,6 +44,7 @@ module top(
         .true(msb_true), // Connect the MSB signal\
 		.true_1(msb_true1)
     );
+	//assign msb_true = x_1[9];
 endmodule
 
 
@@ -67,36 +69,37 @@ module spi(
     integer bit_index;          // Counter for tracking shifted bits
     logic sdodelayed;           // Delayed signal for sdo
 
-    // Initialize variables
-    initial begin
-        bit_index = 0;
-        datacaptured = 128'b0;
-        done = 1'b0;
-    end
+    // Initialize variables (only affects simulation
+    //initial begin
+        //bit_index = 0;
+        //datacaptured = 128'b0;
+        //done = 1'b0;
+    //end
+	
 
     // Assign MSB of datacaptured to "true"
-    assign true = sdo;
+    
 	assign true_1 = sdi;
-	//assign true = 1;
+	assign true = sdo;
 	
     // SPI IN shift operation: Handle all data capture here
     always_ff @(posedge sck) begin
-        if (load) begin
-            // Reset logic when load is asserted
-            datacaptured <= 128'b0;
-            bit_index <= 0;
-            done <= 1'b0;
-        end else if (bit_index < 128) begin
-            // Shift in new bit from sdi
-            datacaptured <= {datacaptured[126:0], sdi}; // Shift data from MSB down
-            bit_index <= bit_index + 1;
-
-            // Assert done when the last bit is captured
-            if (bit_index == 127) begin
-                done <= 1'b1;
-            end
-        end
-    end
+		if (load && bit_index == 0) begin
+			// Reset logic only if no transaction is ongoing
+			datacaptured <= 128'b0;
+			bit_index <= 0;
+			done <= 1'b0;
+		end else if (bit_index < 128) begin
+			// Shift in new bit from sdi
+			datacaptured <= {datacaptured[126:0], sdi}; // Shift data from MSB down
+			bit_index <= bit_index + 1;
+	
+			// Assert done when the last bit is captured
+			if (bit_index == 127) begin
+				done <= 1'b1;
+			end
+		end
+	end
 
     // Assign captured data to output once done
     always_ff @(posedge clk) begin
@@ -106,10 +109,10 @@ module spi(
     end
 
     // Handle sdo on the negative edge of sck
-    always_ff @(negedge sck) begin
-        sdodelayed <= datacaptured[127]; // Shift out MSB first
-    end
+    //always_ff @(negedge sck) begin
+        //sdodelayed <= datacaptured[127]; // Shift out MSB first
+    //end
 
     // Assign sdo
-    assign sdo = sdodelayed;
+    //assign sdo = sdodelayed;
 endmodule
