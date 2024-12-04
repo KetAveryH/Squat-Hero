@@ -88,12 +88,13 @@ int main(void) {
         **********************************************************************************/
         
         // calculate the origin position of the heel one time
+        uint16_t x_heel = 0, y_heel = 0;
         int delay1 = 0;
 
-        while(delay1 == 0) {
-          uint16_t x_heel = decode_pos(HEEL, X_AXIS);
-          uint16_t y_heel = decode_pos(HEEL, Y_AXIS);
-          delay1 += 1;
+        while (delay1 == 0) {
+            x_heel = decode_pos(HEEL, X_AXIS);
+            y_heel = decode_pos(HEEL, Y_AXIS);
+            delay1 = 1; // Ensure this runs only once
         }
 
         // calculate the rest of the positions from the reference point of the heel
@@ -114,6 +115,7 @@ int main(void) {
         //       accel_x_shin, accel_y_shin, accel_z_shin, 
         //       accel_x_femar, accel_y_femar, accel_z_femar, 
         //       accel_x_torso, accel_y_torso, accel_z_torso);
+        //delay_ms(5);
         //***************************************
 
         // Print the angles
@@ -122,13 +124,61 @@ int main(void) {
               angle_ankle, 
               angle_knee, 
               angle_hip);
+        delay_ms(5);
         //***************************************
+
+        // Print (X,Y) positions
         //***************************************
-        //printf("TOE: X: %u, Y: %u | KNEE: X: %u, Y: %u | HIP: X: %u, Y: %u | HEAD: X: %u, Y: %u\n", 
-        //        x_toe, y_toe, 
-        //        x_knee, y_knee, 
-        //        x_hip, y_hip, 
-        //        x_head, y_head);
+        //printf("HEEL: X: %u, Y: %u | TOE: X: %u, Y: %u | KNEE: X: %u, Y: %u | HIP: X: %u, Y: %u | HEAD: X: %u, Y: %u\n", 
+        //     x_heel, y_heel, 
+        //     x_toe, y_toe, 
+        //     x_knee, y_knee, 
+        //     x_hip, y_hip, 
+        //     x_head, y_head);
+        //delay_ms(5);
+        //***************************************
+
+        // Print ALL angles and positions
+        //***************************************
+        //printf("ANKLE: %d KNEE: %d HIP: %d HEEL: X: %u Y: %u TOE: X: %u Y: %u KNEE: X: %u Y: %u HIP: X: %u Y: %u HEAD: X: %u Y: %u\n", 
+        //       angle_ankle, 
+        //       angle_knee, 
+        //       angle_hip, 
+        //       x_heel, y_heel, 
+        //       x_toe, y_toe, 
+        //       x_knee, y_knee, 
+        //       x_hip, y_hip, 
+        //       x_head, y_head);
+        //delay_ms(5);
+        //***************************************
+
+        //***************************************
+        //printf("TOE: X: %u, Y: %u\n", 
+        //       x_toe, y_toe);
+        //delay_ms(5);
+        //***************************************
+
+        //***************************************
+        //printf("HEEL: X: %u, Y: %u\n", 
+        //       x_heel, y_heel);
+        //***************************************
+
+        //***************************************
+        //printf("KNEE: X: %u, Y: %u\n", 
+        //       x_knee, y_knee);
+        //delay_ms(5);
+        //***************************************
+
+        //***************************************
+        //printf("HIP: X: %u, Y: %u\n", 
+        //       x_hip, y_hip);
+        //delay_ms(5);
+        //***************************************
+
+        //***************************************
+        //printf("HEAD: X: %u, Y: %u\n", 
+        //       x_head, y_head);
+        //delay_ms(5);
         //***************************************
 
 
