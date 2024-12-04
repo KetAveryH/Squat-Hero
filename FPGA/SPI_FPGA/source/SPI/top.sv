@@ -12,8 +12,8 @@ module top(
     output logic done
 );
 
-    //LSOSC #() 
-    lf_osc (.CLKLFPU(1'b1), .CLKLFEN(1'b1), .CLKLF(clk)); //COMMENT OUT WHEN IN MODEL SIM
+    LSOSC #() 
+         lf_osc (.CLKLFPU(1'b1), .CLKLFEN(1'b1), .CLKLF(int_osc)); //COMMENT OUT WHEN IN MODEL SIM
 			
     // We will receive the following data:
     // 4 10-bit x and y coordinates
