@@ -6,6 +6,9 @@
         <Source name="source/SPI/top.sv" type="Verilog" type_short="Verilog">
             <Options VerilogStandard="System Verilog"/>
         </Source>
+        <Source name="source/SPI.xcf" type="Programming Project File" type_short="Programming">
+            <Options/>
+        </Source>
         <Source name="test.pdc" type="Physical Constraints File" type_short="PDC">
             <Options/>
         </Source>

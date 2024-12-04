@@ -8,7 +8,7 @@ Package: SG48
 Performance Grade:  High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 2024.1.0.34.2
-Mapped on: Wed Dec  4 02:57:42 2024
+Mapped on: Wed Dec  4 03:46:26 2024
 
 Design Information
 ------------------
@@ -22,11 +22,11 @@ Command line:   map -pdc C:/Users/KetHollingsworth/Desktop/Repositories/Microps/
 Design Summary
 --------------
 
-   Number of slice registers: 135 out of  5280 (3%)
-   Number of I/O registers:      0 out of   117 (0%)
-   Number of LUT4s:           156 out of  5280 (3%)
-      Number of logic LUT4s:              20
-      Number of inserted feedthru LUT4s: 102
+   Number of slice registers: 161 out of  5280 (3%)
+   Number of I/O registers:      1 out of   117 (1%)
+   Number of LUT4s:           178 out of  5280 (3%)
+      Number of logic LUT4s:              16
+      Number of inserted feedthru LUT4s: 128
       Number of ripple logic:             17 (34 LUT4s)
    Number of IO sites used:   6 out of 39 (15%)
       Number of IO sites used for general PIO: 6
@@ -40,7 +40,7 @@ Design Summary
    Number of DSPs:             0 out of 8 (0%)
    Number of I2Cs:             0 out of 2 (0%)
    Number of High Speed OSCs:  0 out of 1 (0%)
-   Number of Low Speed OSCs:   1 out of 1 (100%)
+   Number of Low Speed OSCs:   0 out of 1 (0%)
    Number of RGB PWM:          0 out of 1 (0%)
    Number of RGB Drivers:      0 out of 1 (0%)
    Number of SCL FILTERs:      0 out of 2 (0%)
@@ -49,17 +49,17 @@ Design Summary
    Number of SPIs:             0 out of 2 (0%)
    Number of EBRs:             0 out of 30 (0%)
    Number of PLLs:             0 out of 1 (0%)
-   Number of Clocks:  2
-      Net int_osc: 10 loads, 10 rising, 0 falling (Driver: Pin lf_osc/CLKLF)
-      Net sck_c: 110 loads, 110 rising, 0 falling (Driver: Port sck)
-   Number of Clock Enables:  3
-      Net VCC_net: 1 loads, 0 SLICEs
-      Net spi_inst.n882: 108 loads, 108 SLICEs
-      Net done_c: 10 loads, 10 SLICEs
+   Number of Clocks:  1
+      Net sck_c: 147 loads, 146 rising, 1 falling (Driver: Port sck)
+   Number of Clock Enables:  1
+      Net spi_inst.n1068: 144 loads, 144 SLICEs
    Number of LSRs:  1
-      Pin load: 109 loads, 109 SLICEs (Net: load_c)
+      Pin load: 145 loads, 145 SLICEs (Net: load_c)
    Top 10 highest fanout non-clock nets:
-      Net load_c: 111 loads
+      Net load_c: 147 loads
+      Net spi_inst.n1068: 146 loads
+      Net spi_inst.bit_index[31]: 3 loads
+      Net spi_inst.bit_index[7]: 3 loads
 
                                     Page 1
 
@@ -69,27 +69,40 @@ Design Summary
 
 Design Summary (cont)
 ---------------------
-      Net spi_inst.n882: 110 loads
-      Net done_c: 12 loads
-      Net spi_inst.bit_index[31]: 3 loads
-      Net spi_inst.bit_index[7]: 3 loads
-      Net VCC_net: 3 loads
-      Net spi_inst.bit_index[0]: 2 loads
-      Net spi_inst.bit_index[10]: 2 loads
-      Net spi_inst.bit_index[9]: 2 loads
-      Net spi_inst.n1342: 2 loads
+      Net spi_inst.bit_index[27]: 2 loads
+      Net spi_inst.bit_index[28]: 2 loads
+      Net spi_inst.bit_index[29]: 2 loads
+      Net spi_inst.bit_index[30]: 2 loads
+      Net spi_inst.n1445: 2 loads
+      Net spi_inst.n1448: 2 loads
 
 
 
 
 
-   Number of warnings:  2
+   Number of warnings:  10
    Number of criticals: 0
    Number of errors:    0
 
 Design Errors/Criticals/Warnings
 --------------------------------
 
+WARNING <1026001> - map: C:/Users/KetHollingsworth/Desktop/Repositories/Microps/
+     Squat-Hero/FPGA/SPI_FPGA/test.pdc (5) : No port matched 'true'.
+WARNING <1026001> - map: C:/Users/KetHollingsworth/Desktop/Repositories/Microps/
+     Squat-Hero/FPGA/SPI_FPGA/test.pdc (6) : No port matched 'true'.
+WARNING <1027013> - map: No port matched 'true'.
+WARNING <1026001> - map: C:/Users/KetHollingsworth/Desktop/Repositories/Microps/
+     Squat-Hero/FPGA/SPI_FPGA/test.pdc (5) : Can't resolve object 'true' in
+     constraint 'ldc_set_location -site {2} [get_ports true]'.
+WARNING <1027013> - map: No port matched 'true'.
+WARNING <1026001> - map: C:/Users/KetHollingsworth/Desktop/Repositories/Microps/
+     Squat-Hero/FPGA/SPI_FPGA/test.pdc (6) : Can't resolve object 'true' in
+     constraint 'ldc_set_port -iobuf {PULLMODE=NA} [get_ports true]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {2}
+     [get_ports true]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_port -iobuf
+     {PULLMODE=NA} [get_ports true]'.
 WARNING <71003020> - map: Top module port 'clk' does not connect to anything.
 WARNING <71003020> - map: Top module port 'clk' does not connect to anything.
 
@@ -100,33 +113,20 @@ IO (PIO) Attributes
 | IO Name             | Direction | Levelmode |  IO   |  IO   | Special   |
 |                     |           |  IO_TYPE  |  REG  |  DDR  | IO Buffer |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| sdo                 | OUTPUT    |           |       |       |           |
+| sdo                 | OUTPUT    |           | O     |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | done                | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| true                | OUTPUT    |           |       |       |           |
+| msb_true            | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| sck                 | INPUT     |           |       |       |           |
+| sck                 | INPUT     | LVCMOS33  |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | sdi                 | INPUT     |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| load                | INPUT     |           |       |       |           |
+| load                | INPUT     | LVCMOS33  |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 
-OSC Summary
------------
 
-OSC 1:                                 Pin/Node Value
-  OSC Instance Name:                            lf_osc
-  Power UP:                            NODE     VCC_net
-  Enable Signal:                       NODE     VCC_net
-  OSC Output:                          NODE     int_osc
-
-ASIC Components
----------------
-
-Instance Name: lf_osc
-         Type: LFOSC
 
                                     Page 2
 
@@ -134,34 +134,34 @@ Instance Name: lf_osc
 
 
 
+Removed logic
+-------------
+
+Block spi_inst/i41_1_lut was optimized away.
+Block sck_pad.vlo_inst was optimized away.
+
+ASIC Components
+---------------
+
+Instance Name: spi_inst/sdodelayed
+         Type: IOLOGIC
 
 Constraint Summary
 ------------------
 
-   Total number of constraints: 6
-   Total number of constraints dropped: 0
+   Total number of constraints: 10
+   Total number of constraints dropped: 2
+   Dropped constraints are:
+     ldc_set_location -site {2} [get_ports true]
+     ldc_set_port -iobuf {PULLMODE=NA} [get_ports true]
 
 Run Time and Memory Usage
 -------------------------
 
    Total CPU Time: 0 secs
    Total REAL Time: 0 secs
-   Peak Memory Usage: 65 MB
-Checksum -- map: ffa16c2943c954311b6354e1d95167337e588688
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   Peak Memory Usage: 66 MB
+Checksum -- map: ce983aa16a088ab421434d36852073d71536470e
 
 
 

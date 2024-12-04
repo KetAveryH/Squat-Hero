@@ -1,0 +1,7 @@
+DRC: Design Rule Check Radiant Software (64-bit) 2024.1.0.34.2
+Wed Dec  4 03:25:20 2024
+
+INFO <2049992> - C:/lscc/radiant/2024.1/ip/pmi/pmi_iCE40UP.v(2,10-2,21) (VERI-2320) back to file 'C:/lscc/radiant/2024.1/ip/pmi/pmi_iCE40UP.v'
+INFO <2049992> - C:/lscc/radiant/2024.1/ip/pmi/pmi_iCE40UP.v(3,10-3,30) (VERI-1328) analyzing included file 'C:/lscc/radiant/2024.1/ip/pmi/pmi_complex_mult.v'
+INFO <2049992> - C:/lscc/radiant/2024.1/ip/pmi/pmi_complex_mult.v(52,10-52,58) (VERI-1328) analyzing included file 'C:/lscc/radiant/2024.1/ip/pmi/../common/complex_mult/rtl/lscc_complex_mult.v'
+WARNING <71003020> - Top module port 'clk' does not connect to anything.
