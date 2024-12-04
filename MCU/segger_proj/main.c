@@ -36,7 +36,7 @@ int main(void) {
     /*******************************************
     *   INITIALIZE AND CONFIUGRE MCU / IMUs    *
     *******************************************/
-    // Step 1: System Initialization
+    // Step 1: System Initialization 
     configureFlash();   // Configure flash memory access
     configureClock();   // Configure the system clock
     init_I2C1();        // Initialize the I2C1 peripheral & corresponding GPIOs
