@@ -42,7 +42,7 @@ int main(void) {
     configureClock();   // Configure the system clock
     init_I2C1();        // Initialize the I2C1 peripheral & corresponding GPIOs
     init_I2C3();        // Initialize the I2C3 peripheral & corresponding GPIOs
-    initSPI(1, 0, 0);
+    initSPI(6, 0, 0);
 
     // Step 2: Initialize all of the LSM6DSO32 IMU
     IMU_config_I2C3(IMU_ADDRESS_FEMAR, CTRL1_XL);
