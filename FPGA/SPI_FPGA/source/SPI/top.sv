@@ -69,7 +69,7 @@ module spi(
     integer bit_index;          // Counter for tracking shifted bits
     logic sdodelayed;           // Delayed signal for sdo
 
-    // Initialize variables (only affects simulation
+    // Initialize variables (only affects simulation)
     //initial begin
         //bit_index = 0;
         //datacaptured = 128'b0;
@@ -93,11 +93,11 @@ module spi(
 	
     // SPI IN shift operation: Handle all data capture here
     always_ff @(posedge sck) begin
-		if (load && bit_index == 0) begin
+		if (!load) begin
 			// Reset logic only if no transaction is ongoing
 			datacaptured <= 128'b0;
 			bit_index <= 0;
-			done <= 1'b0;
+			//done <= 1'b0;
 		end else if (bit_index < 128) begin
 			// Shift in new bit from sdi
 			datacaptured <= {datacaptured[126:0], sdi}; // Shift data from MSB down
