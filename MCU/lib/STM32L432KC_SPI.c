@@ -54,3 +54,11 @@ char spiSendReceive(char send) {
     char rec = (volatile char) SPI1->DR;
     return rec; // Return received character
 }
+
+void spiSend(char send) {
+    while(!(SPI1->SR & SPI_SR_TXE)); // Wait until the transmit buffer is empty
+    *(volatile char *) (&SPI1->DR) = send; // Transmit the character over SPI
+    // Optionally, wait for transmission to complete
+    while(!(SPI1->SR & SPI_SR_TXE)); // Ensure transmit buffer is empty
+    // Do not wait for RXNE or read from SPI1->DR
+}

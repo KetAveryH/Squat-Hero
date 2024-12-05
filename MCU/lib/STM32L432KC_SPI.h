@@ -11,7 +11,7 @@
 #define SPI_CE PA11
 #define SPI_SCK PB3
 #define SPI_MOSI PB5
-#define SPI_MISO PA6
+#define SPI_MISO PA5
 #define LOAD PA0
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -30,5 +30,7 @@ void initSPI(int br, int cpol, int cpha);
  *    -- send: the character to send over SPI
  *    -- return: the character received over SPI */
 char spiSendReceive(char send);
+void spiSend(char send);
+
 
 #endif
