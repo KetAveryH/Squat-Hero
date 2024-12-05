@@ -49,7 +49,7 @@ Package: SG48
 Performance Grade:  High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 2024.1.0.34.2
-Mapped on: Tue Dec  3 23:43:09 2024
+Mapped on: Thu Dec  5 00:50:34 2024
 
 <A name="mrp_di"></A><B><U><big>Design Information</big></U></B>
 
@@ -63,18 +63,19 @@ Command line:   map -pdc C:/Users/KetHollingsworth/Desktop/Repositories/Microps/
 
    Number of slice registers:  20 out of  5280 (&lt;1%)
    Number of I/O registers:      0 out of   117 (0%)
-   Number of LUT4s:           255 out of  5280 (5%)
-      Number of logic LUT4s:              93
-      Number of ripple logic:             81 (162 LUT4s)
-   Number of IO sites used:   18 out of 39 (46%)
-      Number of IO sites used for general PIO: 18
+   Number of LUT4s:           2378 out of  5280 (45%)
+      Number of logic LUT4s:             715
+      Number of inserted feedthru LUT4s:  37
+      Number of ripple logic:            813 (1626 LUT4s)
+   Number of IO sites used:   20 out of 39 (51%)
+      Number of IO sites used for general PIO: 20
       Number of IO sites used for I3C: 0 out of 2 (0%)
       (note: If I3C is not used, its site can be used as general PIO)
-      Number of IO sites used for PIO+I3C: 18 out of 36 (50%)
+      Number of IO sites used for PIO+I3C: 20 out of 36 (56%)
       Number of IO sites used for OD+RGB IO buffers: 0 out of 3 (0%)
       (note: If RGB LED drivers are not used, sites can be used as OD outputs,
        see TN1288 iCE40 LED Driver Usage Guide)
-      Number of IO sites used for PIO+I3C+OD+RGB: 18 out of 39 (46%)
+      Number of IO sites used for PIO+I3C+OD+RGB: 20 out of 39 (51%)
    Number of DSPs:             8 out of 8 (100%)
    Number of I2Cs:             0 out of 2 (0%)
    Number of High Speed OSCs:  1 out of 1 (100%)
@@ -97,16 +98,23 @@ Command line:   map -pdc C:/Users/KetHollingsworth/Desktop/Repositories/Microps/
    Number of LSRs:  1
       Pin reset: 20 loads, 20 SLICEs (Net: reset_c)
    Top 10 highest fanout non-clock nets:
-      Net VCC_net: 70 loads
-      Net reset_c: 21 loads
-      Net vgaCont.n19: 20 loads
-      Net videoGen.line_gen_inst.error_squared_42__N_919[22]: 15 loads
-      Net videoGen.line_gen_inst.n178[22]: 15 loads
-      Net videoGen.line_gen_inst.length_squared[21]: 11 loads
-      Net vgaCont.n19_adj_4284: 10 loads
-      Net videoGen.line_gen_inst.x_diff[10]: 6 loads
-      Net videoGen.line_gen_inst.y_diff[10]: 6 loads
-      Net x[9]: 6 loads
+      Net videoGen.line_struct_gen_inst.cross_product[16]: 50 loads
+      Net videoGen.line_struct_gen_inst.line_gen[3].line_inst.cross_product[31]:
+     42 loads
+      Net cross_product_adj_20757[2]: 38 loads
+      Net videoGen.line_struct_gen_inst.cross_product[3]_2: 38 loads
+      Net videoGen.line_struct_gen_inst.line_gen[2].line_inst.cross_product[31]:
+     38 loads
+      Net videoGen.line_struct_gen_inst.cross_product[5]: 33 loads
+      Net VCC_net: 32 loads
+      Net videoGen.line_struct_gen_inst.line_gen[4].line_inst.cross_product[5]:
+     32 loads
+      Net
+     videoGen.line_struct_gen_inst.line_gen[2].line_inst.cross_product[5]_2: 31
+     loads
+      Net
+     videoGen.line_struct_gen_inst.line_gen[4].line_inst.cross_product[2]_2: 31
+     loads
 
    Number of warnings:  14
    Number of criticals: 0
@@ -149,11 +157,37 @@ WARNING &lt;71003020&gt; - map: Top module port &apos;frame_switch&apos; does no
 | IO Name             | Direction | Levelmode |  IO   |  IO   | Special   |
 |                     |           |  IO_TYPE  |  REG  |  DDR  | IO Buffer |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| r[3]                | OUTPUT    |           |       |       |           |
+| g[1]                | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| blank_b             | OUTPUT    |           |       |       |           |
+| g[2]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| g[3]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| r[0]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| r[1]                | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | r[2]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| b[2]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| r[3]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| reset               | INPUT     |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| test1               | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| b[0]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| b[3]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| b[1]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| g[0]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| test                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| blank_b             | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | sync_b              | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
@@ -162,28 +196,6 @@ WARNING &lt;71003020&gt; - map: Top module port &apos;frame_switch&apos; does no
 | hsync               | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | vgaclk              | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| r[1]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| r[0]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| g[3]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| g[2]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| g[1]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| g[0]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| b[3]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| b[2]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| b[1]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| b[0]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| reset               | INPUT     |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 
 <A name="mrp_rm"></A><B><U><big>Removed logic</big></U></B>
@@ -236,28 +248,28 @@ OSC 1:                                 Pin/Node Value
 
 Instance Name: hf_osc
          Type: HFOSC
-Instance Name: videoGen/line_gen_inst/cross_product_1__I_0
+Instance Name: videoGen/line_struct_gen_inst/line_gen[4].line_inst/mult_194
          Type: DSP
-Instance Name: videoGen/line_gen_inst/mult_68
+Instance Name: videoGen/line_struct_gen_inst/line_gen[4].line_inst/mult_192
          Type: DSP
-Instance Name: videoGen/line_gen_inst/mult_69
+Instance Name: videoGen/line_struct_gen_inst/line_gen[3].line_inst/mult_186
          Type: DSP
-Instance Name: videoGen/line_gen_inst/mult_67
+Instance Name: videoGen/line_struct_gen_inst/line_gen[2].line_inst/mult_180
          Type: DSP
-Instance Name: videoGen/line_gen_inst/mult_66
+Instance Name: videoGen/line_struct_gen_inst/line_gen[1].line_inst/mult_176
          Type: DSP
-Instance Name: videoGen/line_gen_inst/mult_71
+Instance Name: videoGen/line_struct_gen_inst/line_gen[1].line_inst/mult_175
          Type: DSP
-Instance Name: videoGen/line_gen_inst/mult_72
+Instance Name: videoGen/line_struct_gen_inst/line_gen[1].line_inst/mult_174
          Type: DSP
-Instance Name: videoGen/line_gen_inst/mult_70
+Instance Name: videoGen/line_struct_gen_inst/line_gen[0].line_inst/mult_198
          Type: DSP
 Instance Name: pll_inst/lscc_pll_inst/u_PLL_B
          Type: PLL
 
 <A name="mrp_consum"></A><B><U><big>Constraint Summary</big></U></B>
 
-   Total number of constraints: 22
+   Total number of constraints: 24
    Total number of constraints dropped: 3
    Dropped constraints are:
      ldc_set_location -site {35} [get_ports {dip[1]}]
@@ -268,8 +280,8 @@ Instance Name: pll_inst/lscc_pll_inst/u_PLL_B
 
    Total CPU Time: 0 secs
    Total REAL Time: 0 secs
-   Peak Memory Usage: 67 MB
-Checksum -- map: 19749f42c9b17b63620115bd80e988fe618d7ee
+   Peak Memory Usage: 94 MB
+Checksum -- map: 8d5e1d125efe84161d0fb65c20299414fe82a127
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995
      AT&amp;T Corp.   All rights reserved.

@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<userSetting name="C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/promote.xml" version="Diamond (64-bit) 2024.1.0.34.2" date="Tue Dec 03 23:43:23 2024" vendor="Lattice Semiconductor Corporation" >
-  <msg mid="35901328" type="Info" internal="true" />
-  <msg mid="35921504" type="Info" internal="true" />
+<userSetting name="C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/promote.xml" version="Diamond (64-bit) 2024.1.0.34.2" date="Thu Dec 05 00:51:10 2024" vendor="Lattice Semiconductor Corporation" >
+  <msg mid="35901038" type="Error" internal="true" />
   <msg mid="35901137" type="Warning" internal="true" />
   <msg mid="35901209" type="Warning" internal="true" />
-  <msg mid="35901010" type="Error" internal="true" />
   <msg mid="35901172" type="Warning" internal="true" />
-  <msg mid="35901167" type="Warning" internal="true" />
+  <msg mid="35901001" type="Warning" internal="true" />
   <msg mid="35931038" type="Warning" internal="true" />
+  <msg mid="35901328" type="Info" internal="true" />
+  <msg mid="35921504" type="Info" internal="true" />
   <msg mid="35931002" type="Warning" internal="true" />
+  <msg mid="35901167" type="Warning" internal="true" />
+  <msg mid="35901010" type="Error" internal="true" />
   <msg mid="35902086" type="Error" internal="true" />
   <msg mid="35901208" type="Warning" internal="true" />
-  <msg mid="35901001" type="Warning" internal="true" />
-  <msg mid="35901038" type="Error" internal="true" />
   <msg mid="35901128" type="Warning" internal="true" />
   <msg mid="35901466" type="Warning" internal="true" />
   <msg mid="35901419" type="Warning" internal="true" />
   <msg mid="35901349" type="Warning" internal="true" />
+  <msg mid="35901138" type="Error" internal="true" />
 </userSetting>

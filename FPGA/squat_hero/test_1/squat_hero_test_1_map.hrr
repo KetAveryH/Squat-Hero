@@ -3,47 +3,90 @@ Report for cell vga
    Instance path: vga
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	        255        100.0
-                               LUTGATE	         93        100.0
-                                LUTCCU	        162        100.0
-                                 IOBUF	         18        100.0
+                                  LUT4	       2378        100.0
+                               LUTGATE	        752        100.0
+                                LUTCCU	       1626        100.0
+                                 IOBUF	         20        100.0
                                 PFUREG	         20        100.0
                                    DSP	          8        100.0
 SUB MODULES
                                   cell	      count    LUT4 Usage(%)
                            no_lock_pll	          1         0.0
-                         vgaController	          1        23.5
-                              videoGen	          1        75.3
+                         vgaController	          1         4.1
+                              videoGen	          1        90.7
 ---------------------------------------------------
 Report for cell videoGen
    Instance path: vga/videoGen
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	        192        75.3
-                               LUTGATE	         54        58.1
-                                LUTCCU	        138        85.2
+                                  LUT4	       2157        90.7
+                               LUTGATE	        603        80.2
+                                LUTCCU	       1554        95.6
                                    DSP	          8        100.0
 SUB MODULES
                                   cell	      count    LUT4 Usage(%)
-                              line_gen	          1        75.3
+                       line_struct_gen	          1        90.7
+---------------------------------------------------
+Report for cell line_struct_gen
+   Instance path: vga/videoGen/line_struct_gen_inst
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	       2157        90.7
+                               LUTGATE	        603        80.2
+                                LUTCCU	       1554        95.6
+                                   DSP	          8        100.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                              line_gen	          1        23.1
+                           line_gen_U0	          1        20.4
+                           line_gen_U1	          1        23.4
+                           line_gen_U2	          1         5.3
+                           line_gen_U3	          1        18.4
 ---------------------------------------------------
 Report for cell line_gen
-   Instance path: vga/videoGen/line_gen_inst
+   Instance path: vga/videoGen/line_struct_gen_inst/line_gen[4].line_inst
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	        192        75.3
-                               LUTGATE	         54        58.1
-                                LUTCCU	        138        85.2
-                                   DSP	          8        100.0
+                                  LUT4	        549        23.1
+                               LUTGATE	        187        24.9
+                                LUTCCU	        362        22.3
+                                   DSP	          2        25.0
 ---------------------------------------------------
-Report for cell vgaController
-   Instance path: vga/vgaCont
+Report for cell line_gen_U0
+   Instance path: vga/videoGen/line_struct_gen_inst/line_gen[3].line_inst
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	         60        23.5
-                               LUTGATE	         36        38.7
-                                LUTCCU	         24        14.8
-                                PFUREG	         20        100.0
+                                  LUT4	        484        20.4
+                               LUTGATE	        120        16.0
+                                LUTCCU	        364        22.4
+                                   DSP	          1        12.5
+---------------------------------------------------
+Report for cell line_gen_U1
+   Instance path: vga/videoGen/line_struct_gen_inst/line_gen[2].line_inst
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        556        23.4
+                               LUTGATE	        162        21.5
+                                LUTCCU	        394        24.2
+                                   DSP	          1        12.5
+---------------------------------------------------
+Report for cell line_gen_U2
+   Instance path: vga/videoGen/line_struct_gen_inst/line_gen[1].line_inst
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        126         5.3
+                               LUTGATE	         30         4.0
+                                LUTCCU	         96         5.9
+                                   DSP	          3        37.5
+---------------------------------------------------
+Report for cell line_gen_U3
+   Instance path: vga/videoGen/line_struct_gen_inst/line_gen[0].line_inst
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        438        18.4
+                               LUTGATE	        100        13.3
+                                LUTCCU	        338        20.8
+                                   DSP	          1        12.5
 ---------------------------------------------------
 Report for cell no_lock_pll
    Instance path: vga/pll_inst
@@ -57,3 +100,12 @@ Report for cell no_lock_pll_ipgen_lscc_pll(DIVR="3",DIVF="66",DIVQ="5",FILTER_RA
    Instance path: vga/pll_inst/lscc_pll_inst
                      Cell usage:
                                   cell	      count    Res Usage(%)
+---------------------------------------------------
+Report for cell vgaController
+   Instance path: vga/vgaCont
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         97         4.1
+                               LUTGATE	         73         9.7
+                                LUTCCU	         24         1.5
+                                PFUREG	         20        100.0

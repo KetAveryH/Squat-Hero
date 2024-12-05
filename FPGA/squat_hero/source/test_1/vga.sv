@@ -3,10 +3,13 @@ module vga(input logic reset,
 		   output logic vgaclk, // 25 MHz VGA clock  25.175MHz
 		   output logic hsync, vsync,
 		   output logic sync_b, blank_b, // to monitor & DAC
+		   output logic test,
+		   output logic test1,
 		   output logic [3:0] r, g, b); // to video DAC
 	
 	logic [9:0] x, y; 
-	
+	assign test = 1'b0;
+	assign test1 = 1'b1;
 	logic int_osc;
 	logic pll_locked;
     logic [24:0] counter;
@@ -97,13 +100,6 @@ typedef struct packed {
     logic [9:0] bot;
 } rect_t;
 
-// Add this struct definition after the rect_t struct
-typedef struct packed {
-    logic [9:0] x_1;
-    logic [9:0] y_1;
-    logic [9:0] x_2;
-    logic [9:0] y_2;
-} line_t;
 
 module image_frame0(
     output rect_t [13:0] frame0_rects
@@ -144,7 +140,6 @@ module image_frame1(
     endgenerate
 endmodule
 
-
 module frame_mux(
     input  logic         frame_switch,
     input  rect_t [13:0] frame0_rects,
@@ -156,6 +151,57 @@ module frame_mux(
     end
 endmodule
 
+// Add this struct definition after the rect_t struct
+typedef struct packed {
+    logic [9:0] x_1;
+    logic [9:0] y_1;
+    logic [9:0] x_2;
+    logic [9:0] y_2;
+} line_t;
+
+
+
+module image_line_frame0(
+	output line_t [4:0] frame0_lines
+);
+	    // Head (circle approximation with a line)
+    assign frame0_lines[0] = '{x_1: 10'd150, y_1: 10'd50, x_2: 10'd150, y_2: 10'd70}; // Vertical line for head
+
+    assign frame0_lines[1] = '{x_1: 10'd150, y_1: 10'd70, x_2: 10'd150, y_2: 10'd150}; // Vertical line for body
+
+    // Left Arm
+    assign frame0_lines[2] = '{x_1: 10'd150, y_1: 10'd90, x_2: 10'd130, y_2: 10'd110}; // Diagonal line for left arm
+
+    // Right Arm
+    assign frame0_lines[3] = '{x_1: 10'd150, y_1: 10'd90, x_2: 10'd170, y_2: 10'd110}; // Diagonal line for right arm
+
+    // Left Leg
+    assign frame0_lines[4] = '{x_1: 10'd150, y_1: 10'd150, x_2: 10'd130, y_2: 10'd180}; // Diagonal line for left leg
+
+endmodule
+
+module image_line_frame1(
+	output line_t [4:0] frame1_lines
+);
+	assign frame1_lines[0] = '{x_1: 10'd150, y_1: 10'd50, x_2: 10'd150, y_2: 10'd70}; // Vertical line for head
+	assign frame1_lines[1] = '{x_1: 10'd150, y_1: 10'd70, x_2: 10'd150, y_2: 10'd150}; // Vertical line for body
+	assign frame1_lines[2] = '{x_1: 10'd150, y_1: 10'd90, x_2: 10'd130, y_2: 10'd110}; // Diagonal line for left arm
+	assign frame1_lines[3] = '{x_1: 10'd150, y_1: 10'd90, x_2: 10'd170, y_2: 10'd110}; // Diagonal line for right arm
+	assign frame1_lines[4] = '{x_1: 10'd150, y_1: 10'd150, x_2: 10'd130, y_2: 10'd180}; // Diagonal line for left leg
+endmodule
+
+module image_line_mux(
+	input logic frame_switch,
+	input line_t [4:0] frame0_lines,
+	input line_t [4:0] frame1_lines,
+	output line_t [4:0] selected_lines
+);
+	assign selected_lines = frame_switch ? frame1_lines : frame0_lines;
+endmodule
+
+/////////////
+// Video Generator
+/////////////
 module videoGen(
     input  logic        vgaclk,
     input  logic        reset,
@@ -166,50 +212,67 @@ module videoGen(
 );
     rect_t [13:0] frame0_rects;
     rect_t [13:0] frame1_rects;
+	line_t [4:0]  frame0_lines;
+	line_t [4:0]  frame1_lines;
     rect_t [13:0] selected_rects;
-	logic inrect_all;
+	logic inline_all;
 	logic inline;
 
-    // Frame 0 instantiation
-    image_frame0 frame0_inst(
-        .frame0_rects(frame0_rects)
-    );
+    // // Frame 0 instantiation
+    // image_frame0 frame0_inst(
+    //     .frame0_rects(frame0_rects)
+    // );
 
-    image_frame1 frame1_inst(
-        .frame1_rects(frame1_rects)  
-    );
+    // image_frame1 frame1_inst(
+    //     .frame1_rects(frame1_rects)  
+    // );
 
     // Instantiate the multiplexer
-    frame_mux frame_mux_inst(
-        .frame_switch(frame_switch),
-        .frame0_rects(frame0_rects),
-        .frame1_rects(frame1_rects),
-        .selected_rects(selected_rects)
-    );
+    // frame_mux frame_mux_inst(
+    //     .frame_switch(frame_switch),
+    //     .frame0_rects(frame0_rects),
+    //     .frame1_rects(frame1_rects),
+    //     .selected_rects(selected_rects)
+    // );
 
-    logic inrect_all;
+	image_line_frame0 frame0_lines_inst(
+		.frame0_lines(frame0_lines)
+	);
+
+	image_line_frame1 frame1_lines_inst(
+		.frame1_lines(frame1_lines)
+	);
+
+	image_line_mux image_line_mux_inst(
+		.frame_switch(frame_switch),
+		.frame0_lines(frame0_lines),
+		.frame1_lines(frame1_lines),
+		.selected_lines(selected_lines)
+	);
+
+    // logic inrect_all;
     
-    rect_struct_gen rect_struct_gen_inst(
-        .x(x),
-        .y(y),
-        .selected_rects(selected_rects),
-        .inrect_all(inrect_all)
-    );
+    // rect_struct_gen rect_struct_gen_inst(
+    //     .x(x),
+    //     .y(y),
+    //     .selected_rects(selected_rects),
+    //     .inrect_all(inrect_all)
+    // );
 
-    line_gen line_gen_inst(
-        .x(x),
-        .y(y),
-        .x_1(10'd100),
-        .y_1(10'd100),
-        .x_2(10'd50),
-        .y_2(10'd200),
-        .inline(inline)
-    );
+    // line_gen line_gen_inst(
+    //     .x(x),
+    //     .y(y),
+    //     .x_1(10'd50),
+    //     .y_1(10'd100),
+    //     .x_2(10'd100),
+    //     .y_2(10'd200),
+    //     .inline(inline)
+    // );
 
     line_struct_gen line_struct_gen_inst(
         .x(x),
         .y(y),
-        .selected_lines(selected_lines),
+        .selected_lines(frame0_lines),
         .inline_all(inline_all)
     );
 
@@ -219,7 +282,7 @@ module videoGen(
 
     
 
-    assign {r, b} = inline ? 4'b1111 : 4'b0000;
+    assign {r, b} = inline_all ? 4'b1111 : 4'b0000;
     assign g = 4'b0000;
 
 endmodule
@@ -257,36 +320,45 @@ module line_gen(
     // Declare intermediate signals with sufficient bit widths
     logic signed [10:0] delta_x, delta_y;
     logic signed [10:0] x_diff, y_diff;
-    logic signed [21:0] cross_product;
+    logic signed [31:0] cross_product;
     logic [42:0] error_squared;
-    logic signed [21:0] length_squared;
+    logic signed [31:0] length_squared;
     logic [42:0] threshold;
 
-    parameter int TOLERANCE = 2; // Adjust tolerance as needed
+    parameter int TOLERANCE = 1; // Adjust tolerance as needed
 
     always_comb begin
+        // Ensure deltas are calculated accurately
         delta_x = signed'(x_2) - signed'(x_1);
         delta_y = signed'(y_2) - signed'(y_1);
 
         x_diff = signed'(x) - signed'(x_1);
         y_diff = signed'(y) - signed'(y_1);
 
-        // Compute the cross product
-        cross_product = x_diff * delta_y - y_diff * delta_x;
+        // Cross product with extended precision
+        cross_product = (x_diff * delta_y) - (y_diff * delta_x);
 
-        // Compute squared error
+        // Squared error and length
         error_squared = cross_product * cross_product;
-
-        // Compute squared length of the line
         length_squared = delta_x * delta_x + delta_y * delta_y;
 
-        // Compute threshold scaled with length squared
-        threshold = TOLERANCE * TOLERANCE * length_squared;
+        // Scaled threshold with extra precision
+        threshold = (TOLERANCE * TOLERANCE) * length_squared;
 
-        // Determine if the point is close enough to the line
+        // Determine if pixel is close enough to the line
         inline = (error_squared <= threshold);
+
+        // Restrict to endpoints: ensure pixel lies within bounding box
+        if (inline) begin
+            inline = (x >= (x_1 < x_2 ? x_1 : x_2)) &&
+                     (x <= (x_1 > x_2 ? x_1 : x_2)) &&
+                     (y >= (y_1 < y_2 ? y_1 : y_2)) &&
+                     (y <= (y_1 > y_2 ? y_1 : y_2));
+        end
     end
+
 endmodule
+
 
 
 module rect_struct_gen(
