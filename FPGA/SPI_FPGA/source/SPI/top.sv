@@ -24,6 +24,18 @@ HSOSC #()
     // Declare output variables
     logic [9:0] x_1, y_1, x_2, y_2, x_3, y_3, x_4, y_4;
     logic [3:0] r, g, b;
+	    // Assign debug signals
+    assign ck_debug = sck;
+    assign data_debug = sdi;
+    assign dc0 = x_1[0];
+    assign dc1 = x_1[1];
+    assign dc2 = x_1[2];
+    assign dc3 = x_1[3];
+    assign dc4 = x_1[4];
+    assign dc5 = x_1[5];
+    assign dc6 = x_1[6];
+    assign dc7 = x_1[7];
+
 	
 	
     // Instantiate SPI module
@@ -68,103 +80,71 @@ endmodule
 //////////////////////////
 // SPI Module
 //////////////////////////
+//////////////////////////
+// SPI Module
+//////////////////////////
 module spi(
-    input  logic clk,
-    input  logic sck, 
-    input  logic sdi,
-    output logic sdo,
-    input  logic load,
+    input  logic clk,   // System clock (if needed)
+    input  logic sck,   // SPI clock from master
+    input  logic sdi,   // SPI data input (MOSI)
+    output logic sdo,   // SPI data output (MISO)
+    input  logic load,  // Active-high chip select
     output logic done,
     output logic [9:0] x_1, y_1, x_2, y_2, x_3, y_3, x_4, y_4,
     output logic [3:0] r, g, b,
-    //output logic data_out, transmitting // Changed to output
-	output logic ck_debug, data_debug, correct, dc0, dc1, dc2, dc3, dc4, dc5, dc6, dc7
+    // Debug signals (if needed)
+    output logic ck_debug, data_debug, correct, dc0, dc1, dc2, dc3, dc4, dc5, dc6, dc7
 );
     // Internal variables
-    logic [127:0] datacaptured; // Internal shift register for the 128-bit packet
-    integer bit_index;          // Counter for tracking shifted bits
-    logic sdodelayed;           // Delayed signal for sdo
+    logic [127:0] datacaptured;   // Shift register for receiving data
+    logic [127:0] data_to_send;   // Shift register for transmitting data
+    integer bit_index;            // Counter for tracking received bits
+    integer bit_out_index;        // Counter for tracking transmitted bits
 
-    // Initialize variables (only affects simulation)
-    //initial begin
-        //bit_index = 0;
-        //datacaptured = 128'b0;
-        //done = 1'b0;
-    //end
-	
 
-    // Assign MSB of datacaptured to "true"
-    
-	//assign true_1 = sdi;
-	//logic true;
-
-	assign ck_debug = sck;
-	assign data_debug = sdi;
-	assign dc0 = 0;
-	assign dc1 = 1;
-	assign dc2 = 0;
-	assign dc3 = 1;
-	assign dc4 = 0;
-	assign dc5 = 0;
-	assign dc6 = 0;
-	assign dc7 = 0;
-
-	
-    // SPI IN shift operation: Handle all data capture here
-	always_ff @(posedge sck) begin
-		if (!load) begin
-			bit_index = 0;
-			done = 0;
-		end else if (bit_index < 128) begin
-			bit_index = bit_index + 1;
-			datacaptured[bit_index-1] = sdi;
-			done = 0;
-		end else if (bit_index >= 128) begin
-			done = 1;
-		end
-	end
-	
-	
-	
-	
-	
-       //always_ff @(posedge sck or negedge load) begin
-        //if (!load) begin
-             //Reset logic only if no transaction is ongoing
-            //bit_index <= 0;
-            //done <= 1'b0; // Explicitly reset `done`
-        //end else if (bit_index < 128) begin
-             //Shift in new bit from sdi
-            //datacaptured <= {datacaptured[126:0], sdi};
-            //bit_index <= bit_index + 1;
-
-            //if (bit_index == 127) begin
-                //done <= 1'b1; // Assert `done` at the last bit
-            //end
-			//end
-		//end
-
-	
-	
-	//    logic [3:0] clk_count; // Counter for counting clk edges
-    //logic [6:0] bit_out_index; // Index to track which bit is being sent out
-  
- 
-    // Assign captured data to output once done
-    always_ff @(posedge clk) begin
-        if (done) begin
-            {x_1, y_1, x_2, y_2, x_3, y_3, x_4, y_4, r, g, b} = datacaptured; // Map captured data to outputs
-			datacaptured = 128'b0;
+    // SPI Receive (MOSI) - Shift in data on rising edge of sck
+    always_ff @(posedge sck or negedge load) begin
+        if (!load) begin
+            bit_index <= 0;
+            done <= 0;
+            datacaptured <= 128'b0;  // Clear the data on reset
+        end else begin
+            if (bit_index < 128) begin
+                datacaptured <= {datacaptured[126:0], sdi};  // Shift in MSB first
+                bit_index <= bit_index + 1;
+                done <= (bit_index == 127);  // Set done on the last bit
+            end
         end
     end
-	
-	
-	
-    // Handle sdo on the negative edge of sck
-    //always_ff @(negedge sck) begin
-        //sdodelayed <= datacaptured[127]; // Shift out MSB first
-    //end
 
-    // Assign sdo
-    //assign sdo = sdodelayed;
+    // SPI Transmit (MISO) - Shift out data on falling edge of sck
+    always_ff @(negedge sck or negedge load) begin
+        if (!load) begin
+            // Reset transmit counter
+            bit_out_index <= 0;
+            sdo <= 1'b0; // Drive '0' when not transmitting
+        end else begin
+            if (bit_out_index < 128) begin
+                sdo <= data_to_send[127]; // Send MSB first
+                data_to_send <= {data_to_send[126:0], 1'b0}; // Shift left
+                bit_out_index <= bit_out_index + 1;
+            end else begin
+                sdo <= 1'b0; // Continue driving '0' after data sent
+            end
+        end
+    end
+
+    // Assign captured data to output once done (optional clk domain)
+    always_ff @(posedge clk or negedge load) begin
+        if (!load) begin
+            // Optionally reset outputs here if needed
+        end else if (done) begin
+            // Map captured data to outputs
+            {x_1, y_1, x_2, y_2, x_3, y_3, x_4, y_4, r, g, b} <= datacaptured;
+            // Prepare data to send back to master
+            data_to_send <= datacaptured; // For example, echo back the received data
+            // Note: Assigning 'data_to_send' here is acceptable because 'data_to_send' is only assigned in this block
+        end
+    end
+
 endmodule

@@ -1,23 +1,25 @@
 ----------------------------------------------------------------------
 Report for cell top.TECH
-Register bits:  33 of 5280 (0.625%)
-I/O cells:      16
+Register bits:  123 of 5280 (2.330%)
+I/O cells:      17
                                   Cell usage:
                                cell     count   Res Usage(%)
                                CCU2        17          100.0
-                            FD1P3XZ        33          100.0
-                                 IB         3          100.0
-                               LUT4        11          100.0
+                            FD1P3XZ       123          100.0
+                                 IB         4          100.0
+                              IOL_B         8          100.0
+                               LUT4        15          100.0
                                  OB        13          100.0
 SUB MODULES
                                 spi         1
-                              TOTAL        78
+                              TOTAL       181
 ----------------------------------------------------------------------
 Report for cell spi.v1
 Instance Path : spi_inst
                                   Cell usage:
                                cell     count   Res Usage(%)
                                 FA2        17          100.0
-                            FD1P3XZ        33          100.0
-                               LUT4        11          100.0
-                              TOTAL        61
+                            FD1P3XZ       123          100.0
+                              IOL_B         8          100.0
+                               LUT4        15          100.0
+                              TOTAL       163

@@ -4,8 +4,8 @@
 set ret 0
 if {[catch {
 
-sys_set_attribute -gui on -msg {C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/promote.xml}
-msg_load {C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/promote.xml}
+sys_set_attribute -gui on -msg {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/promote.xml}
+msg_load {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/promote.xml}
 des_set_project_udb -in {SPI_FPGA_SPI_map.udb} -out {SPI_FPGA_SPI.udb} -milestone par -pm ice40tp
 des_set_reference_udb -clean
 # par option
@@ -13,13 +13,13 @@ par_set_option { disable_timing_driven false placement_iterations 1 placement_it
 # run place & route
 par_run
 # backup netlist & constraint file
-if {[file exists {C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/SPI/SPI_FPGA_SPI_syn.udb}] && [file exists {C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/SPI/SPI_FPGA_SPI_map.udb}] && [file exists {C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/SPI/SPI_FPGA_SPI.udb}]} {
-  file delete -force {C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/SPI/incr/SPI_FPGA_SPI_syn.udb} {C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/SPI/incr/SPI_FPGA_SPI_map.udb} {C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/SPI/incr/SPI_FPGA_SPI.udb} {C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/SPI/incr/lastrun.pdc}
-  file copy -force -- {C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/SPI/SPI_FPGA_SPI_syn.udb} {C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/SPI/incr/postsyn.udb}
-  file copy -force -- {C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/SPI/SPI_FPGA_SPI_map.udb} {C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/SPI/incr/postmap.udb}
-  file copy -force -- {C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/SPI/SPI_FPGA_SPI.udb} {C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/SPI/incr/postpar.udb}
-  if [file exists {C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/test.pdc}] {
-    file copy -force -- {C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/test.pdc} {C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/SPI/incr/lastrun.pdc}
+if {[file exists {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/SPI/SPI_FPGA_SPI_syn.udb}] && [file exists {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/SPI/SPI_FPGA_SPI_map.udb}] && [file exists {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/SPI/SPI_FPGA_SPI.udb}]} {
+  file delete -force {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/SPI/incr/SPI_FPGA_SPI_syn.udb} {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/SPI/incr/SPI_FPGA_SPI_map.udb} {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/SPI/incr/SPI_FPGA_SPI.udb} {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/SPI/incr/lastrun.pdc}
+  file copy -force -- {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/SPI/SPI_FPGA_SPI_syn.udb} {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/SPI/incr/postsyn.udb}
+  file copy -force -- {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/SPI/SPI_FPGA_SPI_map.udb} {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/SPI/incr/postmap.udb}
+  file copy -force -- {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/SPI/SPI_FPGA_SPI.udb} {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/SPI/incr/postpar.udb}
+  if [file exists {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/test.pdc}] {
+    file copy -force -- {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/test.pdc} {C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/SPI/incr/lastrun.pdc}
   }
 }
 

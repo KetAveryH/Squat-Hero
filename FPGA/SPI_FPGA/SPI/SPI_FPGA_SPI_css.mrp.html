@@ -1,8 +1,8 @@
 <HTML>
 <HEAD>
 <TITLE>Map Report</TITLE>
-<link href="file:///C:/Lattice Radiant/data/theme/css/light/report.css" rel="stylesheet" type="text/css" media="screen"/>
-<link href="file:///C:/Lattice Radiant/data/theme/css/print/report.css" rel="stylesheet" type="text/css" media="print"/>
+<link href="file:///C:/lscc/radiant/2024.1/data/theme/css/light/report.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="file:///C:/lscc/radiant/2024.1/data/theme/css/print/report.css" rel="stylesheet" type="text/css" media="print"/>
 <style type="text/css">
 #toc {
   position: fixed;
@@ -48,32 +48,34 @@ Device:  iCE40UP5K
 Package: SG48
 Performance Grade:  High-Performance_1.2V
 
-Mapper:    version Radiant Software (64-bit) 2024.1.1.259.1
-Mapped on: Thu Dec  5 00:34:59 2024
+Mapper:    version Radiant Software (64-bit) 2024.1.0.34.2
+Mapped on: Thu Dec  5 12:52:46 2024
 
 <A name="mrp_di"></A><B><U><big>Design Information</big></U></B>
 
-Command line:   map -pdc
-     C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/test.pdc -i
-     SPI_FPGA_SPI_syn.udb -o SPI_FPGA_SPI_map.udb -mp SPI_FPGA_SPI.mrp -hierrpt
-     -gui -msgset C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/promote.xml
+Command line:   map -pdc C:/Users/KetHollingsworth/Desktop/Repositories/Microps/
+     Squat-Hero/FPGA/SPI_FPGA/test.pdc -i SPI_FPGA_SPI_syn.udb -o
+     SPI_FPGA_SPI_map.udb -mp SPI_FPGA_SPI.mrp -hierrpt -gui -msgset C:/Users/Ke
+     tHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/promot
+     e.xml
 
 <A name="mrp_ds"></A><B><U><big>Design Summary</big></U></B>
 
-   Number of slice registers:  33 out of  5280 (1%)
-   Number of I/O registers:      0 out of   117 (0%)
-   Number of LUT4s:            47 out of  5280 (1%)
-      Number of logic LUT4s:              13
+   Number of slice registers: 123 out of  5280 (2%)
+   Number of I/O registers:      8 out of   117 (7%)
+   Number of LUT4s:           140 out of  5280 (3%)
+      Number of logic LUT4s:              16
+      Number of inserted feedthru LUT4s:  90
       Number of ripple logic:             17 (34 LUT4s)
-   Number of IO sites used:   16 out of 39 (41%)
-      Number of IO sites used for general PIO: 16
+   Number of IO sites used:   17 out of 39 (44%)
+      Number of IO sites used for general PIO: 17
       Number of IO sites used for I3C: 0 out of 2 (0%)
       (note: If I3C is not used, its site can be used as general PIO)
-      Number of IO sites used for PIO+I3C: 16 out of 36 (44%)
+      Number of IO sites used for PIO+I3C: 17 out of 36 (47%)
       Number of IO sites used for OD+RGB IO buffers: 0 out of 3 (0%)
       (note: If RGB LED drivers are not used, sites can be used as OD outputs,
        see TN1288 iCE40 LED Driver Usage Guide)
-      Number of IO sites used for PIO+I3C+OD+RGB: 16 out of 39 (41%)
+      Number of IO sites used for PIO+I3C+OD+RGB: 17 out of 39 (44%)
    Number of DSPs:             0 out of 8 (0%)
    Number of I2Cs:             0 out of 2 (0%)
    Number of High Speed OSCs:  0 out of 1 (0%)
@@ -86,52 +88,48 @@ Command line:   map -pdc
    Number of SPIs:             0 out of 2 (0%)
    Number of EBRs:             0 out of 30 (0%)
    Number of PLLs:             0 out of 1 (0%)
-   Number of Clocks:  1
-      Net ck_debug_c_c: 18 loads, 18 rising, 0 falling (Driver: Port sck)
-   Number of Clock Enables:  1
-      Net spi_inst.n115: 17 loads, 17 SLICEs
+   Number of Clocks:  2
+      Net ck_debug_c_c: 108 loads, 108 rising, 0 falling (Driver: Port sck)
+      Net clk_c: 8 loads, 8 rising, 0 falling (Driver: Port clk)
+   Number of Clock Enables:  2
+      Net spi_inst.n5: 91 loads, 91 SLICEs
+      Net spi_inst.clk_c_enable_8: 8 loads, 0 SLICEs
    Number of LSRs:  1
-      Net spi_inst.n117: 17 loads, 17 SLICEs
+      Net spi_inst.done_c_N_322: 108 loads, 108 SLICEs
    Top 10 highest fanout non-clock nets:
-      Net spi_inst.n115: 17 loads
-      Net spi_inst.n117: 17 loads
-      Net load_c: 3 loads
+      Net spi_inst.done_c_N_322: 108 loads
+      Net spi_inst.n5: 92 loads
+      Net spi_inst.clk_c_enable_8: 8 loads
       Net spi_inst.bit_index[31]: 3 loads
-      Net VCC_net: 3 loads
+      Net spi_inst.bit_index[0]: 2 loads
+      Net spi_inst.bit_index[21]: 2 loads
+      Net spi_inst.bit_index[22]: 2 loads
       Net spi_inst.bit_index[23]: 2 loads
       Net spi_inst.bit_index[24]: 2 loads
       Net spi_inst.bit_index[25]: 2 loads
-      Net spi_inst.bit_index[26]: 2 loads
-      Net spi_inst.bit_index[27]: 2 loads
 
-   Number of warnings:  10
+   Number of warnings:  8
    Number of criticals: 0
    Number of errors:    0
 
 <A name="mrp_dwe"></A><B><U><big>Design Errors/Criticals/Warnings</big></U></B>
 
-WARNING &lt;1026001&gt; - map:
-     C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/test.pdc (3) : No port
-     matched &apos;true&apos;.
-WARNING &lt;1026001&gt; - map:
-     C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/test.pdc (10) : No port
-     matched &apos;msb_true1&apos;.
+WARNING &lt;1026001&gt; - map: C:/Users/KetHollingsworth/Desktop/Repositories/Microps/
+     Squat-Hero/FPGA/SPI_FPGA/test.pdc (3) : No port matched &apos;true&apos;.
+WARNING &lt;1026001&gt; - map: C:/Users/KetHollingsworth/Desktop/Repositories/Microps/
+     Squat-Hero/FPGA/SPI_FPGA/test.pdc (10) : No port matched &apos;msb_true1&apos;.
 WARNING &lt;1027013&gt; - map: No port matched &apos;true&apos;.
-WARNING &lt;1026001&gt; - map:
-     C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/test.pdc (3) : Can&apos;t
-     resolve object &apos;true&apos; in constraint &apos;ldc_set_port -iobuf {PULLMODE=NA}
-     [get_ports true]&apos;.
+WARNING &lt;1026001&gt; - map: C:/Users/KetHollingsworth/Desktop/Repositories/Microps/
+     Squat-Hero/FPGA/SPI_FPGA/test.pdc (3) : Can&apos;t resolve object &apos;true&apos; in
+     constraint &apos;ldc_set_port -iobuf {PULLMODE=NA} [get_ports true]&apos;.
 WARNING &lt;1027013&gt; - map: No port matched &apos;msb_true1&apos;.
-WARNING &lt;1026001&gt; - map:
-     C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/test.pdc (10) : Can&apos;t
-     resolve object &apos;msb_true1&apos; in constraint &apos;ldc_set_port -iobuf {PULLMODE=NA}
-     [get_ports msb_true1]&apos;.
+WARNING &lt;1026001&gt; - map: C:/Users/KetHollingsworth/Desktop/Repositories/Microps/
+     Squat-Hero/FPGA/SPI_FPGA/test.pdc (10) : Can&apos;t resolve object &apos;msb_true1&apos;
+     in constraint &apos;ldc_set_port -iobuf {PULLMODE=NA} [get_ports msb_true1]&apos;.
 WARNING &lt;1011001&gt; - map: Remove invalid constraint &apos;ldc_set_port -iobuf
      {PULLMODE=NA} [get_ports true]&apos;.
 WARNING &lt;1011001&gt; - map: Remove invalid constraint &apos;ldc_set_port -iobuf
      {PULLMODE=NA} [get_ports msb_true1]&apos;.
-WARNING &lt;71003020&gt; - map: Top module port &apos;clk&apos; does not connect to anything.
-WARNING &lt;71003020&gt; - map: Top module port &apos;clk&apos; does not connect to anything.
 
 <A name="mrp_ioa"></A><B><U><big>IO (PIO) Attributes</big></U></B>
 
@@ -139,23 +137,33 @@ WARNING &lt;71003020&gt; - map: Top module port &apos;clk&apos; does not connect
 | IO Name             | Direction | Levelmode |  IO   |  IO   | Special   |
 |                     |           |  IO_TYPE  |  REG  |  DDR  | IO Buffer |
 +---------------------+-----------+-----------+-------+-------+-----------+
+| sdo                 | OUTPUT    | LVCMOS33  |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| done                | OUTPUT    | LVCMOS33  |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| ck_debug            | OUTPUT    | LVCMOS33  |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| data_debug          | OUTPUT    | LVCMOS33  |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
 | correct             | OUTPUT    | LVCMOS33  |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| dc0                 | OUTPUT    | LVCMOS33  |       |       |           |
+| dc0                 | OUTPUT    | LVCMOS33  | O     |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| dc1                 | OUTPUT    | LVCMOS33  |       |       |           |
+| dc1                 | OUTPUT    | LVCMOS33  | O     |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| dc2                 | OUTPUT    | LVCMOS33  |       |       |           |
+| dc2                 | OUTPUT    | LVCMOS33  | O     |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| dc3                 | OUTPUT    | LVCMOS33  |       |       |           |
+| dc3                 | OUTPUT    | LVCMOS33  | O     |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| dc4                 | OUTPUT    | LVCMOS33  |       |       |           |
+| dc4                 | OUTPUT    | LVCMOS33  | O     |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| dc5                 | OUTPUT    | LVCMOS33  |       |       |           |
+| dc5                 | OUTPUT    | LVCMOS33  | O     |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| dc6                 | OUTPUT    | LVCMOS33  |       |       |           |
+| dc6                 | OUTPUT    | LVCMOS33  | O     |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| dc7                 | OUTPUT    | LVCMOS33  |       |       |           |
+| dc7                 | OUTPUT    | LVCMOS33  | O     |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| clk                 | INPUT     | LVCMOS33  |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | sck                 | INPUT     | LVCMOS33  |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
@@ -163,24 +171,33 @@ WARNING &lt;71003020&gt; - map: Top module port &apos;clk&apos; does not connect
 +---------------------+-----------+-----------+-------+-------+-----------+
 | load                | INPUT     | LVCMOS33  |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| data_debug          | OUTPUT    | LVCMOS33  |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| ck_debug            | OUTPUT    | LVCMOS33  |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| done                | OUTPUT    | LVCMOS33  |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| sdo                 | OUTPUT    | LVCMOS33  |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
 
 <A name="mrp_rm"></A><B><U><big>Removed logic</big></U></B>
 
+Block sdo_pad.vhi_inst was optimized away.
 
 <A name="mrp_asic"></A><B><U><big>ASIC Components</big></U></B>
 
+Instance Name: spi_inst/x_1__0__i2
+         Type: IOLOGIC
+Instance Name: spi_inst/x_1__0__i1
+         Type: IOLOGIC
+Instance Name: spi_inst/x_1__0__i3
+         Type: IOLOGIC
+Instance Name: spi_inst/x_1__0__i4
+         Type: IOLOGIC
+Instance Name: spi_inst/x_1__0__i5
+         Type: IOLOGIC
+Instance Name: spi_inst/x_1__0__i6
+         Type: IOLOGIC
+Instance Name: spi_inst/x_1__0__i7
+         Type: IOLOGIC
+Instance Name: spi_inst/x_1__0__i8
+         Type: IOLOGIC
 
 <A name="mrp_consum"></A><B><U><big>Constraint Summary</big></U></B>
 
-   Total number of constraints: 29
+   Total number of constraints: 30
    Total number of constraints dropped: 2
    Dropped constraints are:
      ldc_set_port -iobuf {PULLMODE=NA} [get_ports true]
@@ -191,7 +208,7 @@ WARNING &lt;71003020&gt; - map: Top module port &apos;clk&apos; does not connect
    Total CPU Time: 0 secs
    Total REAL Time: 0 secs
    Peak Memory Usage: 66 MB
-Checksum -- map: 28a4d5a28db16cd8ce1a37dc35eac6afd9f0c876
+Checksum -- map: 29c070ff329d22754226addbe1f056843490f2
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995
      AT&amp;T Corp.   All rights reserved.

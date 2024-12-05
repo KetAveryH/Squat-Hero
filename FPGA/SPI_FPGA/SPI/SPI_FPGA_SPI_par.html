@@ -1,8 +1,8 @@
 <HTML>
 <HEAD>
 <TITLE>Place & Route Report</TITLE>
-<link href="file:///C:/Lattice Radiant/data/theme/css/light/report.css" rel="stylesheet" type="text/css" media="screen"/>
-<link href="file:///C:/Lattice Radiant/data/theme/css/print/report.css" rel="stylesheet" type="text/css" media="print"/>
+<link href="file:///C:/lscc/radiant/2024.1/data/theme/css/light/report.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="file:///C:/lscc/radiant/2024.1/data/theme/css/print/report.css" rel="stylesheet" type="text/css" media="print"/>
 <style type="text/css">
 #toc {
   position: fixed;
@@ -42,7 +42,7 @@ if (a)
 <DIV id="content" onclick="hideTocList()"><PRE>
 <A name="Par"></A>Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
 
-Thu Dec  5 00:35:08 2024
+Thu Dec  5 12:52:47 2024
 
 Command Line: par -w -n 1 -t 1 -s 1 -cores 1 -hsp m -exp parPathBased=ON \
 	SPI_FPGA_SPI_map.udb SPI_FPGA_SPI.udb 
@@ -60,16 +60,16 @@ Total (real) run time for 1-seed: 6 secs
 par done!
 
 Lattice Place and Route Report for Design &quot;SPI_FPGA_SPI_map.udb&quot;
-Thu Dec  5 00:35:08 2024
+Thu Dec  5 12:52:47 2024
 
 
 <A name="par_best"></A><B><U><big>Best Par Run</big></U></B>
-PAR: Place And Route Radiant Software (64-bit) 2024.1.1.259.1.
+PAR: Place And Route Radiant Software (64-bit) 2024.1.0.34.2.
 Command Line: par -w -t 1 -cores 1 -hsp m -exp parPathBased=ON \
 	SPI_FPGA_SPI_map.udb SPI_FPGA_SPI_par.dir/5_1.udb 
 
 Loading SPI_FPGA_SPI_map.udb ...
-Loading device for application GENERIC from file &apos;itpa08.nph&apos; in environment: C:/Lattice Radiant/ispfpga.
+Loading device for application GENERIC from file &apos;itpa08.nph&apos; in environment: C:/lscc/radiant/2024.1/ispfpga.
 Package Status:                     Preliminary    Version 1.5.
 Performance Hardware Data Status:   Advanced       Version 1.0.
 
@@ -83,24 +83,20 @@ Performance Grade:   High-Performance_1.2V
 
 
 <A name="par_constraint"></A><B><U><big>Constraint Summary</big></U></B>
-   Total number of constraints: 10
+   Total number of constraints: 11
    Total number of constraints dropped: 0
 
-WARNING &lt;71003020&gt; - par: Top module port &apos;clk&apos; does not connect to anything.
-WARNING &lt;71003020&gt; - par: Top module port &apos;clk&apos; does not connect to anything.
-WARNING &lt;71003020&gt; - par: Top module port &apos;clk&apos; does not connect to anything.
-WARNING &lt;71003020&gt; - par: Top module port &apos;clk&apos; does not connect to anything.
-Number of Signals: 114
-Number of Connections: 236
+Number of Signals: 306
+Number of Connections: 704
 
 <A name="par_dus"></A><B><U><big>Device utilization summary:</big></U></B>
 
-   SLICE (est.)      27/2640          1% used
-     LUT             47/5280          1% used
-     REG             33/5280          1% used
-   PIO               16/56           29% used
-                     16/36           44% bonded
-   IOLOGIC            0/56            0% used
+   SLICE (est.)      73/2640          3% used
+     LUT            140/5280          3% used
+     REG            123/5280          2% used
+   PIO               17/56           30% used
+                     17/36           47% bonded
+   IOLOGIC            8/56           14% used
    DSP                0/8             0% used
    I2C                0/2             0% used
    HFOSC              0/1             0% used
@@ -118,9 +114,9 @@ Number of Connections: 236
    OPENDRAIN          0/3             0% used
 
 Pin Constraint Summary:
-   10 out of 16 pins locked (62% locked).
+   11 out of 17 pins locked (64% locked).
 .
-............
+..........
 Finished Placer Phase 0 (HIER). CPU time: 0 secs , REAL time: 0 secs 
 
 
@@ -131,35 +127,36 @@ Starting Placer Phase 1. CPU time: 0 secs , REAL time: 0 secs
 ..  ..
 ....................
 
-Placer score = 7527.
+Placer score = 14894.
 
 Device SLICE utilization summary after final SLICE packing:
-   SLICE             25/2640         &lt;1% used
+   SLICE             73/2640          2% used
 
-Finished Placer Phase 1. CPU time: 5 secs , REAL time: 5 secs 
+Finished Placer Phase 1. CPU time: 2 secs , REAL time: 5 secs 
 
 Starting Placer Phase 2.
 .
 
-Placer score =  29405
-Finished Placer Phase 2.  CPU time: 5 secs , REAL time: 5 secs 
+Placer score =  40604
+Finished Placer Phase 2.  CPU time: 2 secs , REAL time: 5 secs 
 
 
 
 <A name="par_clk"></A><B><U><big>Clock Report</big></U></B>
 
 Global Clocks :
-  PRIMARY &quot;ck_debug_c_c&quot; from comp &quot;sck&quot; on PIO site &quot;15 (PL25A)&quot;, clk load = 18, ce load = 0, sr load = 0
+  PRIMARY &quot;ck_debug_c_c&quot; from comp &quot;sck&quot; on PIO site &quot;15 (PL25A)&quot;, clk load = 63, ce load = 0, sr load = 0
+  PRIMARY &quot;spi_inst.done_c_N_322&quot; from F1 on comp &quot;spi_inst.SLICE_119&quot; on site &quot;R17C27A&quot;, clk load = 0, ce load = 0, sr load = 63
 
-  PRIMARY  : 1 out of 8 (12%)
+  PRIMARY  : 2 out of 8 (25%)
 
 
 
 
 I/O Usage Summary (final):
-   16 out of 56 (28.6%) I/O sites used.
-   16 out of 36 (44.4%) bonded I/O sites used.
-   Number of I/O components: 16; differential: 0
+   17 out of 56 (30.4%) I/O sites used.
+   17 out of 36 (47.2%) bonded I/O sites used.
+   Number of I/O components: 17; differential: 0
    Number of Vref pins used: 0
 
 I/O Bank Usage Summary:
@@ -167,14 +164,14 @@ I/O Bank Usage Summary:
 | I/O Bank | Usage          | Bank Vccio | Bank Vref1 | Bank Vref2 |
 +----------+----------------+------------+------------+------------+
 | 0        | 1 / 14 (  7%)  | 3.3V       |            |            |
-| 1        | 12 / 14 ( 85%) | 3.3V       |            |            |
+| 1        | 13 / 14 ( 92%) | 3.3V       |            |            |
 | 2        | 3 / 8 ( 37%)   | 3.3V       |            |            |
 +----------+----------------+------------+------------+------------+
 
-Total Placer CPU time: 5 secs , REAL time: 5 secs 
+Total Placer CPU time: 2 secs , REAL time: 5 secs 
 
 
-Checksum -- place: 5d552af7a31ebb785996d9afb93cc9125706638
+Checksum -- place: c804addcf1c65bb87c04f996d152b9c4cd33de5
 Writing design to file SPI_FPGA_SPI_par.dir/5_1.udb ...
 
 
@@ -183,7 +180,7 @@ INFO - par: ASE feature is off due to non timing-driven settings.
 -----------------------------------------------------------------
 
 
-Start NBR router at 00:35:13 12/05/24
+Start NBR router at 12:52:52 12/05/24
 
 *****************************************************************
 Info: NBR allows conflicts(one node used by more than one signal)
@@ -201,43 +198,49 @@ Note: NBR uses a different method to calculate timing slacks. The
 Starting routing resource preassignment
 Preassignment Summary:
 --------------------------------------------------------------------------------
-66 connections routed (of 236 total) (27.97%)
+1 global clock signals routed
+227 connections routed (of 569 total) (39.89%)
 ---------------------------------------------------------
 Clock routing summary:
-Primary clocks (1 used out of 8 available):
+Primary clocks (2 used out of 8 available):
+#2  Signal &quot;spi_inst.done_c_N_322&quot;
+       Control loads: 63    out of    63 routed (100.00%)
 #7  Signal &quot;ck_debug_c_c&quot;
-       Clock   loads: 0     out of    18 routed (  0.00%)
+       Clock   loads: 0     out of    63 routed (  0.00%)
        Data    loads: 0     out of     1 routed (  0.00%)
+Other clocks:
+    Signal &quot;clk_c&quot;
+       Clock   loads: 0     out of     8 routed (  0.00%)
 ---------------------------------------------------------
 --------------------------------------------------------------------------------
 Completed routing resource preassignment
 
-Start NBR section for initial routing at 00:35:14 12/05/24
+Start NBR section for initial routing at 12:52:53 12/05/24
 Level 4, iteration 1
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Routing in Serial Mode ......
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-4(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; real time: 0 secs 
+7(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; real time: 0 secs 
 
 Info: Initial congestion level at 75.00% usage is 0
 Info: Initial congestion area  at 75.00% usage is 0 (0.00%)
 
-Start NBR section for normal routing at 00:35:14 12/05/24
+Start NBR section for normal routing at 12:52:53 12/05/24
 Level 4, iteration 1
 2(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; real time: 0 secs 
 Level 4, iteration 2
 0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; real time: 0 secs 
 
-Start NBR section for post-routing at 00:35:14 12/05/24
+Start NBR section for post-routing at 12:52:53 12/05/24
 
 End NBR router with 0 unrouted connection(s)
 
-Checksum -- route: 33ad9e0098d17d14cc9a67629a64d27ecf5b42cc
+Checksum -- route: 385f77735bdaddafbcf27fd674b4a0d7b27856ce
 
 Total CPU time 0 secs 
 Total REAL time: 0 secs 
 Completely routed.
-End of route.  236 routed (100.00%); 0 unrouted.
+End of route.  569 routed (100.00%); 0 unrouted.
 
 Writing design to file SPI_FPGA_SPI_par.dir/5_1.udb ...
 
@@ -255,9 +258,9 @@ PAR_SUMMARY::Number of errors = 0
 
 Note: user must run &apos;timing&apos; for timing closure signoff.
 
-Total CPU  Time: 6 secs 
+Total CPU  Time: 3 secs 
 Total REAL Time: 6 secs 
-Peak Memory Usage: 108.39 MB
+Peak Memory Usage: 107.90 MB
 
 
 par done!

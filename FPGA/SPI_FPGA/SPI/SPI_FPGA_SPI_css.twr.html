@@ -1,8 +1,8 @@
 <HTML>
 <HEAD>
 <TITLE>Timing Report</TITLE>
-<link href="file:///C:/Lattice Radiant/data/theme/css/light/report.css" rel="stylesheet" type="text/css" media="screen"/>
-<link href="file:///C:/Lattice Radiant/data/theme/css/print/report.css" rel="stylesheet" type="text/css" media="print"/>
+<link href="file:///C:/lscc/radiant/2024.1/data/theme/css/light/report.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="file:///C:/lscc/radiant/2024.1/data/theme/css/print/report.css" rel="stylesheet" type="text/css" media="print"/>
 <style type="text/css">
 #toc {
   position: fixed;
@@ -44,9 +44,9 @@ if (a)
 
 <DIV id="content" class="Child" onclick="hideTocList()"><PRE>
 <A name="Timing_rpt_top">Timing Report</A><B><U><big></big></U></B>
-Lattice Timing Report -  Setup  and Hold, Version Radiant Software (64-bit) 2024.1.1.259.1
+Lattice Timing Report -  Setup  and Hold, Version Radiant Software (64-bit) 2024.1.0.34.2
 
-Thu Dec  5 00:35:15 2024
+Thu Dec  5 12:52:54 2024
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
@@ -54,7 +54,7 @@ Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
 
-Command line:    timing -sethld -v 10 -u 10 -endpoints 10 -nperend 1 -sp High-Performance_1.2V -hsp m -pwrprd -html -rpt SPI_FPGA_SPI.twr SPI_FPGA_SPI.udb -gui -msgset C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/promote.xml
+Command line:    timing -sethld -v 10 -u 10 -endpoints 10 -nperend 1 -sp High-Performance_1.2V -hsp m -pwrprd -html -rpt SPI_FPGA_SPI.twr SPI_FPGA_SPI.udb -gui -msgset C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/promote.xml
 
 -----------------------------------------
 Design:          top
@@ -130,31 +130,35 @@ create_generated_clock,
 ...
 
 -------------------------------------------------------------------
-     Listing 7 Start or End Points      |           Type           
+     Listing 10 Start or End Points     |           Type           
 -------------------------------------------------------------------
+clk                                     |                     input
 sck                                     |                     input
 sdi                                     |                     input
 load                                    |                     input
-clk                                     |                     input
-data_debug                              |                    output
-ck_debug                                |                    output
 done                                    |                    output
+ck_debug                                |                    output
+data_debug                              |                    output
+dc0                                     |                    output
+dc1                                     |                    output
+dc2                                     |                    output
 -------------------------------------------------------------------
                                         |                          
-Number of I/O ports without constraint  |                         7
+Number of I/O ports without constraint  |                        15
                                         |                          
 -------------------------------------------------------------------
 
 Nets without clock definition
 Define a clock on a top level port or a generated clock on a clock divider pin associated with this net(s).
 -------------------------------------------------------------------
-            Listing 1 Net(s)            |        Source pin        
+            Listing 2 Net(s)            |        Source pin        
 -------------------------------------------------------------------
 ck_debug_c_c                            |  ck_debug_c_pad.bb_inst/O
+clk_c                                   |         clk_pad.bb_inst/O
 -------------------------------------------------------------------
                                         |                          
 Number of clock nets without clock defi |                          
-nition                                  |                         1
+nition                                  |                         2
                                         |                          
 -------------------------------------------------------------------
 

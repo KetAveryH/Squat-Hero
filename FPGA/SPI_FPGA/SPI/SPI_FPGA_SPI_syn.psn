@@ -1,5 +1,5 @@
-POSTSYN: Post Synthesis Process Radiant Software (64-bit) 2024.1.1.259.1
-Command Line: postsyn -a iCE40UP -p iCE40UP5K -t SG48 -sp High-Performance_1.2V -oc Industrial -top -w -o SPI_FPGA_SPI_syn.udb -gui -msgset C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/promote.xml SPI_FPGA_SPI.vm 
+POSTSYN: Post Synthesis Process Radiant Software (64-bit) 2024.1.0.34.2
+Command Line: postsyn -a iCE40UP -p iCE40UP5K -t SG48 -sp High-Performance_1.2V -oc Industrial -top -w -o SPI_FPGA_SPI_syn.udb -gui -msgset C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/promote.xml SPI_FPGA_SPI.vm 
    Architecture:     iCE40UP
    Device:           iCE40UP5K
    Package:          SG48
@@ -17,4 +17,4 @@ POSTSYN finished successfully.
 Total CPU Time: 0 secs 
 Total REAL Time: 0 secs 
 Peak Memory Usage: 38 MB
-Checksum -- postsyn: 99e4e53ad4951d90d648e39c68d2f4824faaa6c8
+Checksum -- postsyn: 27c323c35b2c674f7f536083cb41edb0c4ed8798
