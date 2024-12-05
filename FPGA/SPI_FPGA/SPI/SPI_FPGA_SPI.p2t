@@ -1,6 +1,6 @@
 -w
 -gui
--msgset "C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/promote.xml"
+-msgset "C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/promote.xml"
 -n 1
 -t 1
 -s 1

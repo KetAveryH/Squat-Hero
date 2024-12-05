@@ -1,0 +1,6 @@
+#Start recording tcl command: 12/4/2024 22:27:54
+#Project Location: C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA; Project name: SPI_FPGA
+prj_open "C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/SPI_FPGA.rdf"
+prj_save 
+prj_close
+#Stop recording: 12/4/2024 22:29:21

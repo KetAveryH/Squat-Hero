@@ -5,10 +5,10 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
-Wed Dec  4 06:42:56 2024
+Thu Dec  5 00:34:41 2024
 
 
-Command Line:  C:\Lattice Radiant\ispfpga\bin\nt64\synthesis.exe -f SPI_FPGA_SPI_lattice.synproj -logfile SPI_FPGA_SPI_lattice.srp -gui -msgset C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/promote.xml 
+Command Line:  C:\Lattice Radiant\ispfpga\bin\nt64\synthesis.exe -f SPI_FPGA_SPI_lattice.synproj -logfile SPI_FPGA_SPI_lattice.srp -gui -msgset C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/promote.xml 
 
 Synthesis options:
 The -a option is iCE40UP.
@@ -68,11 +68,11 @@ RAM style = auto
 The -comp option is FALSE.
 The -syn option is FALSE.
 -path C:/Lattice Radiant/ispfpga/ice40tp/data (searchpath added)
--path C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA (searchpath added)
--path C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/SPI (searchpath added)
+-path C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA (searchpath added)
+-path C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/SPI (searchpath added)
 Mixed language design
 Verilog design file = C:/Lattice Radiant/ip/pmi/pmi_iCE40UP.v
-Verilog design file = C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/source/SPI/top.sv
+Verilog design file = C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/source/SPI/top.sv
 VHDL library = pmi
 VHDL design file = C:/Lattice Radiant/ip/pmi/pmi_iCE40UP.vhd
 The -r option is OFF. [ Remove LOC Properties is OFF. ]
@@ -123,18 +123,18 @@ INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_ram_dp_be.v(49): anal
 INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_ice40up.v(16): analyzing included file c:/lattice radiant/ip/pmi/pmi_ram_dq_be.v. VERI-1328
 INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_ram_dq_be.v(45): analyzing included file c:/lattice radiant/ip/pmi/../common/ram_dq/rtl/lscc_ram_dq.v. VERI-1328
 INFO <35901328> - synthesis: c:/lattice radiant/ip/pmi/pmi_ice40up.v(17): analyzing included file c:/lattice radiant/ip/pmi/pmi_dsp.v. VERI-1328
-Analyzing Verilog file c:/users/spenc/onedrive/documents/desktop/hmc/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv. VERI-1482
+Analyzing Verilog file c:/users/spenc/documents/squat-hero/fpga/spi_fpga/source/spi/top.sv. VERI-1482
 Analyzing VHDL file c:/lattice radiant/ip/pmi/pmi_ice40up.vhd. VHDL-1481
 Analyzing VHDL file c:/lattice radiant/ip/pmi/pmi_ice40up.vhd
 
 INFO <35921014> - synthesis: c:/lattice radiant/ip/pmi/pmi_ice40up.vhd(4): analyzing package components. VHDL-1014
-INFO <35921504> - synthesis: The default VHDL library search path is now "C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/SPI". VHDL-1504
+INFO <35921504> - synthesis: The default VHDL library search path is now "C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/SPI". VHDL-1504
 Top module language type = Verilog.
 Top module name (Verilog, mixed language): top
-INFO <35901018> - synthesis: c:/users/spenc/onedrive/documents/desktop/hmc/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv(6): compiling module top. VERI-1018
-INFO <35901018> - synthesis: C:/Lattice Radiant/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v(764): compiling module LSOSC. VERI-1018
-INFO <35901018> - synthesis: c:/users/spenc/onedrive/documents/desktop/hmc/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv(55): compiling module spi. VERI-1018
-WARNING <35901209> - synthesis: c:/users/spenc/onedrive/documents/desktop/hmc/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv(116): expression size 128 truncated to fit in target size 92. VERI-1209
+INFO <35901018> - synthesis: c:/users/spenc/documents/squat-hero/fpga/spi_fpga/source/spi/top.sv(6): compiling module top. VERI-1018
+INFO <35901018> - synthesis: C:/Lattice Radiant/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v(756): compiling module HSOSC. VERI-1018
+INFO <35901018> - synthesis: c:/users/spenc/documents/squat-hero/fpga/spi_fpga/source/spi/top.sv(71): compiling module spi. VERI-1018
+WARNING <35901209> - synthesis: c:/users/spenc/documents/squat-hero/fpga/spi_fpga/source/spi/top.sv(156): expression size 128 truncated to fit in target size 92. VERI-1209
                                                          
 
 
@@ -159,47 +159,47 @@ WARNING <35901209> - synthesis: c:/users/spenc/onedrive/documents/desktop/hmc/mi
                                                          
 
 
-CRITICAL <35002028> - synthesis: I/O Port clk 's net has no driver and is unused.
+WARNING <35935047> - synthesis: Unused instance hf_osc is removed. VDB-5047
 CRITICAL <35002028> - synthesis: I/O Port sdo 's net has no driver and is unused.
+CRITICAL <35002028> - synthesis: I/O Port correct 's net has no driver and is unused.
 ######## Missing driver on net sdo. Patching with GND.
+######## Missing driver on net correct. Patching with GND.
 
 
 
 CRITICAL <35002028> - synthesis: I/O Port clk 's net has no driver and is unused.
-INFO <35002039> - synthesis: Special Primitives IFD1P3AZ and OFD1P3AZ for ThunderPlus are synthesized using IOL_B.
+CRITICAL <35002028> - synthesis: I/O Port sdi 's net has no driver and is unused.
+CRITICAL <35002028> - synthesis: I/O Port data_debug 's net has no driver and is unused.
 
 ################### Begin Area Report (top)######################
-Number of register bits => 161 of 5280 (3 % )
+Number of register bits => 33 of 5280 (0 % )
 CCU2 => 17
-FD1P3XZ => 161
+FD1P3XZ => 33
 IB => 3
-IOL_B => 1
-LSOSC_CORE => 1
-LUT4 => 70
-OB => 3
+LUT4 => 11
+OB => 13
 ################### End Area Report ##################
 Number of odd-length carry chains : 0
 Number of even-length carry chains : 1
 
 ################### Begin Clock Report ######################
 Clock Nets
-Number of Clocks: 2
-  Net : sck_c, loads : 0
-  Net : int_osc, loads : 0
+Number of Clocks: 1
+  Net : ck_debug_c_c, loads : 1
 Clock Enable Nets
 Number of Clock Enables: 0
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
-  Net : spi_inst/n116, loads : 161
-  Net : n841, loads : 159
-  Net : spi_inst/bit_index[31], loads : 4
-  Net : spi_inst/bit_index[7], loads : 4
-  Net : spi_inst/bit_index[1], loads : 3
-  Net : spi_inst/bit_index[0], loads : 3
-  Net : spi_inst/bit_index[2], loads : 3
-  Net : spi_inst/bit_index[6], loads : 3
-  Net : spi_inst/bit_index[3], loads : 3
-  Net : spi_inst/bit_index[28], loads : 3
+  Net : spi_inst/n115, loads : 33
+  Net : spi_inst/n117, loads : 32
+  Net : load_c, loads : 2
+  Net : spi_inst/bit_index[29], loads : 2
+  Net : spi_inst/bit_index[28], loads : 2
+  Net : spi_inst/bit_index[27], loads : 2
+  Net : spi_inst/bit_index[26], loads : 2
+  Net : spi_inst/bit_index[25], loads : 2
+  Net : spi_inst/bit_index[24], loads : 2
+  Net : spi_inst/bit_index[23], loads : 2
 ################### End Clock Report ##################
 
 ################### Begin Constraint Report ######################
@@ -212,10 +212,10 @@ Constraint Summary:
 Total number of design rule violations: 0
 ###################  End DRC Report  ######################
 
-Peak Memory Usage: 97 MB
+Peak Memory Usage: 91 MB
 
 --------------------------------------------------------------
 Total CPU Time: 9 secs 
-Total REAL Time: 10 secs 
+Total REAL Time: 9 secs 
 --------------------------------------------------------------
-Checksum -- synthesis -- netlist: ed3357f7c459194a61bfd13e93e1bcde28a8c22
+Checksum -- synthesis -- netlist: 8f2206d44876ba2599f046d62df57677c0cdcc48

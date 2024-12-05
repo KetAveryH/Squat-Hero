@@ -36,13 +36,13 @@
 -use_io_insertion 1
 
 -resolve_mixed_drivers 0
--path "C:/Lattice Radiant/ispfpga/ice40tp/data" "C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/SPI" "C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA"
+-path "C:/Lattice Radiant/ispfpga/ice40tp/data" "C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/SPI" "C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA"
 -ver "C:/Lattice Radiant/ip/pmi/pmi_iCE40UP.v"
 -lib pmi -vhd "C:/Lattice Radiant/ip/pmi/pmi_iCE40UP.vhd"
--sver "C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/source/SPI/top.sv"
+-sver "C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/source/SPI/top.sv"
 
 
--path "C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA"
+-path "C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA"
 -top top
 -udb "SPI_FPGA_SPI_rtl.udb"
 -output_hdl "SPI_FPGA_SPI.vm"

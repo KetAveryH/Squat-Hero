@@ -4,11 +4,11 @@
 set ret 0
 if {[catch {
 
-sys_set_attribute -gui on -msg {C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/promote.xml}
-msg_load {C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/promote.xml}
+sys_set_attribute -gui on -msg {C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/promote.xml}
+msg_load {C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/promote.xml}
 des_set_project_udb -in {SPI_FPGA_SPI_syn.udb} -out {SPI_FPGA_SPI_map.udb} -milestone map -pm ice40tp
 des_set_reference_udb -clean
-map_set_option {pdc_file "C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/test.pdc"}
+map_set_option {pdc_file "C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/test.pdc"}
 # map option
 map_set_option { report_symbol_cross_reference false report_signal_cross_reference false   ignore_constraint_errors false}
 map_run

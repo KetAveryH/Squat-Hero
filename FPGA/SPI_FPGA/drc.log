@@ -1,8 +1,8 @@
 DRC: Design Rule Check Radiant Software (64-bit) 2024.1.1.259.1
-Wed Dec  4 06:41:12 2024
+Thu Dec  5 00:11:45 2024
 
 WARNING <71003020> - Top module port 'clk' does not connect to anything.
+WARNING <1027013> - No port matched 'true'.
+WARNING <1026001> - C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/test.pdc (3) : Can't resolve object 'true' in constraint 'ldc_set_port -iobuf {PULLMODE=NA} [get_ports true]'.
 WARNING <1027013> - No port matched 'msb_true1'.
-WARNING <1026001> - C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/test.pdc (9) : Can't resolve object 'msb_true1' in constraint 'ldc_set_location -site {47} [get_ports msb_true1]'.
-WARNING <1027013> - No port matched 'msb_true1'.
-WARNING <1026001> - C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/test.pdc (10) : Can't resolve object 'msb_true1' in constraint 'ldc_set_port -iobuf {PULLMODE=NA} [get_ports msb_true1]'.
+WARNING <1026001> - C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/test.pdc (10) : Can't resolve object 'msb_true1' in constraint 'ldc_set_port -iobuf {PULLMODE=NA} [get_ports msb_true1]'.

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RadiantProject version="4.2" radiant="2024.1.0.34.2" title="squat_hero" device="iCE40UP5K-SG48I" performance_grade="High-Performance_1.2V" family_int="ice40tp" device_int="itpa08" package_int="SG48" operation_int="IND" speed_int="6" default_implementation="test_1">
+<RadiantProject version="4.2" radiant="2024.1.1.259.1" title="squat_hero" device="iCE40UP5K-SG48I" performance_grade="High-Performance_1.2V" family_int="ice40tp" device_int="itpa08" package_int="SG48" operation_int="IND" speed_int="6" default_implementation="test_1">
     <Options/>
     <Implementation title="test_1" dir="test_1" description="test_1" synthesis="lse" default_strategy="Strategy1">
         <Options def_top="rectgen" top="vga"/>

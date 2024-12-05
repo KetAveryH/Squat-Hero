@@ -1,6 +1,6 @@
 Lattice Timing Report -  Setup  and Hold, Version Radiant Software (64-bit) 2024.1.1.259.1
 
-Wed Dec  4 06:43:31 2024
+Thu Dec  5 00:35:15 2024
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
@@ -8,7 +8,7 @@ Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
 
-Command line:    timing -sethld -v 10 -u 10 -endpoints 10 -nperend 1 -sp High-Performance_1.2V -hsp m -pwrprd -html -rpt SPI_FPGA_SPI.twr SPI_FPGA_SPI.udb -gui -msgset C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/promote.xml
+Command line:    timing -sethld -v 10 -u 10 -endpoints 10 -nperend 1 -sp High-Performance_1.2V -hsp m -pwrprd -html -rpt SPI_FPGA_SPI.twr SPI_FPGA_SPI.udb -gui -msgset C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/promote.xml
 
 -----------------------------------------
 Design:          top
@@ -48,7 +48,6 @@ Package Status:                     Preliminary    Version 1.5
 
 1.1  SDC Constraints
 =====================
-create_clock -name {int_osc} -period 100000 [get_pins {lf_osc/CLKLF }] 
 
 1.2  Constraint Coverage
 ---------------------------
@@ -67,28 +66,14 @@ Constraint Coverage: 0%
 --------------------------------------
 
 Clocked but unconstrained timing start points
--------------------------------------------------------------------
-         Listing 1 Start Points         |           Type           
--------------------------------------------------------------------
-spi_inst/true/PADDO                     |          No required time
--------------------------------------------------------------------
-                                        |                          
-Number of unconstrained timing start po |                          
-ints                                    |                         1
-                                        |                          
--------------------------------------------------------------------
+--------------------------------------------------
+There is no start point satisfying reporting criteria
+
 
 Clocked but unconstrained timing end points
--------------------------------------------------------------------
-          Listing 1 End Points          |           Type           
--------------------------------------------------------------------
-spi_inst/true/DO0                       |           No arrival time
--------------------------------------------------------------------
-                                        |                          
-Number of unconstrained timing end poin |                          
-ts                                      |                         1
-                                        |                          
--------------------------------------------------------------------
+--------------------------------------------------
+There is no end point satisfying reporting criteria
+
 
 1.4.2  Start/End Points Without Timing Constraints
 ---------------------------------------------------
@@ -104,17 +89,18 @@ create_generated_clock,
 ...
 
 -------------------------------------------------------------------
-     Listing 6 Start or End Points      |           Type           
+     Listing 7 Start or End Points      |           Type           
 -------------------------------------------------------------------
 sck                                     |                     input
 sdi                                     |                     input
 load                                    |                     input
 clk                                     |                     input
+data_debug                              |                    output
+ck_debug                                |                    output
 done                                    |                    output
-true                                    |                    output
 -------------------------------------------------------------------
                                         |                          
-Number of I/O ports without constraint  |                         6
+Number of I/O ports without constraint  |                         7
                                         |                          
 -------------------------------------------------------------------
 
@@ -123,7 +109,7 @@ Define a clock on a top level port or a generated clock on a clock divider pin a
 -------------------------------------------------------------------
             Listing 1 Net(s)            |        Source pin        
 -------------------------------------------------------------------
-sck_c                                   |         sck_pad.bb_inst/O
+ck_debug_c_c                            |  ck_debug_c_pad.bb_inst/O
 -------------------------------------------------------------------
                                         |                          
 Number of clock nets without clock defi |                          
@@ -142,21 +128,6 @@ None
 
 2.1  Clock Summary
 =======================
-
-2.1.1 Clock "int_osc"
-=======================
-create_clock -name {int_osc} -period 100000 [get_pins {lf_osc/CLKLF }] 
-
-Single Clock Domain
--------------------------------------------------------------------------------------------------------
-             Clock int_osc              |                    |       Period       |     Frequency      
--------------------------------------------------------------------------------------------------------
- From int_osc                           |             Target |      100000.000 ns |          0.010 MHz 
-                                        | Actual (all paths) |       99820.000 ns |          0.010 MHz 
-lf_osc/CLKLF (MPW)                      |   (50% duty cycle) |       99820.000 ns |          0.010 MHz 
--------------------------------------------------------------------------------------------------------
-
-Clock Domain Crossing
 
 2.2  Endpoint slacks
 =======================

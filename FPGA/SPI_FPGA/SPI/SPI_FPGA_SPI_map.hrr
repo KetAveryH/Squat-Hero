@@ -3,24 +3,20 @@ Report for cell top
    Instance path: top
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                 IOLGC	       1.00        100.0
-                                  LUT4	        234        100.0
-                               LUTGATE	        200        100.0
+                                  LUT4	         47        100.0
+                               LUTGATE	         13        100.0
                                 LUTCCU	         34        100.0
-                                 IOREG	          1        100.0
-                                 IOBUF	          6        100.0
-                                PFUREG	        161        100.0
+                                 IOBUF	         16        100.0
+                                PFUREG	         33        100.0
 SUB MODULES
                                   cell	      count    LUT4 Usage(%)
-                                   spi	          1        44.0
+                                   spi	          1        93.6
 ---------------------------------------------------
 Report for cell spi
    Instance path: top/spi_inst
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                 IOLGC	       1.00        100.0
-                                  LUT4	        103        44.0
-                               LUTGATE	         69        34.5
+                                  LUT4	         44        93.6
+                               LUTGATE	         10        76.9
                                 LUTCCU	         34        100.0
-                                 IOREG	          1        100.0
-                                PFUREG	        161        100.0
+                                PFUREG	         33        100.0

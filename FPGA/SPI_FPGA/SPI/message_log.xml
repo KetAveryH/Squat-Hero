@@ -336,45 +336,45 @@
             <ID>35921504</ID>
             <Severity>1</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/SPI</Dynamic>
+            <Dynamic>C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/SPI</Dynamic>
         </Message>
         <Message>
             <ID>35901018</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/spenc/onedrive/documents/desktop/hmc/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv(6): </Dynamic>
+            <Dynamic>c:/users/spenc/documents/squat-hero/fpga/spi_fpga/source/spi/top.sv(6): </Dynamic>
             <Dynamic>top</Dynamic>
-            <Navigation>c:/users/spenc/onedrive/documents/desktop/hmc/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv</Navigation>
+            <Navigation>c:/users/spenc/documents/squat-hero/fpga/spi_fpga/source/spi/top.sv</Navigation>
             <Navigation>6</Navigation>
         </Message>
         <Message>
             <ID>35901018</ID>
             <Severity>1</Severity>
-            <Dynamic>C:/Lattice Radiant/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v(764): </Dynamic>
-            <Dynamic>LSOSC</Dynamic>
+            <Dynamic>C:/Lattice Radiant/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v(756): </Dynamic>
+            <Dynamic>HSOSC</Dynamic>
             <Navigation>C:/Lattice Radiant/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v</Navigation>
-            <Navigation>764</Navigation>
+            <Navigation>756</Navigation>
         </Message>
         <Message>
             <ID>35901018</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/spenc/onedrive/documents/desktop/hmc/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv(55): </Dynamic>
+            <Dynamic>c:/users/spenc/documents/squat-hero/fpga/spi_fpga/source/spi/top.sv(71): </Dynamic>
             <Dynamic>spi</Dynamic>
-            <Navigation>c:/users/spenc/onedrive/documents/desktop/hmc/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv</Navigation>
-            <Navigation>55</Navigation>
+            <Navigation>c:/users/spenc/documents/squat-hero/fpga/spi_fpga/source/spi/top.sv</Navigation>
+            <Navigation>71</Navigation>
         </Message>
         <Message>
             <ID>35901209</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/spenc/onedrive/documents/desktop/hmc/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv(116): </Dynamic>
+            <Dynamic>c:/users/spenc/documents/squat-hero/fpga/spi_fpga/source/spi/top.sv(156): </Dynamic>
             <Dynamic>128</Dynamic>
             <Dynamic>92</Dynamic>
-            <Navigation>c:/users/spenc/onedrive/documents/desktop/hmc/microps/squat-hero/fpga/spi_fpga/source/spi/top.sv</Navigation>
-            <Navigation>116</Navigation>
+            <Navigation>c:/users/spenc/documents/squat-hero/fpga/spi_fpga/source/spi/top.sv</Navigation>
+            <Navigation>156</Navigation>
         </Message>
         <Message>
-            <ID>35002028</ID>
-            <Severity>256</Severity>
-            <Dynamic>clk</Dynamic>
+            <ID>35935047</ID>
+            <Severity>16</Severity>
+            <Dynamic>hf_osc</Dynamic>
         </Message>
         <Message>
             <ID>35002028</ID>
@@ -384,81 +384,22 @@
         <Message>
             <ID>35002028</ID>
             <Severity>256</Severity>
+            <Dynamic>correct</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002028</ID>
+            <Severity>256</Severity>
             <Dynamic>clk</Dynamic>
         </Message>
         <Message>
-            <ID>35002039</ID>
-            <Severity>1</Severity>
-        </Message>
-    </Task>
-    <Task name="Map">
-        <Message>
-            <ID>1026001</ID>
-            <Severity>16</Severity>
-            <Dynamic>C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/test.pdc</Dynamic>
-            <Dynamic>9</Dynamic>
-            <Dynamic>No port matched 'msb_true1'.</Dynamic>
-            <Navigation>C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/test.pdc</Navigation>
-            <Navigation>9</Navigation>
+            <ID>35002028</ID>
+            <Severity>256</Severity>
+            <Dynamic>sdi</Dynamic>
         </Message>
         <Message>
-            <ID>1026001</ID>
-            <Severity>16</Severity>
-            <Dynamic>C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/test.pdc</Dynamic>
-            <Dynamic>10</Dynamic>
-            <Dynamic>No port matched 'msb_true1'.</Dynamic>
-            <Navigation>C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/test.pdc</Navigation>
-            <Navigation>10</Navigation>
-        </Message>
-        <Message>
-            <ID>1027013</ID>
-            <Severity>16</Severity>
-            <Dynamic>port</Dynamic>
-            <Dynamic>msb_true1</Dynamic>
-        </Message>
-        <Message>
-            <ID>1026001</ID>
-            <Severity>16</Severity>
-            <Dynamic>C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/test.pdc</Dynamic>
-            <Dynamic>9</Dynamic>
-            <Dynamic>Can't resolve object 'msb_true1' in constraint 'ldc_set_location -site {47} [get_ports msb_true1]'.</Dynamic>
-            <Navigation>C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/test.pdc</Navigation>
-            <Navigation>9</Navigation>
-        </Message>
-        <Message>
-            <ID>1027013</ID>
-            <Severity>16</Severity>
-            <Dynamic>port</Dynamic>
-            <Dynamic>msb_true1</Dynamic>
-        </Message>
-        <Message>
-            <ID>1026001</ID>
-            <Severity>16</Severity>
-            <Dynamic>C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/test.pdc</Dynamic>
-            <Dynamic>10</Dynamic>
-            <Dynamic>Can't resolve object 'msb_true1' in constraint 'ldc_set_port -iobuf {PULLMODE=NA} [get_ports msb_true1]'.</Dynamic>
-            <Navigation>C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/test.pdc</Navigation>
-            <Navigation>10</Navigation>
-        </Message>
-        <Message>
-            <ID>1011001</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {47} [get_ports msb_true1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>1011001</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_port -iobuf {PULLMODE=NA} [get_ports msb_true1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>clk</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>clk</Dynamic>
+            <ID>35002028</ID>
+            <Severity>256</Severity>
+            <Dynamic>data_debug</Dynamic>
         </Message>
     </Task>
     <Task name="PAR">
@@ -487,20 +428,90 @@
         <Message>
             <ID>1026001</ID>
             <Severity>16</Severity>
-            <Dynamic>C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/test.pdc</Dynamic>
-            <Dynamic>9</Dynamic>
-            <Dynamic>No port matched 'msb_true1'.</Dynamic>
-            <Navigation>C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/test.pdc</Navigation>
-            <Navigation>9</Navigation>
+            <Dynamic>C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/test.pdc</Dynamic>
+            <Dynamic>3</Dynamic>
+            <Dynamic>No port matched 'true'.</Dynamic>
+            <Navigation>C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/test.pdc</Navigation>
+            <Navigation>3</Navigation>
         </Message>
         <Message>
             <ID>1026001</ID>
             <Severity>16</Severity>
-            <Dynamic>C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/test.pdc</Dynamic>
+            <Dynamic>C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/test.pdc</Dynamic>
             <Dynamic>10</Dynamic>
             <Dynamic>No port matched 'msb_true1'.</Dynamic>
-            <Navigation>C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/Squat-Hero/FPGA/SPI_FPGA/test.pdc</Navigation>
+            <Navigation>C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/test.pdc</Navigation>
             <Navigation>10</Navigation>
+        </Message>
+    </Task>
+    <Task name="Map">
+        <Message>
+            <ID>1026001</ID>
+            <Severity>16</Severity>
+            <Dynamic>C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/test.pdc</Dynamic>
+            <Dynamic>3</Dynamic>
+            <Dynamic>No port matched 'true'.</Dynamic>
+            <Navigation>C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/test.pdc</Navigation>
+            <Navigation>3</Navigation>
+        </Message>
+        <Message>
+            <ID>1026001</ID>
+            <Severity>16</Severity>
+            <Dynamic>C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/test.pdc</Dynamic>
+            <Dynamic>10</Dynamic>
+            <Dynamic>No port matched 'msb_true1'.</Dynamic>
+            <Navigation>C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/test.pdc</Navigation>
+            <Navigation>10</Navigation>
+        </Message>
+        <Message>
+            <ID>1027013</ID>
+            <Severity>16</Severity>
+            <Dynamic>port</Dynamic>
+            <Dynamic>true</Dynamic>
+        </Message>
+        <Message>
+            <ID>1026001</ID>
+            <Severity>16</Severity>
+            <Dynamic>C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/test.pdc</Dynamic>
+            <Dynamic>3</Dynamic>
+            <Dynamic>Can't resolve object 'true' in constraint 'ldc_set_port -iobuf {PULLMODE=NA} [get_ports true]'.</Dynamic>
+            <Navigation>C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/test.pdc</Navigation>
+            <Navigation>3</Navigation>
+        </Message>
+        <Message>
+            <ID>1027013</ID>
+            <Severity>16</Severity>
+            <Dynamic>port</Dynamic>
+            <Dynamic>msb_true1</Dynamic>
+        </Message>
+        <Message>
+            <ID>1026001</ID>
+            <Severity>16</Severity>
+            <Dynamic>C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/test.pdc</Dynamic>
+            <Dynamic>10</Dynamic>
+            <Dynamic>Can't resolve object 'msb_true1' in constraint 'ldc_set_port -iobuf {PULLMODE=NA} [get_ports msb_true1]'.</Dynamic>
+            <Navigation>C:/Users/spenc/Documents/Squat-Hero/FPGA/SPI_FPGA/test.pdc</Navigation>
+            <Navigation>10</Navigation>
+        </Message>
+        <Message>
+            <ID>1011001</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_port -iobuf {PULLMODE=NA} [get_ports true]</Dynamic>
+        </Message>
+        <Message>
+            <ID>1011001</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_port -iobuf {PULLMODE=NA} [get_ports msb_true1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>clk</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>clk</Dynamic>
         </Message>
     </Task>
 </BaliMessageLog>
