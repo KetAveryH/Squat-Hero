@@ -20,6 +20,7 @@
     int16_t theta_6;
     int16_t theta_7;
     int16_t theta_hip;
+    int16_t theta_femar2floor;
 
 
   // instantiate all of my variables that I need
@@ -155,8 +156,30 @@ int16_t decode_angle(int body_part, int16_t accel_x, int16_t accel_y, int16_t ac
           theta_hip = 180 - theta_3;
         }
       }
+    // FEMAR TO FLOOR
+    } else if (body_part == FEMAR2FLOOR) {
+      if (accel_x < 0) { // normal scenario
+        if (accel_y > 0) {
+          theta_femar2floor = 90 - theta_3;
+          return theta_knee;
+        } else if (accel_y < 0) {
+          theta_femar2floor = 90 + theta_3;
+          return theta_knee;
+        } else {
+          return -1;
+        }
+      } else if (accel_x > 0) { // unexpected scenario
+        if (accel_y > 0) {
+          theta_femar2floor = 180 - theta_3;
+          return theta_knee;
+        } else if (accel_y < 0) {
+          theta_femar2floor = 180 + theta_3;
+          return theta_knee;
+        } else {
+          return -1;
+        }
+      }
     }
-
     return -1; // Error code for invalid input
 }
 

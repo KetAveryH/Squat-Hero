@@ -9,7 +9,6 @@
 #include "../lib/STM32L432KC_FLASH.h"
 #include "../lib/STM32L432KC_IMU.h"
 #include "../lib/GAME_LOGIC.h"
-#include "../lib/STM32L432KC_SPI.h"
 #include <stdio.h>
 
 /*************************************************
@@ -42,13 +41,16 @@ int main(void) {
     configureClock();   // Configure the system clock
     init_I2C1();        // Initialize the I2C1 peripheral & corresponding GPIOs
     init_I2C3();        // Initialize the I2C3 peripheral & corresponding GPIOs
-    initSPI(6, 0, 0);
+    pinMode(OUT_0, GPIO_OUTPUT);
+    pinMode(OUT_1, GPIO_OUTPUT);
+    pinMode(OUT_2, GPIO_OUTPUT);
+    pinMode(OUT_3, GPIO_OUTPUT);
+
 
     // Step 2: Initialize all of the LSM6DSO32 IMU
     IMU_config_I2C3(IMU_ADDRESS_FEMAR, CTRL1_XL);
     IMU_config_I2C1(IMU_ADDRESS_SHIN, CTRL1_XL);
     IMU_config_I2C1(IMU_ADDRESS_TORSO, CTRL1_XL);
-    digitalWrite(LOAD, 0); // make sure SPI LOAD is low
 
     // Step 3: Run while(1) loop until the end of tiiiimmmmeee (there is no time limit)
     while (1) {
@@ -79,6 +81,7 @@ int main(void) {
         int16_t angle_ankle = decode_angle(ANKLE, accel_x_shin, accel_y_shin, accel_z_shin);
         int16_t angle_knee = decode_angle(KNEE, accel_x_femar, accel_y_femar, accel_z_femar);
         int16_t angle_hip = decode_angle(HIP, accel_x_torso, accel_y_torso, accel_z_torso);
+        int16_t theta_femar2floor = decode_angle(FEMAR2FLOOR, accel_x_femar, accel_y_femar, accel_z_femar);
 
         /**********************************************************************************
         *                           LINE LENGTH CALCULATIONS                              *
@@ -123,10 +126,11 @@ int main(void) {
 
         // Print the angles
         //***************************************
-        printf("ANKLE: %d | KNEE: %d | HIP: %d\n", 
-              angle_ankle, 
-              angle_knee, 
-              angle_hip);
+        printf("ANKLE: %d | KNEE: %d | HIP: %d | FEMUR: %d\n",
+               angle_ankle, 
+               angle_knee, 
+               angle_hip,
+               theta_femar2floor);
         delay_ms(5);
         //***************************************
 
@@ -187,6 +191,6 @@ int main(void) {
         
 
 
-
     return 0;
+  }
 }
