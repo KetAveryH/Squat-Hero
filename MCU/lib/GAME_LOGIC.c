@@ -10,6 +10,7 @@
 
 
 
+
     // global variables to hold angles
     int16_t theta_ankle;
     int16_t theta_1;
@@ -41,6 +42,15 @@
   uint16_t head_x;
   uint16_t head_y;
 
+
+
+
+  void setup(void) {
+    pinMode(OUT_0, GPIO_OUTPUT);
+    pinMode(OUT_1, GPIO_OUTPUT);
+    pinMode(OUT_2, GPIO_OUTPUT);
+    pinMode(OUT_3, GPIO_OUTPUT);
+}
 
 void delay_ms(uint32_t ms) {
     // Assuming the system clock is running at a frequency of 16 MHz
@@ -229,124 +239,57 @@ uint16_t decode_pos(int body_part, int axis) {
 }
 
 
-
-
-
 void updatePins(int16_t angle_femar) {
-    if (angle_femar >= 174.375 && angle_femar < 180) {
-        // 180 to 174.375 range
+    // OUT_0, OUT_1, OUT_2
+    if (angle_femar <= 180 && angle_femar > 168) {
+        // 180 to 168 range
         digitalWrite(OUT_0, 0);
         digitalWrite(OUT_1, 0);
-        digitalWrite(OUT_2, 0);
-        digitalWrite(OUT_3, 0);
+        digitalWrite(OUT_2, 0);  // OUT = 000
     }
-    else if (angle_femar >= 168.75 && angle_femar < 174.375) {
-        // 174.375 to 168.75 range
-        digitalWrite(OUT_0, 0);
-        digitalWrite(OUT_1, 0);
-        digitalWrite(OUT_2, 0);
-        digitalWrite(OUT_3, 0);
-    }
-    else if (angle_femar >= 163.125 && angle_femar < 168.75) {
-        // 168.75 to 163.125 range
-        digitalWrite(OUT_0, 0);
-        digitalWrite(OUT_1, 0);
-        digitalWrite(OUT_2, 0);
-        digitalWrite(OUT_3, 0);
-    }
-    else if (angle_femar >= 157.5 && angle_femar < 163.125) {
-        // 163.125 to 157.5 range
-        digitalWrite(OUT_0, 0);
-        digitalWrite(OUT_1, 0);
-        digitalWrite(OUT_2, 0);
-        digitalWrite(OUT_3, 0);
-    }
-    else if (angle_femar >= 151.875 && angle_femar < 157.5) {
-        // 157.5 to 151.875 range
+    else if (angle_femar <= 168 && angle_femar > 156) {
+        // 168 to 156 range
         digitalWrite(OUT_0, 1);
         digitalWrite(OUT_1, 0);
-        digitalWrite(OUT_2, 0);
-        digitalWrite(OUT_3, 0);
+        digitalWrite(OUT_2, 0);  // OUT = 010
     }
-    else if (angle_femar >= 146.25 && angle_femar < 151.875) {
-        // 151.875 to 146.25 range
+    else if (angle_femar <= 156 && angle_femar > 144) {
+        // 156 to 144 range
+        digitalWrite(OUT_0, 0);
+        digitalWrite(OUT_1, 1);
+        digitalWrite(OUT_2, 0);  // OUT = 011
+    }
+    else if (angle_femar <= 144 && angle_femar > 132) {
+        // 144 to 132 range
+        digitalWrite(OUT_0, 1);
+        digitalWrite(OUT_1, 1);
+        digitalWrite(OUT_2, 0);  // OUT = 100
+    }
+    else if (angle_femar <= 132 && angle_femar > 120) {
+        // 132 to 120 range
+        digitalWrite(OUT_0, 0);
+        digitalWrite(OUT_1, 0);
+        digitalWrite(OUT_2, 1);  // OUT = 101
+    }
+    else if (angle_femar <= 120 && angle_femar > 108) {
+        // 120 to 108 range
         digitalWrite(OUT_0, 1);
         digitalWrite(OUT_1, 0);
-        digitalWrite(OUT_2, 0);
-        digitalWrite(OUT_3, 0);
+        digitalWrite(OUT_2, 1);  // OUT = 110
     }
-    else if (angle_femar >= 140.625 && angle_femar < 146.25) {
-        // 146.25 to 140.625 range
-        digitalWrite(OUT_0, 1);
-        digitalWrite(OUT_1, 0);
-        digitalWrite(OUT_2, 0);
-        digitalWrite(OUT_3, 0);
-    }
-    else if (angle_femar >= 135.0 && angle_femar < 140.625) {
-        // 140.625 to 135.0 range
-        digitalWrite(OUT_0, 1);
-        digitalWrite(OUT_1, 0);
-        digitalWrite(OUT_2, 0);
-        digitalWrite(OUT_3, 0);
-    }
-    else if (angle_femar >= 129.375 && angle_femar < 135.0) {
-        // 135.0 to 129.375 range
+    else if (angle_femar <= 108 && angle_femar > 96) {
+        // 108 to 96 range
         digitalWrite(OUT_0, 0);
         digitalWrite(OUT_1, 1);
-        digitalWrite(OUT_2, 0);
-        digitalWrite(OUT_3, 0);
+        digitalWrite(OUT_2, 1);  // OUT = 111
     }
-    else if (angle_femar >= 123.75 && angle_femar < 129.375) {
-        // 129.375 to 123.75 range
-        digitalWrite(OUT_0, 0);
-        digitalWrite(OUT_1, 1);
-        digitalWrite(OUT_2, 0);
-        digitalWrite(OUT_3, 0);
-    }
-    else if (angle_femar >= 118.125 && angle_femar < 123.75) {
-        // 123.75 to 118.125 range
-        digitalWrite(OUT_0, 0);
-        digitalWrite(OUT_1, 1);
-        digitalWrite(OUT_2, 0);
-        digitalWrite(OUT_3, 0);
-    }
-    else if (angle_femar >= 112.5 && angle_femar < 118.125) {
-        // 118.125 to 112.5 range
-        digitalWrite(OUT_0, 0);
-        digitalWrite(OUT_1, 1);
-        digitalWrite(OUT_2, 0);
-        digitalWrite(OUT_3, 0);
-    }
-    else if (angle_femar >= 106.875 && angle_femar < 112.5) {
-        // 112.5 to 106.875 range
-        digitalWrite(OUT_0, 0);
-        digitalWrite(OUT_1, 1);
-        digitalWrite(OUT_2, 0);
-        digitalWrite(OUT_3, 0);
-    }
-    else if (angle_femar >= 101.25 && angle_femar < 106.875) {
-        // 106.875 to 101.25 range
-        digitalWrite(OUT_0, 1);
-        digitalWrite(OUT_1, 0);
-        digitalWrite(OUT_2, 1);
-        digitalWrite(OUT_3, 1);
-    }
-    else if (angle_femar >= 95.625 && angle_femar < 101.25) {
-        // 101.25 to 95.625 range
-        digitalWrite(OUT_0, 0);
-        digitalWrite(OUT_1, 1);
-        digitalWrite(OUT_2, 1);
-        digitalWrite(OUT_3, 1);
-    }
-    else if (angle_femar >= 90 && angle_femar < 95.625) {
-        // 95.625 to 90 range
+    else if (angle_femar <= 96 && angle_femar > 90) {
+        // 96 to 90 range
         digitalWrite(OUT_0, 1);
         digitalWrite(OUT_1, 1);
-        digitalWrite(OUT_2, 1);
-        digitalWrite(OUT_3, 1);
+        digitalWrite(OUT_2, 1);  // OUT = 100
     }
 }
-
 
 
 

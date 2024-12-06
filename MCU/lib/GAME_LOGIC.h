@@ -50,5 +50,6 @@ uint16_t decode_pos(int body_part, int axis);
 void delay_ms(uint32_t ms);
 uint16_t decode_pos_top_left(int body_part, int axis);
 void updatePins(int16_t angle_femar);
+void setup(void);
 
 #endif

@@ -41,10 +41,7 @@ int main(void) {
     configureClock();   // Configure the system clock
     init_I2C1();        // Initialize the I2C1 peripheral & corresponding GPIOs
     init_I2C3();        // Initialize the I2C3 peripheral & corresponding GPIOs
-    pinMode(OUT_0, GPIO_OUTPUT);
-    pinMode(OUT_1, GPIO_OUTPUT);
-    pinMode(OUT_2, GPIO_OUTPUT);
-    pinMode(OUT_3, GPIO_OUTPUT);
+    setup();
 
     // Step 2: Initialize all of the LSM6DSO32 IMU
     IMU_config_I2C3(IMU_ADDRESS_FEMAR, CTRL1_XL);
@@ -125,23 +122,21 @@ int main(void) {
 
         // Print the angles
         //***************************************
-        printf("ANKLE: %d | KNEE: %d | HIP: %d | FEMAR: %d \n", 
-              angle_ankle, 
-              angle_knee, 
-              angle_hip,
-              angle_femar);
-        //delay_ms(5);
+        //printf("ANKLE: %d | KNEE: %d | HIP: %d | FEMAR: %d \n", 
+        //      angle_ankle, 
+        //      angle_knee, 
+        //      angle_hip,
+        //      angle_femar);
+        ////delay_ms(5);
         //***************************************
 
         // Print (X,Y) positions
         //***************************************
-        //printf("HEEL: X: %u, Y: %u | TOE: X: %u, Y: %u | KNEE: X: %u, Y: %u | HIP: X: %u, Y: %u | HEAD: X: %u, Y: %u\n", 
-        //     x_heel, y_heel, 
-        //     x_toe, y_toe, 
-        //     x_knee, y_knee, 
-        //     x_hip, y_hip, 
-        //     x_head, y_head);
-        //delay_ms(5);
+        printf("KNEE: X: %u, Y: %u | HIP: X: %u, Y: %u | HEAD: X: %u, Y: %u\n", 
+             x_knee, y_knee, 
+             x_hip, y_hip, 
+             x_head, y_head);
+        delay_ms(5);
         //***************************************
 
         // Print ALL angles and positions
