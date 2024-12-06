@@ -293,10 +293,6 @@ void updatePins(int16_t angle_femar) {
 
 
 
-
-
-
-
 //uint16_t decode_pos(int body_part, int axis) {
 //    const float DEG_TO_RAD = M_PI / 180.0; // Conversion factor from degrees to radians
 
