@@ -19,6 +19,14 @@
 #define TORSO_LENGTH ((uint16_t)(0.5 * BUFFER_DIMENSION))
 #define LINE_THICKNESS 12
 
+#define OUT_0 PA0
+#define OUT_1 PB3
+#define OUT_2 PB5
+#define OUT_3 PA5
+
+#define SET_PIN(pin)   (pin = 1)  // Set GPIO pin high
+#define CLEAR_PIN(pin) (pin = 0)  // Set GPIO pin low
+
 #define TOE    0
 #define HEEL   1
 #define ANKLE  2
@@ -41,5 +49,6 @@ int16_t decode_angle(int body_part, int16_t accel_x, int16_t accel_y, int16_t ac
 uint16_t decode_pos(int body_part, int axis);
 void delay_ms(uint32_t ms);
 uint16_t decode_pos_top_left(int body_part, int axis);
+void updatePins(int16_t angle_femar);
 
 #endif

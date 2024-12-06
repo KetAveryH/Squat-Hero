@@ -2,6 +2,7 @@
 // IMU functions
 
 #include "GAME_LOGIC.h"
+#include "STM32L432KC_GPIO.h"
 #include <string.h>
 #include <math.h>
 #include <stdint.h>
@@ -226,6 +227,131 @@ uint16_t decode_pos(int body_part, int axis) {
     // Explicit default case for invalid `body_part`
     return -1;
 }
+
+
+
+
+
+void updatePins(int16_t angle_femar) {
+    if (angle_femar >= 174.375 && angle_femar < 180) {
+        // 180 to 174.375 range
+        digitalWrite(OUT_0, 0);
+        digitalWrite(OUT_1, 0);
+        digitalWrite(OUT_2, 0);
+        digitalWrite(OUT_3, 0);
+    }
+    else if (angle_femar >= 168.75 && angle_femar < 174.375) {
+        // 174.375 to 168.75 range
+        digitalWrite(OUT_0, 0);
+        digitalWrite(OUT_1, 0);
+        digitalWrite(OUT_2, 0);
+        digitalWrite(OUT_3, 0);
+    }
+    else if (angle_femar >= 163.125 && angle_femar < 168.75) {
+        // 168.75 to 163.125 range
+        digitalWrite(OUT_0, 0);
+        digitalWrite(OUT_1, 0);
+        digitalWrite(OUT_2, 0);
+        digitalWrite(OUT_3, 0);
+    }
+    else if (angle_femar >= 157.5 && angle_femar < 163.125) {
+        // 163.125 to 157.5 range
+        digitalWrite(OUT_0, 0);
+        digitalWrite(OUT_1, 0);
+        digitalWrite(OUT_2, 0);
+        digitalWrite(OUT_3, 0);
+    }
+    else if (angle_femar >= 151.875 && angle_femar < 157.5) {
+        // 157.5 to 151.875 range
+        digitalWrite(OUT_0, 1);
+        digitalWrite(OUT_1, 0);
+        digitalWrite(OUT_2, 0);
+        digitalWrite(OUT_3, 0);
+    }
+    else if (angle_femar >= 146.25 && angle_femar < 151.875) {
+        // 151.875 to 146.25 range
+        digitalWrite(OUT_0, 1);
+        digitalWrite(OUT_1, 0);
+        digitalWrite(OUT_2, 0);
+        digitalWrite(OUT_3, 0);
+    }
+    else if (angle_femar >= 140.625 && angle_femar < 146.25) {
+        // 146.25 to 140.625 range
+        digitalWrite(OUT_0, 1);
+        digitalWrite(OUT_1, 0);
+        digitalWrite(OUT_2, 0);
+        digitalWrite(OUT_3, 0);
+    }
+    else if (angle_femar >= 135.0 && angle_femar < 140.625) {
+        // 140.625 to 135.0 range
+        digitalWrite(OUT_0, 1);
+        digitalWrite(OUT_1, 0);
+        digitalWrite(OUT_2, 0);
+        digitalWrite(OUT_3, 0);
+    }
+    else if (angle_femar >= 129.375 && angle_femar < 135.0) {
+        // 135.0 to 129.375 range
+        digitalWrite(OUT_0, 0);
+        digitalWrite(OUT_1, 1);
+        digitalWrite(OUT_2, 0);
+        digitalWrite(OUT_3, 0);
+    }
+    else if (angle_femar >= 123.75 && angle_femar < 129.375) {
+        // 129.375 to 123.75 range
+        digitalWrite(OUT_0, 0);
+        digitalWrite(OUT_1, 1);
+        digitalWrite(OUT_2, 0);
+        digitalWrite(OUT_3, 0);
+    }
+    else if (angle_femar >= 118.125 && angle_femar < 123.75) {
+        // 123.75 to 118.125 range
+        digitalWrite(OUT_0, 0);
+        digitalWrite(OUT_1, 1);
+        digitalWrite(OUT_2, 0);
+        digitalWrite(OUT_3, 0);
+    }
+    else if (angle_femar >= 112.5 && angle_femar < 118.125) {
+        // 118.125 to 112.5 range
+        digitalWrite(OUT_0, 0);
+        digitalWrite(OUT_1, 1);
+        digitalWrite(OUT_2, 0);
+        digitalWrite(OUT_3, 0);
+    }
+    else if (angle_femar >= 106.875 && angle_femar < 112.5) {
+        // 112.5 to 106.875 range
+        digitalWrite(OUT_0, 0);
+        digitalWrite(OUT_1, 1);
+        digitalWrite(OUT_2, 0);
+        digitalWrite(OUT_3, 0);
+    }
+    else if (angle_femar >= 101.25 && angle_femar < 106.875) {
+        // 106.875 to 101.25 range
+        digitalWrite(OUT_0, 1);
+        digitalWrite(OUT_1, 0);
+        digitalWrite(OUT_2, 1);
+        digitalWrite(OUT_3, 1);
+    }
+    else if (angle_femar >= 95.625 && angle_femar < 101.25) {
+        // 101.25 to 95.625 range
+        digitalWrite(OUT_0, 0);
+        digitalWrite(OUT_1, 1);
+        digitalWrite(OUT_2, 1);
+        digitalWrite(OUT_3, 1);
+    }
+    else if (angle_femar >= 90 && angle_femar < 95.625) {
+        // 95.625 to 90 range
+        digitalWrite(OUT_0, 1);
+        digitalWrite(OUT_1, 1);
+        digitalWrite(OUT_2, 1);
+        digitalWrite(OUT_3, 1);
+    }
+}
+
+
+
+
+
+
 
 
 //uint16_t decode_pos(int body_part, int axis) {
