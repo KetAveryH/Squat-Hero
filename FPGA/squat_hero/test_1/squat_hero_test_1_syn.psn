@@ -17,7 +17,7 @@ Constraint Summary:
  
 Writing output file 'squat_hero_test_1_syn.udb'.
 POSTSYN finished successfully.
-Total CPU Time: 0 secs 
+Total CPU Time: 1 secs 
 Total REAL Time: 0 secs 
-Peak Memory Usage: 51 MB
-Checksum -- postsyn: 65dfb4c0c78c6ed6c4792bdcd63ea0289a72adf0
+Peak Memory Usage: 63 MB
+Checksum -- postsyn: a251d910890d46bab8d794a97e83d2b7ec66fddc

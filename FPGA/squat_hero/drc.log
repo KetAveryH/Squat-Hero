@@ -1,10 +1,7 @@
 DRC: Design Rule Check Radiant Software (64-bit) 2024.1.0.34.2
-Thu Dec  5 00:50:32 2024
+Fri Dec  6 02:50:21 2024
 
-WARNING <71003020> - Top module port 'frame_switch' does not connect to anything.
 WARNING <1027013> - No port matched 'dip[1]'.
 WARNING <1026001> - C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc (16) : Can't resolve object 'dip[1]' in constraint 'ldc_set_location -site {35} [get_ports {dip[1]}]'.
 WARNING <1027013> - No port matched 'dip[2]'.
 WARNING <1026001> - C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc (17) : Can't resolve object 'dip[2]' in constraint 'ldc_set_location -site {31} [get_ports {dip[2]}]'.
-WARNING <1027013> - No port matched 'dip[3]'.
-WARNING <1026001> - C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc (18) : Can't resolve object 'dip[3]' in constraint 'ldc_set_location -site {37} [get_ports {dip[3]}]'.

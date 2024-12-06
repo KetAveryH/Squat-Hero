@@ -1,105 +1,102 @@
 ----------------------------------------------------------------------
 Report for cell vga.TECH
 Register bits:  20 of 5280 (0.379%)
-I/O cells:      20
+I/O cells:      23
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               CCU2       813          100.0
+                               CCU2      1426          100.0
                             FD1P3XZ        20          100.0
                          HSOSC_CORE         1          100.0
-                                 IB         1          100.0
-                               LUT4       713          100.0
+                                 IB         4          100.0
+                               LUT4      1741          100.0
                               MAC16         8          100.0
                                  OB        19          100.0
                               PLL_B         1          100.0
 SUB MODULES
+                     image_line_mux         1
                            line_gen         1
                         line_gen_U0         1
                         line_gen_U1         1
                         line_gen_U2         1
-                        line_gen_U3         1
                     line_struct_gen         1
                         no_lock_pll         1
 no_lock_pll_ipgen_lscc_pll(DIVR="3",DIVF="66",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",FREQUENCY_PIN_REFERENCECLK="48.000000")         1
                       vgaController         1
                            videoGen         1
-                              TOTAL      1586
+                              TOTAL      3230
 ----------------------------------------------------------------------
 Report for cell videoGen.v1
 Instance Path : videoGen
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2       777           95.6
-                               LUT4       611           85.7
+                                FA2      1414           99.2
+                               LUT4      1664           95.6
                               MAC16         8          100.0
 SUB MODULES
+                     image_line_mux         1
                            line_gen         1
                         line_gen_U0         1
                         line_gen_U1         1
                         line_gen_U2         1
-                        line_gen_U3         1
                     line_struct_gen         1
-                              TOTAL      1402
+                              TOTAL      3092
 ----------------------------------------------------------------------
 Report for cell line_struct_gen.v1
 Instance Path : videoGen.line_struct_gen_inst
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2       777           95.6
-                               LUT4       611           85.7
+                                FA2      1414           99.2
+                               LUT4      1643           94.4
                               MAC16         8          100.0
 SUB MODULES
                            line_gen         1
                         line_gen_U0         1
                         line_gen_U1         1
                         line_gen_U2         1
-                        line_gen_U3         1
-                              TOTAL      1401
+                              TOTAL      3069
 ----------------------------------------------------------------------
 Report for cell line_gen.v1
-Instance Path : videoGen.line_struct_gen_inst.line_gen[4].line_inst
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                                FA2       181           22.3
-                               LUT4       192           26.9
-                              MAC16         2           25.0
-                              TOTAL       375
-----------------------------------------------------------------------
-Report for cell line_gen_U0.v1
 Instance Path : videoGen.line_struct_gen_inst.line_gen[3].line_inst
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2       182           22.4
-                               LUT4       121           17.0
-                              MAC16         1           12.5
-                              TOTAL       304
+                                FA2       433           30.4
+                               LUT4       577           33.1
+                              MAC16         2           25.0
+                              TOTAL      1012
 ----------------------------------------------------------------------
-Report for cell line_gen_U1.v1
+Report for cell line_gen_U0.v1
 Instance Path : videoGen.line_struct_gen_inst.line_gen[2].line_inst
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2       197           24.2
-                               LUT4       164           23.0
-                              MAC16         1           12.5
-                              TOTAL       362
+                                FA2       377           26.4
+                               LUT4       475           27.3
+                              MAC16         3           37.5
+                              TOTAL       855
 ----------------------------------------------------------------------
-Report for cell line_gen_U2.v1
+Report for cell line_gen_U1.v1
 Instance Path : videoGen.line_struct_gen_inst.line_gen[1].line_inst
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2        48            5.9
-                               LUT4        30            4.2
-                              MAC16         3           37.5
-                              TOTAL        81
+                                FA2       459           32.2
+                               LUT4       438           25.2
+                              MAC16         1           12.5
+                              TOTAL       898
 ----------------------------------------------------------------------
-Report for cell line_gen_U3.v1
+Report for cell line_gen_U2.v1
 Instance Path : videoGen.line_struct_gen_inst.line_gen[0].line_inst
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2       169           20.8
-                               LUT4       100           14.0
-                              MAC16         1           12.5
-                              TOTAL       270
+                                FA2       145           10.2
+                               LUT4       151            8.7
+                              MAC16         2           25.0
+                              TOTAL       298
+----------------------------------------------------------------------
+Report for cell image_line_mux.v1
+Instance Path : videoGen.image_line_mux_inst
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4        21            1.2
+                              TOTAL        21
 ----------------------------------------------------------------------
 Report for cell no_lock_pll.v1
 Instance Path : pll_inst
@@ -121,7 +118,7 @@ Report for cell vgaController.v1
 Instance Path : vgaCont
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2        12            1.5
+                                FA2        12            0.8
                             FD1P3XZ        20          100.0
-                               LUT4        73           10.2
-                              TOTAL       105
+                               LUT4        76            4.4
+                              TOTAL       108

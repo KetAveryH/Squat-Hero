@@ -1,5 +1,5 @@
 module vga(input logic reset,
-		   input logic frame_switch,
+		   input logic [2:0] frame_switch,
 		   output logic vgaclk, // 25 MHz VGA clock  25.175MHz
 		   output logic hsync, vsync,
 		   output logic sync_b, blank_b, // to monitor & DAC
@@ -93,63 +93,63 @@ module vgaController #(parameter HBP     = 10'd48,  // horizontal back porch
 	assign blank_b = (hcnt < HACTIVE) & (vcnt < VACTIVE);
 endmodule
 
-typedef struct packed {
-    logic [9:0] left;
-    logic [9:0] right;
-    logic [9:0] top;
-    logic [9:0] bot;
-} rect_t;
+//typedef struct packed {
+    //logic [9:0] left;
+    //logic [9:0] right;
+    //logic [9:0] top;
+    //logic [9:0] bot;
+//} rect_t;
 
 
-module image_frame0(
-    output rect_t [13:0] frame0_rects
-);
-    // Use assign statements instead of procedural blocks
-    assign frame0_rects[0] = '{left: 10'd20, right: 10'd340, top: 10'd100, bot: 10'd140};  // Head
-    assign frame0_rects[1] = '{left: 10'd310, right: 10'd330, top: 10'd140, bot: 10'd220};  // Body
-    assign frame0_rects[2] = '{left: 10'd270, right: 10'd310, top: 10'd150, bot: 10'd170};  // Left Arm
-    assign frame0_rects[3] = '{left: 10'd330, right: 10'd370, top: 10'd150, bot: 10'd170};  // Right Arm
-    assign frame0_rects[4] = '{left: 10'd310, right: 10'd320, top: 10'd220, bot: 10'd300};  // Left Leg
-    assign frame0_rects[5] = '{left: 10'd320, right: 10'd330, top: 10'd220, bot: 10'd300};  // Right Leg
+//module image_frame0(
+    //output rect_t [13:0] frame0_rects
+//);
+     //Use assign statements instead of procedural blocks
+    //assign frame0_rects[0] = '{left: 10'd20, right: 10'd340, top: 10'd100, bot: 10'd140};  // Head
+    //assign frame0_rects[1] = '{left: 10'd310, right: 10'd330, top: 10'd140, bot: 10'd220};  // Body
+    //assign frame0_rects[2] = '{left: 10'd270, right: 10'd310, top: 10'd150, bot: 10'd170};  // Left Arm
+    //assign frame0_rects[3] = '{left: 10'd330, right: 10'd370, top: 10'd150, bot: 10'd170};  // Right Arm
+    //assign frame0_rects[4] = '{left: 10'd310, right: 10'd320, top: 10'd220, bot: 10'd300};  // Left Leg
+    //assign frame0_rects[5] = '{left: 10'd320, right: 10'd330, top: 10'd220, bot: 10'd300};  // Right Leg
     
-    // Initialize remaining rectangles to 0
-    genvar i;
-    generate
-        for (i = 6; i < 14; i = i + 1) begin : init_rects
-            assign frame0_rects[i] = '{left: 10'd0, right: 10'd0, top: 10'd0, bot: 10'd0};
-        end
-    endgenerate
-endmodule
+     //Initialize remaining rectangles to 0
+    //genvar i;
+    //generate
+        //for (i = 6; i < 14; i = i + 1) begin : init_rects
+            //assign frame0_rects[i] = '{left: 10'd0, right: 10'd0, top: 10'd0, bot: 10'd0};
+        //end
+    //endgenerate
+//endmodule
 
-module image_frame1(
-    output rect_t [13:0] frame1_rects
-);
+//module image_frame1(
+    //output rect_t [13:0] frame1_rects
+//);
 
-    assign frame1_rects[0] = '{left: 10'd0, right: 10'd340, top: 10'd100, bot: 10'd140};  // Head
-    assign frame1_rects[1] = '{left: 10'd310, right: 10'd330, top: 10'd140, bot: 10'd220};  // Body
-    assign frame1_rects[2] = '{left: 10'd270, right: 10'd310, top: 10'd150, bot: 10'd170};  // Left Arm
-    assign frame1_rects[3] = '{left: 10'd330, right: 10'd370, top: 10'd150, bot: 10'd170};  // Right Arm
-    assign frame1_rects[4] = '{left: 10'd310, right: 10'd320, top: 10'd220, bot: 10'd300};  // Left Leg
-    assign frame1_rects[5] = '{left: 10'd270, right: 10'd330, top: 10'd220, bot: 10'd300};  // Right Leg
+    //assign frame1_rects[0] = '{left: 10'd0, right: 10'd340, top: 10'd100, bot: 10'd140};  // Head
+    //assign frame1_rects[1] = '{left: 10'd310, right: 10'd330, top: 10'd140, bot: 10'd220};  // Body
+    //assign frame1_rects[2] = '{left: 10'd270, right: 10'd310, top: 10'd150, bot: 10'd170};  // Left Arm
+    //assign frame1_rects[3] = '{left: 10'd330, right: 10'd370, top: 10'd150, bot: 10'd170};  // Right Arm
+    //assign frame1_rects[4] = '{left: 10'd310, right: 10'd320, top: 10'd220, bot: 10'd300};  // Left Leg
+    //assign frame1_rects[5] = '{left: 10'd270, right: 10'd330, top: 10'd220, bot: 10'd300};  // Right Leg
 
-    genvar i;
-    generate
-        for (i = 6; i < 14; i = i + 1) begin : init_rects
-            assign frame1_rects[i] = '{left: 10'd0, right: 10'd0, top: 10'd0, bot: 10'd0};
-        end
-    endgenerate
-endmodule
+    //genvar i;
+    //generate
+        //for (i = 6; i < 14; i = i + 1) begin : init_rects
+            //assign frame1_rects[i] = '{left: 10'd0, right: 10'd0, top: 10'd0, bot: 10'd0};
+        //end
+    //endgenerate
+//endmodule
 
-module frame_mux(
-    input  logic         frame_switch,
-    input  rect_t [13:0] frame0_rects,
-    input  rect_t [13:0] frame1_rects,
-    output rect_t [13:0] selected_rects
-);
-    always_comb begin
-        selected_rects = frame_switch ? frame1_rects : frame0_rects;
-    end
-endmodule
+//module frame_mux(
+    //input  logic  [2:0]  frame_switch,
+    //input  rect_t [13:0] frame0_rects,
+    //input  rect_t [13:0] frame1_rects,
+    //output rect_t [13:0] selected_rects
+//);
+    //always_comb begin
+        //selected_rects = frame_switch ? frame1_rects : frame0_rects;
+    //end
+//endmodule
 
 // Add this struct definition after the rect_t struct
 typedef struct packed {
@@ -161,42 +161,127 @@ typedef struct packed {
 
 
 
-module image_line_frame0(
-	output line_t [4:0] frame0_lines
+// module image_line_frame0(
+// 	output line_t [4:0] frame0_lines
+// );
+// 	    // Head (circle approximation with a line)
+//     assign frame0_lines[0] = '{x_1: 10'd150, y_1: 10'd50, x_2: 10'd150, y_2: 10'd70}; // Vertical line for head
+
+//     assign frame0_lines[1] = '{x_1: 10'd150, y_1: 10'd70, x_2: 10'd150, y_2: 10'd150}; // Vertical line for body
+
+//     // Left Arm
+//     assign frame0_lines[2] = '{x_1: 10'd150, y_1: 10'd90, x_2: 10'd130, y_2: 10'd110}; // Diagonal line for left arm
+
+//     // Right Arm
+//     assign frame0_lines[3] = '{x_1: 10'd150, y_1: 10'd90, x_2: 10'd170, y_2: 10'd110}; // Diagonal line for right arm
+
+//     // Left Leg
+//     assign frame0_lines[4] = '{x_1: 10'd150, y_1: 10'd150, x_2: 10'd130, y_2: 10'd180}; // Diagonal line for left leg
+
+// endmodule
+
+module image_line_frame0( //Standing up Straight
+	output line_t [3:0] frame0_lines
 );
-	    // Head (circle approximation with a line)
-    assign frame0_lines[0] = '{x_1: 10'd150, y_1: 10'd50, x_2: 10'd150, y_2: 10'd70}; // Vertical line for head
-
-    assign frame0_lines[1] = '{x_1: 10'd150, y_1: 10'd70, x_2: 10'd150, y_2: 10'd150}; // Vertical line for body
-
-    // Left Arm
-    assign frame0_lines[2] = '{x_1: 10'd150, y_1: 10'd90, x_2: 10'd130, y_2: 10'd110}; // Diagonal line for left arm
-
-    // Right Arm
-    assign frame0_lines[3] = '{x_1: 10'd150, y_1: 10'd90, x_2: 10'd170, y_2: 10'd110}; // Diagonal line for right arm
-
-    // Left Leg
-    assign frame0_lines[4] = '{x_1: 10'd150, y_1: 10'd150, x_2: 10'd130, y_2: 10'd180}; // Diagonal line for left leg
-
+	assign frame0_lines[0] = '{x_1: 10'd285, y_1: 10'd474, x_2: 10'd320, y_2: 10'd474}; // Horizontal line for foot
+	assign frame0_lines[1] = '{x_1: 10'd320, y_1: 10'd474, x_2: 10'd320, y_2: 10'd424}; // Line for Shin
+	assign frame0_lines[2] = '{x_1: 10'd320, y_1: 10'd424, x_2: 10'd320, y_2: 10'd375}; // Line for Thigh
+	assign frame0_lines[3] = '{x_1: 10'd320, y_1: 10'd375, x_2: 10'd320, y_2: 10'd275};   // Line for Torso
 endmodule
 
 module image_line_frame1(
-	output line_t [4:0] frame1_lines
+	output line_t [3:0] frame1_lines
 );
-	assign frame1_lines[0] = '{x_1: 10'd150, y_1: 10'd50, x_2: 10'd150, y_2: 10'd70}; // Vertical line for head
-	assign frame1_lines[1] = '{x_1: 10'd150, y_1: 10'd70, x_2: 10'd150, y_2: 10'd150}; // Vertical line for body
-	assign frame1_lines[2] = '{x_1: 10'd150, y_1: 10'd90, x_2: 10'd130, y_2: 10'd110}; // Diagonal line for left arm
-	assign frame1_lines[3] = '{x_1: 10'd150, y_1: 10'd90, x_2: 10'd170, y_2: 10'd110}; // Diagonal line for right arm
-	assign frame1_lines[4] = '{x_1: 10'd150, y_1: 10'd150, x_2: 10'd130, y_2: 10'd180}; // Diagonal line for left leg
+	assign frame1_lines[0] = '{x_1: 10'd285, y_1: 10'd474, x_2: 10'd320, y_2: 10'd474}; // Horizontal line for foot
+	assign frame1_lines[1] = '{x_1: 10'd320, y_1: 10'd474, x_2: 10'd310, y_2: 10'd430}; // Line for Shin
+	assign frame1_lines[2] = '{x_1: 10'd310, y_1: 10'd430, x_2: 10'd320, y_2: 10'd400}; // Line for Thigh
+	assign frame1_lines[3] = '{x_1: 10'd320, y_1: 10'd400, x_2: 10'd315, y_2: 10'd340};   // Line for Torso
 endmodule
 
-module image_line_mux(
-	input logic frame_switch,
-	input line_t [4:0] frame0_lines,
-	input line_t [4:0] frame1_lines,
-	output line_t [4:0] selected_lines
+module image_line_frame2(
+	output line_t [3:0] frame2_lines
 );
-	assign selected_lines = frame_switch ? frame1_lines : frame0_lines;
+	assign frame2_lines[0] = '{x_1: 10'd285, y_1: 10'd474, x_2: 10'd320, y_2: 10'd474}; // Horizontal line for foot
+	assign frame2_lines[1] = '{x_1: 10'd320, y_1: 10'd474, x_2: 10'd302, y_2: 10'd470}; // Line for Shin
+	assign frame2_lines[2] = '{x_1: 10'd302, y_1: 10'd470, x_2: 10'd353, y_2: 10'd229}; // Line for Thigh
+	assign frame2_lines[3] = '{x_1: 10'd353, y_1: 10'd229, x_2: 10'd342, y_2: 10'd60};  // Line for Torso
+endmodule
+
+module image_line_frame3(
+	output line_t [3:0] frame3_lines
+);
+	assign frame3_lines[0] = '{x_1: 10'd285, y_1: 10'd474, x_2: 10'd320, y_2: 10'd474}; // Horizontal line for foot
+	assign frame3_lines[1] = '{x_1: 10'd320, y_1: 10'd474, x_2: 10'd296, y_2: 10'd342}; // Line for Shin
+	assign frame3_lines[2] = '{x_1: 10'd296, y_1: 10'd342, x_2: 10'd368, y_2: 10'd248}; // Line for Thigh
+	assign frame3_lines[3] = '{x_1: 10'd368, y_1: 10'd248, x_2: 10'd346, y_2: 10'd60};  // Line for Torso
+endmodule
+
+module image_line_frame4(
+	output line_t [3:0] frame4_lines
+);
+	assign frame4_lines[0] = '{x_1: 10'd285, y_1: 10'd474, x_2: 10'd320, y_2: 10'd474}; // Horizontal line for foot
+	assign frame4_lines[1] = '{x_1: 10'd320, y_1: 10'd474, x_2: 10'd285, y_2: 10'd345}; // Line for Shin
+	assign frame4_lines[2] = '{x_1: 10'd285, y_1: 10'd345, x_2: 10'd381, y_2: 10'd270}; // Line for Thigh
+	assign frame4_lines[3] = '{x_1: 10'd381, y_1: 10'd270, x_2: 10'd343, y_2: 10'd54};  // Line for Torso
+endmodule
+
+module image_line_frame5(
+	output line_t [3:0] frame5_lines
+);
+	assign frame5_lines[0] = '{x_1: 10'd285, y_1: 10'd474, x_2: 10'd320, y_2: 10'd474}; // Horizontal line for foot
+	assign frame5_lines[1] = '{x_1: 10'd320, y_1: 10'd474, x_2: 10'd280, y_2: 10'd347}; // Line for Shin
+	assign frame5_lines[2] = '{x_1: 10'd280, y_1: 10'd347, x_2: 10'd389, y_2: 10'd292}; // Line for Thigh
+	assign frame5_lines[3] = '{x_1: 10'd389, y_1: 10'd292, x_2: 10'd348, y_2: 10'd377}; // Line for Torso
+endmodule
+
+module image_line_frame6(
+	output line_t [3:0] frame6_lines
+);
+	assign frame6_lines[0] = '{x_1: 10'd285, y_1: 10'd474, x_2: 10'd320, y_2: 10'd474}; // Horizontal line for foot
+	assign frame6_lines[1] = '{x_1: 10'd320, y_1: 10'd474, x_2: 10'd280, y_2: 10'd347}; // Line for Shin
+	assign frame6_lines[2] = '{x_1: 10'd280, y_1: 10'd347, x_2: 10'd398, y_2: 10'd314}; // Line for Thigh
+	assign frame6_lines[3] = '{x_1: 10'd398, y_1: 10'd314, x_2: 10'd334, y_2: 10'd104}; // Line for Torso
+endmodule
+
+module image_line_frame7(
+	output line_t [3:0] frame7_lines
+);
+	assign frame7_lines[0] = '{x_1: 10'd285, y_1: 10'd474, x_2: 10'd320, y_2: 10'd474}; // Horizontal line for foot
+	assign frame7_lines[1] = '{x_1: 10'd320, y_1: 10'd474, x_2: 10'd275, y_2: 10'd350}; // Line for Shin
+	assign frame7_lines[2] = '{x_1: 10'd275, y_1: 10'd350, x_2: 10'd397, y_2: 10'd342}; // Line for Thigh
+	assign frame7_lines[3] = '{x_1: 10'd397, y_1: 10'd342, x_2: 10'd348, y_2: 10'd128}; // Line for Torso
+endmodule
+
+
+
+
+module image_line_mux(
+	input logic  [2:0] frame_switch,
+	input line_t [3:0] frame0_lines,
+	input line_t [3:0] frame1_lines,
+    input line_t [3:0] frame2_lines,
+    input line_t [3:0] frame3_lines,
+    //input line_t [3:0] frame4_lines,
+    //input line_t [3:0] frame5_lines,
+    //input line_t [3:0] frame6_lines,
+    //input line_t [3:0] frame7_lines,
+	output line_t [3:0] selected_lines
+);
+	always_comb begin
+		case(frame_switch)
+			3'b000: selected_lines = frame0_lines;
+			3'b001: selected_lines = frame1_lines;
+			3'b010: selected_lines = frame2_lines;
+			3'b011: selected_lines = frame3_lines;
+			//3'b100: selected_lines = frame4_lines;
+			//3'b101: selected_lines = frame5_lines;
+			//3'b110: selected_lines = frame6_lines;
+			//3'b111: selected_lines = frame7_lines;
+			default: selected_lines = frame0_lines;
+		endcase
+	end
+
+	//assign selected_lines = frame_switch ? frame1_lines : frame0_lines;
 endmodule
 
 /////////////
@@ -205,16 +290,23 @@ endmodule
 module videoGen(
     input  logic        vgaclk,
     input  logic        reset,
-    input  logic        frame_switch,
+    input  logic [2:0]   frame_switch,
     input  logic [9:0]  x, y,
     input  logic        blank_b,
     output logic [3:0]  r, g, b
 );
-    rect_t [13:0] frame0_rects;
-    rect_t [13:0] frame1_rects;
-	line_t [4:0]  frame0_lines;
-	line_t [4:0]  frame1_lines;
-    rect_t [13:0] selected_rects;
+    //rect_t [13:0] frame0_rects;
+    //rect_t [13:0] frame1_rects;
+	line_t [3:0]  frame0_lines;
+	line_t [3:0]  frame1_lines;
+	line_t [3:0]  frame2_lines; 
+	line_t [3:0]  frame3_lines;
+	//line_t [3:0]  frame4_lines;
+	//line_t [3:0]  frame5_lines;
+	//line_t [3:0]  frame6_lines;
+	//line_t [3:0]  frame7_lines;
+    // rect_t [13:0] selected_rects;
+	line_t [3:0]  selected_lines;
 	logic inline_all;
 	logic inline;
 
@@ -243,10 +335,40 @@ module videoGen(
 		.frame1_lines(frame1_lines)
 	);
 
+    image_line_frame2 frame2_lines_inst(
+		.frame2_lines(frame2_lines)
+	);
+
+    image_line_frame3 frame3_lines_inst(
+		.frame3_lines(frame3_lines)
+	);
+
+	//image_line_frame4 frame4_lines_inst(
+		//.frame4_lines(frame4_lines)
+	//); 
+
+	//image_line_frame5 frame5_lines_inst(
+		//.frame5_lines(frame5_lines)
+	//);
+
+	//image_line_frame6 frame6_lines_inst(
+		//.frame6_lines(frame6_lines)
+	//);
+
+	//image_line_frame7 frame7_lines_inst(
+		//.frame7_lines(frame7_lines)
+	//);
+
 	image_line_mux image_line_mux_inst(
 		.frame_switch(frame_switch),
 		.frame0_lines(frame0_lines),
 		.frame1_lines(frame1_lines),
+		.frame2_lines(frame2_lines),
+		.frame3_lines(frame3_lines),
+		//.frame4_lines(frame4_lines),
+		//.frame5_lines(frame5_lines),
+		//.frame6_lines(frame6_lines),
+		//.frame7_lines(frame7_lines),
 		.selected_lines(selected_lines)
 	);
 
@@ -272,7 +394,7 @@ module videoGen(
     line_struct_gen line_struct_gen_inst(
         .x(x),
         .y(y),
-        .selected_lines(frame0_lines),
+        .selected_lines(selected_lines),
         .inline_all(inline_all)
     );
 
@@ -282,8 +404,11 @@ module videoGen(
 
     
 
-    assign {r, b} = inline_all ? 4'b1111 : 4'b0000;
-    assign g = 4'b0000;
+    // assign {r, b} = inline_all ? 4'b1111 : 4'b0000;
+    assign r = inline_all ? 4'b1111 : 4'b0000;
+    assign b = inline_all ? 4'b1111 : 4'b0000;
+    assign g = inline_all ? 4'b1111 : 4'b0000;
+    // assign g = 4'b0000;
 
 endmodule
 
@@ -298,17 +423,17 @@ module chargenrom(input logic [7:0] ch,
   initial $readmemb("charrom.txt", charrom);
   
   // index into ROM to find line of character
-   assign line = charrom[yoff+{ch - 65, 3'b000}]; // subtract 65 because A is entry 0
+  assign line = charrom[yoff+{ch - 65, 3'b000}]; // subtract 65 because A is entry 0
 
 												 // is entry 0
   // reverse order of bits
   assign pixel = line[3'd7-xoff];
 endmodule
 
-module rectgen(input logic [9:0] x, y, left, top, right, bot,
-               output logic inrect);
-  assign inrect = (x >= left & x < right & y >= top & y < bot);
-endmodule
+//module rectgen(input logic [9:0] x, y, left, top, right, bot,
+               //output logic inrect);
+  //assign inrect = (x >= left & x < right & y >= top & y < bot);
+//endmodule
 
 module line_gen(
     input  logic [9:0] x, y,    // Current pixel coordinates
@@ -325,7 +450,7 @@ module line_gen(
     logic signed [31:0] length_squared;
     logic [42:0] threshold;
 
-    parameter int TOLERANCE = 1; // Adjust tolerance as needed
+    parameter int TOLERANCE = 2; // Adjust tolerance as needed
 
     always_comb begin
         // Ensure deltas are calculated accurately
@@ -361,34 +486,34 @@ endmodule
 
 
 
-module rect_struct_gen(
-    input logic [9:0] x, y,     // Add missing x,y inputs
-    input rect_t [13:0] selected_rects,
-    output logic inrect_all
-);
-    logic [13:0] inrect;
+//module rect_struct_gen(
+    //input logic [9:0] x, y,     // Add missing x,y inputs
+    //input rect_t [13:0] selected_rects,
+    //output logic inrect_all
+//);
+    //logic [13:0] inrect;
 
-    genvar i;
-    generate
-        for (i = 0; i < 14; i = i + 1) begin : rect_gen
-            assign inrect[i] = (x >= selected_rects[i].left & x < selected_rects[i].right & 
-                              y >= selected_rects[i].top & y < selected_rects[i].bot);
-        end
-    endgenerate
+    //genvar i;
+    //generate
+        //for (i = 0; i < 14; i = i + 1) begin : rect_gen
+            //assign inrect[i] = (x >= selected_rects[i].left & x < selected_rects[i].right & 
+                              //y >= selected_rects[i].top & y < selected_rects[i].bot);
+        //end
+    //endgenerate
     
-    assign inrect_all = |inrect; //Logical OR of all inrect signals
-endmodule
+    //assign inrect_all = |inrect; //Logical OR of all inrect signals
+//endmodule
 
 module line_struct_gen(
     input logic [9:0] x, y,
-    input line_t [4:0] selected_lines,  // Changed from [13:0] to [4:0] for 5 lines
+    input line_t [3:0] selected_lines,  // Changed from [13:0] to [4:0] for 5 lines
     output logic inline_all
 );
-    logic [4:0] inline;  // Changed from [13:0] to [4:0]
+    logic [3:0] inline;  // Changed from [13:0] to [4:0]
     
     genvar i;
     generate
-        for (i = 0; i < 5; i = i + 1) begin : line_gen  // Changed from 14 to 5
+        for (i = 0; i < 4; i = i + 1) begin : line_gen  // Changed from 14 to 5
             line_gen line_inst (
                 .x(x),
                 .y(y),
