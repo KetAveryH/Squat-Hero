@@ -5,7 +5,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
-Fri Dec  6 03:26:50 2024
+Fri Dec  6 04:39:05 2024
 
 
 Command Line:  C:\lscc\radiant\2024.1\ispfpga\bin\nt64\synthesis.exe -f squat_hero_test_1_lattice.synproj -logfile squat_hero_test_1_lattice.srp -gui -msgset C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/promote.xml 
@@ -151,14 +151,17 @@ WARNING <35935049> - synthesis: input port sdi_i remains unconnected for this in
 INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(52): compiling module vgaController. VERI-1018
 WARNING <35901209> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(77): expression size 32 truncated to fit in target size 10. VERI-1209
 WARNING <35901209> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(80): expression size 32 truncated to fit in target size 10. VERI-1209
-INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(290): compiling module videoGen. VERI-1018
-INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(183): compiling module image_line_frame0. VERI-1018
-INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(192): compiling module image_line_frame1. VERI-1018
-INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(201): compiling module image_line_frame2. VERI-1018
-INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(210): compiling module image_line_frame3. VERI-1018
-INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(258): compiling module image_line_mux. VERI-1018
-INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(507): compiling module line_struct_gen. VERI-1018
-INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(438): compiling module line_gen. VERI-1018
+INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(454): compiling module videoGen. VERI-1018
+INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(149): compiling module image_frame0. VERI-1018
+INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(166): compiling module image_frame1. VERI-1018
+INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(183): compiling module image_frame2. VERI-1018
+INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(200): compiling module image_frame3. VERI-1018
+INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(217): compiling module image_frame4. VERI-1018
+INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(234): compiling module image_frame5. VERI-1018
+INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(251): compiling module image_frame6. VERI-1018
+INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(268): compiling module image_frame7. VERI-1018
+INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(288): compiling module frame_mux. VERI-1018
+INFO <35901018> - synthesis: c:/users/kethollingsworth/desktop/repositories/microps/squat-hero/fpga/squat_hero/source/test_1/vga.sv(691): compiling module rect_struct_gen. VERI-1018
                                                          
 
 
@@ -195,17 +198,16 @@ WARNING <35931002> - synthesis: c:/users/kethollingsworth/desktop/repositories/m
 
 ################### Begin Area Report (vga)######################
 Number of register bits => 20 of 5280 (0 % )
-CCU2 => 1426
+CCU2 => 12
 FD1P3XZ => 20
 HSOSC_CORE => 1
 IB => 4
-LUT4 => 1741
-MAC16 => 8
+LUT4 => 139
 OB => 19
 PLL_B => 1
 ################### End Area Report ##################
-Number of odd-length carry chains : 62
-Number of even-length carry chains : 155
+Number of odd-length carry chains : 0
+Number of even-length carry chains : 2
 
 ################### Begin Clock Report ######################
 Clock Nets
@@ -216,16 +218,16 @@ Clock Enable Nets
 Number of Clock Enables: 0
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
-  Net : videoGen/image_line_mux_inst/selected_lines[1].x_2[6], loads : 103
-  Net : frame_switch_c_1, loads : 69
-  Net : frame_switch_c_2, loads : 65
-  Net : videoGen/line_struct_gen_inst/line_gen[3].line_inst/delta_x[8], loads : 48
-  Net : videoGen/line_struct_gen_inst/line_gen[2].line_inst/delta_x[8], loads : 48
-  Net : videoGen/image_line_mux_inst/selected_lines[1].y_2[2], loads : 47
-  Net : vgaCont/x[6], loads : 43
-  Net : frame_switch_c_0, loads : 41
-  Net : videoGen/line_struct_gen_inst/line_gen[1].line_inst/delta_y[9], loads : 41
-  Net : vgaCont/x[7], loads : 34
+  Net : frame_switch_c_2, loads : 34
+  Net : frame_switch_c_1, loads : 30
+  Net : reset_c, loads : 21
+  Net : vgaCont/n19, loads : 20
+  Net : frame_switch_c_0, loads : 18
+  Net : vgaCont/y[6], loads : 13
+  Net : vgaCont/y[5], loads : 13
+  Net : vgaCont/y[8], loads : 12
+  Net : vgaCont/y[7], loads : 12
+  Net : vgaCont/y[4], loads : 12
 ################### End Clock Report ##################
 
 ################### Begin Constraint Report ######################
@@ -238,10 +240,10 @@ Constraint Summary:
 Total number of design rule violations: 0
 ###################  End DRC Report  ######################
 
-Peak Memory Usage: 133 MB
+Peak Memory Usage: 117 MB
 
 --------------------------------------------------------------
-Total CPU Time: 3 secs 
-Total REAL Time: 4 secs 
+Total CPU Time: 2 secs 
+Total REAL Time: 2 secs 
 --------------------------------------------------------------
-Checksum -- synthesis -- netlist: 99a72320f0890cb0d0921f1a3956de31d7062eba
+Checksum -- synthesis -- netlist: 24ec035059bcf9bd9b424ec109c7d0bfbcee371

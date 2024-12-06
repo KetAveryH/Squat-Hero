@@ -8,7 +8,7 @@ Package: SG48
 Performance Grade:  High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 2024.1.0.34.2
-Mapped on: Fri Dec  6 03:26:56 2024
+Mapped on: Fri Dec  6 04:39:08 2024
 
 Design Information
 ------------------
@@ -24,10 +24,9 @@ Design Summary
 
    Number of slice registers:  20 out of  5280 (<1%)
    Number of I/O registers:      0 out of   117 (0%)
-   Number of LUT4s:           4631 out of  5280 (88%)
-      Number of logic LUT4s:             1742
-      Number of inserted feedthru LUT4s:  37
-      Number of ripple logic:            1426 (2852 LUT4s)
+   Number of LUT4s:           165 out of  5280 (3%)
+      Number of logic LUT4s:             141
+      Number of ripple logic:             12 (24 LUT4s)
    Number of IO sites used:   23 out of 39 (59%)
       Number of IO sites used for general PIO: 23
       Number of IO sites used for I3C: 0 out of 2 (0%)
@@ -37,7 +36,7 @@ Design Summary
       (note: If RGB LED drivers are not used, sites can be used as OD outputs,
        see TN1288 iCE40 LED Driver Usage Guide)
       Number of IO sites used for PIO+I3C+OD+RGB: 23 out of 39 (59%)
-   Number of DSPs:             8 out of 8 (100%)
+   Number of DSPs:             0 out of 8 (0%)
    Number of I2Cs:             0 out of 2 (0%)
    Number of High Speed OSCs:  1 out of 1 (100%)
    Number of Low Speed OSCs:   0 out of 1 (0%)
@@ -59,7 +58,8 @@ Design Summary
    Number of LSRs:  1
       Pin reset: 20 loads, 20 SLICEs (Net: reset_c)
    Top 10 highest fanout non-clock nets:
-      Net frame_switch_c_2: 157 loads
+      Net frame_switch_c_2: 34 loads
+      Net frame_switch_c_1: 30 loads
 
                                     Page 1
 
@@ -69,17 +69,14 @@ Design Summary
 
 Design Summary (cont)
 ---------------------
-      Net frame_switch_c_1: 156 loads
-      Net frame_switch_c_0: 136 loads
-      Net VCC_net: 64 loads
-      Net videoGen.selected_lines[1].x_2[6]: 57 loads
-      Net videoGen.line_struct_gen_inst.line_gen[2].line_inst.delta_x[8]: 48
-     loads
-      Net videoGen.line_struct_gen_inst.line_gen[3].line_inst.delta_x[8]: 48
-     loads
-      Net delta_y[9]: 44 loads
-      Net x[6]: 44 loads
-      Net x[7]: 35 loads
+      Net reset_c: 21 loads
+      Net vgaCont.n19: 20 loads
+      Net frame_switch_c_0: 18 loads
+      Net y[5]: 14 loads
+      Net y[6]: 14 loads
+      Net y[4]: 13 loads
+      Net y[7]: 13 loads
+      Net y[8]: 13 loads
 
 
 
@@ -116,17 +113,20 @@ IO (PIO) Attributes
 | IO Name             | Direction | Levelmode |  IO   |  IO   | Special   |
 |                     |           |  IO_TYPE  |  REG  |  DDR  | IO Buffer |
 +---------------------+-----------+-----------+-------+-------+-----------+
+| test                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| blank_b             | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| sync_b              | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| vsync               | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| hsync               | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| vgaclk              | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
 | test1               | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| g[0]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| g[1]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| g[2]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| b[3]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| g[3]                | OUTPUT    |           |       |       |           |
 
                                     Page 2
 
@@ -136,26 +136,23 @@ IO (PIO) Attributes
 
 IO (PIO) Attributes (cont)
 --------------------------
-+---------------------+-----------+-----------+-------+-------+-----------+
-| r[0]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| r[1]                | OUTPUT    |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| test                | OUTPUT    |           |       |       |           |
+| r[3]                | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | r[2]                | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| blank_b             | OUTPUT    |           |       |       |           |
+| r[1]                | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| r[3]                | OUTPUT    |           |       |       |           |
+| r[0]                | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| sync_b              | OUTPUT    |           |       |       |           |
+| g[3]                | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| vsync               | OUTPUT    |           |       |       |           |
+| g[2]                | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| hsync               | OUTPUT    |           |       |       |           |
+| g[1]                | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| vgaclk              | OUTPUT    |           |       |       |           |
+| g[0]                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| b[3]                | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | b[2]                | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
@@ -193,6 +190,9 @@ PLL 1:                                 Pin/Node Value
   Reference Divider:                            3
   Feedback Divider:                             66
   VCO Divider:                                  5
+  ENABLE_ICEGATE_PORTA:                         0
+  ENABLE_ICEGATE_PORTB:                         0
+  PLLOUT_SELECT_PORTA:                          GENCLK
 
                                     Page 3
 
@@ -202,9 +202,6 @@ PLL 1:                                 Pin/Node Value
 
 PLL/DLL Summary (cont)
 ----------------------
-  ENABLE_ICEGATE_PORTA:                         0
-  ENABLE_ICEGATE_PORTB:                         0
-  PLLOUT_SELECT_PORTA:                          GENCLK
   PLLOUT_SELECT_PORTB:                          GENCLK
   SHIFTREG_DIV_MODE:                            0
   DELAY_ADJUSTMENT_MODE_RELATIVE:               FIXED
@@ -231,48 +228,25 @@ ASIC Components
 
 Instance Name: hf_osc
          Type: HFOSC
-Instance Name: videoGen/line_struct_gen_inst/line_gen[3].line_inst/mult_477
-         Type: DSP
-Instance Name: videoGen/line_struct_gen_inst/line_gen[3].line_inst/mult_476
-         Type: DSP
-Instance Name: videoGen/line_struct_gen_inst/line_gen[2].line_inst/mult_472
-         Type: DSP
-Instance Name: videoGen/line_struct_gen_inst/line_gen[2].line_inst/mult_471
-         Type: DSP
-Instance Name: videoGen/line_struct_gen_inst/line_gen[2].line_inst/mult_470
-         Type: DSP
-Instance Name: videoGen/line_struct_gen_inst/line_gen[1].line_inst/mult_464
-         Type: DSP
-Instance Name: videoGen/line_struct_gen_inst/line_gen[0].line_inst/mult_483
-         Type: DSP
-Instance Name: videoGen/line_struct_gen_inst/line_gen[0].line_inst/mult_482
-         Type: DSP
 Instance Name: pll_inst/lscc_pll_inst/u_PLL_B
          Type: PLL
 
 Constraint Summary
 ------------------
 
-   Total number of constraints: 26
+   Total number of constraints: 28
    Total number of constraints dropped: 2
    Dropped constraints are:
      ldc_set_location -site {35} [get_ports {dip[1]}]
      ldc_set_location -site {31} [get_ports {dip[2]}]
 
-
-                                    Page 4
-
-
-
-
-
 Run Time and Memory Usage
 -------------------------
 
-   Total CPU Time: 1 secs
+   Total CPU Time: 0 secs
    Total REAL Time: 0 secs
-   Peak Memory Usage: 120 MB
-Checksum -- map: 5ce2adcd196f76da86358850d84c237c4faff528
+   Peak Memory Usage: 66 MB
+Checksum -- map: 99dc84035f47d1bc6d2efd6469a9cbbfa5c0e892
 
 
 
@@ -286,47 +260,7 @@ Checksum -- map: 5ce2adcd196f76da86358850d84c237c4faff528
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                    Page 5
+                                    Page 4
 
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.

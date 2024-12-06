@@ -4,7 +4,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2024 Lattice Semiconductor Corporation,  All rights reserved.
-Fri Dec  6 03:28:02 2024
+Fri Dec  6 04:39:20 2024
 
 
 Command: bitgen -w -gui -msgset C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/promote.xml -freq 0 squat_hero_test_1.udb C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test_1/squat_hero_test_1 
@@ -22,4 +22,5 @@ Preference Summary:
 
 Creating bit map...
 Saving bit stream in "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test_1/squat_hero_test_1.bin".
+INFO <1081100> - Bitstream authenticated.
 Bitstream generation complete!

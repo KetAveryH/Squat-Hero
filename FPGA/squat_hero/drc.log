@@ -1,5 +1,5 @@
 DRC: Design Rule Check Radiant Software (64-bit) 2024.1.0.34.2
-Fri Dec  6 02:50:21 2024
+Fri Dec  6 04:31:42 2024
 
 WARNING <1027013> - No port matched 'dip[1]'.
 WARNING <1026001> - C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/test.pdc (16) : Can't resolve object 'dip[1]' in constraint 'ldc_set_location -site {35} [get_ports {dip[1]}]'.

@@ -4,99 +4,54 @@ Register bits:  20 of 5280 (0.379%)
 I/O cells:      23
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               CCU2      1426          100.0
+                               CCU2        12          100.0
                             FD1P3XZ        20          100.0
                          HSOSC_CORE         1          100.0
                                  IB         4          100.0
-                               LUT4      1741          100.0
-                              MAC16         8          100.0
+                               LUT4       139          100.0
                                  OB        19          100.0
                               PLL_B         1          100.0
 SUB MODULES
-                     image_line_mux         1
-                           line_gen         1
-                        line_gen_U0         1
-                        line_gen_U1         1
-                        line_gen_U2         1
-                    line_struct_gen         1
+                          frame_mux         1
                         no_lock_pll         1
 no_lock_pll_ipgen_lscc_pll(DIVR="3",DIVF="66",DIVQ="5",FILTER_RANGE="1",PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",FREQUENCY_PIN_REFERENCECLK="48.000000")         1
+                    rect_struct_gen         1
                       vgaController         1
                            videoGen         1
-                              TOTAL      3230
+                              TOTAL       202
 ----------------------------------------------------------------------
 Report for cell videoGen.v1
 Instance Path : videoGen
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2      1414           99.2
-                               LUT4      1664           95.6
-                              MAC16         8          100.0
+                               LUT4        80           57.6
 SUB MODULES
-                     image_line_mux         1
-                           line_gen         1
-                        line_gen_U0         1
-                        line_gen_U1         1
-                        line_gen_U2         1
-                    line_struct_gen         1
-                              TOTAL      3092
+                          frame_mux         1
+                    rect_struct_gen         1
+                              TOTAL        82
 ----------------------------------------------------------------------
-Report for cell line_struct_gen.v1
-Instance Path : videoGen.line_struct_gen_inst
+Report for cell rect_struct_gen.v1
+Instance Path : videoGen.rect_struct_gen_inst
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2      1414           99.2
-                               LUT4      1643           94.4
-                              MAC16         8          100.0
-SUB MODULES
-                           line_gen         1
-                        line_gen_U0         1
-                        line_gen_U1         1
-                        line_gen_U2         1
-                              TOTAL      3069
+                               LUT4        60           43.2
+                              TOTAL        60
 ----------------------------------------------------------------------
-Report for cell line_gen.v1
-Instance Path : videoGen.line_struct_gen_inst.line_gen[3].line_inst
+Report for cell frame_mux.v1
+Instance Path : videoGen.frame_mux_inst
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2       433           30.4
-                               LUT4       577           33.1
-                              MAC16         2           25.0
-                              TOTAL      1012
+                               LUT4        20           14.4
+                              TOTAL        20
 ----------------------------------------------------------------------
-Report for cell line_gen_U0.v1
-Instance Path : videoGen.line_struct_gen_inst.line_gen[2].line_inst
+Report for cell vgaController.v1
+Instance Path : vgaCont
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2       377           26.4
-                               LUT4       475           27.3
-                              MAC16         3           37.5
-                              TOTAL       855
-----------------------------------------------------------------------
-Report for cell line_gen_U1.v1
-Instance Path : videoGen.line_struct_gen_inst.line_gen[1].line_inst
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                                FA2       459           32.2
-                               LUT4       438           25.2
-                              MAC16         1           12.5
-                              TOTAL       898
-----------------------------------------------------------------------
-Report for cell line_gen_U2.v1
-Instance Path : videoGen.line_struct_gen_inst.line_gen[0].line_inst
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                                FA2       145           10.2
-                               LUT4       151            8.7
-                              MAC16         2           25.0
-                              TOTAL       298
-----------------------------------------------------------------------
-Report for cell image_line_mux.v1
-Instance Path : videoGen.image_line_mux_inst
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               LUT4        21            1.2
-                              TOTAL        21
+                                FA2        12          100.0
+                            FD1P3XZ        20          100.0
+                               LUT4        58           41.7
+                              TOTAL        90
 ----------------------------------------------------------------------
 Report for cell no_lock_pll.v1
 Instance Path : pll_inst
@@ -113,12 +68,3 @@ Instance Path : pll_inst.lscc_pll_inst
                                cell     count   Res Usage(%)
                               PLL_B         1          100.0
                               TOTAL         1
-----------------------------------------------------------------------
-Report for cell vgaController.v1
-Instance Path : vgaCont
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                                FA2        12            0.8
-                            FD1P3XZ        20          100.0
-                               LUT4        76            4.4
-                              TOTAL       108
