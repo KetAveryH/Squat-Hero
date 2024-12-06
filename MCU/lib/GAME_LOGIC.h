@@ -19,6 +19,11 @@
 #define TORSO_LENGTH ((uint16_t)(0.5 * BUFFER_DIMENSION))
 #define LINE_THICKNESS 12
 
+#define OUT_0 PA0
+#define OUT_1 PB3
+#define OUT_2 PB5
+#define OUT_3 PA5
+
 #define TOE    0
 #define HEEL   1
 #define ANKLE  2
@@ -31,6 +36,7 @@
 #define X_AXIS 9
 #define Y_AXIS 10
 #define Z_AXIS 11
+#define FEMAR2FLOOR 13
 
 
 ///////////////////////////////////////////////////////////////////////////////

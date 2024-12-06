@@ -18,5 +18,4 @@ Output/Debug/Obj/squat_hero_v1/main.o: \
   /Users/jasonbowman/Desktop/Micro-Ps/Squat-Hero/MCU/segger_proj/../lib/STM32L432KC_FLASH.h \
   /Users/jasonbowman/Desktop/Micro-Ps/Squat-Hero/MCU/segger_proj/../lib/STM32L432KC_IMU.h \
   /Users/jasonbowman/Desktop/Micro-Ps/Squat-Hero/MCU/segger_proj/../lib/GAME_LOGIC.h \
-  /Users/jasonbowman/Desktop/Micro-Ps/Squat-Hero/MCU/segger_proj/../lib/STM32L432KC_SPI.h \
   /Applications/SEGGER/SEGGER\ Embedded\ Studio\ 8.16a/include/stdio.h
