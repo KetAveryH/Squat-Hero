@@ -1,9 +1,0 @@
-#Start recording tcl command: 12/5/2024 16:39:36
-#Project Location: C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero; Project name: squat_hero
-prj_open "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/squat_hero.rdf"
-prj_run PAR -impl test_1
-prj_run Export -impl test_1
-prj_run Export -impl test_1
-prj_run PAR -impl test_1
-prj_run Export -impl test_1
-#Stop recording: 12/6/2024 00:31:12

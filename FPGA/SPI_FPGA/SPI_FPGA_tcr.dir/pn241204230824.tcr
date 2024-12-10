@@ -1,6 +1,0 @@
-#Start recording tcl command: 12/4/2024 05:21:55
-#Project Location: C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA; Project name: SPI_FPGA
-prj_open "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/SPI_FPGA/SPI_FPGA.rdf"
-prj_run Export -impl SPI
-prj_run Export -impl SPI
-#Stop recording: 12/4/2024 23:08:24

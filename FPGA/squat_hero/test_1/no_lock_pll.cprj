@@ -1,7 +1,0 @@
--ver "C:/lscc/radiant/2024.1/ip/pmi/pmi_iCE40UP.v"
--lib pmi -vhd "C:/lscc/radiant/2024.1/ip/pmi/pmi_iCE40UP.vhd"
--ver "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/no_lock_pll/rtl/no_lock_pll.v"
--path "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero/no_lock_pll" "C:/Users/KetHollingsworth/Desktop/Repositories/Microps/Squat-Hero/FPGA/squat_hero"
--top no_lock_pll
--a "iCE40UP"
--t "iCE40UP5K"
